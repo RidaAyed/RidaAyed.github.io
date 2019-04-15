@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>My New Hugo Site  | How this blog was created</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.54.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.955516233bcafa4d2a1c13cea63c7b50.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+
+    <meta property="og:title" content="How this blog was created" />
+<meta property="og:description" content="Setup ox-hugo https://ox-hugo.scripter.co/doc/usage/
+Create a new github repo via web frontend  Login to https://github.com/new Enter RidaAyed.github.io Leave other fields  Clone the new repository  m-x magit-clone git@github.com:RidaAyed/RidaAyed.github.io.git RET  Setup Hugo in our new repository Create the new hugo site https://www.kengrimes.com/ox-hugo-tutorial/
+hugo new site --force /home/ra/RidaAyed.github.io  Check what has been created tree /home/ra/RidaAyed.github.io  Add a theme Download the theme and add it as git submodule https://gohugo." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/how-this-blog-was-created/" />
+
+
+<meta itemprop="name" content="How this blog was created">
+<meta itemprop="description" content="Setup ox-hugo https://ox-hugo.scripter.co/doc/usage/
+Create a new github repo via web frontend  Login to https://github.com/new Enter RidaAyed.github.io Leave other fields  Clone the new repository  m-x magit-clone git@github.com:RidaAyed/RidaAyed.github.io.git RET  Setup Hugo in our new repository Create the new hugo site https://www.kengrimes.com/ox-hugo-tutorial/
+hugo new site --force /home/ra/RidaAyed.github.io  Check what has been created tree /home/ra/RidaAyed.github.io  Add a theme Download the theme and add it as git submodule https://gohugo.">
+
+
+
+<meta itemprop="wordCount" content="998">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How this blog was created"/>
+<meta name="twitter:description" content="Setup ox-hugo https://ox-hugo.scripter.co/doc/usage/
+Create a new github repo via web frontend  Login to https://github.com/new Enter RidaAyed.github.io Leave other fields  Clone the new repository  m-x magit-clone git@github.com:RidaAyed/RidaAyed.github.io.git RET  Setup Hugo in our new repository Create the new hugo site https://www.kengrimes.com/ox-hugo-tutorial/
+hugo new site --force /home/ra/RidaAyed.github.io  Check what has been created tree /home/ra/RidaAyed.github.io  Add a theme Download the theme and add it as git submodule https://gohugo."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://example.org/" class="f3 fw2 hover-white no-underline white-90 dib">
+      My New Hugo Site
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">How this blog was created</h1>
+      
+      <time class="f6 mv4 dib tracked" datetime="0001-01-01T00:00:00Z">January 1, 0001</time>      
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<h2 id="setup-ox-hugo">Setup ox-hugo</h2>
+
+<p><a href="https://ox-hugo.scripter.co/doc/usage/">https://ox-hugo.scripter.co/doc/usage/</a></p>
+
+<h2 id="create-a-new-github-repo-via-web-frontend">Create a new github repo via web frontend</h2>
+
+<ol>
+<li>Login to <a href="https://github.com/new">https://github.com/new</a></li>
+<li>Enter RidaAyed.github.io</li>
+<li>Leave other fields</li>
+</ol>
+
+<h2 id="clone-the-new-repository">Clone the new repository</h2>
+
+<ol>
+<li><code>m-x magit-clone</code></li>
+<li>git@github.com:RidaAyed/RidaAyed.github.io.git</li>
+<li><code>RET</code></li>
+</ol>
+
+<h2 id="setup-hugo-in-our-new-repository">Setup Hugo in our new repository</h2>
+
+<h2 id="create-the-new-hugo-site">Create the new hugo site</h2>
+
+<p><a href="https://www.kengrimes.com/ox-hugo-tutorial/">https://www.kengrimes.com/ox-hugo-tutorial/</a></p>
+
+<pre><code class="language-sh">hugo new site --force /home/ra/RidaAyed.github.io
+</code></pre>
+
+<h2 id="check-what-has-been-created">Check what has been created</h2>
+
+<pre><code class="language-sh">tree /home/ra/RidaAyed.github.io
+</code></pre>
+
+<h2 id="add-a-theme">Add a theme</h2>
+
+<h3 id="download-the-theme-and-add-it-as-git-submodule">Download the theme and add it as git submodule</h3>
+
+<p><a href="https://gohugo.io/getting-started/quick-start/#step-3-add-a-theme">https://gohugo.io/getting-started/quick-start/#step-3-add-a-theme</a></p>
+
+<pre><code class="language-sh">cd /home/ra/RidaAyed.github.io
+git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
+</code></pre>
+
+<p>Check our current config.toml</p>
+
+<p><a id="code-snippet--hugoConfig"></a></p>
+
+<pre><code class="language-sh">cat /home/ra/RidaAyed.github.io/config.toml
+</code></pre>
+
+<p>Add the Ananke theme to our config.toml</p>
+
+<pre><code class="language-sh">cd /home/ra/RidaAyed.github.io
+echo 'theme = &quot;ananke&quot;' &gt;&gt; config.toml
+</code></pre>
+
+<p>Recheck our current config.toml</p>
+
+<pre><code class="language-sh">#TODO Call hugoConfig instead repeating &gt; https://orgmode.org/manual/Evaluating-code-blocks.html
+cat /home/ra/RidaAyed.github.io/config.toml
+</code></pre>
+
+<h2 id="add-some-content">Add some content</h2>
+
+<p><a href="https://ox-hugo.scripter.co/doc/how-do-i-try-it/">https://ox-hugo.scripter.co/doc/how-do-i-try-it/</a></p>
+
+<h2 id="create-the-org-content-folder">Create the org content folder</h2>
+
+<pre><code class="language-nil">cd /home/ra/RidaAyed.github.io
+mkdir content-org
+</code></pre>
+
+<h2 id="start-the-hugo-server">Start the hugo server</h2>
+
+<pre><code class="language-sh">cd /home/ra/RidaAyed.github.io
+hugo server -D --navigateToChanged
+</code></pre>
+
+<figure>
+    <img src="./images/screenshot-02.png"
+         alt="Figure 1: Screenshot - $ hugo"/> <figcaption>
+            <p>Figure 1: Screenshot - $ hugo</p>
+        </figcaption>
+</figure>
+
+
+<h2 id="browse-our-local-site">Browse our local site</h2>
+
+<p>Visit <a href="http://localhost:1313/">http://localhost:1313/</a></p>
+
+<figure>
+    <img src="./images/screenshot-03.png"
+         alt="Figure 2: Screenshot - localhost"/> <figcaption>
+            <p>Figure 2: Screenshot - localhost</p>
+        </figcaption>
+</figure>
+
+
+<h2 id="create-a-minimal-fn-1-org-file-web-page">Create a minimal <sup class="footnote-ref" id="fnref:fn-1"><a href="#fn:fn-1">1</a></sup> org file / web page</h2>
+
+<p><a href=""></a>
+<strong>Note</strong><sup class="footnote-ref" id="fnref:fn-2"><a href="#fn:fn-2">2</a></sup></p>
+
+<pre><code class="language-org">#+hugo_base_dir: ..
+
+* My post
+:PROPERTIES:
+:EXPORT_FILE_NAME: my-post
+:END:
+This gets created in ~&lt;HUGO_BASE_DIR&gt;/content/posts/~.
+</code></pre>
+
+<h2 id="export-the-file">Export the file</h2>
+
+<p><code>M-x org-export-dispatch</code></p>
+
+<figure>
+    <img src="screenshot-2019-04-14-17-19-27.png"
+         alt="Figure 3: Screenshot - org-export-dispatch"/> <figcaption>
+            <p>Figure 3: Screenshot - org-export-dispatch</p>
+        </figcaption>
+</figure>
+
+
+<h2 id="note-how-hugo-immediately-rebuilds-the-site">Note how hugo immediately rebuilds the site</h2>
+
+<p><img src="./images/screenshot-05.png" alt="" />
+Remark: The second change was due to adding the second dot as mentioned here</p>
+
+<h2 id="recheck-the-browser">Recheck the browser</h2>
+
+<figure>
+    <img src="./images/screenshot-04.png"
+         alt="Figure 5: Screenshot - Revisiting localhost"/> <figcaption>
+            <p>Figure 5: Screenshot - Revisiting localhost</p>
+        </figcaption>
+</figure>
+
+
+<h2 id="recheck-what-has-been-created">Recheck what has been created</h2>
+
+<pre><code class="language-sh">tree /home/ra/RidaAyed.github.io
+</code></pre>
+
+<pre><code class="language-text">/home/ra/RidaAyed.github.io
+├── archetypes
+│   └── default.md
+├── config.toml
+├── content
+│   └── posts
+│       └── my-post.md
+├── content-org
+│   ├── content
+│   │   └── posts
+│   │       └── my-post.md
+│   └── sample.org
+├── data
+├── deploy.sh
+├── layouts
+├── public
+│   ├── 404.html
+│   ├── categories
+│   │   ├── index.html
+│   │   └── index.xml
+│   ├── dist
+│   │   ├── css
+│   │   │   └── app.955516233bcafa4d2a1c13cea63c7b50.css
+│   │   └── js
+│   │       └── app.3fc0f988d21662902933.js
+│   ├── images
+│   │   └── gohugo-default-sample-hero-image.jpg
+│   ├── index.html
+│   ├── index.xml
+│   ├── posts
+│   │   ├── index.html
+│   │   ├── index.xml
+│   │   ├── my-post
+│   │   │   └── index.html
+│   │   └── page
+│   │       └── 1
+│   │           └── index.html
+│   ├── sitemap.xml
+│   └── tags
+│       ├── index.html
+│       └── index.xml
+├── resources
+│   └── _gen
+│       ├── assets
+│       └── images
+├── static
+└── themes
+    └── ananke
+        ├── archetypes
+        │   └── default.md
+        ├── CHANGELOG.md
+        ├── data
+        │   └── webpack_assets.json
+        ├── exampleSite
+        │   ├── config.toml
+        │   ├── content
+        │   │   ├── about
+        │   │   │   └── _index.md
+        │   │   ├── contact.md
+        │   │   ├── _index.md
+        │   │   └── post
+        │   │       ├── chapter-1.md
+        │   │       ├── chapter-2.md
+        │   │       ├── chapter-3.md
+        │   │       ├── chapter-4.md
+        │   │       ├── chapter-5.md
+        │   │       ├── chapter-6.md
+        │   │       └── _index.md
+        │   └── static
+        │       └── images
+        │           ├── esmeralda.jpg
+        │           ├── notebook.jpg
+        │           ├── Pope-Edouard-de-Beaumont-1844.jpg
+        │           └── Victor_Hugo-Hunchback.jpg
+        ├── i18n
+        │   ├── de.toml
+        │   ├── en.toml
+        │   └── fr.toml
+        ├── images
+        │   ├── screenshot.png
+        │   └── tn.png
+        ├── layouts
+        │   ├── 404.html
+        │   ├── _default
+        │   │   ├── baseof.html
+        │   │   ├── list.html
+        │   │   ├── single.html
+        │   │   ├── taxonomy.html
+        │   │   └── terms.html
+        │   ├── index.html
+        │   ├── page
+        │   │   └── single.html
+        │   ├── partials
+        │   │   ├── i18nlist.html
+        │   │   ├── menu-contextual.html
+        │   │   ├── new-window-icon.html
+        │   │   ├── page-header.html
+        │   │   ├── site-favicon.html
+        │   │   ├── site-footer.html
+        │   │   ├── site-header.html
+        │   │   ├── site-navigation.html
+        │   │   ├── site-scripts.html
+        │   │   ├── social-follow.html
+        │   │   ├── summary.html
+        │   │   ├── summary-with-image.html
+        │   │   ├── svg
+        │   │   │   ├── facebook.svg
+        │   │   │   ├── github.svg
+        │   │   │   ├── gitlab.svg
+        │   │   │   ├── instagram.svg
+        │   │   │   ├── linkedin.svg
+        │   │   │   ├── mastodon.svg
+        │   │   │   ├── medium.svg
+        │   │   │   ├── new-window.svg
+        │   │   │   ├── twitter.svg
+        │   │   │   └── youtube.svg
+        │   │   └── tags.html
+        │   ├── post
+        │   │   ├── list.html
+        │   │   ├── summary.html
+        │   │   └── summary-with-image.html
+        │   ├── robots.txt
+        │   └── shortcodes
+        │       └── form-contact.html
+        ├── LICENSE.md
+        ├── package.json
+        ├── README.md
+        ├── src
+        │   ├── css
+        │   │   ├── _code.css
+        │   │   ├── _hugo-internal-templates.css
+        │   │   ├── main.css
+        │   │   ├── postcss.config.js
+        │   │   ├── _social-icons.css
+        │   │   ├── _styles.css
+        │   │   └── _tachyons.css
+        │   ├── js
+        │   │   └── main.js
+        │   ├── package.json
+        │   ├── package-lock.json
+        │   ├── readme.md
+        │   └── webpack.config.js
+        ├── static
+        │   ├── dist
+        │   │   ├── css
+        │   │   │   └── app.955516233bcafa4d2a1c13cea63c7b50.css
+        │   │   └── js
+        │   │       └── app.3fc0f988d21662902933.js
+        │   └── images
+        │       └── gohugo-default-sample-hero-image.jpg
+        └── theme.toml
+
+51 directories, 99 files
+</code></pre>
+
+<h2 id="publish-to-github-pages">Publish to Github Pages</h2>
+
+<p>Follow the step <code>4. Make your...</code> from the&nbsp;<sup class="footnote-ref" id="fnref:fn-3"><a href="#fn:fn-3">3</a></sup>*Step-by-step Instructions*.
+<a href="#recheck-what-has-been-created">Recheck what has been created</a> but don&rsquo;t have any <code>public</code> folder?</p>
+
+<blockquote>
+<ol>
+<li>Once you are happy with the results:
+
+<ul>
+<li>Press Ctrl+C to kill the server</li>
+<li>rm -rf public to completely remove the public directory</li>
+</ul></li>
+</ol>
+</blockquote>
+
+<p>The <code>public</code> folder only gets created using</p>
+
+<pre><code class="language-sh">cd /home/ra/RidaAyed.github.io
+hugo #without server as stated in step-by-step Instructions
+</code></pre>
+
+<pre><code class="language-sh">cd /home/ra/RidaAyed.github.io
+git submodule add -b master git@github.com:RidaAyed/RidaAyed.github.io.git public
+</code></pre>
+
+<p>Hmm, <strong>not</strong> following the step-by-step instructions by creating <strong>two</strong>
+repositories results in</p>
+
+<pre><code class="language-text">Cloning into '/home/ra/RidaAyed.github.io/public'...
+warning: You appear to have cloned an empty repository.
+fatal: 'origin/master' is not a commit and a branch 'master' cannot be created from it
+</code></pre>
+
+<p>Let&rsquo;s create a another git branch</p>
+
+<pre><code class="language-sh">cd /home/ra/RidaAyed.github.io
+git checkout -b source
+</code></pre>
+
+<p>Trying again</p>
+
+<pre><code class="language-sh">cd /home/ra/RidaAyed.github.io
+git submodule add -b master git@github.com:RidaAyed/RidaAyed.github.io.git public
+</code></pre>
+
+<p>Better</p>
+
+<pre><code class="language-text">Adding existing repo at 'RidaAyed.github.io/public' to the index
+</code></pre>
+
+<p>Put into a script</p>
+
+<pre><code class="language-sh">echo -e &quot;\033[0;32mDeploying updates to GitHub...\033[0m&quot;
+
+# Build the project.
+hugo # if using a theme, replace with `hugo -t &lt;YOURTHEME&gt;`
+
+# Go To Public folder
+cd public
+# Add changes to git.
+git add .
+
+# Commit changes.
+msg=&quot;rebuilding site `date`&quot;
+if [ $# -eq 1 ]
+  then msg=&quot;$1&quot;
+fi
+git commit -m &quot;$msg&quot;
+
+# Push source and build repos.
+git push origin master
+
+# Come Back up to the Project Root
+cd ..
+</code></pre>
+
+<pre><code class="language-sh">sudo chmod +x /home/ra/RidaAyed.github.io/deploy.sh
+</code></pre>
+
+<pre><code class="language-sh">cd /home/ra/RidaAyed.github.io
+./deploy.sh
+</code></pre>
+
+<h2 id="visit-https-ridaayed-dot-github-dot-io">Visit <a href="https://RidaAyed.github.io">https://RidaAyed.github.io</a></h2>
+
+<figure>
+    <img src="./images/screenshot-07.png"
+         alt="Figure 6: Screenshot - https://RidaAyed.github.io"/> <figcaption>
+            <p>Figure 6: Screenshot - <a href="https://RidaAyed.github.io">https://RidaAyed.github.io</a></p>
+        </figcaption>
+</figure>
+
+
+<h2 id="what-about-speed">What about speed?</h2>
+
+<figure>
+    <img src="./images/screenshot-08.png"
+         alt="Figure 7: Screenshot - of PageSpeedInsights"/> <figcaption>
+            <p>Figure 7: Screenshot - of PageSpeedInsights</p>
+        </figcaption>
+</figure>
+
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:fn-1"><a href="https://ox-hugo.scripter.co/doc/hugo-section/">https://ox-hugo.scripter.co/doc/hugo-section/</a>
+ <a class="footnote-return" href="#fnref:fn-1"><sup>[return]</sup></a></li>
+<li id="fn:fn-2"><code>#+hugo_base_dir: ..</code> must have two dots <code>..</code> since our file resides in the subfolder <code>org-content</code>
+ <a class="footnote-return" href="#fnref:fn-2"><sup>[return]</sup></a></li>
+<li id="fn:fn-3"><a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/#step-by-step-instructions">https://gohugo.io/hosting-and-deployment/hosting-on-github/#step-by-step-instructions</a>
+ <a class="footnote-return" href="#fnref:fn-3"><sup>[return]</sup></a></li>
+</ol>
+</div>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6">
+        
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy; 2019 My New Hugo Site
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>
