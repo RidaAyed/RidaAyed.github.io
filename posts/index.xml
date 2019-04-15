@@ -6,7 +6,7 @@
     <description>Recent content in Posts on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 15 Apr 2019 20:17:02 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 15 Apr 2019 20:42:30 +0200</lastBuildDate>
     
 	<atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,10 +14,10 @@
     <item>
       <title>My first post</title>
       <link>http://example.org/posts/my-post/</link>
-      <pubDate>Mon, 15 Apr 2019 20:17:02 +0200</pubDate>
+      <pubDate>Mon, 15 Apr 2019 20:42:30 +0200</pubDate>
       
       <guid>http://example.org/posts/my-post/</guid>
-      <description>This tiny file gets created in &amp;lt;HUGO_BASE_DIR&amp;gt;/content/posts/.</description>
+      <description>This tiny file gets created in &amp;lt;HUGO_BASE_DIR&amp;gt;/content/posts/. </description>
     </item>
     
   </channel>
