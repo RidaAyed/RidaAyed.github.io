@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My New Hugo Site</title>
-    <link>http://example.org/</link>
-    <description>Recent content on My New Hugo Site</description>
+    <title>rida.ayed</title>
+    <link>https://ridaayed.github.io/</link>
+    <description>Recent content on rida.ayed</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 15 Apr 2019 20:42:30 +0200</lastBuildDate>
+    <language>en</language>
+    <lastBuildDate>Tue, 16 Apr 2019 19:39:48 +0200</lastBuildDate>
     
-	<atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ridaayed.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>My first post</title>
-      <link>http://example.org/posts/my-post/</link>
-      <pubDate>Mon, 15 Apr 2019 20:42:30 +0200</pubDate>
+      <title>ox-hugo with github pages</title>
+      <link>https://ridaayed.github.io/posts/my-third-post/</link>
+      <pubDate>Tue, 16 Apr 2019 19:39:48 +0200</pubDate>
       
-      <guid>http://example.org/posts/my-post/</guid>
-      <description>This tiny file gets created in &amp;lt;HUGO_BASE_DIR&amp;gt;/content/posts/. </description>
+      <guid>https://ridaayed.github.io/posts/my-third-post/</guid>
+      <description>Table of Contents  Setup ox-hugo Create a new github repo via web frontend Clone the new repository Setup Hugo in our new repository Create the new hugo site Download a theme and add it as git submodule Add some content Create the org content folder Start the hugo server Browse our local site Create a minimal org file / web page Export the file Note how hugo immediately rebuilds the site Recheck the browser Recheck what has been created Publish to Github Pages Visit https://RidaAyed.</description>
     </item>
     
   </channel>
