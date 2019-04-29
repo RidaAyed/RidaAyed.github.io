@@ -6,10 +6,23 @@
     <description>Recent content in Posts on rida.ayed</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 22 Apr 2019 20:22:00 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 29 Apr 2019 21:55:26 +0200</lastBuildDate>
     
 	<atom:link href="https://ridaayed.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Take screenshots in emacs org mode with flameshot</title>
+      <link>https://ridaayed.github.io/posts/screenshots-emacs-org-mode-flameshot/</link>
+      <pubDate>Mon, 29 Apr 2019 21:55:26 +0200</pubDate>
+      
+      <guid>https://ridaayed.github.io/posts/screenshots-emacs-org-mode-flameshot/</guid>
+      <description>Figure 1: Screencast showing flameshot in action
+  Setup Enable the org layer in your .spacemacs dotspacemacs-configuration-layers
+dotspacemacs-configuration-layers &amp;#39;(org) Install flameshot
+sudo pacman -S flameshot Add line below to your .spacemacs custom-set-variables
+(custom-set-variables &amp;#39;(org-download-screenshot-method &amp;#34;flameshot gui --raw &amp;gt; %s&amp;#34;)) Usage  Take your screenshot , i s or M-x org-download-screenshot in org mode Edit your screenshot on the fly or.. don&amp;rsquo;t Hit RET to insert your screenshot into your org file</description>
+    </item>
     
     <item>
       <title>Writing a letter in org mode</title>
