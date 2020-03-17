@@ -1,42 +1,49 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://ridaayed.github.io/posts/</loc>
-    <lastmod>2019-04-29T21:55:26+02:00</lastmod>
-    <priority>0</priority>
+    <loc>https://ridaayed.github.io/tags/browser/</loc>
+    <lastmod>2020-03-17T18:30:16+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ridaayed.github.io/posts/screenshots-emacs-org-mode-flameshot/</loc>
-    <lastmod>2019-04-29T21:55:26+02:00</lastmod>
+    <loc>https://ridaayed.github.io/posts/change_firefox_zoom_by_script/</loc>
+    <lastmod>2020-03-17T18:30:16+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ridaayed.github.io/posts/</loc>
+    <lastmod>2020-03-17T18:30:16+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://ridaayed.github.io/</loc>
-    <lastmod>2019-04-29T21:55:26+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://ridaayed.github.io/posts/writing-letters-in-org-mode/</loc>
-    <lastmod>2019-04-22T21:20:12+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ridaayed.github.io/posts/howto-ox-hugo-github-pages/</loc>
-    <lastmod>2019-04-22T20:57:13+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ridaayed.github.io/categories/</loc>
-    <priority>0</priority>
+    <lastmod>2020-03-17T18:30:16+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://ridaayed.github.io/tags/</loc>
-    <priority>0</priority>
+    <lastmod>2020-03-17T18:30:16+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ridaayed.github.io/posts/screenshots-emacs-org-mode-flameshot/</loc>
+    <lastmod>2019-06-29T09:17:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ridaayed.github.io/posts/writing-letters-in-org-mode/</loc>
+    <lastmod>2019-06-29T09:17:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ridaayed.github.io/posts/howto-ox-hugo-github-pages/</loc>
+    <lastmod>2019-06-29T09:17:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ridaayed.github.io/categories/</loc>
   </url>
   
 </urlset>

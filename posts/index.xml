@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on rida.ayed</title>
@@ -6,44 +6,57 @@
     <description>Recent content in Posts on rida.ayed</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 29 Apr 2019 21:55:26 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 14 Mar 2020 16:55:00 +0100</lastBuildDate>
     
 	<atom:link href="https://ridaayed.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Change Firefox&#39;s zoom by script</title>
+      <link>https://ridaayed.github.io/posts/change_firefox_zoom_by_script/</link>
+      <pubDate>Sat, 14 Mar 2020 16:55:00 +0100</pubDate>
+      
+      <guid>https://ridaayed.github.io/posts/change_firefox_zoom_by_script/</guid>
+      <description>Each time I change the monitor I have to zoom in or out firefox. Here&amp;rsquo;s how to set it via script:
+  Figure 1: Large
+    Figure 2: Small
+  Locate the appropriate file
+ls /home/*/.mozilla/firefox/*/prefs.js Locate the appropriate parameter
+grep layout.css.devPixelsPerPx /home/*/.mozilla/firefox/*/prefs.js Large screen: Set the zoom
+#!/usr/bin/env bash if grep &amp;#39;layout.css.devPixelsPerPx&amp;#39; /home/*/.mozilla/firefox/*/prefs.js then sed -i -e &amp;#39;s/^user_pref(&amp;#34;layout.css.devPixelsPerPx.*$/user_pref(&amp;#34;layout.css.devPixelsPerPx&amp;#34;, &amp;#34;2.0&amp;#34;);/&amp;#39; /home/*/.mozilla/firefox/*/prefs.js else echo &amp;#39;user_pref(&amp;#34;layout.css.devPixelsPerPx&amp;#34;, &amp;#34;2.0&amp;#34;);&amp;#39; &amp;gt;&amp;gt; /home/*/.</description>
+    </item>
+    
+    <item>
       <title>Take screenshots in emacs org mode with flameshot</title>
       <link>https://ridaayed.github.io/posts/screenshots-emacs-org-mode-flameshot/</link>
-      <pubDate>Mon, 29 Apr 2019 21:55:26 +0200</pubDate>
+      <pubDate>Mon, 29 Apr 2019 15:40:00 +0000</pubDate>
       
       <guid>https://ridaayed.github.io/posts/screenshots-emacs-org-mode-flameshot/</guid>
       <description>Figure 1: Screencast showing flameshot in action
   Setup Enable the org layer in your .spacemacs dotspacemacs-configuration-layers
 dotspacemacs-configuration-layers &amp;#39;(org) Install flameshot
-sudo pacman -S flameshot Add line below to your .spacemacs custom-set-variables
-(custom-set-variables &amp;#39;(org-download-screenshot-method &amp;#34;flameshot gui --raw &amp;gt; %s&amp;#34;)) Usage  Take your screenshot , i s or M-x org-download-screenshot in org mode Edit your screenshot on the fly or.. don&amp;rsquo;t Hit RET to insert your screenshot into your org file</description>
+sudo pacman -S flameshot Add the line below to your .spacemacs custom-set-variables
+(custom-set-variables &amp;#39;(org-download-screenshot-method &amp;#34;flameshot gui --raw &amp;gt; %s&amp;#34;)) Usage  Take your screenshot , i s or M-x org-download-screenshot in org mode Edit your screenshot on the fly or.. don&amp;rsquo;t Hit RET to insert your screenshot into your org file    Figure 2: A screenshot taken with flameshot in org mode</description>
     </item>
     
     <item>
       <title>Writing a letter in org mode</title>
       <link>https://ridaayed.github.io/posts/writing-letters-in-org-mode/</link>
-      <pubDate>Mon, 22 Apr 2019 20:22:00 +0200</pubDate>
+      <pubDate>Mon, 22 Apr 2019 20:22:00 +0000</pubDate>
       
       <guid>https://ridaayed.github.io/posts/writing-letters-in-org-mode/</guid>
-      <description>Table of Contents  Goals Setup Workflow (Spacemacs)   
-Goals 
-  Figure 1: Printed sample.pdf
+      <description>Goals Setup Workflow (Spacemacs)  Goals   Figure 1: Printed sample.pdf
   In order to get the same printout as in figure 1 above, both includepdf lines starting at line 37 here must be uncommented.
- Use emacs&amp;nbsp;1org mode Compose a new letter with a few keystrokes Manage letters like e-mails  Setup Change letter meta variables through a lco file The&amp;nbsp;2koma manual at p.</description>
+ Use emacs 1org mode Compose a new letter with a few keystrokes Manage letters like e-mails  Setup Change letter meta variables through a lco file The 2koma manual at p.484 displays a nice overview of position possibilities:</description>
     </item>
     
     <item>
       <title>ox-hugo with github pages</title>
       <link>https://ridaayed.github.io/posts/howto-ox-hugo-github-pages/</link>
-      <pubDate>Tue, 16 Apr 2019 19:52:00 +0200</pubDate>
+      <pubDate>Tue, 16 Apr 2019 19:52:00 +0000</pubDate>
       
       <guid>https://ridaayed.github.io/posts/howto-ox-hugo-github-pages/</guid>
-      <description>Table of Contents  Setup ox-hugo Create a new github repo via web front-end Clone the new repository Setup Hugo in our new repository Create the new hugo site Download a theme and add it as git sub-module Create the org content folder Create a minimal org file / web page Start the hugo server Browse to our local site Export our org file to hugo Note how hugo immediately rebuilds the site Check the browser Recheck what has been created Publish to Github pages Visit https://RidaAyed.</description>
+      <description>Setup ox-hugo Create a new github repo via web front-end Clone the new repository Setup Hugo in our new repository Create the new hugo site Download a theme and add it as git sub-module Create the org content folder Create a minimal org file / web page Start the hugo server Browse to our local site Export our org file to hugo Note how hugo immediately rebuilds the site Check the browser Recheck what has been created Publish to Github pages Visit https://RidaAyed.</description>
     </item>
     
   </channel>

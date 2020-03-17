@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>browser on rida.ayed</title>
+    <link>https://ridaayed.github.io/tags/browser/</link>
+    <description>Recent content in browser on rida.ayed</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 14 Mar 2020 16:55:00 +0100</lastBuildDate>
+    
+	<atom:link href="https://ridaayed.github.io/tags/browser/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Change Firefox&#39;s zoom by script</title>
+      <link>https://ridaayed.github.io/posts/change_firefox_zoom_by_script/</link>
+      <pubDate>Sat, 14 Mar 2020 16:55:00 +0100</pubDate>
+      
+      <guid>https://ridaayed.github.io/posts/change_firefox_zoom_by_script/</guid>
+      <description>Each time I change the monitor I have to zoom in or out firefox. Here&amp;rsquo;s how to set it via script:
+  Figure 1: Large
+    Figure 2: Small
+  Locate the appropriate file
+ls /home/*/.mozilla/firefox/*/prefs.js Locate the appropriate parameter
+grep layout.css.devPixelsPerPx /home/*/.mozilla/firefox/*/prefs.js Large screen: Set the zoom
+#!/usr/bin/env bash if grep &amp;#39;layout.css.devPixelsPerPx&amp;#39; /home/*/.mozilla/firefox/*/prefs.js then sed -i -e &amp;#39;s/^user_pref(&amp;#34;layout.css.devPixelsPerPx.*$/user_pref(&amp;#34;layout.css.devPixelsPerPx&amp;#34;, &amp;#34;2.0&amp;#34;);/&amp;#39; /home/*/.mozilla/firefox/*/prefs.js else echo &amp;#39;user_pref(&amp;#34;layout.css.devPixelsPerPx&amp;#34;, &amp;#34;2.0&amp;#34;);&amp;#39; &amp;gt;&amp;gt; /home/*/.</description>
+    </item>
+    
+  </channel>
+</rss>
