@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Rida Ayed">
+    <meta name="description" content="Some notes">
+    <meta name="keywords" content="blog">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Backup an iPhone with Linux"/>
+<meta name="twitter:description" content="Install the necessary packages Find the event iPhone connected Catch the event iPhone connected Create the trigger iPhone connected Create the action Backup iPhone Restart and reload all actors (not the iPhone though) Monitor the backup process  This is a follow-up on Connect an iPhone to a Raspi.
+Install the necessary packages Find the event iPhone connected  Connect your iPhone: Run this script:  lsusb | grep iPhone Bus 001 Device 007: ID 05ac:12a8 Apple, Inc."/>
+
+    <meta property="og:title" content="Backup an iPhone with Linux" />
+<meta property="og:description" content="Install the necessary packages Find the event iPhone connected Catch the event iPhone connected Create the trigger iPhone connected Create the action Backup iPhone Restart and reload all actors (not the iPhone though) Monitor the backup process  This is a follow-up on Connect an iPhone to a Raspi.
+Install the necessary packages Find the event iPhone connected  Connect your iPhone: Run this script:  lsusb | grep iPhone Bus 001 Device 007: ID 05ac:12a8 Apple, Inc." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ridaayed.github.io/posts/backup_iphone_linux/" />
+<meta property="article:published_time" content="2020-03-21T20:35:00+01:00" />
+<meta property="article:modified_time" content="2020-03-21T21:00:26+01:00" />
+
+
+    
+      <base href="https://ridaayed.github.io/posts/backup_iphone_linux/">
+    
+    <title>
+  Backup an iPhone with Linux · rida.ayed
+</title>
+
+    
+      <link rel="canonical" href="https://ridaayed.github.io/posts/backup_iphone_linux/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" integrity="sha256-oSrCnRYXvHG31SBifqP2PM1uje7SJUyX0nTwO2RJV54=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://ridaayed.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://ridaayed.github.io/css/custom.css">
+    
+
+    <link rel="icon" type="image/png" href="https://ridaayed.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://ridaayed.github.io/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.67.1" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://ridaayed.github.io">
+      rida.ayed
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://ridaayed.github.io/posts/">Posts</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Backup an iPhone with Linux</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2020-03-21T20:35:00&#43;01:00'>
+                March 21, 2020
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              One minute read
+            </span>
+          </div>
+          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://ridaayed.github.io/tags/systemd/">systemd</a>
+      <span class="separator">•</span>
+    <a href="https://ridaayed.github.io/tags/udev/">udev</a>
+      <span class="separator">•</span>
+    <a href="https://ridaayed.github.io/tags/backup/">backup</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        <!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<ul>
+<li><a href="#install-the-necessary-packages--posts-connect-iphone-to-raspi-dot-md">Install the necessary packages</a></li>
+<li><a href="#find-the-event-iphone-connected">Find the event <code>iPhone connected</code></a></li>
+<li><a href="#catch-the-event-iphone-connected">Catch the event <code>iPhone connected</code></a></li>
+<li><a href="#create-the-trigger-iphone-connected">Create the trigger <code>iPhone connected</code></a></li>
+<li><a href="#create-the-action-backup-iphone">Create the action <code>Backup iPhone</code></a></li>
+<li><a href="#restart-and-reload-all-actors--not-the-iphone-though">Restart and reload all actors (not the iPhone though)</a></li>
+<li><a href="#monitor-the-backup-process">Monitor the backup process</a></li>
+</ul>
+<!-- raw HTML omitted -->
+<p>This is a follow-up on <a href="https://ridaayed.github.io/posts/connect_iphone_to_raspi/">Connect an iPhone to a Raspi</a>.</p>
+<h2 id="install-the-necessary-packages--posts-connect-iphone-to-raspi-dot-md"><a href="https://ridaayed.github.io/posts/connect_iphone_to_raspi/#install-the-necessary-packages">Install the necessary packages</a></h2>
+<h2 id="find-the-event-iphone-connected">Find the event <code>iPhone connected</code></h2>
+<ol>
+<li>Connect your iPhone:</li>
+<li>Run this script:</li>
+</ol>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">lsusb | grep iPhone
+</code></pre></div><div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Bus 001 Device 007: ID 05ac:12a8 Apple, Inc. iPhone5/5C/5S/6
+</code></pre></div><h2 id="catch-the-event-iphone-connected">Catch the event <code>iPhone connected</code></h2>
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#080;background-color:#0f140f;font-style:italic"># Content of /etc/udev/rules.d/99-iphone.rules</span>
+<span style="color:#fb660a">SUBSYSTEM</span>==<span style="color:#0086d2">&#34;usb&#34;</span>, ENV{DEVTYPE}==<span style="color:#0086d2">&#34;usb_device&#34;</span>, ENV{PRODUCT}==<span style="color:#0086d2">&#34;5ac/12[9a][0-9a-f]/*&#34;</span>, <span style="color:#fb660a">ACTION</span>==<span style="color:#0086d2">&#34;add&#34;</span>, ENV{SYSTEMD_WANTS}=<span style="color:#0086d2">&#34;iphone-connect.service&#34;</span>
+</code></pre></div><h2 id="create-the-trigger-iphone-connected">Create the trigger <code>iPhone connected</code></h2>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#080;background-color:#0f140f;font-style:italic">#Content of /etc/systemd/system/iphone-connect.service</span>
+[Service]
+<span style="color:#fb660a">Type</span>=oneshot
+<span style="color:#fb660a">ExecStart</span>=/bin/sh /home/pi/scripts/backup_iphone.sh
+</code></pre></div><h2 id="create-the-action-backup-iphone">Create the action <code>Backup iPhone</code></h2>
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#080;background-color:#0f140f;font-style:italic"># Content of ~/scripts/backup_iphone.sh</span>
+<span style="color:#fb660a">src</span>=/mnt/iphone/ <span style="color:#080;background-color:#0f140f;font-style:italic">#Must exist in prior</span>
+<span style="color:#fb660a">dst</span>=/media/pi/usb500gb <span style="color:#080;background-color:#0f140f;font-style:italic">#Must exist in prior</span>
+<span style="color:#fb660a">log</span>=/home/pi/backup_iphone.log
+sleep <span style="color:#0086f7;font-weight:bold">5</span>
+ifuse <span style="color:#fb660a">$src</span> &amp;&amp;
+    rsync --verbose --archive --compress --update --log-file=<span style="color:#fb660a">$log</span> <span style="color:#fb660a">$src</span> <span style="color:#fb660a">$dst</span>
+</code></pre></div><h2 id="restart-and-reload-all-actors--not-the-iphone-though">Restart and reload all actors (not the iPhone though)</h2>
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo udevadm control --reload-rules &amp;&amp; udevadm trigger
+service udev restart
+systemctl daemon-reload <span style="color:#080;background-color:#0f140f;font-style:italic">#THIS one is crucial</span>
+</code></pre></div><h2 id="monitor-the-backup-process">Monitor the backup process</h2>
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">journalctl -f --unit=iphone-connect.service --output=cat
+</code></pre></div>
+      </div>
+
+      <footer>
+        
+
+
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>

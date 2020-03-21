@@ -132,12 +132,12 @@
 <h2 id="setup-ox-hugo">Setup ox-hugo</h2>
 <p><a href="https://ox-hugo.scripter.co/doc/usage/">https://ox-hugo.scripter.co/doc/usage/</a></p>
 <p>Add these lines to <code>.spacemacs</code></p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp"><span style="color:#bb60d5">dotspacemacs-additional-packages</span> <span style="color:#666">&#39;</span>(
-                                   <span style="color:#bb60d5">ox-hugo</span>)
-</code></pre></div><div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp">(<span style="color:#007020">defun</span> <span style="color:#bb60d5">dotspacemacs/user-config</span> ()
-  (<span style="color:#007020">use-package</span> <span style="color:#bb60d5">ox-hugo</span>
-    <span style="color:#007020">:ensure</span> <span style="color:#60add5">t</span>          <span style="color:#60a0b0;font-style:italic">;Auto-install the package from Melpa (optional)</span>
-    <span style="color:#007020">:after</span> <span style="color:#bb60d5">ox</span>))
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp"><span style="color:#fb660a">dotspacemacs-additional-packages</span> &#39;(
+                                   <span style="color:#fb660a">ox-hugo</span>)
+</code></pre></div><div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp">(defun <span style="color:#fb660a">dotspacemacs/user-config</span> ()
+  (use-package <span style="color:#fb660a">ox-hugo</span>
+    :ensure <span style="color:#0086d2">t</span>          <span style="color:#080;background-color:#0f140f;font-style:italic">;Auto-install the package from Melpa (optional)</span>
+    :after <span style="color:#fb660a">ox</span>))
 </code></pre></div><h2 id="create-a-new-github-repo-via-web-front-end">Create a new github repo via web front-end</h2>
 <ol>
 <li>Login to <a href="https://github.com/new">https://github.com/new</a></li>
@@ -153,28 +153,28 @@
 <h2 id="setup-hugo-in-our-new-repository">Setup Hugo in our new repository</h2>
 <h2 id="create-the-new-hugo-site">Create the new hugo site</h2>
 <p><a href="https://www.kengrimes.com/ox-hugo-tutorial/">https://www.kengrimes.com/ox-hugo-tutorial/</a></p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">hugo new site --force /home/ra/RidaAyed.github.io
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">hugo new site --force /home/ra/RidaAyed.github.io
 </code></pre></div><h2 id="download-a-theme-and-add-it-as-git-sub-module">Download a theme and add it as git sub-module</h2>
 <p><a href="https://gohugo.io/getting-started/quick-start/#step-3-add-a-theme">https://gohugo.io/getting-started/quick-start/#step-3-add-a-theme</a></p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#007020">cd</span> /home/ra/RidaAyed.github.io
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd /home/ra/RidaAyed.github.io
 git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
 </code></pre></div><p>Check our current config.toml</p>
 <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cat /home/ra/RidaAyed.github.io/config.toml
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cat /home/ra/RidaAyed.github.io/config.toml
 </code></pre></div><p>Add the Ananke theme to our config.toml</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#007020">cd</span> /home/ra/RidaAyed.github.io
-<span style="color:#007020">echo</span> <span style="color:#4070a0">&#39;theme = &#34;ananke&#34;&#39;</span> &gt;&gt; config.toml
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd /home/ra/RidaAyed.github.io
+echo <span style="color:#0086d2">&#39;theme = &#34;ananke&#34;&#39;</span> &gt;&gt; config.toml
 </code></pre></div><p>Recheck our current config.toml</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#60a0b0;font-style:italic">#TODO Call hugoConfig instead repeating &gt; https://orgmode.org/manual/Evaluating-code-blocks.html</span>
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#080;background-color:#0f140f;font-style:italic">#TODO Call hugoConfig instead repeating &gt; https://orgmode.org/manual/Evaluating-code-blocks.html</span>
 cat /home/ra/RidaAyed.github.io/config.toml
 </code></pre></div><h2 id="create-the-org-content-folder">Create the org content folder</h2>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#007020">cd</span> /home/ra/RidaAyed.github.io
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd /home/ra/RidaAyed.github.io
 mkdir content-org
 </code></pre></div><h2 id="create-a-minimal-fn-1-org-file-web-page">Create a minimal <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> org file / web page</h2>
 <p><code>#+hugo_base_dir:</code> must be followed by two dots <code>..</code> since our file resides in the subfolder <code>org-content</code></p>
-<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<div class="highlight"><div style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="display:block;width:100%;background-color:#d8d8d8"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="display:block;width:100%;background-color:#282828"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
@@ -183,17 +183,17 @@ mkdir content-org
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-org" data-lang="org"><span style="display:block;width:100%;background-color:#d8d8d8"><span style="color:#60a0b0;background-color:#fff0f0">#+hugo_base_dir</span><span style="color:#60a0b0;font-style:italic">: ..</span>
+<pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-org" data-lang="org"><span style="display:block;width:100%;background-color:#282828"><span style="color:#080;background-color:#0f140f;font-style:italic">#+hugo_base_dir</span><span style="color:#080;background-color:#0f140f;font-style:italic">: ..</span>
 </span>
-<span style="color:#000080;font-weight:bold">*</span><span style="font-weight:bold"> My post</span>
-<span style="color:#60a0b0;font-style:italic">:PROPERTIES:
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#60a0b0;background-color:#fff0f0">:EXPORT_FILE_NAME: my-post
-</span><span style="color:#60a0b0;background-color:#fff0f0"></span><span style="color:#60a0b0;font-style:italic">:END:</span>
-This gets created in <span style="color:#0e84b5;font-weight:bold">~&lt;HUGO_BASE_DIR&gt;/content/posts/~</span>.</code></pre></td></tr></table>
+<span style="font-weight:bold">*</span> My post
+<span style="color:#080;background-color:#0f140f;font-style:italic">:PROPERTIES:
+</span><span style="color:#080;background-color:#0f140f;font-style:italic"></span><span style="color:#080;background-color:#0f140f;font-style:italic">:EXPORT_FILE_NAME: my-post
+</span><span style="color:#080;background-color:#0f140f;font-style:italic"></span><span style="color:#080;background-color:#0f140f;font-style:italic">:END:</span>
+This gets created in ~&lt;HUGO_BASE_DIR&gt;/content/posts/~.</code></pre></td></tr></table>
 </div>
 </div>
 <h2 id="start-the-hugo-server">Start the hugo server</h2>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#007020">cd</span> /home/ra/RidaAyed.github.io
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd /home/ra/RidaAyed.github.io
 hugo server -D --navigateToChanged
 </code></pre></div><figure>
     <img src="https://ridaayed.github.io/ox-hugo/screenshot-02.png"
@@ -238,8 +238,8 @@ hugo server -D --navigateToChanged
 </figure>
 
 <h2 id="recheck-what-has-been-created">Recheck what has been created</h2>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">tree /home/ra/RidaAyed.github.io -D -L <span style="color:#40a070">2</span>
-</code></pre></div><div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">/home/ra/RidaAyed.github.io
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">tree /home/ra/RidaAyed.github.io -D -L <span style="color:#0086f7;font-weight:bold">2</span>
+</code></pre></div><div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">/home/ra/RidaAyed.github.io
 ├── [Jun 28 16:22]  config.toml
 ├── [Jun  2 19:42]  content
 │   └── [Jun  2 19:42]  posts
@@ -254,57 +254,57 @@ hugo server -D --navigateToChanged
 I missed the <code>/public</code> folder from step 4.</p>
 <p><strong>The <code>public</code> folder will not be created</strong>, if <code>$ hugo</code> is executed with the
 <code>server</code> option. Simply run <code>$ hugo</code> as shown at line 2:</p>
-<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<div class="highlight"><div style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#007020">cd</span> /home/ra/RidaAyed.github.io
+<pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd /home/ra/RidaAyed.github.io
 hugo</code></pre></td></tr></table>
 </div>
 </div>
 <p>Following the next step from the step by step instruction</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#007020">cd</span> /home/ra/RidaAyed.github.io
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd /home/ra/RidaAyed.github.io
 git submodule add -b master git@github.com:RidaAyed/RidaAyed.github.io.git public
 </code></pre></div><p>By <strong>not following the step-by-step instructions</strong> whom propose creating <strong>two</strong>
 repositories results in</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Cloning into &#39;/home/ra/RidaAyed.github.io/public&#39;...
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Cloning into &#39;/home/ra/RidaAyed.github.io/public&#39;...
 warning: You appear to have cloned an empty repository.
 fatal: &#39;origin/master&#39; is not a commit and a branch &#39;master&#39; cannot be created from it
 </code></pre></div><p>Let&rsquo;s create another git branch</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#007020">cd</span> /home/ra/RidaAyed.github.io
-git checkout -b <span style="color:#007020">source</span>
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd /home/ra/RidaAyed.github.io
+git checkout -b source
 </code></pre></div><p>Trying again</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#007020">cd</span> /home/ra/RidaAyed.github.io
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd /home/ra/RidaAyed.github.io
 git submodule add -b master git@github.com:RidaAyed/RidaAyed.github.io.git public
 </code></pre></div><p>Better</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Adding existing repo at &#39;RidaAyed.github.io/public&#39; to the index
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Adding existing repo at &#39;RidaAyed.github.io/public&#39; to the index
 </code></pre></div><p>Create a script <code>deploy.sh</code> to deploy and publish to github</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#007020">echo</span> -e <span style="color:#4070a0">&#34;\033[0;32mDeploying updates to GitHub...\033[0m&#34;</span>
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">echo -e <span style="color:#0086d2">&#34;\033[0;32mDeploying updates to GitHub...\033[0m&#34;</span>
 
-<span style="color:#60a0b0;font-style:italic"># Build the project.</span>
-hugo <span style="color:#60a0b0;font-style:italic"># if using a theme, replace with `hugo -t &lt;YOURTHEME&gt;`</span>
+<span style="color:#080;background-color:#0f140f;font-style:italic"># Build the project.</span>
+hugo <span style="color:#080;background-color:#0f140f;font-style:italic"># if using a theme, replace with `hugo -t &lt;YOURTHEME&gt;`</span>
 
-<span style="color:#60a0b0;font-style:italic"># Go To Public folder</span>
-<span style="color:#007020">cd</span> public
-<span style="color:#60a0b0;font-style:italic"># Add changes to git.</span>
+<span style="color:#080;background-color:#0f140f;font-style:italic"># Go To Public folder</span>
+cd public
+<span style="color:#080;background-color:#0f140f;font-style:italic"># Add changes to git.</span>
 git add .
 
-<span style="color:#60a0b0;font-style:italic"># Commit changes.</span>
-<span style="color:#bb60d5">msg</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;rebuilding site `date`&#34;</span>
-<span style="color:#007020;font-weight:bold">if</span> <span style="color:#666">[</span> <span style="color:#bb60d5">$#</span> -eq <span style="color:#40a070">1</span> <span style="color:#666">]</span>
-  <span style="color:#007020;font-weight:bold">then</span> <span style="color:#bb60d5">msg</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;</span><span style="color:#bb60d5">$1</span><span style="color:#4070a0">&#34;</span>
-<span style="color:#007020;font-weight:bold">fi</span>
-git commit -m <span style="color:#4070a0">&#34;</span><span style="color:#bb60d5">$msg</span><span style="color:#4070a0">&#34;</span>
+<span style="color:#080;background-color:#0f140f;font-style:italic"># Commit changes.</span>
+<span style="color:#fb660a">msg</span>=<span style="color:#0086d2">&#34;rebuilding site `date`&#34;</span>
+<span style="color:#fb660a;font-weight:bold">if</span> [ <span style="color:#fb660a">$#</span> -eq <span style="color:#0086f7;font-weight:bold">1</span> ]
+  <span style="color:#fb660a;font-weight:bold">then</span> <span style="color:#fb660a">msg</span>=<span style="color:#0086d2">&#34;</span><span style="color:#fb660a">$1</span><span style="color:#0086d2">&#34;</span>
+<span style="color:#fb660a;font-weight:bold">fi</span>
+git commit -m <span style="color:#0086d2">&#34;</span><span style="color:#fb660a">$msg</span><span style="color:#0086d2">&#34;</span>
 
-<span style="color:#60a0b0;font-style:italic"># Push source and build repos.</span>
+<span style="color:#080;background-color:#0f140f;font-style:italic"># Push source and build repos.</span>
 git push origin master
 
-<span style="color:#60a0b0;font-style:italic"># Come Back up to the Project Root</span>
-<span style="color:#007020">cd</span> ..
-</code></pre></div><div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo chmod +x /home/ra/RidaAyed.github.io/deploy.sh
-</code></pre></div><div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#007020">cd</span> /home/ra/RidaAyed.github.io
+<span style="color:#080;background-color:#0f140f;font-style:italic"># Come Back up to the Project Root</span>
+cd ..
+</code></pre></div><div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo chmod +x /home/ra/RidaAyed.github.io/deploy.sh
+</code></pre></div><div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd /home/ra/RidaAyed.github.io
 ./deploy.sh
 </code></pre></div><h2 id="visit-https-ridaayed-dot-github-dot-io">Visit <a href="https://RidaAyed.github.io">https://RidaAyed.github.io</a></h2>
 <figure>
@@ -329,14 +329,14 @@ git push origin master
 <li>Add the <code>prodigy</code> <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>layer</li>
 <li>Add this section at the end of <code>.spacemacs</code>:</li>
 </ul>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp">(<span style="color:#bb60d5">prodigy-define-service</span>
- <span style="color:#007020">:name</span> <span style="color:#4070a0">&#34;Hugo Personal Blog&#34;</span>
- <span style="color:#007020">:command</span> <span style="color:#4070a0">&#34;/usr/bin/hugo&#34;</span>
- <span style="color:#007020">:args</span> <span style="color:#666">&#39;</span>(<span style="color:#4070a0">&#34;server&#34;</span> <span style="color:#4070a0">&#34;-D&#34;</span> <span style="color:#4070a0">&#34;--navigateToChanged&#34;</span> <span style="color:#4070a0">&#34;-t&#34;</span> <span style="color:#4070a0">&#34;hugo-coder&#34;</span>)
- <span style="color:#007020">:cwd</span> <span style="color:#4070a0">&#34;~/RidaAyed.github.io&#34;</span>
- <span style="color:#007020">:tags</span> <span style="color:#666">&#39;</span>(<span style="color:#bb60d5">personal</span>)
- <span style="color:#007020">:stop-signal</span> <span style="color:#517918">&#39;sigkill</span>
- <span style="color:#007020">:kill-process-buffer-on-stop</span> <span style="color:#60add5">t</span>)
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp">(<span style="color:#fb660a">prodigy-define-service</span>
+ :name <span style="color:#0086d2">&#34;Hugo Personal Blog&#34;</span>
+ :command <span style="color:#0086d2">&#34;/usr/bin/hugo&#34;</span>
+ :args &#39;(<span style="color:#0086d2">&#34;server&#34;</span> <span style="color:#0086d2">&#34;-D&#34;</span> <span style="color:#0086d2">&#34;--navigateToChanged&#34;</span> <span style="color:#0086d2">&#34;-t&#34;</span> <span style="color:#0086d2">&#34;hugo-coder&#34;</span>)
+ :cwd <span style="color:#0086d2">&#34;~/RidaAyed.github.io&#34;</span>
+ :tags &#39;(<span style="color:#fb660a">personal</span>)
+ :stop-signal <span style="color:#0086d2">&#39;sigkill</span>
+ :kill-process-buffer-on-stop <span style="color:#0086d2">t</span>)
 </code></pre></div><ul>
 <li>Start prodigy to take over hugo <code>SPC a S r</code></li>
 </ul>

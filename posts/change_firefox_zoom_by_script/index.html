@@ -137,30 +137,30 @@ grep layout.css.devPixelsPerPx /home/*/.mozilla/firefox/*/prefs.js Large screen:
 </figure>
 
 <p>Locate the appropriate file</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ls /home/*/.mozilla/firefox/*/prefs.js
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ls /home/*/.mozilla/firefox/*/prefs.js
 </code></pre></div><p>Locate the appropriate parameter</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">grep layout.css.devPixelsPerPx /home/*/.mozilla/firefox/*/prefs.js
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">grep layout.css.devPixelsPerPx /home/*/.mozilla/firefox/*/prefs.js
 </code></pre></div><p>Large screen: Set the zoom</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#007020">#!/usr/bin/env bash
-</span><span style="color:#007020"></span><span style="color:#007020;font-weight:bold">if</span> grep <span style="color:#4070a0">&#39;layout.css.devPixelsPerPx&#39;</span> /home/*/.mozilla/firefox/*/prefs.js
-<span style="color:#007020;font-weight:bold">then</span>
-    sed -i -e <span style="color:#4070a0">&#39;s/^user_pref(&#34;layout.css.devPixelsPerPx.*$/user_pref(&#34;layout.css.devPixelsPerPx&#34;, &#34;2.0&#34;);/&#39;</span> /home/*/.mozilla/firefox/*/prefs.js
-<span style="color:#007020;font-weight:bold">else</span>
-    <span style="color:#007020">echo</span> <span style="color:#4070a0">&#39;user_pref(&#34;layout.css.devPixelsPerPx&#34;, &#34;2.0&#34;);&#39;</span> &gt;&gt; /home/*/.mozilla/firefox/*/prefs.js
-<span style="color:#007020;font-weight:bold">fi</span>
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#ff0007;background-color:#0f140f;font-weight:bold;font-style:italic">#!/usr/bin/env bash
+</span><span style="color:#ff0007;background-color:#0f140f;font-weight:bold;font-style:italic"></span><span style="color:#fb660a;font-weight:bold">if</span> grep <span style="color:#0086d2">&#39;layout.css.devPixelsPerPx&#39;</span> /home/*/.mozilla/firefox/*/prefs.js
+<span style="color:#fb660a;font-weight:bold">then</span>
+    sed -i -e <span style="color:#0086d2">&#39;s/^user_pref(&#34;layout.css.devPixelsPerPx.*$/user_pref(&#34;layout.css.devPixelsPerPx&#34;, &#34;2.0&#34;);/&#39;</span> /home/*/.mozilla/firefox/*/prefs.js
+<span style="color:#fb660a;font-weight:bold">else</span>
+    echo <span style="color:#0086d2">&#39;user_pref(&#34;layout.css.devPixelsPerPx&#34;, &#34;2.0&#34;);&#39;</span> &gt;&gt; /home/*/.mozilla/firefox/*/prefs.js
+<span style="color:#fb660a;font-weight:bold">fi</span>
 </code></pre></div><p>Small screen: Set the zoom</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#007020">#!/usr/bin/env bash
-</span><span style="color:#007020"></span><span style="color:#007020;font-weight:bold">if</span> grep <span style="color:#4070a0">&#39;layout.css.devPixelsPerPx&#39;</span> /home/*/.mozilla/firefox/*/prefs.js
-<span style="color:#007020;font-weight:bold">then</span>
-    sed -i -e <span style="color:#4070a0">&#39;s/^user_pref(&#34;layout.css.devPixelsPerPx.*$/user_pref(&#34;layout.css.devPixelsPerPx&#34;, &#34;-1.0&#34;);/&#39;</span> /home/*/.mozilla/firefox/*/prefs.js
-<span style="color:#007020;font-weight:bold">else</span>
-    <span style="color:#007020">echo</span> <span style="color:#4070a0">&#39;user_pref(&#34;layout.css.devPixelsPerPx&#34;, &#34;-1.0&#34;);&#39;</span> &gt;&gt; /home/*/.mozilla/firefox/*/prefs.js
-<span style="color:#007020;font-weight:bold">fi</span>
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#ff0007;background-color:#0f140f;font-weight:bold;font-style:italic">#!/usr/bin/env bash
+</span><span style="color:#ff0007;background-color:#0f140f;font-weight:bold;font-style:italic"></span><span style="color:#fb660a;font-weight:bold">if</span> grep <span style="color:#0086d2">&#39;layout.css.devPixelsPerPx&#39;</span> /home/*/.mozilla/firefox/*/prefs.js
+<span style="color:#fb660a;font-weight:bold">then</span>
+    sed -i -e <span style="color:#0086d2">&#39;s/^user_pref(&#34;layout.css.devPixelsPerPx.*$/user_pref(&#34;layout.css.devPixelsPerPx&#34;, &#34;-1.0&#34;);/&#39;</span> /home/*/.mozilla/firefox/*/prefs.js
+<span style="color:#fb660a;font-weight:bold">else</span>
+    echo <span style="color:#0086d2">&#39;user_pref(&#34;layout.css.devPixelsPerPx&#34;, &#34;-1.0&#34;);&#39;</span> &gt;&gt; /home/*/.mozilla/firefox/*/prefs.js
+<span style="color:#fb660a;font-weight:bold">fi</span>
 </code></pre></div><p>Make the scripts executable</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo chmod --verbose +x ~/src/scripts/FirefoxZoomIn.sh
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo chmod --verbose +x ~/src/scripts/FirefoxZoomIn.sh
 sudo chmod --verbose +x ~/src/scripts/FirefoxZoomOut.sh
-</code></pre></div><div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">~/src/scripts/FirefoxZoomIn.sh
-</code></pre></div><div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">~/src/scripts/FirefoxZoomOut.sh
+</code></pre></div><div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">~/src/scripts/FirefoxZoomIn.sh
+</code></pre></div><div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">~/src/scripts/FirefoxZoomOut.sh
 </code></pre></div><p>Docking/undocking triggers those scripts, which I&rsquo;m handling with <a href="https://wiki.archlinux.org/index.php/Xrandr#Automatically%5Fswitch%5Fconfigurations%5Fwith%5Fautorandr">Autorandr</a>.</p>
 
       </div>

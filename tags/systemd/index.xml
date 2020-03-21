@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>systemd on rida.ayed</title>
+    <link>https://ridaayed.github.io/tags/systemd/</link>
+    <description>Recent content in systemd on rida.ayed</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 21 Mar 2020 20:35:00 +0100</lastBuildDate>
+    
+	<atom:link href="https://ridaayed.github.io/tags/systemd/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Backup an iPhone with Linux</title>
+      <link>https://ridaayed.github.io/posts/backup_iphone_linux/</link>
+      <pubDate>Sat, 21 Mar 2020 20:35:00 +0100</pubDate>
+      
+      <guid>https://ridaayed.github.io/posts/backup_iphone_linux/</guid>
+      <description>Install the necessary packages Find the event iPhone connected Catch the event iPhone connected Create the trigger iPhone connected Create the action Backup iPhone Restart and reload all actors (not the iPhone though) Monitor the backup process  This is a follow-up on Connect an iPhone to a Raspi.
+Install the necessary packages Find the event iPhone connected  Connect your iPhone: Run this script:  lsusb | grep iPhone Bus 001 Device 007: ID 05ac:12a8 Apple, Inc.</description>
+    </item>
+    
+  </channel>
+</rss>

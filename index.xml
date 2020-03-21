@@ -6,10 +6,20 @@
     <description>Recent content on rida.ayed</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 14 Mar 2020 16:55:00 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 21 Mar 2020 20:35:00 +0100</lastBuildDate>
     
 	<atom:link href="https://ridaayed.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Backup an iPhone with Linux</title>
+      <link>https://ridaayed.github.io/posts/backup_iphone_linux/</link>
+      <pubDate>Sat, 21 Mar 2020 20:35:00 +0100</pubDate>
+      
+      <guid>https://ridaayed.github.io/posts/backup_iphone_linux/</guid>
+      <description>Install the necessary packages Find the event iPhone connected Catch the event iPhone connected Create the trigger iPhone connected Create the action Backup iPhone Restart and reload all actors (not the iPhone though) Monitor the backup process  This is a follow-up on Connect an iPhone to a Raspi.
+Install the necessary packages Find the event iPhone connected  Connect your iPhone: Run this script:  lsusb | grep iPhone Bus 001 Device 007: ID 05ac:12a8 Apple, Inc.</description>
+    </item>
     
     <item>
       <title>Change Firefox&#39;s zoom by script</title>
@@ -32,7 +42,8 @@ grep layout.css.devPixelsPerPx /home/*/.mozilla/firefox/*/prefs.js Large screen:
       <pubDate>Tue, 21 Jan 2020 13:10:00 +0100</pubDate>
       
       <guid>https://ridaayed.github.io/posts/connect_iphone_to_raspi/</guid>
-      <description>Connect and login into your raspi Update - Retrieve new lists of packages Upgrade - Perform an upgrade Install the necessary packages Connect the iPhone with the raspi via USB Accept the trust dialog on the iPhone Pair the phone Accept another trust dialog the on the iPhone Create a mount folder Mount the iPhone Approve success Summary of all commands to copy/paste  Unlock/Enter the pass-code (in case you have one) on your iPhone in order to avoid errors.</description>
+      <description>Unlock your iPhone Connect and login into your raspi Update - Retrieve new lists of packages Upgrade - Perform an upgrade Install the necessary packages Connect the iPhone with the raspi via USB Accept the trust dialog on the iPhone Pair the phone Accept another trust dialog the on the iPhone Create a mount folder Mount the iPhone Approve success Summary of all commands to copy/paste  Environment:
+ iPhone 5SE iOS 11.</description>
     </item>
     
     <item>

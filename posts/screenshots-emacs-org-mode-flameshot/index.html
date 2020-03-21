@@ -123,13 +123,13 @@ sudo pacman -S flameshot Add the line below to your .spacemacs custom-set-variab
 
 <h2 id="setup">Setup</h2>
 <p>Enable the <code>org</code> layer in your <code>.spacemacs</code> <code>dotspacemacs-configuration-layers</code></p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp"><span style="color:#bb60d5">dotspacemacs-configuration-layers</span>
-<span style="color:#666">&#39;</span>(<span style="color:#bb60d5">org</span>)
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp"><span style="color:#fb660a">dotspacemacs-configuration-layers</span>
+&#39;(<span style="color:#fb660a">org</span>)
 </code></pre></div><p>Install flameshot</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo pacman -S flameshot
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo pacman -S flameshot
 </code></pre></div><p>Add the line below to your <code>.spacemacs</code> <code>custom-set-variables</code></p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp">(<span style="color:#bb60d5">custom-set-variables</span>
- <span style="color:#666">&#39;</span>(<span style="color:#bb60d5">org-download-screenshot-method</span> <span style="color:#4070a0">&#34;flameshot gui --raw &gt; %s&#34;</span>))
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp">(<span style="color:#fb660a">custom-set-variables</span>
+ &#39;(<span style="color:#fb660a">org-download-screenshot-method</span> <span style="color:#0086d2">&#34;flameshot gui --raw &gt; %s&#34;</span>))
 </code></pre></div><h2 id="usage">Usage</h2>
 <ol>
 <li>Take your screenshot <code>,</code> <code>i</code> <code>s</code> or <code>M-x org-download-screenshot</code> in org mode</li>

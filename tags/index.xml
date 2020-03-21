@@ -6,10 +6,37 @@
     <description>Recent content in Tags on rida.ayed</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 14 Mar 2020 16:55:00 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 21 Mar 2020 20:35:00 +0100</lastBuildDate>
     
 	<atom:link href="https://ridaayed.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>backup</title>
+      <link>https://ridaayed.github.io/tags/backup/</link>
+      <pubDate>Sat, 21 Mar 2020 20:35:00 +0100</pubDate>
+      
+      <guid>https://ridaayed.github.io/tags/backup/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>systemd</title>
+      <link>https://ridaayed.github.io/tags/systemd/</link>
+      <pubDate>Sat, 21 Mar 2020 20:35:00 +0100</pubDate>
+      
+      <guid>https://ridaayed.github.io/tags/systemd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>udev</title>
+      <link>https://ridaayed.github.io/tags/udev/</link>
+      <pubDate>Sat, 21 Mar 2020 20:35:00 +0100</pubDate>
+      
+      <guid>https://ridaayed.github.io/tags/udev/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>browser</title>
