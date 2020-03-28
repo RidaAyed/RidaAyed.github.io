@@ -6,10 +6,19 @@
     <description>Recent content in Tags on rida.ayed</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 21 Mar 2020 20:35:00 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 28 Mar 2020 12:50:00 +0100</lastBuildDate>
     
 	<atom:link href="https://ridaayed.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>storage</title>
+      <link>https://ridaayed.github.io/tags/storage/</link>
+      <pubDate>Sat, 28 Mar 2020 12:50:00 +0100</pubDate>
+      
+      <guid>https://ridaayed.github.io/tags/storage/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>backup</title>
@@ -35,24 +44,6 @@
       <pubDate>Sat, 21 Mar 2020 20:35:00 +0100</pubDate>
       
       <guid>https://ridaayed.github.io/tags/udev/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>browser</title>
-      <link>https://ridaayed.github.io/tags/browser/</link>
-      <pubDate>Sat, 14 Mar 2020 16:55:00 +0100</pubDate>
-      
-      <guid>https://ridaayed.github.io/tags/browser/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>raspi</title>
-      <link>https://ridaayed.github.io/tags/raspi/</link>
-      <pubDate>Tue, 21 Jan 2020 13:10:00 +0100</pubDate>
-      
-      <guid>https://ridaayed.github.io/tags/raspi/</guid>
       <description></description>
     </item>
     

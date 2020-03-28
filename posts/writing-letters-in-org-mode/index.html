@@ -10,26 +10,26 @@
     <meta name="keywords" content="blog">
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Writing a letter in org mode"/>
+<meta name="twitter:title" content="Write a letter in org mode"/>
 <meta name="twitter:description" content="Goals Setup Workflow (Spacemacs)  Goals   Figure 1: Printed sample.pdf
   In order to get the same printout as in figure 1 above, both includepdf lines starting at line 37 here must be uncommented.
  Use emacs 1org mode Compose a new letter with a few keystrokes Manage letters like e-mails  Setup Change letter meta variables through a lco file The 2koma manual at p.484 displays a nice overview of position possibilities:"/>
 
-    <meta property="og:title" content="Writing a letter in org mode" />
+    <meta property="og:title" content="Write a letter in org mode" />
 <meta property="og:description" content="Goals Setup Workflow (Spacemacs)  Goals   Figure 1: Printed sample.pdf
   In order to get the same printout as in figure 1 above, both includepdf lines starting at line 37 here must be uncommented.
  Use emacs 1org mode Compose a new letter with a few keystrokes Manage letters like e-mails  Setup Change letter meta variables through a lco file The 2koma manual at p.484 displays a nice overview of position possibilities:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ridaayed.github.io/posts/writing-letters-in-org-mode/" />
-<meta property="article:published_time" content="2019-04-22T20:22:00+00:00" />
-<meta property="article:modified_time" content="2019-06-29T09:17:42+00:00" />
+<meta property="article:published_time" content="2019-04-22T20:22:00+02:00" />
+<meta property="article:modified_time" content="2020-03-28T12:57:20+01:00" />
 
 
     
       <base href="https://ridaayed.github.io/posts/writing-letters-in-org-mode/">
     
     <title>
-  Writing a letter in org mode · rida.ayed
+  Write a letter in org mode · rida.ayed
 </title>
 
     
@@ -89,13 +89,13 @@
     <article>
       <header>
         <div class="post-title">
-          <h1 class="title">Writing a letter in org mode</h1>
+          <h1 class="title">Write a letter in org mode</h1>
         </div>
         <div class="post-meta">
           <div class="date">
             <span class="posted-on">
               <i class="fas fa-calendar"></i>
-              <time datetime='2019-04-22T20:22:00Z'>
+              <time datetime='2019-04-22T20:22:00&#43;02:00'>
                 April 22, 2019
               </time>
             </span>
@@ -127,7 +127,7 @@
         </figcaption>
 </figure>
 
-<p>In order to get the same printout as in figure <a href="#org19e3fe5">1</a> above, both <code>includepdf</code>
+<p>In order to get the same printout as in figure <a href="#org8fcfbfc">1</a> above, both <code>includepdf</code>
 lines starting at line 37 <a href="#create-the-yasnippets-template">here</a> must be uncommented.</p>
 <ol>
 <li>Use emacs <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>org mode</li>
@@ -148,25 +148,25 @@ possibilities:</p>
 <p>Custom LCO files must be placed in a directory where LaTeX
 will find them. On GNU/Linux, this defaults to <code>~/texmf/tex/latex</code>.</p>
 <p>Create the folder <code>~/texmf/tex</code></p>
-<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mkdir -p ~/texmf/tex
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mkdir -p ~/texmf/tex
 </code></pre></div><p>Create a new file <code>~/texmf/tex/mySN.lco</code> containing these lines:</p>
-<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#fb660a;font-weight:bold">\ProvidesFile</span>{mySN.lco}[2019/04/22 my_letter-class-option]
-<span style="color:#fb660a;font-weight:bold">\LoadLetterOption</span>{SN}
-<span style="color:#fb660a;font-weight:bold">\let\raggedsignature</span>=<span style="color:#fb660a;font-weight:bold">\raggedright</span>
-<span style="color:#fb660a;font-weight:bold">\setplength</span>{toaddrvpos}{60mm}
-<span style="color:#fb660a;font-weight:bold">\setplength</span>{backaddrheight}{-3mm}
-<span style="color:#fb660a;font-weight:bold">\setplength</span>{toaddrheight}{25.5mm}
-<span style="color:#fb660a;font-weight:bold">\usepackage</span><span style="color:#ff0086;font-weight:bold">[german]</span>{babel}
-<span style="color:#fb660a;font-weight:bold">\endinput</span>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#007020;font-weight:bold">\ProvidesFile</span><span style="color:#007020">{</span>mySN.lco<span style="color:#007020">}</span>[2019/04/22 my<span style="color:#007020">_</span>letter-class-option]
+<span style="color:#007020;font-weight:bold">\LoadLetterOption</span><span style="color:#007020">{</span>SN<span style="color:#007020">}</span>
+<span style="color:#007020;font-weight:bold">\let\raggedsignature</span>=<span style="color:#007020;font-weight:bold">\raggedright</span>
+<span style="color:#007020;font-weight:bold">\setplength</span><span style="color:#007020">{</span>toaddrvpos<span style="color:#007020">}{</span>60mm<span style="color:#007020">}</span>
+<span style="color:#007020;font-weight:bold">\setplength</span><span style="color:#007020">{</span>backaddrheight<span style="color:#007020">}{</span>-3mm<span style="color:#007020">}</span>
+<span style="color:#007020;font-weight:bold">\setplength</span><span style="color:#007020">{</span>toaddrheight<span style="color:#007020">}{</span>25.5mm<span style="color:#007020">}</span>
+<span style="color:#007020;font-weight:bold">\usepackage</span><span style="color:#4070a0">[german]</span><span style="color:#007020">{</span>babel<span style="color:#007020">}</span>
+<span style="color:#007020;font-weight:bold">\endinput</span>
 </code></pre></div><p>You can test whether foo.lco is recognized by TeX Live by running the command</p>
-<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">kpsewhich mySN.lco
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">kpsewhich mySN.lco
 </code></pre></div><p>After adding a file to the TeX Live path you may have to run</p>
-<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mktexlsr
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mktexlsr
 </code></pre></div><h3 id="create-the-yasnippets-template">Create the yasnippets template</h3>
 <p>Create <em>home/ra</em>.emacs.d/private/snippets/text-mode/exampleLetter containing lines below:</p>
-<div class="highlight"><div style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -207,7 +207,7 @@ will find them. On GNU/Linux, this defaults to <code>~/texmf/tex/latex</code>.</
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># -*- mode: snippet -*-
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># -*- mode: snippet -*-
 # name:myExampleLetter
 # key:,ltr
 # --

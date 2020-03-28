@@ -20,7 +20,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ridaayed.github.io/posts/connect_iphone_to_raspi/" />
 <meta property="article:published_time" content="2020-01-21T13:10:00+01:00" />
-<meta property="article:modified_time" content="2020-03-21T21:10:08+01:00" />
+<meta property="article:modified_time" content="2020-03-23T20:05:53+01:00" />
 
 
     
@@ -103,10 +103,7 @@
             </span>
           </div>
           
-          <div class="tags">
-  <i class="fas fa-tag"></i>
-    <a href="https://ridaayed.github.io/tags/raspi/">raspi</a></div>
-
+          
         </div>
       </header>
 
@@ -140,20 +137,20 @@
 avoid errors.</p>
 <h2 id="connect-and-login-into-your-raspi">Connect and login into your raspi</h2>
 <p>Existence of an entry &lsquo;Host raspi&rsquo; in ~/.ssh/config is assumed:</p>
-<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ssh raspi
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ssh raspi
 </code></pre></div><h2 id="update-retrieve-new-lists-of-packages">Update - Retrieve new lists of packages</h2>
 <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get update
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get update
 </code></pre></div><h2 id="upgrade-perform-an-upgrade">Upgrade - Perform an upgrade</h2>
 <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get upgrade
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get upgrade
 </code></pre></div><h2 id="install-the-necessary-packages">Install the necessary packages</h2>
 <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get install libimobiledevice-utils
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get install libimobiledevice-utils
 </code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get install usbmuxd
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get install usbmuxd
 </code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get install ifuse
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get install ifuse
 </code></pre></div><h2 id="connect-the-iphone-with-the-raspi-via-usb">Connect the iPhone with the raspi via USB</h2>
 <h2 id="accept-the-trust-dialog-on-the-iphone">Accept the trust dialog on the iPhone</h2>
 <figure><a href="https://ridaayed.github.io/ox-hugo/2020-03-19_17-06-54_screenshot.png">
@@ -162,9 +159,9 @@ avoid errors.</p>
 
 <h2 id="pair-the-phone">Pair the phone</h2>
 <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">idevicepair pair
-</code></pre></div><div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">SUCCESS: Paired with device 3b9...
-</code></pre></div><div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">ERROR: Please accept the trust dialog on the screen of device 3b9...
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">idevicepair pair
+</code></pre></div><div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">SUCCESS: Paired with device 3b9...
+</code></pre></div><div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">ERROR: Please accept the trust dialog on the screen of device 3b9...
 , then attempt to pair again.
 </code></pre></div><h2 id="accept-another-trust-dialog-the-on-the-iphone">Accept another trust dialog the on the iPhone</h2>
 <figure>
@@ -173,16 +170,16 @@ avoid errors.</p>
 
 <h2 id="create-a-mount-folder">Create a mount folder</h2>
 <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo mkdir /mnt/iphone/ --verbose
-</code></pre></div><div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">mkdir: mkdir: created directory &#39;/mnt/iphone/&#39;
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo mkdir /mnt/iphone/ --verbose
+</code></pre></div><div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">mkdir: mkdir: created directory &#39;/mnt/iphone/&#39;
 </code></pre></div><h2 id="mount-the-iphone">Mount the iPhone</h2>
 <p>Consider storing this command <strong>as a shortcut to your desktop for convenience</strong>:</p>
 <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ifuse /mnt/iphone/
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ifuse /mnt/iphone/
 </code></pre></div><h2 id="approve-success">Approve success</h2>
 <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">tree -d -L <span style="color:#0086f7;font-weight:bold">1</span> /mnt/iphone/
-</code></pre></div><div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">/mnt/iphone/
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">tree -d -L <span style="color:#40a070">1</span> /mnt/iphone/
+</code></pre></div><div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">/mnt/iphone/
 ├── Books
 ├── CloudAssets
 ├── DCIM
@@ -200,7 +197,7 @@ avoid errors.</p>
 
 14 directories
 </code></pre></div><h2 id="summary-of-all-commands-to-copy-paste">Summary of all commands to copy/paste</h2>
-<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get update
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install libimobiledevice-utils
 sudo apt-get install usbmuxd
@@ -208,7 +205,7 @@ sudo apt-get install ifuse
 idevicepair pair
 sudo mkdir /mnt/iphone/ --verbose
 ifuse /mnt/iphone/
-tree -d -L <span style="color:#0086f7;font-weight:bold">1</span> /mnt/iphone/
+tree -d -L <span style="color:#40a070">1</span> /mnt/iphone/
 </code></pre></div><section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>storage on rida.ayed</title>
+    <link>https://ridaayed.github.io/tags/storage/</link>
+    <description>Recent content in storage on rida.ayed</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 28 Mar 2020 12:50:00 +0100</lastBuildDate>
+    
+	<atom:link href="https://ridaayed.github.io/tags/storage/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mount a USB drive persistently for all users</title>
+      <link>https://ridaayed.github.io/posts/mount_a_usb_drive_persistently_for_all_users/</link>
+      <pubDate>Sat, 28 Mar 2020 12:50:00 +0100</pubDate>
+      
+      <guid>https://ridaayed.github.io/posts/mount_a_usb_drive_persistently_for_all_users/</guid>
+      <description>Create a mount point List devices Backup &amp;amp; print current fstab Add the device to fstab Change device&amp;rsquo;s permission Test Cleanup Troubleshooting  I need to persistently permit all users read/write access to a USB drive
+Create a mount point mkdir /mnt/usb500 List devices lsblk -o NAME,FSTYPE,LABEL NAME FSTYPE LABEL sda └─sda1 ext4 usb500gb mmcblk0 ├─mmcblk0p1 vfat boot └─mmcblk0p2 ext4 rootfs Backup &amp;amp; print current fstab cp /etc/fstab ~/fstab.bak cat /etc/fstab proc /proc proc defaults 0 0 PARTUUID=45eaad39-01 /boot vfat defaults 0 2 PARTUUID=45eaad39-02 / ext4 defaults,noatime 0 1 Add the device to fstab Hint: nofail do not report errors for this device if it does not exist.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,10 +6,20 @@
     <description>Recent content in Posts on rida.ayed</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 21 Mar 2020 20:35:00 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 28 Mar 2020 12:50:00 +0100</lastBuildDate>
     
 	<atom:link href="https://ridaayed.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mount a USB drive persistently for all users</title>
+      <link>https://ridaayed.github.io/posts/mount_a_usb_drive_persistently_for_all_users/</link>
+      <pubDate>Sat, 28 Mar 2020 12:50:00 +0100</pubDate>
+      
+      <guid>https://ridaayed.github.io/posts/mount_a_usb_drive_persistently_for_all_users/</guid>
+      <description>Create a mount point List devices Backup &amp;amp; print current fstab Add the device to fstab Change device&amp;rsquo;s permission Test Cleanup Troubleshooting  I need to persistently permit all users read/write access to a USB drive
+Create a mount point mkdir /mnt/usb500 List devices lsblk -o NAME,FSTYPE,LABEL NAME FSTYPE LABEL sda └─sda1 ext4 usb500gb mmcblk0 ├─mmcblk0p1 vfat boot └─mmcblk0p2 ext4 rootfs Backup &amp;amp; print current fstab cp /etc/fstab ~/fstab.bak cat /etc/fstab proc /proc proc defaults 0 0 PARTUUID=45eaad39-01 /boot vfat defaults 0 2 PARTUUID=45eaad39-02 / ext4 defaults,noatime 0 1 Add the device to fstab Hint: nofail do not report errors for this device if it does not exist.</description>
+    </item>
     
     <item>
       <title>Backup an iPhone with Linux</title>
@@ -33,7 +43,7 @@ Install the necessary packages Find the event iPhone connected  Connect your iPh
   Locate the appropriate file
 ls /home/*/.mozilla/firefox/*/prefs.js Locate the appropriate parameter
 grep layout.css.devPixelsPerPx /home/*/.mozilla/firefox/*/prefs.js Large screen: Set the zoom
-#!/usr/bin/env bash if grep &amp;#39;layout.css.devPixelsPerPx&amp;#39; /home/*/.mozilla/firefox/*/prefs.js then sed -i -e &amp;#39;s/^user_pref(&amp;#34;layout.css.devPixelsPerPx.*$/user_pref(&amp;#34;layout.css.devPixelsPerPx&amp;#34;, &amp;#34;2.0&amp;#34;);/&amp;#39; /home/*/.mozilla/firefox/*/prefs.js else echo &amp;#39;user_pref(&amp;#34;layout.css.devPixelsPerPx&amp;#34;, &amp;#34;2.0&amp;#34;);&amp;#39; &amp;gt;&amp;gt; /home/*/.</description>
+#!/usr/bin/env bash factor=2.5 if grep &amp;#39;layout.css.devPixelsPerPx&amp;#39; /home/*/.mozilla/firefox/*/prefs.js then sed -i -e &amp;#34;s/^user_pref(\&amp;#34;layout.css.devPixelsPerPx.*$/user_pref(\&amp;#34;layout.css.devPixelsPerPx\&amp;#34;, \&amp;#34;$factor\&amp;#34;);/&amp;#34; /home/*/.mozilla/firefox/*/prefs.js else echo &amp;#34;user_pref(\&amp;#34;layout.css.devPixelsPerPx\&amp;#34;, \&amp;#34;$factor\&amp;#34;);&amp;#34; &amp;gt;&amp;gt; /home/*/.</description>
     </item>
     
     <item>
@@ -47,9 +57,19 @@ grep layout.css.devPixelsPerPx /home/*/.mozilla/firefox/*/prefs.js Large screen:
     </item>
     
     <item>
+      <title>Setup a Fujitsu ix500 scanner on Linux</title>
+      <link>https://ridaayed.github.io/posts/setup_fujitsu_ix500_scanner_linux/</link>
+      <pubDate>Fri, 17 Jan 2020 18:27:00 +0100</pubDate>
+      
+      <guid>https://ridaayed.github.io/posts/setup_fujitsu_ix500_scanner_linux/</guid>
+      <description>Install package Approve the connection Get a list of devices: Get a list of all device specific options: Scan a test file Scan productively Skipping empty pages Alias the command  Install package sudo apt install sane-utils -y Approve the connection Enable the scanner by opening the scanner&amp;rsquo;s lid
+sudo sane-find-scanner -q found USB scanner (vendor=0x04c5 [Fujitsu], product=0x132b [ScanSnap iX500]) at libusb:001:007 found USB scanner (vendor=0x0424, product=0x7800) at libusb:001:005 Get a list of devices: scanimage --list-devices device `fujitsu:ScanSnap iX500:10443&amp;#39; is a FUJITSU ScanSnap iX500 scanner Get a list of all device specific options: scanimage --device &amp;#39;fujitsu:ScanSnap iX500:10443&amp;#39; --all-options Scan a test file Scan with default settings to a temporary testfile</description>
+    </item>
+    
+    <item>
       <title>Take screenshots in emacs org mode with flameshot</title>
       <link>https://ridaayed.github.io/posts/screenshots-emacs-org-mode-flameshot/</link>
-      <pubDate>Mon, 29 Apr 2019 15:40:00 +0000</pubDate>
+      <pubDate>Mon, 29 Apr 2019 15:40:00 +0200</pubDate>
       
       <guid>https://ridaayed.github.io/posts/screenshots-emacs-org-mode-flameshot/</guid>
       <description>Figure 1: Screencast showing flameshot in action
@@ -60,9 +80,9 @@ sudo pacman -S flameshot Add the line below to your .spacemacs custom-set-variab
     </item>
     
     <item>
-      <title>Writing a letter in org mode</title>
+      <title>Write a letter in org mode</title>
       <link>https://ridaayed.github.io/posts/writing-letters-in-org-mode/</link>
-      <pubDate>Mon, 22 Apr 2019 20:22:00 +0000</pubDate>
+      <pubDate>Mon, 22 Apr 2019 20:22:00 +0200</pubDate>
       
       <guid>https://ridaayed.github.io/posts/writing-letters-in-org-mode/</guid>
       <description>Goals Setup Workflow (Spacemacs)  Goals   Figure 1: Printed sample.pdf
@@ -71,9 +91,9 @@ sudo pacman -S flameshot Add the line below to your .spacemacs custom-set-variab
     </item>
     
     <item>
-      <title>ox-hugo with github pages</title>
+      <title>Blog in org mode with ox-hugo and github pages</title>
       <link>https://ridaayed.github.io/posts/howto-ox-hugo-github-pages/</link>
-      <pubDate>Tue, 16 Apr 2019 19:52:00 +0000</pubDate>
+      <pubDate>Tue, 16 Apr 2019 19:52:00 +0200</pubDate>
       
       <guid>https://ridaayed.github.io/posts/howto-ox-hugo-github-pages/</guid>
       <description>Setup ox-hugo Create a new github repo via web front-end Clone the new repository Setup Hugo in our new repository Create the new hugo site Download a theme and add it as git sub-module Create the org content folder Create a minimal org file / web page Start the hugo server Browse to our local site Export our org file to hugo Note how hugo immediately rebuilds the site Check the browser Recheck what has been created Publish to Github pages Visit https://RidaAyed.</description>
