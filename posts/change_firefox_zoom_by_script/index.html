@@ -1,194 +1,148 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="">
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <meta charset="utf-8">
 
-    <meta name="author" content="Rida Ayed">
-    <meta name="description" content="Some notes">
-    <meta name="keywords" content="blog">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Change Firefox&#39;s zoom by script"/>
-<meta name="twitter:description" content="Each time I change the monitor I have to zoom in or out firefox. Here&rsquo;s how to set it via script:
-  Figure 1: Large
-    Figure 2: Small
+
+  
+    <meta name="description" content="Each time I change the monitor I have to zoom in or out firefox. Here&rsquo;s how to set it via script:
+  Abbildung 1: Large
+    Abbildung 2: Small
   Locate the appropriate file
 ls /home/*/.mozilla/firefox/*/prefs.js Locate the appropriate parameter
 grep layout.css.devPixelsPerPx /home/*/.mozilla/firefox/*/prefs.js Large screen: Set the zoom
-#!/usr/bin/env bash factor=2.5 if grep &#39;layout.css.devPixelsPerPx&#39; /home/*/.mozilla/firefox/*/prefs.js then sed -i -e &#34;s/^user_pref(\&#34;layout.css.devPixelsPerPx.*$/user_pref(\&#34;layout.css.devPixelsPerPx\&#34;, \&#34;$factor\&#34;);/&#34; /home/*/.mozilla/firefox/*/prefs.js else echo &#34;user_pref(\&#34;layout.css.devPixelsPerPx\&#34;, \&#34;$factor\&#34;);&#34; &gt;&gt; /home/*/."/>
-
-    <meta property="og:title" content="Change Firefox&#39;s zoom by script" />
-<meta property="og:description" content="Each time I change the monitor I have to zoom in or out firefox. Here&rsquo;s how to set it via script:
-  Figure 1: Large
-    Figure 2: Small
-  Locate the appropriate file
-ls /home/*/.mozilla/firefox/*/prefs.js Locate the appropriate parameter
-grep layout.css.devPixelsPerPx /home/*/.mozilla/firefox/*/prefs.js Large screen: Set the zoom
-#!/usr/bin/env bash factor=2.5 if grep &#39;layout.css.devPixelsPerPx&#39; /home/*/.mozilla/firefox/*/prefs.js then sed -i -e &#34;s/^user_pref(\&#34;layout.css.devPixelsPerPx.*$/user_pref(\&#34;layout.css.devPixelsPerPx\&#34;, \&#34;$factor\&#34;);/&#34; /home/*/.mozilla/firefox/*/prefs.js else echo &#34;user_pref(\&#34;layout.css.devPixelsPerPx\&#34;, \&#34;$factor\&#34;);&#34; &gt;&gt; /home/*/." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://ridaayed.github.io/posts/change_firefox_zoom_by_script/" />
-<meta property="article:published_time" content="2020-03-14T16:55:00+01:00" />
-<meta property="article:modified_time" content="2020-03-23T20:07:55+01:00" />
+#!/usr/bin/env bash factor=2.5 if grep &#39;layout.css.devPixelsPerPx&#39; /home/*/.mozilla/firefox/*/prefs.js then sed -i -e &#34;s/^user_pref(\&#34;layout.css.devPixelsPerPx.*$/user_pref(\&#34;layout.css.devPixelsPerPx\&#34;, \&#34;$factor\&#34;);/&#34; /home/*/.mozilla/firefox/*/prefs.js else echo &#34;user_pref(\&#34;layout.css.devPixelsPerPx\&#34;, \&#34;$factor\&#34;);&#34; &gt;&gt; /home/*/.">
+  
 
 
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.67.1" />
+  <title>Change Firefox&#39;s zoom by script | rida.ayed</title>
+  <link rel="canonical" href="/posts/change_firefox_zoom_by_script/">
+
+
+  
+
+
+
+
+
+
+
+
+  
     
-      <base href="https://ridaayed.github.io/posts/change_firefox_zoom_by_script/">
-    
-    <title>
-  Change Firefox&#39;s zoom by script · rida.ayed
-</title>
+  
+  
+  <link rel="stylesheet" href="/css/base.min.b94428eebe75e333d88818267f7dd5e1598fb5e021bc7219b8b991e1559b3723.css" integrity="sha256-uUQo7r514zPYiBgmf33V4VmPteAhvHIZuLmR4VWbNyM=" crossorigin="anonymous">
 
-    
-      <link rel="canonical" href="https://ridaayed.github.io/posts/change_firefox_zoom_by_script/">
-    
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" integrity="sha256-oSrCnRYXvHG31SBifqP2PM1uje7SJUyX0nTwO2RJV54=" crossorigin="anonymous" />
 
-    
+</head>
+
+<body>
+  <nav class="u-background">
+  <div class="u-wrapper">
+    <ul class="Banner">
+      <li class="Banner-item Banner-item--title">
+        <a class="Banner-link u-clickable" href="/">rida.ayed</a>
+      </li>
       
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/posts/">Posts</a>
+        </li>
       
-      <link rel="stylesheet" href="https://ridaayed.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
-    
-
-    
-
-    
-
-    
-      <link rel="stylesheet" href="https://ridaayed.github.io/css/custom.css">
-    
-
-    <link rel="icon" type="image/png" href="https://ridaayed.github.io/img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://ridaayed.github.io/img/favicon-16x16.png" sizes="16x16">
-
-    <meta name="generator" content="Hugo 0.67.1" />
-  </head>
-
-  <body class=" ">
-    <main class="wrapper">
-      <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="https://ridaayed.github.io">
-      rida.ayed
-    </a>
-    <input type="checkbox" id="menu-toggle" />
-    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
-    <ul class="navigation-list">
-      
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://ridaayed.github.io/posts/">Posts</a>
-          </li>
-        
-      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/index.xml">RSS</a>
+        </li>
       
     </ul>
-  </section>
+  </div>
 </nav>
-
-
-      <div class="content">
+  <main>
+    <div class="u-wrapper">
+      <div class="u-padding">
         
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">Change Firefox&#39;s zoom by script</h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fas fa-calendar"></i>
-              <time datetime='2020-03-14T16:55:00&#43;01:00'>
-                March 14, 2020
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fas fa-clock"></i>
-              One minute read
-            </span>
-          </div>
-          
-          
-        </div>
-      </header>
 
-      <div>
-        <p>Each time I change the monitor I have to zoom in or out firefox. Here&rsquo;s how to set it via script:</p>
+  <article>
+    <header class="Heading">
+  <h2 class="Heading-title">
+    <a class="Heading-link u-clickable" href="/posts/change_firefox_zoom_by_script/" rel="bookmark">Change Firefox&#39;s zoom by script</a>
+  </h2>
+  
+    <time datetime="2020-03-14T16:55:00&#43;01:00">14 March, 2020</time>
+  
+</header>
+    <p>Each time I change the monitor I have to zoom in or out firefox. Here&rsquo;s how to set it via script:</p>
 <figure>
-    <img src="https://ridaayed.github.io/ox-hugo/2020-03-17_17-41-10_screenshot.png"
-         alt="Figure 1: Large"/> <figcaption>
-            <p>Figure 1: Large</p>
+    <img src="Change_firefox_zoom_by_script/2020-03-17_17-41-10_screenshot.png"
+         alt="Abbildung 1: Large"/> <figcaption>
+            <p>Abbildung 1: Large</p>
         </figcaption>
 </figure>
 
 <figure>
-    <img src="https://ridaayed.github.io/ox-hugo/2020-03-17_17-43-03_screenshot.png"
-         alt="Figure 2: Small"/> <figcaption>
-            <p>Figure 2: Small</p>
+    <img src="Change_firefox_zoom_by_script/2020-03-17_17-43-03_screenshot.png"
+         alt="Abbildung 2: Small"/> <figcaption>
+            <p>Abbildung 2: Small</p>
         </figcaption>
 </figure>
 
 <p>Locate the appropriate file</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ls /home/*/.mozilla/firefox/*/prefs.js
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ls /home/*/.mozilla/firefox/*/prefs.js
 </code></pre></div><p>Locate the appropriate parameter</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">grep layout.css.devPixelsPerPx /home/*/.mozilla/firefox/*/prefs.js
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">grep layout.css.devPixelsPerPx /home/*/.mozilla/firefox/*/prefs.js
 </code></pre></div><p>Large screen: Set the zoom</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#007020">#!/usr/bin/env bash
-</span><span style="color:#007020"></span><span style="color:#bb60d5">factor</span><span style="color:#666">=</span>2.5
-<span style="color:#007020;font-weight:bold">if</span> grep <span style="color:#4070a0">&#39;layout.css.devPixelsPerPx&#39;</span> /home/*/.mozilla/firefox/*/prefs.js
-<span style="color:#007020;font-weight:bold">then</span>
-    sed -i -e <span style="color:#4070a0">&#34;s/^user_pref(\&#34;layout.css.devPixelsPerPx.*</span>$<span style="color:#4070a0">/user_pref(\&#34;layout.css.devPixelsPerPx\&#34;, \&#34;</span><span style="color:#bb60d5">$factor</span><span style="color:#4070a0">\&#34;);/&#34;</span> /home/*/.mozilla/firefox/*/prefs.js
-<span style="color:#007020;font-weight:bold">else</span>
-    <span style="color:#007020">echo</span> <span style="color:#4070a0">&#34;user_pref(\&#34;layout.css.devPixelsPerPx\&#34;, \&#34;</span><span style="color:#bb60d5">$factor</span><span style="color:#4070a0">\&#34;);&#34;</span> &gt;&gt; /home/*/.mozilla/firefox/*/prefs.js
-<span style="color:#007020;font-weight:bold">fi</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/usr/bin/env bash
+</span><span style="color:#75715e"></span>factor<span style="color:#f92672">=</span>2.5
+<span style="color:#66d9ef">if</span> grep <span style="color:#e6db74">&#39;layout.css.devPixelsPerPx&#39;</span> /home/*/.mozilla/firefox/*/prefs.js
+<span style="color:#66d9ef">then</span>
+    sed -i -e <span style="color:#e6db74">&#34;s/^user_pref(\&#34;layout.css.devPixelsPerPx.*</span>$<span style="color:#e6db74">/user_pref(\&#34;layout.css.devPixelsPerPx\&#34;, \&#34;</span>$factor<span style="color:#e6db74">\&#34;);/&#34;</span> /home/*/.mozilla/firefox/*/prefs.js
+<span style="color:#66d9ef">else</span>
+    echo <span style="color:#e6db74">&#34;user_pref(\&#34;layout.css.devPixelsPerPx\&#34;, \&#34;</span>$factor<span style="color:#e6db74">\&#34;);&#34;</span> &gt;&gt; /home/*/.mozilla/firefox/*/prefs.js
+<span style="color:#66d9ef">fi</span>
 </code></pre></div><p>Small screen: Set the zoom</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#007020">#!/usr/bin/env bash
-</span><span style="color:#007020"></span><span style="color:#007020;font-weight:bold">if</span> grep <span style="color:#4070a0">&#39;layout.css.devPixelsPerPx&#39;</span> /home/*/.mozilla/firefox/*/prefs.js
-<span style="color:#007020;font-weight:bold">then</span>
-    sed -i -e <span style="color:#4070a0">&#39;s/^user_pref(&#34;layout.css.devPixelsPerPx.*$/user_pref(&#34;layout.css.devPixelsPerPx&#34;, &#34;-1.0&#34;);/&#39;</span> /home/*/.mozilla/firefox/*/prefs.js
-<span style="color:#007020;font-weight:bold">else</span>
-    <span style="color:#007020">echo</span> <span style="color:#4070a0">&#39;user_pref(&#34;layout.css.devPixelsPerPx&#34;, &#34;-1.0&#34;);&#39;</span> &gt;&gt; /home/*/.mozilla/firefox/*/prefs.js
-<span style="color:#007020;font-weight:bold">fi</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/usr/bin/env bash
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> grep <span style="color:#e6db74">&#39;layout.css.devPixelsPerPx&#39;</span> /home/*/.mozilla/firefox/*/prefs.js
+<span style="color:#66d9ef">then</span>
+    sed -i -e <span style="color:#e6db74">&#39;s/^user_pref(&#34;layout.css.devPixelsPerPx.*$/user_pref(&#34;layout.css.devPixelsPerPx&#34;, &#34;-1.0&#34;);/&#39;</span> /home/*/.mozilla/firefox/*/prefs.js
+<span style="color:#66d9ef">else</span>
+    echo <span style="color:#e6db74">&#39;user_pref(&#34;layout.css.devPixelsPerPx&#34;, &#34;-1.0&#34;);&#39;</span> &gt;&gt; /home/*/.mozilla/firefox/*/prefs.js
+<span style="color:#66d9ef">fi</span>
 </code></pre></div><p>Make the scripts executable</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo chmod --verbose +x ~/src/scripts/FirefoxZoomIn.sh
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo chmod --verbose +x ~/src/scripts/FirefoxZoomIn.sh
 sudo chmod --verbose +x ~/src/scripts/FirefoxZoomOut.sh
-</code></pre></div><div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">~/src/scripts/FirefoxZoomIn.sh
-</code></pre></div><div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">~/src/scripts/FirefoxZoomOut.sh
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">~/src/scripts/FirefoxZoomIn.sh
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">~/src/scripts/FirefoxZoomOut.sh
 </code></pre></div><p>Docking/undocking triggers those scripts, which I&rsquo;m handling with <a href="https://wiki.archlinux.org/index.php/Xrandr#Automatically%5Fswitch%5Fconfigurations%5Fwith%5Fautorandr">Autorandr</a>.</p>
 
+    
+
+
+  
+
+  
+
+
+
+
+
+    
+  </article>
+
+
       </div>
-
-      <footer>
-        
-
-
-        
-      </footer>
-    </article>
-
-    
-  </section>
-
-      </div>
-
-      <footer class="footer">
-  <section class="container">
-    
-    
-    
-    
-  </section>
-</footer>
-
-    </main>
-
-    
-
-  </body>
+    </div>
+  </main>
+  
+</body>
 
 </html>

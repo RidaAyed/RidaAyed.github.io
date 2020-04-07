@@ -1,114 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="">
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <meta charset="utf-8">
 
-    <meta name="author" content="Rida Ayed">
-    <meta name="description" content="Some notes">
-    <meta name="keywords" content="blog">
-
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Connect an iPhone to a Raspi"/>
-<meta name="twitter:description" content="Unlock your iPhone Connect and login into your raspi Update - Retrieve new lists of packages Upgrade - Perform an upgrade Install the necessary packages Connect the iPhone with the raspi via USB Accept the trust dialog on the iPhone Pair the phone Accept another trust dialog the on the iPhone Create a mount folder Mount the iPhone Approve success Summary of all commands to copy/paste  Environment:
- iPhone 5SE iOS 11."/>
-
-    <meta property="og:title" content="Connect an iPhone to a Raspi" />
-<meta property="og:description" content="Unlock your iPhone Connect and login into your raspi Update - Retrieve new lists of packages Upgrade - Perform an upgrade Install the necessary packages Connect the iPhone with the raspi via USB Accept the trust dialog on the iPhone Pair the phone Accept another trust dialog the on the iPhone Create a mount folder Mount the iPhone Approve success Summary of all commands to copy/paste  Environment:
- iPhone 5SE iOS 11." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://ridaayed.github.io/posts/connect_iphone_to_raspi/" />
-<meta property="article:published_time" content="2020-01-21T13:10:00+01:00" />
-<meta property="article:modified_time" content="2020-03-23T20:05:53+01:00" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
+  
+    <meta name="description" content="Unlock your iPhone Connect and login into your raspi Update - Retrieve new lists of packages Upgrade - Perform an upgrade Install the necessary packages Connect the iPhone with the raspi via USB Accept the trust dialog on the iPhone Pair the phone Accept another trust dialog the on the iPhone Create a mount folder Mount the iPhone Approve success Summary of all commands to copy/paste  Environment:
+ iPhone 5SE iOS 11.">
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.67.1" />
+  <title>Connect an iPhone to a Raspi | rida.ayed</title>
+  <link rel="canonical" href="/posts/connect_iphone_to_raspi/">
+
+
+  
+
+
+
+
+
+
+
+
+  
     
-      <base href="https://ridaayed.github.io/posts/connect_iphone_to_raspi/">
-    
-    <title>
-  Connect an iPhone to a Raspi · rida.ayed
-</title>
+  
+  
+  <link rel="stylesheet" href="/css/base.min.b94428eebe75e333d88818267f7dd5e1598fb5e021bc7219b8b991e1559b3723.css" integrity="sha256-uUQo7r514zPYiBgmf33V4VmPteAhvHIZuLmR4VWbNyM=" crossorigin="anonymous">
 
-    
-      <link rel="canonical" href="https://ridaayed.github.io/posts/connect_iphone_to_raspi/">
-    
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" integrity="sha256-oSrCnRYXvHG31SBifqP2PM1uje7SJUyX0nTwO2RJV54=" crossorigin="anonymous" />
 
-    
+</head>
+
+<body>
+  <nav class="u-background">
+  <div class="u-wrapper">
+    <ul class="Banner">
+      <li class="Banner-item Banner-item--title">
+        <a class="Banner-link u-clickable" href="/">rida.ayed</a>
+      </li>
       
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/posts/">Posts</a>
+        </li>
       
-      <link rel="stylesheet" href="https://ridaayed.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
-    
-
-    
-
-    
-
-    
-      <link rel="stylesheet" href="https://ridaayed.github.io/css/custom.css">
-    
-
-    <link rel="icon" type="image/png" href="https://ridaayed.github.io/img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://ridaayed.github.io/img/favicon-16x16.png" sizes="16x16">
-
-    <meta name="generator" content="Hugo 0.67.1" />
-  </head>
-
-  <body class=" ">
-    <main class="wrapper">
-      <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="https://ridaayed.github.io">
-      rida.ayed
-    </a>
-    <input type="checkbox" id="menu-toggle" />
-    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
-    <ul class="navigation-list">
-      
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://ridaayed.github.io/posts/">Posts</a>
-          </li>
-        
-      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/index.xml">RSS</a>
+        </li>
       
     </ul>
-  </section>
+  </div>
 </nav>
-
-
-      <div class="content">
+  <main>
+    <div class="u-wrapper">
+      <div class="u-padding">
         
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">Connect an iPhone to a Raspi</h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fas fa-calendar"></i>
-              <time datetime='2020-01-21T13:10:00&#43;01:00'>
-                January 21, 2020
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fas fa-clock"></i>
-              2 minutes read
-            </span>
-          </div>
-          
-          
-        </div>
-      </header>
 
-      <div>
-        <!-- raw HTML omitted -->
+  <article>
+    <header class="Heading">
+  <h2 class="Heading-title">
+    <a class="Heading-link u-clickable" href="/posts/connect_iphone_to_raspi/" rel="bookmark">Connect an iPhone to a Raspi</a>
+  </h2>
+  
+    <time datetime="2020-01-21T13:10:00&#43;01:00">21 January, 2020</time>
+  
+</header>
+    <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <ul>
 <li><a href="#unlock-your-iphone">Unlock your iPhone</a></li>
@@ -137,49 +105,49 @@
 avoid errors.</p>
 <h2 id="connect-and-login-into-your-raspi">Connect and login into your raspi</h2>
 <p>Existence of an entry &lsquo;Host raspi&rsquo; in ~/.ssh/config is assumed:</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ssh raspi
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ssh raspi
 </code></pre></div><h2 id="update-retrieve-new-lists-of-packages">Update - Retrieve new lists of packages</h2>
 <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get update
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get update
 </code></pre></div><h2 id="upgrade-perform-an-upgrade">Upgrade - Perform an upgrade</h2>
 <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get upgrade
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get upgrade
 </code></pre></div><h2 id="install-the-necessary-packages">Install the necessary packages</h2>
 <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get install libimobiledevice-utils
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get install libimobiledevice-utils
 </code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get install usbmuxd
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get install usbmuxd
 </code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get install ifuse
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get install ifuse
 </code></pre></div><h2 id="connect-the-iphone-with-the-raspi-via-usb">Connect the iPhone with the raspi via USB</h2>
 <h2 id="accept-the-trust-dialog-on-the-iphone">Accept the trust dialog on the iPhone</h2>
-<figure><a href="https://ridaayed.github.io/ox-hugo/2020-03-19_17-06-54_screenshot.png">
+<figure><a href="/ox-hugo/2020-03-19_17-06-54_screenshot.png">
     <img src="Access_iphone_data_on_Raspi_via_USB/2020-03-19_15-40-54_screenshot.png"/> </a>
 </figure>
 
 <h2 id="pair-the-phone">Pair the phone</h2>
 <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">idevicepair pair
-</code></pre></div><div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">SUCCESS: Paired with device 3b9...
-</code></pre></div><div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">ERROR: Please accept the trust dialog on the screen of device 3b9...
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">idevicepair pair
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">SUCCESS: Paired with device 3b9...
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">ERROR: Please accept the trust dialog on the screen of device 3b9...
 , then attempt to pair again.
 </code></pre></div><h2 id="accept-another-trust-dialog-the-on-the-iphone">Accept another trust dialog the on the iPhone</h2>
 <figure>
-    <img src="https://ridaayed.github.io/ox-hugo/2020-03-19_16-50-59_screenshot.png"/> 
+    <img src="/ox-hugo/2020-03-19_16-50-59_screenshot.png"/> 
 </figure>
 
 <h2 id="create-a-mount-folder">Create a mount folder</h2>
 <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo mkdir /mnt/iphone/ --verbose
-</code></pre></div><div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">mkdir: mkdir: created directory &#39;/mnt/iphone/&#39;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo mkdir /mnt/iphone/ --verbose
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">mkdir: mkdir: created directory &#39;/mnt/iphone/&#39;
 </code></pre></div><h2 id="mount-the-iphone">Mount the iPhone</h2>
 <p>Consider storing this command <strong>as a shortcut to your desktop for convenience</strong>:</p>
 <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ifuse /mnt/iphone/
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ifuse /mnt/iphone/
 </code></pre></div><h2 id="approve-success">Approve success</h2>
 <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">tree -d -L <span style="color:#40a070">1</span> /mnt/iphone/
-</code></pre></div><div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">/mnt/iphone/
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">tree -d -L <span style="color:#ae81ff">1</span> /mnt/iphone/
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">/mnt/iphone/
 ├── Books
 ├── CloudAssets
 ├── DCIM
@@ -197,7 +165,7 @@ avoid errors.</p>
 
 14 directories
 </code></pre></div><h2 id="summary-of-all-commands-to-copy-paste">Summary of all commands to copy/paste</h2>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get update
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install libimobiledevice-utils
 sudo apt-get install usbmuxd
@@ -205,7 +173,7 @@ sudo apt-get install ifuse
 idevicepair pair
 sudo mkdir /mnt/iphone/ --verbose
 ifuse /mnt/iphone/
-tree -d -L <span style="color:#40a070">1</span> /mnt/iphone/
+tree -d -L <span style="color:#ae81ff">1</span> /mnt/iphone/
 </code></pre></div><section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
@@ -215,34 +183,25 @@ tree -d -L <span style="color:#40a070">1</span> /mnt/iphone/
 </ol>
 </section>
 
+    
+
+
+  
+
+  
+
+
+
+
+
+    
+  </article>
+
+
       </div>
-
-      <footer>
-        
-
-
-        
-      </footer>
-    </article>
-
-    
-  </section>
-
-      </div>
-
-      <footer class="footer">
-  <section class="container">
-    
-    
-    
-    
-  </section>
-</footer>
-
-    </main>
-
-    
-
-  </body>
+    </div>
+  </main>
+  
+</body>
 
 </html>

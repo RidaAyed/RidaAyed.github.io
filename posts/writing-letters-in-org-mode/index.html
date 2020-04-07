@@ -1,116 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="">
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <meta charset="utf-8">
 
-    <meta name="author" content="Rida Ayed">
-    <meta name="description" content="Some notes">
-    <meta name="keywords" content="blog">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Write a letter in org mode"/>
-<meta name="twitter:description" content="Goals Setup Workflow (Spacemacs)  Goals   Figure 1: Printed sample.pdf
+
+  
+    <meta name="description" content="Goals Setup Workflow (Spacemacs)  Goals   Figure 1: Printed sample.pdf
   In order to get the same printout as in figure 1 above, both includepdf lines starting at line 37 here must be uncommented.
- Use emacs 1org mode Compose a new letter with a few keystrokes Manage letters like e-mails  Setup Change letter meta variables through a lco file The 2koma manual at p.484 displays a nice overview of position possibilities:"/>
-
-    <meta property="og:title" content="Write a letter in org mode" />
-<meta property="og:description" content="Goals Setup Workflow (Spacemacs)  Goals   Figure 1: Printed sample.pdf
-  In order to get the same printout as in figure 1 above, both includepdf lines starting at line 37 here must be uncommented.
- Use emacs 1org mode Compose a new letter with a few keystrokes Manage letters like e-mails  Setup Change letter meta variables through a lco file The 2koma manual at p.484 displays a nice overview of position possibilities:" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://ridaayed.github.io/posts/writing-letters-in-org-mode/" />
-<meta property="article:published_time" content="2019-04-22T20:22:00+02:00" />
-<meta property="article:modified_time" content="2020-03-28T12:57:20+01:00" />
+ Use emacs 1org mode Compose a new letter with a few keystrokes Manage letters like e-mails  Setup Change letter meta variables through a lco file The 2koma manual at p.484 displays a nice overview of position possibilities:">
+  
 
 
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.67.1" />
+  <title>Write a letter in org mode | rida.ayed</title>
+  <link rel="canonical" href="/posts/writing-letters-in-org-mode/">
+
+
+  
+
+
+
+
+
+
+
+
+  
     
-      <base href="https://ridaayed.github.io/posts/writing-letters-in-org-mode/">
-    
-    <title>
-  Write a letter in org mode · rida.ayed
-</title>
+  
+  
+  <link rel="stylesheet" href="/css/base.min.b94428eebe75e333d88818267f7dd5e1598fb5e021bc7219b8b991e1559b3723.css" integrity="sha256-uUQo7r514zPYiBgmf33V4VmPteAhvHIZuLmR4VWbNyM=" crossorigin="anonymous">
 
-    
-      <link rel="canonical" href="https://ridaayed.github.io/posts/writing-letters-in-org-mode/">
-    
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" integrity="sha256-oSrCnRYXvHG31SBifqP2PM1uje7SJUyX0nTwO2RJV54=" crossorigin="anonymous" />
 
-    
+</head>
+
+<body>
+  <nav class="u-background">
+  <div class="u-wrapper">
+    <ul class="Banner">
+      <li class="Banner-item Banner-item--title">
+        <a class="Banner-link u-clickable" href="/">rida.ayed</a>
+      </li>
       
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/posts/">Posts</a>
+        </li>
       
-      <link rel="stylesheet" href="https://ridaayed.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
-    
-
-    
-
-    
-
-    
-      <link rel="stylesheet" href="https://ridaayed.github.io/css/custom.css">
-    
-
-    <link rel="icon" type="image/png" href="https://ridaayed.github.io/img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://ridaayed.github.io/img/favicon-16x16.png" sizes="16x16">
-
-    <meta name="generator" content="Hugo 0.67.1" />
-  </head>
-
-  <body class=" ">
-    <main class="wrapper">
-      <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="https://ridaayed.github.io">
-      rida.ayed
-    </a>
-    <input type="checkbox" id="menu-toggle" />
-    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
-    <ul class="navigation-list">
-      
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://ridaayed.github.io/posts/">Posts</a>
-          </li>
-        
-      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/index.xml">RSS</a>
+        </li>
       
     </ul>
-  </section>
+  </div>
 </nav>
-
-
-      <div class="content">
+  <main>
+    <div class="u-wrapper">
+      <div class="u-padding">
         
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">Write a letter in org mode</h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fas fa-calendar"></i>
-              <time datetime='2019-04-22T20:22:00&#43;02:00'>
-                April 22, 2019
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fas fa-clock"></i>
-              2 minutes read
-            </span>
-          </div>
-          
-          
-        </div>
-      </header>
 
-      <div>
-        <!-- raw HTML omitted -->
+  <article>
+    <header class="Heading">
+  <h2 class="Heading-title">
+    <a class="Heading-link u-clickable" href="/posts/writing-letters-in-org-mode/" rel="bookmark">Write a letter in org mode</a>
+  </h2>
+  
+    <time datetime="2019-04-22T20:22:00&#43;02:00">22 April, 2019</time>
+  
+</header>
+    <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <ul>
 <li><a href="#goals">Goals</a></li>
@@ -121,7 +88,7 @@
 <h2 id="goals">Goals</h2>
 <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 <figure>
-    <img src="https://ridaayed.github.io/ox-hugo/screenshot-11.png"
+    <img src="/ox-hugo/screenshot-11.png"
          alt="Figure 1: Printed sample.pdf"/> <figcaption>
             <p>Figure 1: Printed sample.pdf</p>
         </figcaption>
@@ -139,7 +106,7 @@ lines starting at line 37 <a href="#create-the-yasnippets-template">here</a> mus
 <p>The <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>koma manual at p.484 displays a nice overview of position
 possibilities:</p>
 <figure>
-    <img src="https://ridaayed.github.io/ox-hugo/screenshot-13.png"
+    <img src="/ox-hugo/screenshot-13.png"
          alt="Figure 2: Schematic of the pseudo-lengths for a letter"/> <figcaption>
             <p>Figure 2: Schematic of the pseudo-lengths for a letter</p>
         </figcaption>
@@ -148,66 +115,23 @@ possibilities:</p>
 <p>Custom LCO files must be placed in a directory where LaTeX
 will find them. On GNU/Linux, this defaults to <code>~/texmf/tex/latex</code>.</p>
 <p>Create the folder <code>~/texmf/tex</code></p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mkdir -p ~/texmf/tex
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mkdir -p ~/texmf/tex
 </code></pre></div><p>Create a new file <code>~/texmf/tex/mySN.lco</code> containing these lines:</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#007020;font-weight:bold">\ProvidesFile</span><span style="color:#007020">{</span>mySN.lco<span style="color:#007020">}</span>[2019/04/22 my<span style="color:#007020">_</span>letter-class-option]
-<span style="color:#007020;font-weight:bold">\LoadLetterOption</span><span style="color:#007020">{</span>SN<span style="color:#007020">}</span>
-<span style="color:#007020;font-weight:bold">\let\raggedsignature</span>=<span style="color:#007020;font-weight:bold">\raggedright</span>
-<span style="color:#007020;font-weight:bold">\setplength</span><span style="color:#007020">{</span>toaddrvpos<span style="color:#007020">}{</span>60mm<span style="color:#007020">}</span>
-<span style="color:#007020;font-weight:bold">\setplength</span><span style="color:#007020">{</span>backaddrheight<span style="color:#007020">}{</span>-3mm<span style="color:#007020">}</span>
-<span style="color:#007020;font-weight:bold">\setplength</span><span style="color:#007020">{</span>toaddrheight<span style="color:#007020">}{</span>25.5mm<span style="color:#007020">}</span>
-<span style="color:#007020;font-weight:bold">\usepackage</span><span style="color:#4070a0">[german]</span><span style="color:#007020">{</span>babel<span style="color:#007020">}</span>
-<span style="color:#007020;font-weight:bold">\endinput</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\ProvidesFile</span>{mySN.lco}[2019/04/22 my_letter-class-option]
+<span style="color:#66d9ef">\LoadLetterOption</span>{SN}
+<span style="color:#66d9ef">\let\raggedsignature</span>=<span style="color:#66d9ef">\raggedright</span>
+<span style="color:#66d9ef">\setplength</span>{toaddrvpos}{60mm}
+<span style="color:#66d9ef">\setplength</span>{backaddrheight}{-3mm}
+<span style="color:#66d9ef">\setplength</span>{toaddrheight}{25.5mm}
+<span style="color:#66d9ef">\usepackage</span><span style="color:#a6e22e">[german]</span>{babel}
+<span style="color:#66d9ef">\endinput</span>
 </code></pre></div><p>You can test whether foo.lco is recognized by TeX Live by running the command</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">kpsewhich mySN.lco
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">kpsewhich mySN.lco
 </code></pre></div><p>After adding a file to the TeX Live path you may have to run</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mktexlsr
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mktexlsr
 </code></pre></div><h3 id="create-the-yasnippets-template">Create the yasnippets template</h3>
 <p>Create <em>home/ra</em>.emacs.d/private/snippets/text-mode/exampleLetter containing lines below:</p>
-<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># -*- mode: snippet -*-
+<pre><code class="language-snippet" data-lang="snippet"># -*- mode: snippet -*-
 # name:myExampleLetter
 # key:,ltr
 # --
@@ -245,9 +169,7 @@ will find them. On GNU/Linux, this defaults to <code>~/texmf/tex/latex</code>.</
     % Uncomment line below to include other pdf files
     %\includepdf[pages=-]{/home/ra/Downloads/Map.pdf} %must use absolute path
     %\includepdf[pages=-]{/home/ra/Downloads/OtherMap.pdf} %must use absolute path
-    #+END_EXPORT</code></pre></td></tr></table>
-</div>
-</div>
+    #+END_EXPORT</code></pre>
 <h2 id="workflow--spacemacs">Workflow (Spacemacs)</h2>
 <ol>
 <li>Create a new file hitting <code>SPC f f</code></li>
@@ -257,7 +179,7 @@ will find them. On GNU/Linux, this defaults to <code>~/texmf/tex/latex</code>.</
 <li>Export the pdf hitting <code>, e e k o</code></li>
 </ol>
 <figure>
-    <img src="https://ridaayed.github.io/ox-hugo/screenshot-12.png"/> 
+    <img src="/ox-hugo/screenshot-12.png"/> 
 </figure>
 
 <section class="footnotes" role="doc-endnotes">
@@ -272,34 +194,25 @@ will find them. On GNU/Linux, this defaults to <code>~/texmf/tex/latex</code>.</
 </ol>
 </section>
 
+    
+
+
+  
+
+  
+
+
+
+
+
+    
+  </article>
+
+
       </div>
-
-      <footer>
-        
-
-
-        
-      </footer>
-    </article>
-
-    
-  </section>
-
-      </div>
-
-      <footer class="footer">
-  <section class="container">
-    
-    
-    
-    
-  </section>
-</footer>
-
-    </main>
-
-    
-
-  </body>
+    </div>
+  </main>
+  
+</body>
 
 </html>

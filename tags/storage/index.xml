@@ -1,25 +1,843 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="/xml/base.min.xml" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>storage on rida.ayed</title>
-    <link>https://ridaayed.github.io/tags/storage/</link>
+    <title>storage | rida.ayed</title>
+    <link>/tags/storage/</link>
     <description>Recent content in storage on rida.ayed</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
     <lastBuildDate>Sat, 28 Mar 2020 12:50:00 +0100</lastBuildDate>
-    
-	<atom:link href="https://ridaayed.github.io/tags/storage/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="/tags/storage/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mount a USB drive persistently for all users</title>
-      <link>https://ridaayed.github.io/posts/mount_a_usb_drive_persistently_for_all_users/</link>
+      <link>/posts/mount_a_usb_drive_persistently_for_all_users/</link>
       <pubDate>Sat, 28 Mar 2020 12:50:00 +0100</pubDate>
-      
-      <guid>https://ridaayed.github.io/posts/mount_a_usb_drive_persistently_for_all_users/</guid>
-      <description>Create a mount point List devices Backup &amp;amp; print current fstab Add the device to fstab Change device&amp;rsquo;s permission Test Cleanup Troubleshooting  I need to persistently permit all users read/write access to a USB drive
-Create a mount point mkdir /mnt/usb500 List devices lsblk -o NAME,FSTYPE,LABEL NAME FSTYPE LABEL sda └─sda1 ext4 usb500gb mmcblk0 ├─mmcblk0p1 vfat boot └─mmcblk0p2 ext4 rootfs Backup &amp;amp; print current fstab cp /etc/fstab ~/fstab.bak cat /etc/fstab proc /proc proc defaults 0 0 PARTUUID=45eaad39-01 /boot vfat defaults 0 2 PARTUUID=45eaad39-02 / ext4 defaults,noatime 0 1 Add the device to fstab Hint: nofail do not report errors for this device if it does not exist.</description>
+      <guid>/posts/mount_a_usb_drive_persistently_for_all_users/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#create-a-mount-point&#34;&gt;Create a mount point&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#list-devices&#34;&gt;List devices&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#backup-and-print-current-fstab&#34;&gt;Backup &amp;amp; print current fstab&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#add-the-device-to-fstab&#34;&gt;Add the device to fstab&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#change-device-s-permission&#34;&gt;Change device&amp;rsquo;s permission&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#test&#34;&gt;Test&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#cleanup&#34;&gt;Cleanup&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#troubleshooting&#34;&gt;Troubleshooting&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;I need to persistently permit all users read/write access to a USB drive&lt;/p&gt;
+&lt;h2 id=&#34;create-a-mount-point&#34;&gt;Create a mount point&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;mkdir /mnt/usb500
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;list-devices&#34;&gt;List devices&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;lsblk -o NAME,FSTYPE,LABEL
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;NAME        FSTYPE LABEL
+sda
+└─sda1      ext4   usb500gb
+mmcblk0
+├─mmcblk0p1 vfat   boot
+└─mmcblk0p2 ext4   rootfs
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;backup-and-print-current-fstab&#34;&gt;Backup &amp;amp; print current fstab&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;cp /etc/fstab ~/fstab.bak
+cat /etc/fstab
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;proc            /proc           proc    defaults          0       0
+PARTUUID=45eaad39-01  /boot           vfat    defaults          0       2
+PARTUUID=45eaad39-02  /               ext4    defaults,noatime  0       1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;add-the-device-to-fstab&#34;&gt;Add the device to fstab&lt;/h2&gt;
+&lt;p&gt;Hint: &lt;code&gt;nofail&lt;/code&gt; do not report errors for this device if it does not exist. You
+may boot without the drive.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\n/dev/sda1    /mnt/usb500  ext4   user,rw,nofail&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; /etc/fstab
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;change-device-s-permission&#34;&gt;Change device&amp;rsquo;s permission&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;mount -a
+sudo chmod &lt;span style=&#34;color:#ae81ff&#34;&gt;777&lt;/span&gt; /mnt/usb500/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;test&#34;&gt;Test&lt;/h2&gt;
+&lt;h3 id=&#34;reboot&#34;&gt;Reboot&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo reboot
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;write-into-a-temporary-file&#34;&gt;Write into a temporary file&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;cd /mnt/usb500/
+echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;foo&amp;#39;&lt;/span&gt; &amp;gt; bar.txt
+cat bar.txt
+rm bar.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;foo
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;cleanup&#34;&gt;Cleanup&lt;/h2&gt;
+&lt;p&gt;After you thoroughly tested everything remove leftovers&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;rm ~/fstab.bak
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;troubleshooting&#34;&gt;Troubleshooting&lt;/h2&gt;
+&lt;p&gt;You attached the drive &lt;strong&gt;after booting&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo mount -a
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
-    
+    <item>
+      <title>Backup an iPhone with Linux</title>
+      <link>/posts/backup_iphone_linux/</link>
+      <pubDate>Sat, 21 Mar 2020 20:35:00 +0100</pubDate>
+      <guid>/posts/backup_iphone_linux/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#install-the-necessary-packages--posts-connect-iphone-to-raspi-dot-md&#34;&gt;Install the necessary packages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#find-the-event-iphone-connected&#34;&gt;Find the event &lt;code&gt;iPhone connected&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#catch-the-event-iphone-connected&#34;&gt;Catch the event &lt;code&gt;iPhone connected&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#create-the-trigger-iphone-connected&#34;&gt;Create the trigger &lt;code&gt;iPhone connected&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#create-the-action-backup-iphone&#34;&gt;Create the action &lt;code&gt;Backup iPhone&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#restart-and-reload-all-actors--not-the-iphone-though&#34;&gt;Restart and reload all actors (not the iPhone though)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#monitor-the-backup-process&#34;&gt;Monitor the backup process&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;This is a follow-up on &lt;a href=&#34;/posts/connect_iphone_to_raspi/&#34;&gt;Connect an iPhone to a Raspi&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;install-the-necessary-packages--posts-connect-iphone-to-raspi-dot-md&#34;&gt;&lt;a href=&#34;/posts/connect_iphone_to_raspi/#install-the-necessary-packages&#34;&gt;Install the necessary packages&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;find-the-event-iphone-connected&#34;&gt;Find the event &lt;code&gt;iPhone connected&lt;/code&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Connect your iPhone:&lt;/li&gt;
+&lt;li&gt;Run this script:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;lsusb | grep iPhone
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;Bus 001 Device 007: ID 05ac:12a8 Apple, Inc. iPhone5/5C/5S/6
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;catch-the-event-iphone-connected&#34;&gt;Catch the event &lt;code&gt;iPhone connected&lt;/code&gt;&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Content of /etc/udev/rules.d/99-iphone.rules&lt;/span&gt;
+SUBSYSTEM&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;usb&amp;#34;&lt;/span&gt;, ENV&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;DEVTYPE&lt;span style=&#34;color:#f92672&#34;&gt;}==&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;usb_device&amp;#34;&lt;/span&gt;, ENV&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;PRODUCT&lt;span style=&#34;color:#f92672&#34;&gt;}==&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;5ac/12[9a][0-9a-f]/*&amp;#34;&lt;/span&gt;, ACTION&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;add&amp;#34;&lt;/span&gt;, ENV&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;SYSTEMD_WANTS&lt;span style=&#34;color:#f92672&#34;&gt;}=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;iphone-connect.service&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;create-the-trigger-iphone-connected&#34;&gt;Create the trigger &lt;code&gt;iPhone connected&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Content of /etc/systemd/system/iphone-connect.service&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;Service&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+Type&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;oneshot
+ExecStart&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/bin/sh /home/pi/scripts/backup_iphone.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;create-the-action-backup-iphone&#34;&gt;Create the action &lt;code&gt;Backup iPhone&lt;/code&gt;&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Content of ~/scripts/backup_iphone.sh&lt;/span&gt;
+src&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/mnt/iphone/ &lt;span style=&#34;color:#75715e&#34;&gt;#Must exist in prior&lt;/span&gt;
+dst&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/media/pi/usb500gb &lt;span style=&#34;color:#75715e&#34;&gt;#Must exist in prior&lt;/span&gt;
+log&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/home/pi/backup_iphone.log
+sleep &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;
+ifuse $src &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
+    rsync --verbose --archive --compress --update --log-file&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$log $src $dst
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;restart-and-reload-all-actors--not-the-iphone-though&#34;&gt;Restart and reload all actors (not the iPhone though)&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo udevadm control --reload-rules &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; udevadm trigger
+service udev restart
+systemctl daemon-reload &lt;span style=&#34;color:#75715e&#34;&gt;#THIS one is crucial&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;monitor-the-backup-process&#34;&gt;Monitor the backup process&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;journalctl -f --unit&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;iphone-connect.service --output&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;cat
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Change Firefox&#39;s zoom by script</title>
+      <link>/posts/change_firefox_zoom_by_script/</link>
+      <pubDate>Sat, 14 Mar 2020 16:55:00 +0100</pubDate>
+      <guid>/posts/change_firefox_zoom_by_script/</guid>
+      <description>&lt;p&gt;Each time I change the monitor I have to zoom in or out firefox. Here&amp;rsquo;s how to set it via script:&lt;/p&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;Change_firefox_zoom_by_script/2020-03-17_17-41-10_screenshot.png&#34;
+         alt=&#34;Abbildung 1: Large&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Abbildung 1: Large&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;Change_firefox_zoom_by_script/2020-03-17_17-43-03_screenshot.png&#34;
+         alt=&#34;Abbildung 2: Small&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Abbildung 2: Small&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Locate the appropriate file&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;ls /home/*/.mozilla/firefox/*/prefs.js
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Locate the appropriate parameter&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;grep layout.css.devPixelsPerPx /home/*/.mozilla/firefox/*/prefs.js
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Large screen: Set the zoom&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env bash
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;factor&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;2.5
+&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; grep &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;layout.css.devPixelsPerPx&amp;#39;&lt;/span&gt; /home/*/.mozilla/firefox/*/prefs.js
+&lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
+    sed -i -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;s/^user_pref(\&amp;#34;layout.css.devPixelsPerPx.*&lt;/span&gt;$&lt;span style=&#34;color:#e6db74&#34;&gt;/user_pref(\&amp;#34;layout.css.devPixelsPerPx\&amp;#34;, \&amp;#34;&lt;/span&gt;$factor&lt;span style=&#34;color:#e6db74&#34;&gt;\&amp;#34;);/&amp;#34;&lt;/span&gt; /home/*/.mozilla/firefox/*/prefs.js
+&lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;
+    echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;user_pref(\&amp;#34;layout.css.devPixelsPerPx\&amp;#34;, \&amp;#34;&lt;/span&gt;$factor&lt;span style=&#34;color:#e6db74&#34;&gt;\&amp;#34;);&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; /home/*/.mozilla/firefox/*/prefs.js
+&lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Small screen: Set the zoom&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env bash
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; grep &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;layout.css.devPixelsPerPx&amp;#39;&lt;/span&gt; /home/*/.mozilla/firefox/*/prefs.js
+&lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
+    sed -i -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;s/^user_pref(&amp;#34;layout.css.devPixelsPerPx.*$/user_pref(&amp;#34;layout.css.devPixelsPerPx&amp;#34;, &amp;#34;-1.0&amp;#34;);/&amp;#39;&lt;/span&gt; /home/*/.mozilla/firefox/*/prefs.js
+&lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;
+    echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;user_pref(&amp;#34;layout.css.devPixelsPerPx&amp;#34;, &amp;#34;-1.0&amp;#34;);&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; /home/*/.mozilla/firefox/*/prefs.js
+&lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Make the scripts executable&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo chmod --verbose +x ~/src/scripts/FirefoxZoomIn.sh
+sudo chmod --verbose +x ~/src/scripts/FirefoxZoomOut.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;~/src/scripts/FirefoxZoomIn.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;~/src/scripts/FirefoxZoomOut.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Docking/undocking triggers those scripts, which I&amp;rsquo;m handling with &lt;a href=&#34;https://wiki.archlinux.org/index.php/Xrandr#Automatically%5Fswitch%5Fconfigurations%5Fwith%5Fautorandr&#34;&gt;Autorandr&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Connect an iPhone to a Raspi</title>
+      <link>/posts/connect_iphone_to_raspi/</link>
+      <pubDate>Tue, 21 Jan 2020 13:10:00 +0100</pubDate>
+      <guid>/posts/connect_iphone_to_raspi/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#unlock-your-iphone&#34;&gt;Unlock your iPhone&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#connect-and-login-into-your-raspi&#34;&gt;Connect and login into your raspi&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#update-retrieve-new-lists-of-packages&#34;&gt;Update - Retrieve new lists of packages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#upgrade-perform-an-upgrade&#34;&gt;Upgrade - Perform an upgrade&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#install-the-necessary-packages&#34;&gt;Install the necessary packages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#connect-the-iphone-with-the-raspi-via-usb&#34;&gt;Connect the iPhone with the raspi via USB&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#accept-the-trust-dialog-on-the-iphone&#34;&gt;Accept the trust dialog on the iPhone&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#pair-the-phone&#34;&gt;Pair the phone&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#accept-another-trust-dialog-the-on-the-iphone&#34;&gt;Accept another trust dialog the on the iPhone&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#create-a-mount-folder&#34;&gt;Create a mount folder&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#mount-the-iphone&#34;&gt;Mount the iPhone&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#approve-success&#34;&gt;Approve success&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#summary-of-all-commands-to-copy-paste&#34;&gt;Summary of all commands to copy/paste&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Environment:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;iPhone 5SE iOS 11.0.1 (15A402)&lt;/li&gt;
+&lt;li&gt;Raspberry Pi 3 (4.19.66-v7+)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Most of the steps below are a gist of this blog post&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h2 id=&#34;unlock-your-iphone&#34;&gt;Unlock your iPhone&lt;/h2&gt;
+&lt;p&gt;Unlock/Enter the pass-code (in case you have one) on your iPhone in order to
+avoid errors.&lt;/p&gt;
+&lt;h2 id=&#34;connect-and-login-into-your-raspi&#34;&gt;Connect and login into your raspi&lt;/h2&gt;
+&lt;p&gt;Existence of an entry &amp;lsquo;Host raspi&amp;rsquo; in ~/.ssh/config is assumed:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;ssh raspi
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;update-retrieve-new-lists-of-packages&#34;&gt;Update - Retrieve new lists of packages&lt;/h2&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo apt-get update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;upgrade-perform-an-upgrade&#34;&gt;Upgrade - Perform an upgrade&lt;/h2&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo apt-get upgrade
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;install-the-necessary-packages&#34;&gt;Install the necessary packages&lt;/h2&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo apt-get install libimobiledevice-utils
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo apt-get install usbmuxd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo apt-get install ifuse
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;connect-the-iphone-with-the-raspi-via-usb&#34;&gt;Connect the iPhone with the raspi via USB&lt;/h2&gt;
+&lt;h2 id=&#34;accept-the-trust-dialog-on-the-iphone&#34;&gt;Accept the trust dialog on the iPhone&lt;/h2&gt;
+&lt;figure&gt;&lt;a href=&#34;/ox-hugo/2020-03-19_17-06-54_screenshot.png&#34;&gt;
+    &lt;img src=&#34;Access_iphone_data_on_Raspi_via_USB/2020-03-19_15-40-54_screenshot.png&#34;/&gt; &lt;/a&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;pair-the-phone&#34;&gt;Pair the phone&lt;/h2&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;idevicepair pair
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;SUCCESS: Paired with device 3b9...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;ERROR: Please accept the trust dialog on the screen of device 3b9...
+, then attempt to pair again.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;accept-another-trust-dialog-the-on-the-iphone&#34;&gt;Accept another trust dialog the on the iPhone&lt;/h2&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;/ox-hugo/2020-03-19_16-50-59_screenshot.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;create-a-mount-folder&#34;&gt;Create a mount folder&lt;/h2&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo mkdir /mnt/iphone/ --verbose
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;mkdir: mkdir: created directory &amp;#39;/mnt/iphone/&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;mount-the-iphone&#34;&gt;Mount the iPhone&lt;/h2&gt;
+&lt;p&gt;Consider storing this command &lt;strong&gt;as a shortcut to your desktop for convenience&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;ifuse /mnt/iphone/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;approve-success&#34;&gt;Approve success&lt;/h2&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;tree -d -L &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; /mnt/iphone/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;/mnt/iphone/
+├── Books
+├── CloudAssets
+├── DCIM
+├── Downloads
+├── LoFiCloudAssets
+├── MediaAnalysis
+├── PhotoData
+├── PhotoStreamsData
+├── Photos
+├── PublicStaging
+├── Purchases
+├── Radio
+├── Recordings
+└── iTunes_Control
+
+14 directories
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;summary-of-all-commands-to-copy-paste&#34;&gt;Summary of all commands to copy/paste&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install libimobiledevice-utils
+sudo apt-get install usbmuxd
+sudo apt-get install ifuse
+idevicepair pair
+sudo mkdir /mnt/iphone/ --verbose
+ifuse /mnt/iphone/
+tree -d -L &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; /mnt/iphone/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/justinpearson/Raspberry-Pi-for-iPhone-Backup/blob/master/README.md#4-configure-udev-to-run-the-backup-script-upon-the-phone-plug-in-event&#34;&gt;https://github.com/justinpearson/Raspberry-Pi-for-iPhone-Backup/blob/master/README.md#4-configure-udev-to-run-the-backup-script-upon-the-phone-plug-in-event&lt;/a&gt; &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</description>
+    </item>
+    <item>
+      <title>Setup a Fujitsu ix500 scanner on Linux</title>
+      <link>/posts/setup_fujitsu_ix500_scanner_linux/</link>
+      <pubDate>Fri, 17 Jan 2020 18:27:00 +0100</pubDate>
+      <guid>/posts/setup_fujitsu_ix500_scanner_linux/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#install-package&#34;&gt;Install package&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#approve-the-connection&#34;&gt;Approve the connection&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#get-a-list-of-devices&#34;&gt;Get a list of devices:&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#get-a-list-of-all-device-specific-options&#34;&gt;Get a list of all device specific options:&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#scan-a-test-file&#34;&gt;Scan a test file&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#scan-productively&#34;&gt;Scan productively&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#skipping-empty-pages&#34;&gt;Skipping empty pages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#alias-the-command&#34;&gt;Alias the command&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;install-package&#34;&gt;Install package&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo apt install sane-utils -y
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;approve-the-connection&#34;&gt;Approve the connection&lt;/h2&gt;
+&lt;p&gt;Enable the scanner by opening the scanner&amp;rsquo;s lid&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo sane-find-scanner -q
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;found USB scanner (vendor=0x04c5 [Fujitsu], product=0x132b [ScanSnap iX500]) at libusb:001:007
+found USB scanner (vendor=0x0424, product=0x7800) at libusb:001:005
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;get-a-list-of-devices&#34;&gt;Get a list of devices:&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;scanimage --list-devices
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;device `fujitsu:ScanSnap iX500:10443&amp;#39; is a FUJITSU ScanSnap iX500 scanner
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;get-a-list-of-all-device-specific-options&#34;&gt;Get a list of all device specific options:&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;scanimage --device &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;fujitsu:ScanSnap iX500:10443&amp;#39;&lt;/span&gt; --all-options
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;scan-a-test-file&#34;&gt;Scan a test file&lt;/h2&gt;
+&lt;p&gt;Scan with default settings to a temporary testfile&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;scanimage --format&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;tiff &amp;gt; /tmp/image.tiff
+ls --size --block-size&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;M /tmp/image.tiff
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;5M /tmp/image.tiff
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;scan-productively&#34;&gt;Scan productively&lt;/h2&gt;
+&lt;p&gt;Mind making this script executable using &lt;code&gt;chmod +x&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;16
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;17
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;18
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;19
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;20
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;21
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;22
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;23
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;24
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;25
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;26
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;27
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;28
+&lt;/span&gt;&lt;span style=&#34;display:block;width:100%;background-color:#3c3d38&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;29
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;30
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;31
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;32
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;33
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/bin/bash
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Content of ~/scripts/scan.sh&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; $1 -eq &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
+    OUT_DIR&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/tmp
+&lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;
+    OUT_DIR&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$1
+&lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
+fileNAME&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;scan_&lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;date +%Y-%m-%d-%H%M%S&lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;_
+
+echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;scanning...&amp;#39;&lt;/span&gt;
+scanimage --verbose&lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;          --page-width 221.121&lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;          --page-height 876.695&lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;          -l 0&lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;          -t 0&lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;          -x 221.121&lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;          -y 876.695 &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;          --ald&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;yes &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;          --overscan On &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;          --prepick&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;On &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;          --mode Gray &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;          --resolution &lt;span style=&#34;color:#ae81ff&#34;&gt;300&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;          --source &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;ADF Duplex&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;          --swcrop&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;yes &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;          --buffermode On &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;          --swdespeck &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;          --swdeskew&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;yes &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;display:block;width:100%;background-color:#3c3d38&#34;&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;          --swskip 20% &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;--device &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;fujitsu:ScanSnap iX500:10443&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;         --batch&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$OUT_DIR&lt;span style=&#34;color:#e6db74&#34;&gt;/&lt;/span&gt;$fileNAME&lt;span style=&#34;color:#e6db74&#34;&gt;%03d.tiff&amp;#34;&lt;/span&gt;
+printf &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Scanned document(s) to:\n\
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;           &lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;ls --size --block-size&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;M $OUT_DIR/$fileNAME*&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;scanning...
+Scanned document(s) to:
+           9M /scan_2020-03-22-205607_001.tiff
+9M /scan_2020-03-22-205607_002.tiff
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;skipping-empty-pages&#34;&gt;Skipping empty pages&lt;/h2&gt;
+&lt;p&gt;Pay attention at the highlighted &lt;code&gt;swskip&lt;/code&gt; in the &lt;a href=&#34;#code-snippet--scan-script&#34;&gt;script&lt;/a&gt; above. Lower values e.g. &lt;code&gt;5%&lt;/code&gt; almost
+never skip empty pages. You get two files (double sided document). Higher values e.g. &lt;code&gt;20%&lt;/code&gt; skip
+empty pages. You get one file. &lt;strong&gt;Case-specific testing is recommended.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;scanimage --help | grep swskip --after-context&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;    --swskip 0..100% (in steps of 0.100006) [0]
+        Request driver to discard pages with low percentage of dark pixels
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;alias-the-command&#34;&gt;Alias the command&lt;/h2&gt;
+&lt;p&gt;Add this command to your .profile&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;alias scan&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ssh raspi &amp;#39;/home/pi/scripts/scan.sh /media/pi/usb500gb/scan&amp;#39;&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Take screenshots in emacs org mode with flameshot</title>
+      <link>/posts/screenshots-emacs-org-mode-flameshot/</link>
+      <pubDate>Mon, 29 Apr 2019 15:40:00 +0200</pubDate>
+      <guid>/posts/screenshots-emacs-org-mode-flameshot/</guid>
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;/ox-hugo/out.gif&#34;
+         alt=&#34;Figure 1: Screencast showing flameshot in action&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Figure 1: Screencast showing flameshot in action&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;setup&#34;&gt;Setup&lt;/h2&gt;
+&lt;p&gt;Enable the &lt;code&gt;org&lt;/code&gt; layer in your &lt;code&gt;.spacemacs&lt;/code&gt; &lt;code&gt;dotspacemacs-configuration-layers&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-elisp&#34; data-lang=&#34;elisp&#34;&gt;dotspacemacs-configuration-layers
+&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;(org)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Install flameshot&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo pacman -S flameshot
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Add the line below to your &lt;code&gt;.spacemacs&lt;/code&gt; &lt;code&gt;custom-set-variables&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-elisp&#34; data-lang=&#34;elisp&#34;&gt;(custom-set-variables
+ &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;(org-download-screenshot-method &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;flameshot gui --raw &amp;gt; %s&amp;#34;&lt;/span&gt;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Take your screenshot &lt;code&gt;,&lt;/code&gt; &lt;code&gt;i&lt;/code&gt; &lt;code&gt;s&lt;/code&gt; or &lt;code&gt;M-x org-download-screenshot&lt;/code&gt; in org mode&lt;/li&gt;
+&lt;li&gt;Edit your screenshot on the fly or.. don&amp;rsquo;t&lt;/li&gt;
+&lt;li&gt;Hit &lt;code&gt;RET&lt;/code&gt; to insert your &lt;a href=&#34;#orgbffb615&#34;&gt;screenshot&lt;/a&gt; into your org file&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;/ox-hugo/screenshot-14.png&#34;
+         alt=&#34;Figure 2: A screenshot taken with flameshot in org mode&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Figure 2: A screenshot taken with flameshot in org mode&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+</description>
+    </item>
+    <item>
+      <title>Write a letter in org mode</title>
+      <link>/posts/writing-letters-in-org-mode/</link>
+      <pubDate>Mon, 22 Apr 2019 20:22:00 +0200</pubDate>
+      <guid>/posts/writing-letters-in-org-mode/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#goals&#34;&gt;Goals&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#setup&#34;&gt;Setup&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#workflow--spacemacs&#34;&gt;Workflow (Spacemacs)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;goals&#34;&gt;Goals&lt;/h2&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;/ox-hugo/screenshot-11.png&#34;
+         alt=&#34;Figure 1: Printed sample.pdf&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Figure 1: Printed sample.pdf&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;In order to get the same printout as in figure &lt;a href=&#34;#org8fcfbfc&#34;&gt;1&lt;/a&gt; above, both &lt;code&gt;includepdf&lt;/code&gt;
+lines starting at line 37 &lt;a href=&#34;#create-the-yasnippets-template&#34;&gt;here&lt;/a&gt; must be uncommented.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Use emacs &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;org mode&lt;/li&gt;
+&lt;li&gt;Compose a new letter with a few keystrokes&lt;/li&gt;
+&lt;li&gt;Manage letters like e-mails&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;setup&#34;&gt;Setup&lt;/h2&gt;
+&lt;h3 id=&#34;change-letter-meta-variables-through-a-lco-file&#34;&gt;Change letter meta variables through a lco file&lt;/h3&gt;
+&lt;p&gt;The &lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;koma manual at p.484 displays a nice overview of position
+possibilities:&lt;/p&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;/ox-hugo/screenshot-13.png&#34;
+         alt=&#34;Figure 2: Schematic of the pseudo-lengths for a letter&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Figure 2: Schematic of the pseudo-lengths for a letter&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Custom LCO files must be placed in a directory where LaTeX
+will find them. On GNU/Linux, this defaults to &lt;code&gt;~/texmf/tex/latex&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Create the folder &lt;code&gt;~/texmf/tex&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;mkdir -p ~/texmf/tex
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Create a new file &lt;code&gt;~/texmf/tex/mySN.lco&lt;/code&gt; containing these lines:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-latex&#34; data-lang=&#34;latex&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\ProvidesFile&lt;/span&gt;{mySN.lco}[2019/04/22 my_letter-class-option]
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\LoadLetterOption&lt;/span&gt;{SN}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\let\raggedsignature&lt;/span&gt;=&lt;span style=&#34;color:#66d9ef&#34;&gt;\raggedright&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\setplength&lt;/span&gt;{toaddrvpos}{60mm}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\setplength&lt;/span&gt;{backaddrheight}{-3mm}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\setplength&lt;/span&gt;{toaddrheight}{25.5mm}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[german]&lt;/span&gt;{babel}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\endinput&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can test whether foo.lco is recognized by TeX Live by running the command&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;kpsewhich mySN.lco
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After adding a file to the TeX Live path you may have to run&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;mktexlsr
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;create-the-yasnippets-template&#34;&gt;Create the yasnippets template&lt;/h3&gt;
+&lt;p&gt;Create &lt;em&gt;home/ra&lt;/em&gt;.emacs.d/private/snippets/text-mode/exampleLetter containing lines below:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-snippet&#34; data-lang=&#34;snippet&#34;&gt;# -*- mode: snippet -*-
+# name:myExampleLetter
+# key:,ltr
+# --
+  #+LCO: mySN
+  #+OPTIONS: backaddress:t email:nil
+  #+OPTIONS: after-closing-order:(after_closing ps encl cc)
+  #+OPTIONS: after-letter-order:(after_letter)
+  #+OPTIONS: foldmarks:nil phone:nil place:t special-headings:nil subject:t
+  #+OPTIONS: title-subject:nil url:nil location:t title:nil
+
+  #+LATEX_CLASS: default-koma-letter
+  #+LATEX_HEADER: \setkomavar{signature}{\includegraphics[height=1cm]{/home/ra/Downloads/signature.pdf}\\\\\usekomavar{fromname}}
+  #+LaTeX_HEADER: \usepackage{pdfpages}
+
+  #+AUTHOR: Sender Name
+  #+FROM_ADDRESS: Acmestreet 1, 5555 Footown
+  #+PHONE_NUMBER: 0123456789
+  #+URL: example.org
+  #+EMAIL: foo@bar.com
+  #+TO_ADDRESS: ${1:ReceiverInc}\\\ ${2:JohnDoe}\\\ ${3:SomeStreet}\\\ ${4:ZipTown}\\\Mittelerde
+  #+PLACE: MyTown
+  #+SUBJECT: ${5:MySubject}
+  #+OPENING: ${6:Dear John}
+  #+CLOSING: With best regards
+  ${0:MyText}
+*** PS                                                                   :ps:noexport:
+    PS: I must remove the :noexport: tag to display this line in the exported pdf
+*** CC                                                                   :cc:
+    Jane &amp;amp; Alice
+*** ENCL                                                               :encl:
+    - A map
+    - Another map
+*** Included files                                             :after_letter:
+    #+BEGIN_EXPORT latex
+    % Uncomment line below to include other pdf files
+    %\includepdf[pages=-]{/home/ra/Downloads/Map.pdf} %must use absolute path
+    %\includepdf[pages=-]{/home/ra/Downloads/OtherMap.pdf} %must use absolute path
+    #+END_EXPORT&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;workflow--spacemacs&#34;&gt;Workflow (Spacemacs)&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Create a new file hitting &lt;code&gt;SPC f f&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Enter the filename e.g. sample.org &lt;code&gt;RET&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Expand the &lt;a href=&#34;#create-the-yasnippets-template&#34;&gt;template&lt;/a&gt; we created before hitting &lt;code&gt;,ltr TAB&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Toggle through the fields hitting &lt;code&gt;TAB&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Export the pdf hitting &lt;code&gt;, e e k o&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;/ox-hugo/screenshot-12.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://orgmode.org/worg/exporters/koma-letter-export.html#org1fb055f&#34;&gt;https://orgmode.org/worg/exporters/koma-letter-export.html#org1fb055f&lt;/a&gt; &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;http://texdoc.net/texmf-dist/doc/latex/koma-script/scrguien.pdf&#34;&gt;http://texdoc.net/texmf-dist/doc/latex/koma-script/scrguien.pdf&lt;/a&gt; &lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</description>
+    </item>
+    <item>
+      <title>Blog in org mode with ox-hugo and github pages</title>
+      <link>/posts/howto-ox-hugo-github-pages/</link>
+      <pubDate>Tue, 16 Apr 2019 19:52:00 +0200</pubDate>
+      <guid>/posts/howto-ox-hugo-github-pages/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#setup-ox-hugo&#34;&gt;Setup ox-hugo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#create-a-new-github-repo-via-web-front-end&#34;&gt;Create a new github repo via web front-end&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#clone-the-new-repository&#34;&gt;Clone the new repository&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#setup-hugo-in-our-new-repository&#34;&gt;Setup Hugo in our new repository&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#create-the-new-hugo-site&#34;&gt;Create the new hugo site&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#download-a-theme-and-add-it-as-git-sub-module&#34;&gt;Download a theme and add it as git sub-module&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#create-the-org-content-folder&#34;&gt;Create the org content folder&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#create-a-minimal-org-file-web-page&#34;&gt;Create a minimal org file / web page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#start-the-hugo-server&#34;&gt;Start the hugo server&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#browse-to-our-local-site&#34;&gt;Browse to our local site&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#export-our-org-file-to-hugo&#34;&gt;Export our org file to hugo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#note-how-hugo-immediately-rebuilds-the-site&#34;&gt;Note how hugo immediately rebuilds the site&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#check-the-browser&#34;&gt;Check the browser&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#recheck-what-has-been-created&#34;&gt;Recheck what has been created&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#publish-to-github-pages&#34;&gt;Publish to Github pages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#visit-https-ridaayed-dot-github-dot-io&#34;&gt;Visit https://RidaAyed.github.io&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#what-about-speed&#34;&gt;What about speed?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#using-prodigy-for-hugo-auto-build-on-saving-the-org-file&#34;&gt;Using prodigy for hugo auto build on saving the org file&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;setup-ox-hugo&#34;&gt;Setup ox-hugo&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://ox-hugo.scripter.co/doc/usage/&#34;&gt;https://ox-hugo.scripter.co/doc/usage/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Add these lines to &lt;code&gt;.spacemacs&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-elisp&#34; data-lang=&#34;elisp&#34;&gt;dotspacemacs-additional-packages &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;(
+                                   ox-hugo)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-elisp&#34; data-lang=&#34;elisp&#34;&gt;(defun dotspacemacs/user-config ()
+  (use-package ox-hugo
+    :ensure &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;          &lt;span style=&#34;color:#75715e&#34;&gt;;Auto-install the package from Melpa (optional)&lt;/span&gt;
+    :after ox))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;create-a-new-github-repo-via-web-front-end&#34;&gt;Create a new github repo via web front-end&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Login to &lt;a href=&#34;https://github.com/new&#34;&gt;https://github.com/new&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Enter RidaAyed.github.io&lt;/li&gt;
+&lt;li&gt;Leave other fields&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;clone-the-new-repository&#34;&gt;Clone the new repository&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;m-x magit-clone&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;mailto:git@github.com&#34;&gt;git@github.com&lt;/a&gt;:RidaAyed/RidaAyed.github.io.git&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;RET&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;setup-hugo-in-our-new-repository&#34;&gt;Setup Hugo in our new repository&lt;/h2&gt;
+&lt;h2 id=&#34;create-the-new-hugo-site&#34;&gt;Create the new hugo site&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.kengrimes.com/ox-hugo-tutorial/&#34;&gt;https://www.kengrimes.com/ox-hugo-tutorial/&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;hugo new site --force /home/ra/RidaAyed.github.io
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;download-a-theme-and-add-it-as-git-sub-module&#34;&gt;Download a theme and add it as git sub-module&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://gohugo.io/getting-started/quick-start/#step-3-add-a-theme&#34;&gt;https://gohugo.io/getting-started/quick-start/#step-3-add-a-theme&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;cd /home/ra/RidaAyed.github.io
+git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Check our current config.toml&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;cat /home/ra/src/RidaAyed.github.io/config.toml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Add the Ananke theme to our config.toml&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;cd /home/ra/RidaAyed.github.io
+echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;theme = &amp;#34;ananke&amp;#34;&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; config.toml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Recheck our current config.toml&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;cat /home/ra/src/RidaAyed.github.io/config.toml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;create-the-org-content-folder&#34;&gt;Create the org content folder&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;cd /home/ra/RidaAyed.github.io
+mkdir content-org
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;create-a-minimal-org-file-web-page&#34;&gt;Create a minimal &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; org file / web page&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;#+hugo_base_dir:&lt;/code&gt; must be followed by two dots &lt;code&gt;..&lt;/code&gt; since our file resides in the subfolder &lt;code&gt;org-content&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;display:block;width:100%;background-color:#3c3d38&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;6
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-org&#34; data-lang=&#34;org&#34;&gt;&lt;span style=&#34;display:block;width:100%;background-color:#3c3d38&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#+hugo_base_dir&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;: ..&lt;/span&gt;
+&lt;/span&gt;
+*&lt;span style=&#34;font-weight:bold&#34;&gt; My post&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;:PROPERTIES:
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;:EXPORT_FILE_NAME: my-post
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;:END:&lt;/span&gt;
+This gets created in &lt;span style=&#34;color:#a6e22e&#34;&gt;~&amp;lt;HUGO_BASE_DIR&amp;gt;/content/posts/~&lt;/span&gt;.&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;start-the-hugo-server&#34;&gt;Start the hugo server&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;cd /home/ra/RidaAyed.github.io
+hugo server -D --navigateToChanged
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;figure&gt;
+    &lt;img src=&#34;/ox-hugo/screenshot-02.png&#34;
+         alt=&#34;Figure 1: Screenshot - $ hugo&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Figure 1: Screenshot - $ hugo&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;browse-to-our-local-site&#34;&gt;Browse to our local site&lt;/h2&gt;
+&lt;p&gt;Visit &lt;a href=&#34;http://localhost:1313/&#34;&gt;http://localhost:1313/&lt;/a&gt;&lt;/p&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;/ox-hugo/screenshot-03.png&#34;
+         alt=&#34;Figure 2: Screenshot - localhost&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Figure 2: Screenshot - localhost&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;export-our-org-file-to-hugo&#34;&gt;Export our org file to hugo&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;M-x org-export-dispatch&lt;/code&gt;&lt;/p&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;/ox-hugo/screenshot-09.png&#34;
+         alt=&#34;Figure 3: Screenshot - org-export-dispatch&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Figure 3: Screenshot - org-export-dispatch&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;note-how-hugo-immediately-rebuilds-the-site&#34;&gt;Note how hugo immediately rebuilds the site&lt;/h2&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;/ox-hugo/screenshot-05.png&#34;
+         alt=&#34;Figure 4: Screenshot - Hugo instant rebuilding changes&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Figure 4: Screenshot - Hugo instant rebuilding changes&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Remark: The second change was due to adding the second dot as mentioned here&lt;/p&gt;
+&lt;h2 id=&#34;check-the-browser&#34;&gt;Check the browser&lt;/h2&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;/ox-hugo/screenshot-04.png&#34;
+         alt=&#34;Figure 5: Screenshot - Revisiting localhost&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Figure 5: Screenshot - Revisiting localhost&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;recheck-what-has-been-created&#34;&gt;Recheck what has been created&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;tree /home/ra/RidaAyed.github.io -D -L &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;/home/ra/RidaAyed.github.io
+├── [Apr 14 15:52]  archetypes
+│   └── [Apr 14 15:52]  default.md
+├── [Apr 16 19:04]  config.toml
+├── [Apr 14 17:10]  content
+│   └── [Apr 16 19:11]  posts
+├── [Apr 16 19:11]  content-org
+│   ├── [Apr 16 19:11]  blog.org
+│   ├── [Apr 15 20:42]  images
+│   └── [Apr 16 19:04]  sample.org
+├── [Apr 14 15:52]  data
+├── [Apr 16 19:04]  deploy.sh
+├── [Apr 14 15:52]  layouts
+├── [Apr 16 18:30]  public
+├── [Apr 14 16:27]  resources
+│   └── [Apr 14 16:27]  _gen
+├── [Apr 14 23:29]  static
+│   └── [Apr 15 20:42]  ox-hugo
+└── [Apr 16 19:13]  themes
+    ├── [Apr 14 15:59]  ananke
+    └── [Apr 15 21:20]  hugo-coder
+
+15 directories, 5 files
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;publish-to-github-pages&#34;&gt;Publish to Github pages&lt;/h2&gt;
+&lt;p&gt;In case you followed
+&lt;a href=&#34;https://gohugo.io/hosting-and-deployment/hosting-on-github/#step-by-step-instructions&#34;&gt;https://gohugo.io/hosting-and-deployment/hosting-on-github/#step-by-step-instructions&lt;/a&gt;.
+I missed the &lt;code&gt;/public&lt;/code&gt; folder from step 4.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The &lt;code&gt;public&lt;/code&gt; folder will not be created&lt;/strong&gt;, if &lt;code&gt;$ hugo&lt;/code&gt; is executed with the
+&lt;code&gt;server&lt;/code&gt; option. Simply run &lt;code&gt;$ hugo&lt;/code&gt; as shown at line 2:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;cd /home/ra/RidaAyed.github.io
+hugo&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Following the next step from the step by step instruction&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;cd /home/ra/RidaAyed.github.io
+git submodule add -b master git@github.com:RidaAyed/RidaAyed.github.io.git public
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;By &lt;strong&gt;not following the step-by-step instructions&lt;/strong&gt; whom propose creating &lt;strong&gt;two&lt;/strong&gt;
+repositories results in&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;Cloning into &amp;#39;/home/ra/src/RidaAyed.github.io/public&amp;#39;...
+warning: You appear to have cloned an empty repository.
+fatal: &amp;#39;origin/master&amp;#39; is not a commit and a branch &amp;#39;master&amp;#39; cannot be created from it
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Let&amp;rsquo;s create another git branch&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;cd /home/ra/RidaAyed.github.io
+git checkout -b source
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Trying again&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;cd /home/ra/RidaAyed.github.io
+git submodule add -b master git@github.com:RidaAyed/RidaAyed.github.io.git public
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Better&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;Adding existing repo at &amp;#39;RidaAyed.github.io/public&amp;#39; to the index
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Create a script &lt;code&gt;deploy.sh&lt;/code&gt; to deploy and publish to github&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;echo -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\033[0;32mDeploying updates to GitHub...\033[0m&amp;#34;&lt;/span&gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Build the project.&lt;/span&gt;
+hugo &lt;span style=&#34;color:#75715e&#34;&gt;# if using a theme, replace with `hugo -t &amp;lt;YOURTHEME&amp;gt;`&lt;/span&gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Go To Public folder&lt;/span&gt;
+cd public
+&lt;span style=&#34;color:#75715e&#34;&gt;# Add changes to git.&lt;/span&gt;
+git add .
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Commit changes.&lt;/span&gt;
+msg&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;rebuilding site `date`&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; $# -eq &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt; msg&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$1&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
+git commit -m &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$msg&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Push source and build repos.&lt;/span&gt;
+git push origin master
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Come Back up to the Project Root&lt;/span&gt;
+cd ..
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo chmod +x /home/ra/src/RidaAyed.github.io/deploy.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;cd /home/ra/RidaAyed.github.io
+./deploy.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;visit-https-ridaayed-dot-github-dot-io&#34;&gt;Visit &lt;a href=&#34;https://ridaayed.github.io&#34;&gt;https://ridaayed.github.io&lt;/a&gt;&lt;/h2&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;/ox-hugo/screenshot-07.png&#34;
+         alt=&#34;Figure 6: Screenshot - https://ridaayed.github.io&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Figure 6: Screenshot - &lt;a href=&#34;https://ridaayed.github.io&#34;&gt;https://ridaayed.github.io&lt;/a&gt;&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;what-about-speed&#34;&gt;What about speed?&lt;/h2&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;/ox-hugo/screenshot-08.png&#34;
+         alt=&#34;Figure 7: Screenshot - of PageSpeedInsights&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Figure 7: Screenshot - of PageSpeedInsights&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;using-prodigy-for-hugo-auto-build-on-saving-the-org-file&#34;&gt;Using prodigy for hugo auto build on saving the org file&lt;/h2&gt;
+&lt;p&gt;Since you&amp;rsquo;re lazy and event don&amp;rsquo;t want to bother to &lt;a href=&#34;#start-the-hugo-server&#34;&gt;Start the hugo server&lt;/a&gt;
+, you&amp;rsquo;ll delegate this to prodigy:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Add the &lt;code&gt;prodigy&lt;/code&gt; &lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;layer&lt;/li&gt;
+&lt;li&gt;Add this section at the end of &lt;code&gt;.spacemacs&lt;/code&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-elisp&#34; data-lang=&#34;elisp&#34;&gt;(prodigy-define-service
+ :name &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hugo Personal Blog&amp;#34;&lt;/span&gt;
+ :command &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/usr/bin/hugo&amp;#34;&lt;/span&gt;
+ :args &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;server&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-D&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--navigateToChanged&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-t&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;hugo-coder&amp;#34;&lt;/span&gt;)
+ :cwd &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;~/RidaAyed.github.io&amp;#34;&lt;/span&gt;
+ :tags &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;(personal)
+ :stop-signal &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;sigkill&lt;/span&gt;
+ :kill-process-buffer-on-stop &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Start prodigy to take over hugo &lt;code&gt;SPC a S r&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;/ox-hugo/out-4.gif&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://ox-hugo.scripter.co/doc/hugo-section/&#34;&gt;https://ox-hugo.scripter.co/doc/hugo-section/&lt;/a&gt; &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/syl20bnr/spacemacs/tree/master/layers/%2Btools/prodigy&#34;&gt;https://github.com/syl20bnr/spacemacs/tree/master/layers/%2Btools/prodigy&lt;/a&gt; &lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</description>
+    </item>
   </channel>
 </rss>
