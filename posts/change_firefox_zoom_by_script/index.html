@@ -24,8 +24,8 @@ grep layout.css.devPixelsPerPx /home/*/.mozilla/firefox/*/prefs.js Large screen:
 
 
 
-<meta name="generator" content="Hugo 0.67.1" />
-  <title>Change Firefox&#39;s zoom by script | rida.ayed</title>
+<meta name="generator" content="Hugo 0.68.3" />
+  <title>rida.ayed</title>
   <link rel="canonical" href="/posts/change_firefox_zoom_by_script/">
 
 
@@ -75,7 +75,7 @@ grep layout.css.devPixelsPerPx /home/*/.mozilla/firefox/*/prefs.js Large screen:
   <article>
     <header class="Heading">
   <h2 class="Heading-title">
-    <a class="Heading-link u-clickable" href="/posts/change_firefox_zoom_by_script/" rel="bookmark">Change Firefox&#39;s zoom by script</a>
+    <a class="Heading-link u-clickable" href="/posts/change_firefox_zoom_by_script/" rel="bookmark"></a>
   </h2>
   
     <time datetime="2020-03-14T16:55:00&#43;01:00">14 March, 2020</time>
@@ -83,14 +83,14 @@ grep layout.css.devPixelsPerPx /home/*/.mozilla/firefox/*/prefs.js Large screen:
 </header>
     <p>Each time I change the monitor I have to zoom in or out firefox. Here&rsquo;s how to set it via script:</p>
 <figure>
-    <img src="Change_firefox_zoom_by_script/2020-03-17_17-41-10_screenshot.png"
+    <img src="/ox-hugo/2020-03-17_17-41-10_screenshot.png"
          alt="Abbildung 1: Large"/> <figcaption>
             <p>Abbildung 1: Large</p>
         </figcaption>
 </figure>
 
 <figure>
-    <img src="Change_firefox_zoom_by_script/2020-03-17_17-43-03_screenshot.png"
+    <img src="/ox-hugo/2020-03-17_17-43-03_screenshot.png"
          alt="Abbildung 2: Small"/> <figcaption>
             <p>Abbildung 2: Small</p>
         </figcaption>
@@ -111,11 +111,12 @@ grep layout.css.devPixelsPerPx /home/*/.mozilla/firefox/*/prefs.js Large screen:
 <span style="color:#66d9ef">fi</span>
 </code></pre></div><p>Small screen: Set the zoom</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/usr/bin/env bash
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> grep <span style="color:#e6db74">&#39;layout.css.devPixelsPerPx&#39;</span> /home/*/.mozilla/firefox/*/prefs.js
+</span><span style="color:#75715e"></span>factor<span style="color:#f92672">=</span>1.0
+<span style="color:#66d9ef">if</span> grep <span style="color:#e6db74">&#39;layout.css.devPixelsPerPx&#39;</span> /home/*/.mozilla/firefox/*/prefs.js
 <span style="color:#66d9ef">then</span>
-    sed -i -e <span style="color:#e6db74">&#39;s/^user_pref(&#34;layout.css.devPixelsPerPx.*$/user_pref(&#34;layout.css.devPixelsPerPx&#34;, &#34;-1.0&#34;);/&#39;</span> /home/*/.mozilla/firefox/*/prefs.js
+    sed -i -e <span style="color:#e6db74">&#34;s/^user_pref(\&#34;layout.css.devPixelsPerPx.*</span>$<span style="color:#e6db74">/user_pref(\&#34;layout.css.devPixelsPerPx\&#34;, \&#34;</span>$factor<span style="color:#e6db74">\&#34;);/&#34;</span> /home/*/.mozilla/firefox/*/prefs.js
 <span style="color:#66d9ef">else</span>
-    echo <span style="color:#e6db74">&#39;user_pref(&#34;layout.css.devPixelsPerPx&#34;, &#34;-1.0&#34;);&#39;</span> &gt;&gt; /home/*/.mozilla/firefox/*/prefs.js
+    echo <span style="color:#e6db74">&#34;user_pref(\&#34;layout.css.devPixelsPerPx\&#34;, \&#34;</span>$factor<span style="color:#e6db74">\&#34;);&#34;</span> &gt;&gt; /home/*/.mozilla/firefox/*/prefs.js
 <span style="color:#66d9ef">fi</span>
 </code></pre></div><p>Make the scripts executable</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo chmod --verbose +x ~/src/scripts/FirefoxZoomIn.sh
