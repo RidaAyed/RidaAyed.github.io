@@ -120,22 +120,22 @@ systemctl daemon-reload &lt;span style=&#34;color:#75715e&#34;&gt;#THIS one is c
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     <item>
-      <title></title>
+      <title>Change Firefox&#39;s zoom by script</title>
       <link>/posts/change_firefox_zoom_by_script/</link>
       <pubDate>Sat, 14 Mar 2020 16:55:00 +0100</pubDate>
       <guid>/posts/change_firefox_zoom_by_script/</guid>
       <description>&lt;p&gt;Each time I change the monitor I have to zoom in or out firefox. Here&amp;rsquo;s how to set it via script:&lt;/p&gt;
 &lt;figure&gt;
     &lt;img src=&#34;/ox-hugo/2020-03-17_17-41-10_screenshot.png&#34;
-         alt=&#34;Abbildung 1: Large&#34;/&gt; &lt;figcaption&gt;
-            &lt;p&gt;Abbildung 1: Large&lt;/p&gt;
+         alt=&#34;Figure 1: Large&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Figure 1: Large&lt;/p&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;figure&gt;
     &lt;img src=&#34;/ox-hugo/2020-03-17_17-43-03_screenshot.png&#34;
-         alt=&#34;Abbildung 2: Small&#34;/&gt; &lt;figcaption&gt;
-            &lt;p&gt;Abbildung 2: Small&lt;/p&gt;
+         alt=&#34;Figure 2: Small&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Figure 2: Small&lt;/p&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -571,7 +571,7 @@ will find them. On GNU/Linux, this defaults to &lt;code&gt;~/texmf/tex/latex&lt;
 </description>
     </item>
     <item>
-      <title></title>
+      <title>Blog in org mode with ox-hugo and github pages</title>
       <link>/posts/howto-ox-hugo-github-pages/</link>
       <pubDate>Tue, 16 Apr 2019 19:52:00 +0200</pubDate>
       <guid>/posts/howto-ox-hugo-github-pages/</guid>
@@ -665,8 +665,8 @@ This gets created in &lt;span style=&#34;color:#a6e22e&#34;&gt;~&amp;lt;HUGO_BAS
 hugo server -D --navigateToChanged
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;figure&gt;
     &lt;img src=&#34;/ox-hugo/screenshot-02.png&#34;
-         alt=&#34;Abbildung 1: Screenshot - $ hugo&#34;/&gt; &lt;figcaption&gt;
-            &lt;p&gt;Abbildung 1: Screenshot - $ hugo&lt;/p&gt;
+         alt=&#34;Figure 1: Screenshot - $ hugo&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Figure 1: Screenshot - $ hugo&lt;/p&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -674,8 +674,8 @@ hugo server -D --navigateToChanged
 &lt;p&gt;Visit &lt;a href=&#34;http://localhost:1313/&#34;&gt;http://localhost:1313/&lt;/a&gt;&lt;/p&gt;
 &lt;figure&gt;
     &lt;img src=&#34;/ox-hugo/screenshot-03.png&#34;
-         alt=&#34;Abbildung 2: Screenshot - localhost&#34;/&gt; &lt;figcaption&gt;
-            &lt;p&gt;Abbildung 2: Screenshot - localhost&lt;/p&gt;
+         alt=&#34;Figure 2: Screenshot - localhost&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Figure 2: Screenshot - localhost&lt;/p&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -683,16 +683,16 @@ hugo server -D --navigateToChanged
 &lt;p&gt;&lt;code&gt;M-x org-export-dispatch&lt;/code&gt;&lt;/p&gt;
 &lt;figure&gt;
     &lt;img src=&#34;/ox-hugo/screenshot-09.png&#34;
-         alt=&#34;Abbildung 3: Screenshot - org-export-dispatch&#34;/&gt; &lt;figcaption&gt;
-            &lt;p&gt;Abbildung 3: Screenshot - org-export-dispatch&lt;/p&gt;
+         alt=&#34;Figure 3: Screenshot - org-export-dispatch&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Figure 3: Screenshot - org-export-dispatch&lt;/p&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;h2 id=&#34;note-how-hugo-immediately-rebuilds-the-site&#34;&gt;Note how hugo immediately rebuilds the site&lt;/h2&gt;
 &lt;figure&gt;
     &lt;img src=&#34;/ox-hugo/screenshot-05.png&#34;
-         alt=&#34;Abbildung 4: Screenshot - Hugo instant rebuilding changes&#34;/&gt; &lt;figcaption&gt;
-            &lt;p&gt;Abbildung 4: Screenshot - Hugo instant rebuilding changes&lt;/p&gt;
+         alt=&#34;Figure 4: Screenshot - Hugo instant rebuilding changes&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Figure 4: Screenshot - Hugo instant rebuilding changes&lt;/p&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -700,8 +700,8 @@ hugo server -D --navigateToChanged
 &lt;h2 id=&#34;check-the-browser&#34;&gt;Check the browser&lt;/h2&gt;
 &lt;figure&gt;
     &lt;img src=&#34;/ox-hugo/screenshot-04.png&#34;
-         alt=&#34;Abbildung 5: Screenshot - Revisiting localhost&#34;/&gt; &lt;figcaption&gt;
-            &lt;p&gt;Abbildung 5: Screenshot - Revisiting localhost&lt;/p&gt;
+         alt=&#34;Figure 5: Screenshot - Revisiting localhost&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Figure 5: Screenshot - Revisiting localhost&lt;/p&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -791,16 +791,16 @@ cd ..
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;visit-https-ridaayed-dot-github-dot-io&#34;&gt;Visit &lt;a href=&#34;https://ridaayed.github.io&#34;&gt;https://ridaayed.github.io&lt;/a&gt;&lt;/h2&gt;
 &lt;figure&gt;
     &lt;img src=&#34;/ox-hugo/screenshot-07.png&#34;
-         alt=&#34;Abbildung 6: Screenshot - https://ridaayed.github.io&#34;/&gt; &lt;figcaption&gt;
-            &lt;p&gt;Abbildung 6: Screenshot - &lt;a href=&#34;https://ridaayed.github.io&#34;&gt;https://ridaayed.github.io&lt;/a&gt;&lt;/p&gt;
+         alt=&#34;Figure 6: Screenshot - https://ridaayed.github.io&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Figure 6: Screenshot - &lt;a href=&#34;https://ridaayed.github.io&#34;&gt;https://ridaayed.github.io&lt;/a&gt;&lt;/p&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;h2 id=&#34;what-about-speed&#34;&gt;What about speed?&lt;/h2&gt;
 &lt;figure&gt;
     &lt;img src=&#34;/ox-hugo/screenshot-08.png&#34;
-         alt=&#34;Abbildung 7: Screenshot - of PageSpeedInsights&#34;/&gt; &lt;figcaption&gt;
-            &lt;p&gt;Abbildung 7: Screenshot - of PageSpeedInsights&lt;/p&gt;
+         alt=&#34;Figure 7: Screenshot - of PageSpeedInsights&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Figure 7: Screenshot - of PageSpeedInsights&lt;/p&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
 
