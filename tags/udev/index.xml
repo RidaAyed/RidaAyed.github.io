@@ -9,6 +9,138 @@
     <lastBuildDate>Sat, 21 Mar 2020 20:35:00 +0100</lastBuildDate>
     <atom:link href="/tags/udev/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Test offline and fast with python pytest</title>
+      <link>/posts/test_offline_and_fast_with_python_pytest/</link>
+      <pubDate>Sat, 04 Apr 2020 11:03:00 +0200</pubDate>
+      <guid>/posts/test_offline_and_fast_with_python_pytest/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#motivation&#34;&gt;Motivation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#requirements&#34;&gt;Requirements&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#create-the-test&#34;&gt;Create the test&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#run-the-test&#34;&gt;Run the test&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#check-folders-and-files&#34;&gt;Check folders and files&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#go-offline&#34;&gt;Go offline&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#run-the-test-again-offline&#34;&gt;Run the test again - offline&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#go-back-online&#34;&gt;Go back online&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#conclusion&#34;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;While testing code against online sources like websites or APIs I often find
+myself waiting for their responses. Furthermore it feels strange to knock on anyones
+door every couple of seconds just to test what I&amp;rsquo;m processing locally anyway.&lt;/p&gt;
+&lt;p&gt;A solution for this issues comes in the form of &lt;a href=&#34;https://vcrpy.readthedocs.io/&#34;&gt;vcrpy&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Vcrpy frees you from the burden of waiting or even to be online at all. Responses are stored locally in the form of yaml files called cassettes.&lt;/p&gt;
+&lt;p&gt;In the following post I&amp;rsquo;ll test against Migros&amp;rsquo; mobile plan named M-Budget. Migros is among Switzerland&amp;rsquo;s largest wholesale retailers.&lt;/p&gt;
+&lt;p&gt;The test consists of asserting a word&amp;rsquo;s appearance on Migros&amp;rsquo; website.&lt;/p&gt;
+&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;/h2&gt;
+&lt;p&gt;Python&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;python --version
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;Python 3.8.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Module&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;pip install --user pytest
+pip install --user pytest-vcr
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;create-the-test&#34;&gt;Create the test&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
+&lt;/span&gt;&lt;span style=&#34;display:block;width:100%;background-color:#3c3d38&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
+&lt;/span&gt;&lt;span style=&#34;display:block;width:100%;background-color:#3c3d38&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# content of ~/tmp/vhs/test_mbudget.py&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; os
+&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; urllib.request
+&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; pytest
+
+
+&lt;span style=&#34;color:#a6e22e&#34;&gt;@pytest.fixture&lt;/span&gt;(scope&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;module&amp;#39;&lt;/span&gt;)
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;vcr_cassette_dir&lt;/span&gt;(request):
+    &lt;span style=&#34;color:#75715e&#34;&gt;# Put all cassettes in ~/tmp/vhs/{module}/{test}.yaml&lt;/span&gt;
+&lt;span style=&#34;display:block;width:100%;background-color:#3c3d38&#34;&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; os&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;path&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;join(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;/home/ra/tmp/vhs&amp;#39;&lt;/span&gt;, request&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;module&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;__name__)
+&lt;/span&gt;
+&lt;span style=&#34;color:#a6e22e&#34;&gt;@pytest.mark.vcr&lt;/span&gt;()
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;test_mbudget&lt;/span&gt;():
+    response &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; urllib&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;request&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;urlopen(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;https://selfcare.m-budget.migros.ch/eCare/de/users/sign_in&amp;#39;&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;read()
+&lt;span style=&#34;display:block;width:100%;background-color:#3c3d38&#34;&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;assert&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;csrf-token&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; response&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Line 10 says we want our cassetes saved in &lt;em&gt;home/ra/tmp/vhs/test_mbudget&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Line 15 asserts the appearance of the word &amp;lsquo;csrf-token&amp;rsquo; in the requested website&amp;rsquo;s source&lt;/p&gt;
+&lt;h2 id=&#34;run-the-test&#34;&gt;Run the test&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;pytest ~/tmp/vhs/test_mbudget.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;============================= test session starts ==============================
+platform linux -- Python 3.8.1, pytest-5.3.5, py-1.8.1, pluggy-0.13.1
+rootdir: /home/ra
+plugins: vcr-1.0.2, pycharm-0.5.0
+collected 1 item
+
+../tmp/vhs/test_mbudget.py .                                             [100%]
+
+============================== 1 passed in 11.40s ==============================
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Note the time the test needed to pass: &lt;strong&gt;11.40s&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;check-folders-and-files&#34;&gt;Check folders and files&lt;/h2&gt;
+&lt;h3 id=&#34;check-the-newly-created-cassettes-folder&#34;&gt;Check the newly created cassettes folder&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;tree ~/tmp/vhs/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;/home/ra/tmp/vhs/
+├── __pycache__
+│   └── test_mbudget.cpython-38-pytest-5.3.5.pyc
+├── test_mbudget
+│   └── test_mbudget.yaml
+└── test_mbudget.py
+
+2 directories, 3 files
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;check-the-created-file&#34;&gt;Check the created file&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;cat ~/tmp/vhs/test_mbudget/test_mbudget.yaml | grep &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;csrf-token&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;/&amp;gt;\n&amp;lt;meta name=\&amp;#34;csrf-token\&amp;#34; content=\&amp;#34;wtwue7j8wcWPZEw2iI3aJtohGxfN9iSMVlGdbf4kUyT31iupUO2EyJ2i/aZA8z+LHclUsYBbH+HTrScrIaxGyg==\&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;go-offline&#34;&gt;Go offline&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s disable our network connection&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo ip link set wlp3s0 down
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;run-the-test-again-offline&#34;&gt;Run the test again - offline&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;pytest ~/tmp/vhs/test_mbudget.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;============================= test session starts ==============================
+platform linux -- Python 3.8.1, pytest-5.3.5, py-1.8.1, pluggy-0.13.1
+rootdir: /home/ra
+plugins: vcr-1.0.2, pycharm-0.5.0
+collected 1 item
+
+../tmp/vhs/test_mbudget.py .                                             [100%]
+
+============================== 1 passed in 0.05s ===============================
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Note how much faster &lt;strong&gt;(0.05s)&lt;/strong&gt; the test ran and we&amp;rsquo;re &lt;code&gt;offline&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;go-back-online&#34;&gt;Go back online&lt;/h2&gt;
+&lt;p&gt;Mind to re-enable your network connection&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo ip link set wlp3s0 up
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;We were able to reduce waiting from 11 seconds to 0.5 seconds (you&amp;rsquo;re already
+doing the ratio math in your head, right?). Furthermore we&amp;rsquo;re able to
+continue our development offline and aren&amp;rsquo;t bothering anyone with countless
+requests.&lt;/p&gt;
+&lt;p&gt;Or simply quoting vcrpy&amp;rsquo;s unique selling propositions:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;The ability to work offline&lt;/li&gt;
+&lt;li&gt;Completely deterministic tests&lt;/li&gt;
+&lt;li&gt;Increased test execution speed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    <item>
       <title>Mount a USB drive persistently for all users</title>
       <link>/posts/mount_a_usb_drive_persistently_for_all_users/</link>
       <pubDate>Sat, 28 Mar 2020 12:50:00 +0100</pubDate>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  
+    <meta name="description" content="Motivation Requirements Create the test Run the test Check folders and files Go offline Run the test again - offline Go back online Conclusion  Motivation While testing code against online sources like websites or APIs I often find myself waiting for their responses. Furthermore it feels strange to knock on anyones door every couple of seconds just to test what I&rsquo;m processing locally anyway.
+A solution for this issues comes in the form of vcrpy.">
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.73.0" />
+  <title>Test offline and fast with python pytest | rida.ayed</title>
+  <link rel="canonical" href="/posts/test_offline_and_fast_with_python_pytest/">
+
+
+  
+
+
+
+
+
+
+
+
+  
+    
+  
+  
+  <link rel="stylesheet" href="/css/base.min.b94428eebe75e333d88818267f7dd5e1598fb5e021bc7219b8b991e1559b3723.css" integrity="sha256-uUQo7r514zPYiBgmf33V4VmPteAhvHIZuLmR4VWbNyM=" crossorigin="anonymous">
+
+
+
+</head>
+
+<body>
+  <nav class="u-background">
+  <div class="u-wrapper">
+    <ul class="Banner">
+      <li class="Banner-item Banner-item--title">
+        <a class="Banner-link u-clickable" href="/">rida.ayed</a>
+      </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/posts/">Posts</a>
+        </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/index.xml">RSS</a>
+        </li>
+      
+    </ul>
+  </div>
+</nav>
+  <main>
+    <div class="u-wrapper">
+      <div class="u-padding">
+        
+
+  <article>
+    <header class="Heading">
+  <h2 class="Heading-title">
+    <a class="Heading-link u-clickable" href="/posts/test_offline_and_fast_with_python_pytest/" rel="bookmark">Test offline and fast with python pytest</a>
+  </h2>
+  
+    <time datetime="2020-04-04T11:03:00&#43;02:00">4 April, 2020</time>
+  
+</header>
+    <!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<ul>
+<li><a href="#motivation">Motivation</a></li>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#create-the-test">Create the test</a></li>
+<li><a href="#run-the-test">Run the test</a></li>
+<li><a href="#check-folders-and-files">Check folders and files</a></li>
+<li><a href="#go-offline">Go offline</a></li>
+<li><a href="#run-the-test-again-offline">Run the test again - offline</a></li>
+<li><a href="#go-back-online">Go back online</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+<!-- raw HTML omitted -->
+<h2 id="motivation">Motivation</h2>
+<p>While testing code against online sources like websites or APIs I often find
+myself waiting for their responses. Furthermore it feels strange to knock on anyones
+door every couple of seconds just to test what I&rsquo;m processing locally anyway.</p>
+<p>A solution for this issues comes in the form of <a href="https://vcrpy.readthedocs.io/">vcrpy</a>.</p>
+<p>Vcrpy frees you from the burden of waiting or even to be online at all. Responses are stored locally in the form of yaml files called cassettes.</p>
+<p>In the following post I&rsquo;ll test against Migros&rsquo; mobile plan named M-Budget. Migros is among Switzerland&rsquo;s largest wholesale retailers.</p>
+<p>The test consists of asserting a word&rsquo;s appearance on Migros&rsquo; website.</p>
+<h2 id="requirements">Requirements</h2>
+<p>Python</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">python --version
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Python 3.8.1
+</code></pre></div><p>Module</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">pip install --user pytest
+pip install --user pytest-vcr
+</code></pre></div><h2 id="create-the-test">Create the test</h2>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="display:block;width:100%;background-color:#3c3d38"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="display:block;width:100%;background-color:#3c3d38"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span></span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># content of ~/tmp/vhs/test_mbudget.py</span>
+<span style="color:#f92672">import</span> os
+<span style="color:#f92672">import</span> urllib.request
+<span style="color:#f92672">import</span> pytest
+
+
+<span style="color:#a6e22e">@pytest.fixture</span>(scope<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;module&#39;</span>)
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">vcr_cassette_dir</span>(request):
+    <span style="color:#75715e"># Put all cassettes in ~/tmp/vhs/{module}/{test}.yaml</span>
+<span style="display:block;width:100%;background-color:#3c3d38">    <span style="color:#66d9ef">return</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(<span style="color:#e6db74">&#39;/home/ra/tmp/vhs&#39;</span>, request<span style="color:#f92672">.</span>module<span style="color:#f92672">.</span>__name__)
+</span>
+<span style="color:#a6e22e">@pytest.mark.vcr</span>()
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_mbudget</span>():
+    response <span style="color:#f92672">=</span> urllib<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>urlopen(<span style="color:#e6db74">&#39;https://selfcare.m-budget.migros.ch/eCare/de/users/sign_in&#39;</span>)<span style="color:#f92672">.</span>read()
+<span style="display:block;width:100%;background-color:#3c3d38">    <span style="color:#66d9ef">assert</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;csrf-token&#39;</span> <span style="color:#f92672">in</span> response</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Line 10 says we want our cassetes saved in <em>home/ra/tmp/vhs/test_mbudget</em></p>
+<p>Line 15 asserts the appearance of the word &lsquo;csrf-token&rsquo; in the requested website&rsquo;s source</p>
+<h2 id="run-the-test">Run the test</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">pytest ~/tmp/vhs/test_mbudget.py
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">============================= test session starts ==============================
+platform linux -- Python 3.8.1, pytest-5.3.5, py-1.8.1, pluggy-0.13.1
+rootdir: /home/ra
+plugins: vcr-1.0.2, pycharm-0.5.0
+collected 1 item
+
+../tmp/vhs/test_mbudget.py .                                             [100%]
+
+============================== 1 passed in 11.40s ==============================
+</code></pre></div><p>Note the time the test needed to pass: <strong>11.40s</strong></p>
+<h2 id="check-folders-and-files">Check folders and files</h2>
+<h3 id="check-the-newly-created-cassettes-folder">Check the newly created cassettes folder</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">tree ~/tmp/vhs/
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">/home/ra/tmp/vhs/
+├── __pycache__
+│   └── test_mbudget.cpython-38-pytest-5.3.5.pyc
+├── test_mbudget
+│   └── test_mbudget.yaml
+└── test_mbudget.py
+
+2 directories, 3 files
+</code></pre></div><h3 id="check-the-created-file">Check the created file</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cat ~/tmp/vhs/test_mbudget/test_mbudget.yaml | grep <span style="color:#e6db74">&#39;csrf-token&#39;</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">/&gt;\n&lt;meta name=\&#34;csrf-token\&#34; content=\&#34;wtwue7j8wcWPZEw2iI3aJtohGxfN9iSMVlGdbf4kUyT31iupUO2EyJ2i/aZA8z+LHclUsYBbH+HTrScrIaxGyg==\&#34;
+</code></pre></div><h2 id="go-offline">Go offline</h2>
+<p>Let&rsquo;s disable our network connection</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo ip link set wlp3s0 down
+</code></pre></div><h2 id="run-the-test-again-offline">Run the test again - offline</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">pytest ~/tmp/vhs/test_mbudget.py
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">============================= test session starts ==============================
+platform linux -- Python 3.8.1, pytest-5.3.5, py-1.8.1, pluggy-0.13.1
+rootdir: /home/ra
+plugins: vcr-1.0.2, pycharm-0.5.0
+collected 1 item
+
+../tmp/vhs/test_mbudget.py .                                             [100%]
+
+============================== 1 passed in 0.05s ===============================
+</code></pre></div><p>Note how much faster <strong>(0.05s)</strong> the test ran and we&rsquo;re <code>offline</code>.</p>
+<h2 id="go-back-online">Go back online</h2>
+<p>Mind to re-enable your network connection</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo ip link set wlp3s0 up
+</code></pre></div><h2 id="conclusion">Conclusion</h2>
+<p>We were able to reduce waiting from 11 seconds to 0.5 seconds (you&rsquo;re already
+doing the ratio math in your head, right?). Furthermore we&rsquo;re able to
+continue our development offline and aren&rsquo;t bothering anyone with countless
+requests.</p>
+<p>Or simply quoting vcrpy&rsquo;s unique selling propositions:</p>
+<blockquote>
+<ul>
+<li>The ability to work offline</li>
+<li>Completely deterministic tests</li>
+<li>Increased test execution speed</li>
+</ul>
+</blockquote>
+
+    
+
+
+  
+
+  
+
+
+
+
+
+  <footer>
+    
+      
+    
+      
+        <ul class="Tags">
+          
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="/tags/pytest/" rel="tag">pytest</a>
+            </li>
+          
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="/tags/python/" rel="tag">python</a>
+            </li>
+          
+        </ul>
+      
+    
+  </footer>
+
+    
+  </article>
+
+
+      </div>
+    </div>
+  </main>
+  
+</body>
+
+</html>

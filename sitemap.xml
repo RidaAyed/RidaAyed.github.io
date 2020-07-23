@@ -3,28 +3,43 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/posts/</loc>
+    <lastmod>2020-07-23T11:20:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/pytest/</loc>
+    <lastmod>2020-07-23T11:20:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/python/</loc>
+    <lastmod>2020-07-23T11:20:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-07-23T11:20:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-07-23T11:20:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/test_offline_and_fast_with_python_pytest/</loc>
+    <lastmod>2020-07-23T11:20:52+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/posts/mount_a_usb_drive_persistently_for_all_users/</loc>
     <lastmod>2020-03-28T12:55:36+01:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/</loc>
-    <lastmod>2020-04-27T09:39:08+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2020-04-27T09:39:08+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/storage/</loc>
     <lastmod>2020-03-28T12:55:36+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2020-03-28T12:56:17+01:00</lastmod>
   </url>
   
   <url>

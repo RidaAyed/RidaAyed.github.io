@@ -2,12 +2,12 @@
 <?xml-stylesheet type="text/xsl" href="/xml/base.min.xml" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts | rida.ayed</title>
-    <link>/posts/</link>
-    <description>Recent content in Posts on rida.ayed</description>
+    <title>python | rida.ayed</title>
+    <link>/tags/python/</link>
+    <description>Recent content in python on rida.ayed</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sat, 04 Apr 2020 11:03:00 +0200</lastBuildDate>
-    <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Test offline and fast with python pytest</title>
       <link>/posts/test_offline_and_fast_with_python_pytest/</link>
