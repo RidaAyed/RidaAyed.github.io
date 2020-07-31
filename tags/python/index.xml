@@ -6,8 +6,383 @@
     <link>/tags/python/</link>
     <description>Recent content in python on rida.ayed</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 04 Apr 2020 11:03:00 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 07 Apr 2020 18:50:00 +0200</lastBuildDate>
     <atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Scraping Migros M-Budget with python</title>
+      <link>/posts/authenticate_scrape_migros_mbudget_python/</link>
+      <pubDate>Tue, 07 Apr 2020 18:50:00 +0200</pubDate>
+      <guid>/posts/authenticate_scrape_migros_mbudget_python/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#motivation&#34;&gt;Motivation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#how-to-read-this-post&#34;&gt;How to read this post&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#script-ingredients&#34;&gt;Script ingredients&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#modules&#34;&gt;Modules&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#urls&#34;&gt;Urls&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#process-overview&#34;&gt;Process overview&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#visit-the-isp-s-login-page&#34;&gt;Visit the ISP&amp;rsquo;s login page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#login&#34;&gt;Login&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#get-the-consumption-values&#34;&gt;Get the consumption values&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#logout&#34;&gt;Logout&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#complete-script&#34;&gt;Complete script&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#conclusion&#34;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;/ox-hugo/2020-07-30_22-22-29_screenshot.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;I recently catch myself repeatedly checking my internet consumption balance.&lt;/p&gt;
+&lt;p&gt;A perfect case for a script and an accompanying tutorial.&lt;/p&gt;
+&lt;p&gt;For the sake of this tutorial&amp;rsquo;s scope and script&amp;rsquo;s brevity I&amp;rsquo;ll skip exception handling, testing and continuous
+integration, virtual environments etc.&lt;/p&gt;
+&lt;p&gt;In this particular case the concerning ISP is Migros, their mobile brand is
+M-Budget and the actual provider is Swisscom.&lt;/p&gt;
+&lt;h2 id=&#34;how-to-read-this-post&#34;&gt;How to read this post&lt;/h2&gt;
+&lt;p&gt;Each section contains a &lt;strong&gt;Manual&lt;/strong&gt; and &lt;strong&gt;Automated&lt;/strong&gt; section. &lt;strong&gt;Manual&lt;/strong&gt; shall
+depict how the obstacle is taken by hand such as typing and clicking the
+mouse. &lt;strong&gt;Automated&lt;/strong&gt; shows how we&amp;rsquo;re doing it with a code snippet.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;#complete-script&#34;&gt;Complete script&lt;/a&gt; contains all snippets merged as one script ready for copy/paste.&lt;/p&gt;
+&lt;h2 id=&#34;script-ingredients&#34;&gt;Script ingredients&lt;/h2&gt;
+&lt;h3 id=&#34;modules&#34;&gt;Modules&lt;/h3&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; requests
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; lxml &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; html
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; lxml &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; etree
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;urls&#34;&gt;Urls&lt;/h3&gt;
+&lt;p&gt;Our working URLs are built upon one URL which serves as base URL in order to build up all endpoints.&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;BASE_URL &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;https://selfcare.m-budget.migros.ch/eCare&amp;#39;&lt;/span&gt;
+LOGIN_URL &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; BASE_URL&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;/de/users/sign_in&amp;#39;&lt;/span&gt;
+LOGOUT_URL &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; BASE_URL&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;/de/users/sign_out&amp;#39;&lt;/span&gt;
+CONSUMPTION_URL &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; BASE_URL&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;/prepaid/de/my_consumption/index&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;process-overview&#34;&gt;Process overview&lt;/h2&gt;
+&lt;h3 id=&#34;visit-the-isp-s-login-page&#34;&gt;Visit the ISP&amp;rsquo;s login page&lt;/h3&gt;
+&lt;h4 id=&#34;manual&#34;&gt;Manual&lt;/h4&gt;
+&lt;p&gt;Launch your browser, open login and enable the browser&amp;rsquo;s developer console
+by pressing F12 on your keyboard.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;/ox-hugo/2020-07-31_11-38-59_screenshot.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;h4 id=&#34;automated&#34;&gt;Automated&lt;/h4&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;session_requests &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; requests&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;session()
+result &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; session_requests&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get(LOGIN_URL)&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h3 id=&#34;login&#34;&gt;Login&lt;/h3&gt;
+&lt;h4 id=&#34;manual&#34;&gt;Manual&lt;/h4&gt;
+&lt;p&gt;Enter your username and password and hit return.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/ox-hugo/2020-07-30_21-32-17_screenshot.png&#34; alt=&#34;&#34;&gt;
+After submitting your credentials, deliberate what you just submitted.&lt;/p&gt;
+&lt;p&gt;Superficially, our login seems to contain only our credentials, thus:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Username (here it&amp;rsquo;s a phone number beginning with 077)&lt;/li&gt;
+&lt;li&gt;Password.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;However, the developer console (F12 on your keyboard) reveals more.&lt;/p&gt;
+&lt;p&gt;The data is sent as POST request, therefore we look for POST methods and
+therein for the Form data (on the bottom right in figure &lt;a href=&#34;#org1ec5e41&#34;&gt;1&lt;/a&gt;)
+Alongside the mentioned credentials, a couple of hidden data was submitted as
+well.&lt;/p&gt;
+&lt;p&gt;In particular the &lt;code&gt;authenticity_token&lt;/code&gt; is interesting. It&amp;rsquo;s part of a
+security remedy against a malicious hack. Also known as &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; Cross-site
+request-forgery or in abbreviated form &lt;code&gt;csrf&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;/ox-hugo/2020-07-30_16-25-58_screenshot.png&#34;
+         alt=&#34;Figure 1: Post form data&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Figure 1: Post form data&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;But where does that cryptic csrf token value come from?&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Finding the csrf token&lt;/p&gt;
+&lt;p&gt;Remember the login page?
+Logout, visit it again and look at the source code (Mouse Right-Click: View page
+source).&lt;/p&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;/ox-hugo/2020-07-30_16-52-01_screenshot.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&amp;lt;meta name=&amp;#34;csrf-token&amp;#34; content=&amp;#34;mX12K...&amp;#34; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;automated&#34;&gt;Automated&lt;/h4&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Credentials&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;PASSWORD &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;changeMe&amp;#39;&lt;/span&gt;
+USERNAME &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;changeMe&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Fetch csrf token&lt;/p&gt;
+&lt;p&gt;Now we know &lt;strong&gt;where&lt;/strong&gt; to seek &lt;strong&gt;what&lt;/strong&gt; element:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Where&lt;/strong&gt;: In the html source text. Line 1&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;What&lt;/strong&gt;: A &lt;code&gt;meta&lt;/code&gt; tag named &lt;code&gt;csrf-token&lt;/code&gt; has the token as it&amp;rsquo;s &lt;code&gt;content&lt;/code&gt;. Line 2&lt;/li&gt;
+&lt;/ol&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;    tree &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; html&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;fromstring(result&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;text)
+    authenticity_token &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tree&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;xpath(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;//meta[@name=&amp;#39;csrf-token&amp;#39;]/@content&amp;#34;&lt;/span&gt;)[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]
+    &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Prepare our form&lt;/p&gt;
+&lt;p&gt;We pass the csrf token along with the remaining data as dictionary.&lt;/p&gt;
+&lt;p&gt;Compare the similarity to the form in figure &lt;a href=&#34;#org1ec5e41&#34;&gt;1&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;6
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;7
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;8
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;    data &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {
+        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;utf8&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\u2713&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&lt;/span&gt;,
+        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;authenticity_token&amp;#39;&lt;/span&gt;: authenticity_token,
+        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;user[id]&amp;#39;&lt;/span&gt;: USERNAME,
+        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;user[password]&amp;#39;&lt;/span&gt;: PASSWORD,
+        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;user[reseller]&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;33&amp;#39;&lt;/span&gt;,
+        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;button&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+    }
+    &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Sign-in&lt;/p&gt;
+&lt;p&gt;We&amp;rsquo;re all set and can finally sign-in passing our form&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;    result &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; session_requests&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;post(LOGIN_URL,
+                                   data&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;data,
+                                   headers&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;dict(referer&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;LOGIN_URL))
+    &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;get-the-consumption-values&#34;&gt;Get the consumption values&lt;/h3&gt;
+&lt;h4 id=&#34;manual&#34;&gt;Manual&lt;/h4&gt;
+&lt;p&gt;There are multiple ways of finding the credit values&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;By &lt;strong&gt;searching&lt;/strong&gt; for a value (here &lt;strong&gt;500&lt;/strong&gt;) in the browsers developer console as shown below in figure &lt;a href=&#34;#org7acfc3e&#34;&gt;2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;By mouse hovering over the element (in the browser, not the dev console) and right-click &lt;code&gt;Inspect element (q)&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;/ox-hugo/2020-07-31_12-11-33_screenshot.png&#34;
+         alt=&#34;Figure 2: Searching for values and displaying css properties&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Figure 2: Searching for values and displaying css properties&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;We&amp;rsquo;re interested in all credits (10,0,500) in order to sum them up as our balance &lt;strong&gt;510&lt;/strong&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;automated&#34;&gt;Automated&lt;/h4&gt;
+&lt;p&gt;Here&amp;rsquo;s how we&amp;rsquo;re scripting the balance part starting at line 3:&lt;/p&gt;
+&lt;p&gt;First we set our focus on the &lt;strong&gt;parenting&lt;/strong&gt; &lt;code&gt;div&lt;/code&gt; in the &lt;code&gt;class&lt;/code&gt; named &lt;code&gt;circle__inside&lt;/code&gt; in order to extract the &lt;code&gt;text&lt;/code&gt; from it&amp;rsquo;s first &lt;code&gt;[1]&lt;/code&gt; &lt;code&gt;span&lt;/code&gt; element.
+Then we loop through each &lt;strong&gt;child&lt;/strong&gt; (circles) and append each circle&amp;rsquo;s credit value to our balance list. Finally we print the balance.&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;display:block;width:100%;background-color:#3c3d38&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:block;width:100%;background-color:#3c3d38&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:block;width:100%;background-color:#3c3d38&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:block;width:100%;background-color:#3c3d38&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;6
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:block;width:100%;background-color:#3c3d38&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;7
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;result &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; session_requests&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get(CONSUMPTION_URL)
+tree &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; etree&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;HTML(result&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;text)
+&lt;span style=&#34;display:block;width:100%;background-color:#3c3d38&#34;&gt;circles &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tree&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;xpath(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;.//div[@class=&amp;#34;circle__inside&amp;#34;]//span[1]/text()&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;span style=&#34;display:block;width:100%;background-color:#3c3d38&#34;&gt;balance &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;span style=&#34;display:block;width:100%;background-color:#3c3d38&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; credit &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; circles:
+&lt;/span&gt;&lt;span style=&#34;display:block;width:100%;background-color:#3c3d38&#34;&gt;    balance&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;append(int(credit))
+&lt;/span&gt;&lt;span style=&#34;display:block;width:100%;background-color:#3c3d38&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Your current balance is:&amp;#34;&lt;/span&gt;, sum(balance), &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;MB&amp;#34;&lt;/span&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h3 id=&#34;logout&#34;&gt;Logout&lt;/h3&gt;
+&lt;p&gt;We&amp;rsquo;re done and therefore properly logout.&lt;/p&gt;
+&lt;h4 id=&#34;manual&#34;&gt;Manual&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Click on the profile icon in the upper right corner&lt;/li&gt;
+&lt;li&gt;Click sign-out (Abmelden)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;automated&#34;&gt;Automated&lt;/h4&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;response &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; session_requests&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get(LOGOUT_URL)&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 id=&#34;complete-script&#34;&gt;Complete script&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Store the complete &lt;a href=&#34;#code-snippet--m-budget-complete-script&#34;&gt;script&lt;/a&gt; below as e.g. &lt;code&gt;~/tmp/mbudget.py&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Change the &lt;a href=&#34;#credentials&#34;&gt;Credentials&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Run it&lt;/li&gt;
+&lt;/ol&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;python3 ~/tmp/mbudget.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;Your current balance is: 510 MB
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;16
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;17
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;18
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;19
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;20
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;21
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;22
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;23
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;24
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;25
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;26
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;27
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;28
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;29
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;30
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;31
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;32
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;33
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;34
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;35
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;36
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;37
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;38
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; requests
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; lxml &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; html
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; lxml &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; etree
+BASE_URL &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;https://selfcare.m-budget.migros.ch/eCare&amp;#39;&lt;/span&gt;
+LOGIN_URL &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; BASE_URL&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;/de/users/sign_in&amp;#39;&lt;/span&gt;
+LOGOUT_URL &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; BASE_URL&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;/de/users/sign_out&amp;#39;&lt;/span&gt;
+CONSUMPTION_URL &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; BASE_URL&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;/prepaid/de/my_consumption/index&amp;#39;&lt;/span&gt;
+PASSWORD &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;changeMe&amp;#39;&lt;/span&gt;
+USERNAME &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;changeMe&amp;#39;&lt;/span&gt;
+
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;():
+    session_requests &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; requests&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;session()
+    result &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; session_requests&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get(LOGIN_URL)
+    tree &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; html&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;fromstring(result&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;text)
+    authenticity_token &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tree&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;xpath(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;//meta[@name=&amp;#39;csrf-token&amp;#39;]/@content&amp;#34;&lt;/span&gt;)[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]
+    data &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {
+        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;utf8&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\u2713&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&lt;/span&gt;,
+        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;authenticity_token&amp;#39;&lt;/span&gt;: authenticity_token,
+        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;user[id]&amp;#39;&lt;/span&gt;: USERNAME,
+        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;user[password]&amp;#39;&lt;/span&gt;: PASSWORD,
+        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;user[reseller]&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;33&amp;#39;&lt;/span&gt;,
+        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;button&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+    }
+    result &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; session_requests&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;post(LOGIN_URL,
+                                   data&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;data,
+                                   headers&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;dict(referer&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;LOGIN_URL))
+    result &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; session_requests&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get(CONSUMPTION_URL)
+    tree &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; etree&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;HTML(result&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;text)
+    circles &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tree&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;xpath(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;.//div[@class=&amp;#34;circle__inside&amp;#34;]//span[1]/text()&amp;#39;&lt;/span&gt;)
+    balance &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; []
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; credit &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; circles:
+        balance&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;append(int(credit))
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Your current balance is:&amp;#34;&lt;/span&gt;, sum(balance), &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;MB&amp;#34;&lt;/span&gt;)
+    response &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; session_requests&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get(LOGOUT_URL)
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; __name__ &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;:
+    main()&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;Your current balance is: 510 MB
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Scripting our manual steps now allows us to store and process the returned data
+further. We could schedule it using a systemd timer or cron. Or send a
+notification by email or sms if a certain limit is reached.&lt;/p&gt;
+&lt;p&gt;Long story short: No more clicking, typing and calculating&lt;/p&gt;
+&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Cross-site%5Frequest%5Fforgery&#34;&gt;https://en.wikipedia.org/wiki/Cross-site%5Frequest%5Fforgery&lt;/a&gt; &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</description>
+    </item>
     <item>
       <title>Test offline and fast with python pytest</title>
       <link>/posts/test_offline_and_fast_with_python_pytest/</link>
