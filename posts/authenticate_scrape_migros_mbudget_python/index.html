@@ -8,9 +8,9 @@
 
 
   
-    <meta name="description" content="Motivation How to read this post Script ingredients  Modules Urls   Process overview  Visit the ISP&rsquo;s login page Login Get the consumption values Logout   Complete script Conclusion    Motivation I recently catch myself repeatedly checking my internet consumption balance.
+    <meta name="description" content="Motivation How to understand this post Script ingredients  Modules Urls   Process overview  Visit the ISP&rsquo;s login page Login Get the consumption values Logout   Complete script Usage Conclusion    Motivation I recently caught myself repeatedly checking my internet consumption balance.
 A perfect case for a script and an accompanying tutorial.
-For the sake of this tutorial&rsquo;s scope and script&rsquo;s brevity I&rsquo;ll skip exception handling, testing and continuous integration, virtual environments etc.">
+For the sake of this tutorial&rsquo;s scope and the script&rsquo;s brevity I&rsquo;ll skip various code paradigms like exception handling, testing, continuous integration, virtual environments etc.">
   
 
 
@@ -81,7 +81,7 @@ For the sake of this tutorial&rsquo;s scope and script&rsquo;s brevity I&rsquo;l
 <!-- raw HTML omitted -->
 <ul>
 <li><a href="#motivation">Motivation</a></li>
-<li><a href="#how-to-read-this-post">How to read this post</a></li>
+<li><a href="#how-to-understand-this-post">How to understand this post</a></li>
 <li><a href="#script-ingredients">Script ingredients</a>
 <ul>
 <li><a href="#modules">Modules</a></li>
@@ -97,6 +97,7 @@ For the sake of this tutorial&rsquo;s scope and script&rsquo;s brevity I&rsquo;l
 </ul>
 </li>
 <li><a href="#complete-script">Complete script</a></li>
+<li><a href="#usage">Usage</a></li>
 <li><a href="#conclusion">Conclusion</a></li>
 </ul>
 <!-- raw HTML omitted -->
@@ -105,17 +106,18 @@ For the sake of this tutorial&rsquo;s scope and script&rsquo;s brevity I&rsquo;l
 </figure>
 
 <h2 id="motivation">Motivation</h2>
-<p>I recently catch myself repeatedly checking my internet consumption balance.</p>
+<p>I recently caught myself repeatedly checking my internet consumption balance.</p>
 <p>A perfect case for a script and an accompanying tutorial.</p>
-<p>For the sake of this tutorial&rsquo;s scope and script&rsquo;s brevity I&rsquo;ll skip exception handling, testing and continuous
+<p>For the sake of this tutorial&rsquo;s scope and the script&rsquo;s brevity I&rsquo;ll skip various code paradigms like exception handling, testing, continuous
 integration, virtual environments etc.</p>
-<p>In this particular case the concerning ISP is Migros, their mobile brand is
+<p>In this particular case the concerning ISP (Internet Service Provider) is Migros, their mobile brand is
 M-Budget and the actual provider is Swisscom.</p>
-<h2 id="how-to-read-this-post">How to read this post</h2>
+<h2 id="how-to-understand-this-post">How to understand this post</h2>
 <p>Each section contains a <strong>Manual</strong> and <strong>Automated</strong> section. <strong>Manual</strong> shall
 depict how the obstacle is taken by hand such as typing and clicking the
 mouse. <strong>Automated</strong> shows how we&rsquo;re doing it with a code snippet.</p>
-<p><a href="#complete-script">Complete script</a> contains all snippets merged as one script ready for copy/paste.</p>
+<p>The <a href="#complete-script">Complete script</a> contains all snippets merged and ready for copy/paste
+as described in <a href="/posts/screenshots-emacs-org-mode-flameshot/#usage">Usage</a></p>
 <h2 id="script-ingredients">Script ingredients</h2>
 <h3 id="modules">Modules</h3>
 <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
@@ -158,11 +160,11 @@ After submitting your credentials, deliberate what you just submitted.</p>
 <p>Superficially, our login seems to contain only our credentials, thus:</p>
 <ol>
 <li>Username (here it&rsquo;s a phone number beginning with 077)</li>
-<li>Password.</li>
+<li>Password</li>
 </ol>
-<p>However, the developer console (F12 on your keyboard) reveals more.</p>
+<p>However, the developer console (F12 on your keyboard) and it&rsquo;s <code>Network</code> tab reveal more.</p>
 <p>The data is sent as POST request, therefore we look for POST methods and
-therein for the Form data (on the bottom right in figure <a href="#org1ec5e41">1</a>)
+therein for the Form data (on the bottom right in figure <a href="#orgaeedfc0">1</a>)
 Alongside the mentioned credentials, a couple of hidden data was submitted as
 well.</p>
 <p>In particular the <code>authenticity_token</code> is interesting. It&rsquo;s part of a
@@ -181,8 +183,8 @@ request-forgery or in abbreviated form <code>csrf</code>.</p>
 <ul>
 <li>
 <p>Finding the csrf token</p>
-<p>Remember the login page?
-Logout, visit it again and look at the source code (Mouse Right-Click: View page
+<p>Remember the login page? <a href="https://selfcare.m-budget.migros.ch/eCare/de/users/sign%5Fin">https://selfcare.m-budget.migros.ch/eCare/de/users/sign%5Fin</a></p>
+<p>Logout, visit it again and look at the source code (Mouse Right-Click: View page
 source).</p>
 <figure>
     <img src="/ox-hugo/2020-07-30_16-52-01_screenshot.png"/> 
@@ -195,20 +197,11 @@ source).</p>
 <!-- raw HTML omitted -->
 <ul>
 <li>
-<p>Credentials</p>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">PASSWORD <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;changeMe&#39;</span>
-USERNAME <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;changeMe&#39;</span>
-</code></pre></div></li>
-</ul>
-<!-- raw HTML omitted -->
-<ul>
-<li>
 <p>Fetch csrf token</p>
 <p>Now we know <strong>where</strong> to seek <strong>what</strong> element:</p>
 <ol>
 <li><strong>Where</strong>: In the html source text. Line 1</li>
-<li><strong>What</strong>: A <code>meta</code> tag named <code>csrf-token</code> has the token as it&rsquo;s <code>content</code>. Line 2</li>
+<li><strong>What</strong>: A <code>meta</code> tag named <code>csrf-token</code> contains the token as it&rsquo;s <code>content</code>. Line 2</li>
 </ol>
 <!-- raw HTML omitted -->
 <p><!-- raw HTML omitted --><!-- raw HTML omitted -->
@@ -229,9 +222,18 @@ USERNAME <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;c
 <!-- raw HTML omitted -->
 <ul>
 <li>
+<p>Credentials</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">PASSWORD <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;changeMe&#39;</span>
+USERNAME <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;changeMe&#39;</span>
+</code></pre></div></li>
+</ul>
+<!-- raw HTML omitted -->
+<ul>
+<li>
 <p>Prepare our form</p>
 <p>We pass the csrf token along with the remaining data as dictionary.</p>
-<p>Compare the similarity to the form in figure <a href="#org1ec5e41">1</a>:</p>
+<p>Compare the similarity to the form in figure <a href="#orgaeedfc0">1</a>:</p>
 <p><!-- raw HTML omitted --><!-- raw HTML omitted -->
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -285,7 +287,7 @@ USERNAME <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;c
 <h4 id="manual">Manual</h4>
 <p>There are multiple ways of finding the credit values</p>
 <ol>
-<li>By <strong>searching</strong> for a value (here <strong>500</strong>) in the browsers developer console as shown below in figure <a href="#org7acfc3e">2</a></li>
+<li>By <strong>searching</strong> for a value (here <strong>500</strong>) in the browsers developer console as shown below in figure <a href="#orgbb0dac3">2</a></li>
 <li>By mouse hovering over the element (in the browser, not the dev console) and right-click <code>Inspect element (q)</code></li>
 </ol>
 <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
@@ -340,15 +342,7 @@ tree <span style="color:#f92672">=</span> etree<span style="color:#f92672">.</sp
 </div>
 </div></p>
 <h2 id="complete-script">Complete script</h2>
-<ol>
-<li>Store the complete <a href="#code-snippet--m-budget-complete-script">script</a> below as e.g. <code>~/tmp/mbudget.py</code></li>
-<li>Change the <a href="#credentials">Credentials</a></li>
-<li>Run it</li>
-</ol>
-<!-- raw HTML omitted -->
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">python3 ~/tmp/mbudget.py
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Your current balance is: 510 MB
-</code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -432,11 +426,22 @@ USERNAME <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;c
 </div>
 </div></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Your current balance is: 510 MB
-</code></pre></div><h2 id="conclusion">Conclusion</h2>
+</code></pre></div><h2 id="usage">Usage</h2>
+<ol>
+<li>Store the complete <a href="#code-snippet--m-budget-complete-script">script</a> above as e.g. <code>~/tmp/mbudget.py</code></li>
+<li>Change the <a href="#credentials">Credentials</a> in <code>~/tmp/mbudget.py</code></li>
+<li>Run it:</li>
+</ol>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">python3 ~/tmp/mbudget.py
+</code></pre></div><!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Your current balance is: 510 MB
+</code></pre></div><!-- raw HTML omitted -->
+<h2 id="conclusion">Conclusion</h2>
 <p>Scripting our manual steps now allows us to store and process the returned data
 further. We could schedule it using a systemd timer or cron. Or send a
 notification by email or sms if a certain limit is reached.</p>
-<p>Long story short: No more clicking, typing and calculating</p>
+<p>And of course: No more clicking, calculating and repeating.</p>
 <section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>

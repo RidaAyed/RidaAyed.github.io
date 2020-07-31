@@ -17,7 +17,7 @@
 &lt;!-- raw HTML omitted --&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#motivation&#34;&gt;Motivation&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#how-to-read-this-post&#34;&gt;How to read this post&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#how-to-understand-this-post&#34;&gt;How to understand this post&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#script-ingredients&#34;&gt;Script ingredients&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#modules&#34;&gt;Modules&lt;/a&gt;&lt;/li&gt;
@@ -33,6 +33,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#complete-script&#34;&gt;Complete script&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#usage&#34;&gt;Usage&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#conclusion&#34;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;!-- raw HTML omitted --&gt;
@@ -41,17 +42,18 @@
 &lt;/figure&gt;
 
 &lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
-&lt;p&gt;I recently catch myself repeatedly checking my internet consumption balance.&lt;/p&gt;
+&lt;p&gt;I recently caught myself repeatedly checking my internet consumption balance.&lt;/p&gt;
 &lt;p&gt;A perfect case for a script and an accompanying tutorial.&lt;/p&gt;
-&lt;p&gt;For the sake of this tutorial&amp;rsquo;s scope and script&amp;rsquo;s brevity I&amp;rsquo;ll skip exception handling, testing and continuous
+&lt;p&gt;For the sake of this tutorial&amp;rsquo;s scope and the script&amp;rsquo;s brevity I&amp;rsquo;ll skip various code paradigms like exception handling, testing, continuous
 integration, virtual environments etc.&lt;/p&gt;
-&lt;p&gt;In this particular case the concerning ISP is Migros, their mobile brand is
+&lt;p&gt;In this particular case the concerning ISP (Internet Service Provider) is Migros, their mobile brand is
 M-Budget and the actual provider is Swisscom.&lt;/p&gt;
-&lt;h2 id=&#34;how-to-read-this-post&#34;&gt;How to read this post&lt;/h2&gt;
+&lt;h2 id=&#34;how-to-understand-this-post&#34;&gt;How to understand this post&lt;/h2&gt;
 &lt;p&gt;Each section contains a &lt;strong&gt;Manual&lt;/strong&gt; and &lt;strong&gt;Automated&lt;/strong&gt; section. &lt;strong&gt;Manual&lt;/strong&gt; shall
 depict how the obstacle is taken by hand such as typing and clicking the
 mouse. &lt;strong&gt;Automated&lt;/strong&gt; shows how we&amp;rsquo;re doing it with a code snippet.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;#complete-script&#34;&gt;Complete script&lt;/a&gt; contains all snippets merged as one script ready for copy/paste.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;#complete-script&#34;&gt;Complete script&lt;/a&gt; contains all snippets merged and ready for copy/paste
+as described in &lt;a href=&#34;/posts/screenshots-emacs-org-mode-flameshot/#usage&#34;&gt;Usage&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;script-ingredients&#34;&gt;Script ingredients&lt;/h2&gt;
 &lt;h3 id=&#34;modules&#34;&gt;Modules&lt;/h3&gt;
 &lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
@@ -94,11 +96,11 @@ After submitting your credentials, deliberate what you just submitted.&lt;/p&gt;
 &lt;p&gt;Superficially, our login seems to contain only our credentials, thus:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Username (here it&amp;rsquo;s a phone number beginning with 077)&lt;/li&gt;
-&lt;li&gt;Password.&lt;/li&gt;
+&lt;li&gt;Password&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;However, the developer console (F12 on your keyboard) reveals more.&lt;/p&gt;
+&lt;p&gt;However, the developer console (F12 on your keyboard) and it&amp;rsquo;s &lt;code&gt;Network&lt;/code&gt; tab reveal more.&lt;/p&gt;
 &lt;p&gt;The data is sent as POST request, therefore we look for POST methods and
-therein for the Form data (on the bottom right in figure &lt;a href=&#34;#org1ec5e41&#34;&gt;1&lt;/a&gt;)
+therein for the Form data (on the bottom right in figure &lt;a href=&#34;#orgaeedfc0&#34;&gt;1&lt;/a&gt;)
 Alongside the mentioned credentials, a couple of hidden data was submitted as
 well.&lt;/p&gt;
 &lt;p&gt;In particular the &lt;code&gt;authenticity_token&lt;/code&gt; is interesting. It&amp;rsquo;s part of a
@@ -117,8 +119,8 @@ request-forgery or in abbreviated form &lt;code&gt;csrf&lt;/code&gt;.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Finding the csrf token&lt;/p&gt;
-&lt;p&gt;Remember the login page?
-Logout, visit it again and look at the source code (Mouse Right-Click: View page
+&lt;p&gt;Remember the login page? &lt;a href=&#34;https://selfcare.m-budget.migros.ch/eCare/de/users/sign%5Fin&#34;&gt;https://selfcare.m-budget.migros.ch/eCare/de/users/sign%5Fin&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Logout, visit it again and look at the source code (Mouse Right-Click: View page
 source).&lt;/p&gt;
 &lt;figure&gt;
     &lt;img src=&#34;/ox-hugo/2020-07-30_16-52-01_screenshot.png&#34;/&gt; 
@@ -131,20 +133,11 @@ source).&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;Credentials&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;PASSWORD &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;changeMe&amp;#39;&lt;/span&gt;
-USERNAME &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;changeMe&amp;#39;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;ul&gt;
-&lt;li&gt;
 &lt;p&gt;Fetch csrf token&lt;/p&gt;
 &lt;p&gt;Now we know &lt;strong&gt;where&lt;/strong&gt; to seek &lt;strong&gt;what&lt;/strong&gt; element:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Where&lt;/strong&gt;: In the html source text. Line 1&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;What&lt;/strong&gt;: A &lt;code&gt;meta&lt;/code&gt; tag named &lt;code&gt;csrf-token&lt;/code&gt; has the token as it&amp;rsquo;s &lt;code&gt;content&lt;/code&gt;. Line 2&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;What&lt;/strong&gt;: A &lt;code&gt;meta&lt;/code&gt; tag named &lt;code&gt;csrf-token&lt;/code&gt; contains the token as it&amp;rsquo;s &lt;code&gt;content&lt;/code&gt;. Line 2&lt;/li&gt;
 &lt;/ol&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;
@@ -165,9 +158,18 @@ USERNAME &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style
 &lt;!-- raw HTML omitted --&gt;
 &lt;ul&gt;
 &lt;li&gt;
+&lt;p&gt;Credentials&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;PASSWORD &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;changeMe&amp;#39;&lt;/span&gt;
+USERNAME &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;changeMe&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;ul&gt;
+&lt;li&gt;
 &lt;p&gt;Prepare our form&lt;/p&gt;
 &lt;p&gt;We pass the csrf token along with the remaining data as dictionary.&lt;/p&gt;
-&lt;p&gt;Compare the similarity to the form in figure &lt;a href=&#34;#org1ec5e41&#34;&gt;1&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;Compare the similarity to the form in figure &lt;a href=&#34;#orgaeedfc0&#34;&gt;1&lt;/a&gt;:&lt;/p&gt;
 &lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
@@ -221,7 +223,7 @@ USERNAME &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style
 &lt;h4 id=&#34;manual&#34;&gt;Manual&lt;/h4&gt;
 &lt;p&gt;There are multiple ways of finding the credit values&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;By &lt;strong&gt;searching&lt;/strong&gt; for a value (here &lt;strong&gt;500&lt;/strong&gt;) in the browsers developer console as shown below in figure &lt;a href=&#34;#org7acfc3e&#34;&gt;2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;By &lt;strong&gt;searching&lt;/strong&gt; for a value (here &lt;strong&gt;500&lt;/strong&gt;) in the browsers developer console as shown below in figure &lt;a href=&#34;#orgbb0dac3&#34;&gt;2&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;By mouse hovering over the element (in the browser, not the dev console) and right-click &lt;code&gt;Inspect element (q)&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
@@ -276,15 +278,7 @@ tree &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; etree&lt;span styl
 &lt;/div&gt;
 &lt;/div&gt;&lt;/p&gt;
 &lt;h2 id=&#34;complete-script&#34;&gt;Complete script&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Store the complete &lt;a href=&#34;#code-snippet--m-budget-complete-script&#34;&gt;script&lt;/a&gt; below as e.g. &lt;code&gt;~/tmp/mbudget.py&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Change the &lt;a href=&#34;#credentials&#34;&gt;Credentials&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Run it&lt;/li&gt;
-&lt;/ol&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;python3 ~/tmp/mbudget.py
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;Your current balance is: 510 MB
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
 &lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
@@ -368,11 +362,22 @@ USERNAME &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style
 &lt;/div&gt;
 &lt;/div&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;Your current balance is: 510 MB
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Store the complete &lt;a href=&#34;#code-snippet--m-budget-complete-script&#34;&gt;script&lt;/a&gt; above as e.g. &lt;code&gt;~/tmp/mbudget.py&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Change the &lt;a href=&#34;#credentials&#34;&gt;Credentials&lt;/a&gt; in &lt;code&gt;~/tmp/mbudget.py&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Run it:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;python3 ~/tmp/mbudget.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;Your current balance is: 510 MB
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;Scripting our manual steps now allows us to store and process the returned data
 further. We could schedule it using a systemd timer or cron. Or send a
 notification by email or sms if a certain limit is reached.&lt;/p&gt;
-&lt;p&gt;Long story short: No more clicking, typing and calculating&lt;/p&gt;
+&lt;p&gt;And of course: No more clicking, calculating and repeating.&lt;/p&gt;
 &lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
 &lt;hr&gt;
 &lt;ol&gt;
