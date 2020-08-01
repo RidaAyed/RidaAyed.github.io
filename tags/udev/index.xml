@@ -100,7 +100,7 @@ After submitting your credentials, deliberate what you just submitted.&lt;/p&gt;
 &lt;/ol&gt;
 &lt;p&gt;However, the developer console (F12 on your keyboard) and it&amp;rsquo;s &lt;code&gt;Network&lt;/code&gt; tab reveal more.&lt;/p&gt;
 &lt;p&gt;The data is sent as POST request, therefore we look for POST methods and
-therein for the Form data (on the bottom right in figure &lt;a href=&#34;#org1b234bf&#34;&gt;1&lt;/a&gt;)
+therein for the Form data (on the bottom right in figure &lt;a href=&#34;#orgf54f690&#34;&gt;1&lt;/a&gt;)
 Alongside the mentioned credentials, a couple of hidden data was submitted as
 well.&lt;/p&gt;
 &lt;p&gt;In particular the &lt;code&gt;authenticity_token&lt;/code&gt; is interesting. It&amp;rsquo;s part of a
@@ -169,7 +169,7 @@ USERNAME &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style
 &lt;li&gt;
 &lt;p&gt;Prepare our form&lt;/p&gt;
 &lt;p&gt;We pass the csrf token along with the remaining data as dictionary.&lt;/p&gt;
-&lt;p&gt;Compare the similarity to the form in figure &lt;a href=&#34;#org1b234bf&#34;&gt;1&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;Compare the similarity to the form in figure &lt;a href=&#34;#orgf54f690&#34;&gt;1&lt;/a&gt;:&lt;/p&gt;
 &lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
@@ -223,7 +223,7 @@ USERNAME &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style
 &lt;h4 id=&#34;manual&#34;&gt;Manual&lt;/h4&gt;
 &lt;p&gt;There are multiple ways of finding the credit values&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;By &lt;strong&gt;searching&lt;/strong&gt; for a value (here &lt;strong&gt;500&lt;/strong&gt;) in the browsers developer console as shown below in figure &lt;a href=&#34;#orgbe76088&#34;&gt;2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;By &lt;strong&gt;searching&lt;/strong&gt; for a value (here &lt;strong&gt;500&lt;/strong&gt;) in the browsers developer console as shown below in figure &lt;a href=&#34;#orgea6d4a3&#34;&gt;2&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;By mouse hovering over the element (in the browser, not the dev console) and right-click &lt;code&gt;Inspect element (q)&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
@@ -371,6 +371,7 @@ USERNAME &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style
 &lt;!-- raw HTML omitted --&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;python3 ~/tmp/mbudget.py
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;Your current balance is: 510 MB
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
@@ -389,7 +390,7 @@ notification by email or sms if a certain limit is reached.&lt;/p&gt;
 </description>
     </item>
     <item>
-      <title>Test offline and fast with python pytest</title>
+      <title>Testing APIs offline and fast with vcrpy</title>
       <link>/posts/test_offline_and_fast_with_python_pytest/</link>
       <pubDate>Sat, 04 Apr 2020 11:03:00 +0200</pubDate>
       <guid>/posts/test_offline_and_fast_with_python_pytest/</guid>
