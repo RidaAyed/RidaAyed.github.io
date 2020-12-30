@@ -3,20 +3,112 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/paintings/</loc>
+    <lastmod>2020-12-29T18:14:43+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/</loc>
     <lastmod>2020-12-29T17:58:16+01:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/</loc>
+    <loc>/index.html</loc>
+    <lastmod>2020-12-29T17:58:16+01:00</lastmod>
   </url>
   
   <url>
-    <loc>/</loc>
+    <loc>/posts/</loc>
+    <lastmod>2020-08-01T14:26:32+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/python/</loc>
+    <lastmod>2020-08-01T14:26:32+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/authenticate_scrape_migros_mbudget_python/</loc>
+    <lastmod>2020-08-01T14:26:32+02:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/</loc>
+    <lastmod>2020-08-01T14:26:32+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/pytest/</loc>
+    <lastmod>2020-08-01T09:50:22+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/test_offline_and_fast_with_python_pytest/</loc>
+    <lastmod>2020-08-01T09:50:22+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/mount_a_usb_drive_persistently_for_all_users/</loc>
+    <lastmod>2020-03-28T12:55:36+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/storage/</loc>
+    <lastmod>2020-03-28T12:55:36+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/backup/</loc>
+    <lastmod>2020-03-28T12:56:17+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/backup_iphone_linux/</loc>
+    <lastmod>2020-03-28T12:56:17+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/systemd/</loc>
+    <lastmod>2020-03-28T12:56:17+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/udev/</loc>
+    <lastmod>2020-03-28T12:56:17+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/change_firefox_zoom_by_script/</loc>
+    <lastmod>2020-04-27T09:36:58+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/connect_iphone_to_raspi/</loc>
+    <lastmod>2020-04-27T09:38:40+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/setup_fujitsu_ix500_scanner_linux/</loc>
+    <lastmod>2020-03-23T20:04:28+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/screenshots-emacs-org-mode-flameshot/</loc>
+    <lastmod>2020-03-23T19:42:49+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/writing-letters-in-org-mode/</loc>
+    <lastmod>2020-03-28T12:57:20+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/howto-ox-hugo-github-pages/</loc>
+    <lastmod>2020-04-27T09:39:08+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
   </url>
   
 </urlset>

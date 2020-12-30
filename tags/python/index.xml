@@ -2,9 +2,9 @@
 <?xml-stylesheet type="text/xsl" href="/xml/base.min.xml" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>python | rida.ayed</title>
+    <title>python | Rida Ayed</title>
     <link>/tags/python/</link>
-    <description>Recent content in python on rida.ayed</description>
+    <description>Recent content in python on Rida Ayed</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 07 Apr 2020 18:50:00 +0200</lastBuildDate>
     <atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
@@ -414,8 +414,8 @@ myself waiting for their responses. Furthermore it feels strange to knock on any
 door every couple of seconds just to test what I&amp;rsquo;m processing locally anyway.&lt;/p&gt;
 &lt;p&gt;A solution for this issues comes in the form of &lt;a href=&#34;https://vcrpy.readthedocs.io/&#34;&gt;vcrpy&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Vcrpy frees you from the burden of waiting or even to be online at all. Responses are stored locally in the form of yaml files called cassettes.&lt;/p&gt;
-&lt;p&gt;In the following post I&amp;rsquo;ll test against Migros&amp;rsquo; mobile plan named M-Budget. Migros is among Switzerland&amp;rsquo;s largest wholesale retailers.&lt;/p&gt;
-&lt;p&gt;The test consists of asserting a word&amp;rsquo;s appearance on Migros&amp;rsquo; website.&lt;/p&gt;
+&lt;p&gt;In the following post I&amp;rsquo;ll test against Migros&#39; mobile plan named M-Budget. Migros is among Switzerland&amp;rsquo;s largest wholesale retailers.&lt;/p&gt;
+&lt;p&gt;The test consists of asserting a word&amp;rsquo;s appearance on Migros&#39; website.&lt;/p&gt;
 &lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;/h2&gt;
 &lt;p&gt;Python&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;python --version
