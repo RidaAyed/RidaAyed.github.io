@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="/xml/base.min.xml" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>pytest | Rida Ayed</title>
+    <title>pytest on Rida Ayed</title>
     <link>/tags/pytest/</link>
     <description>Recent content in pytest on Rida Ayed</description>
     <generator>Hugo -- gohugo.io</generator>
