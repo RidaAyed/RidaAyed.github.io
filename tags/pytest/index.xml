@@ -100,7 +100,7 @@ After submitting your credentials, deliberate what you just submitted.&lt;/p&gt;
 &lt;/ol&gt;
 &lt;p&gt;However, the developer console (F12 on your keyboard) and it&amp;rsquo;s &lt;code&gt;Network&lt;/code&gt; tab reveal more.&lt;/p&gt;
 &lt;p&gt;The data is sent as POST request, therefore we look for POST methods and
-therein for the Form data (on the bottom right in figure &lt;a href=&#34;#orgf54f690&#34;&gt;1&lt;/a&gt;)
+therein for the Form data (on the bottom right in figure &lt;a href=&#34;#org40baee4&#34;&gt;1&lt;/a&gt;)
 Alongside the mentioned credentials, a couple of hidden data was submitted as
 well.&lt;/p&gt;
 &lt;p&gt;In particular the &lt;code&gt;authenticity_token&lt;/code&gt; is interesting. It&amp;rsquo;s part of a
@@ -136,8 +136,8 @@ source).&lt;/p&gt;
 &lt;p&gt;Fetch csrf token&lt;/p&gt;
 &lt;p&gt;Now we know &lt;strong&gt;where&lt;/strong&gt; to seek &lt;strong&gt;what&lt;/strong&gt; element:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Where&lt;/strong&gt;: In the html source text. Line 1&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;What&lt;/strong&gt;: A &lt;code&gt;meta&lt;/code&gt; tag named &lt;code&gt;csrf-token&lt;/code&gt; contains the token as it&amp;rsquo;s &lt;code&gt;content&lt;/code&gt;. Line 2&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Where&lt;/strong&gt;: In the html source text at line 1&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;What&lt;/strong&gt;: A &lt;code&gt;meta&lt;/code&gt; tag named &lt;code&gt;csrf-token&lt;/code&gt; contains the token as it&amp;rsquo;s &lt;code&gt;content&lt;/code&gt;. At line 2&lt;/li&gt;
 &lt;/ol&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;
@@ -169,7 +169,7 @@ USERNAME &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style
 &lt;li&gt;
 &lt;p&gt;Prepare our form&lt;/p&gt;
 &lt;p&gt;We pass the csrf token along with the remaining data as dictionary.&lt;/p&gt;
-&lt;p&gt;Compare the similarity to the form in figure &lt;a href=&#34;#orgf54f690&#34;&gt;1&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;Compare the similarity to the form in figure &lt;a href=&#34;#org40baee4&#34;&gt;1&lt;/a&gt;:&lt;/p&gt;
 &lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
@@ -223,7 +223,7 @@ USERNAME &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style
 &lt;h4 id=&#34;manual&#34;&gt;Manual&lt;/h4&gt;
 &lt;p&gt;There are multiple ways of finding the credit values&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;By &lt;strong&gt;searching&lt;/strong&gt; for a value (here &lt;strong&gt;500&lt;/strong&gt;) in the browsers developer console as shown below in figure &lt;a href=&#34;#orgea6d4a3&#34;&gt;2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;By &lt;strong&gt;searching&lt;/strong&gt; for a value (here &lt;strong&gt;500&lt;/strong&gt;) in the browsers developer console as shown below in figure &lt;a href=&#34;#org32fa5af&#34;&gt;2&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;By mouse hovering over the element (in the browser, not the dev console) and right-click &lt;code&gt;Inspect element (q)&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
