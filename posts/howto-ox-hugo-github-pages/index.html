@@ -8,7 +8,7 @@
 
 
   
-    <meta name="description" content="Setup ox-hugo Create a new github repo via web front-end Clone the new repository Setup Hugo in our new repository Create the new hugo site Download a theme and add it as git sub-module Create the org content folder Create a minimal org file / web page Start the hugo server Browse to our local site Export our org file to hugo Note how hugo immediately rebuilds the site Check the browser Recheck what has been created Publish to Github pages Visit https://RidaAyed.">
+    <meta name="description" content="Table of Contents  Setup ox-hugo Create a new github repo via web front-end Clone the new repository Setup Hugo in our new repository Create the new hugo site Download a theme and add it as git sub-module Create the org content folder Create a minimal org file / web page Start the hugo server Browse to our local site Export our org file to hugo Note how hugo immediately rebuilds the site Check the browser Recheck what has been created Publish to Github pages Visit https://RidaAyed.">
   
 
 
@@ -75,8 +75,9 @@
     <time datetime="2019-04-16T19:52:00&#43;02:00">16 April, 2019</time>
   
 </header>
-    <!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+    <div class="ox-hugo-toc toc">
+<div></div>
+<div class="heading">Table of Contents</div>
 <ul>
 <li><a href="#setup-ox-hugo">Setup ox-hugo</a></li>
 <li><a href="#create-a-new-github-repo-via-web-front-end">Create a new github repo via web front-end</a></li>
@@ -97,7 +98,8 @@
 <li><a href="#what-about-speed">What about speed?</a></li>
 <li><a href="#using-prodigy-for-hugo-auto-build-on-saving-the-org-file">Using prodigy for hugo auto build on saving the org file</a></li>
 </ul>
-<!-- raw HTML omitted -->
+</div>
+<!--endtoc-->
 <h2 id="setup-ox-hugo">Setup ox-hugo</h2>
 <p><a href="https://ox-hugo.scripter.co/doc/usage/">https://ox-hugo.scripter.co/doc/usage/</a></p>
 <p>Add these lines to <code>.spacemacs</code></p>
@@ -128,7 +130,7 @@
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd /home/ra/RidaAyed.github.io
 git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
 </code></pre></div><p>Check our current config.toml</p>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><a id="code-snippet--hugoConfig"></a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cat /home/ra/src/RidaAyed.github.io/config.toml
 </code></pre></div><p>Add the Ananke theme to our config.toml</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd /home/ra/RidaAyed.github.io
@@ -311,7 +313,7 @@ cd ..
 <li>Add the <code>prodigy</code> <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>layer</li>
 <li>Add this section at the end of <code>.spacemacs</code>:</li>
 </ul>
-<!-- raw HTML omitted -->
+<!--listend-->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp">(prodigy-define-service
  :name <span style="color:#e6db74">&#34;Hugo Personal Blog&#34;</span>
  :command <span style="color:#e6db74">&#34;/usr/bin/hugo&#34;</span>

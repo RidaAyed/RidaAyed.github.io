@@ -8,7 +8,7 @@
 
 
   
-    <meta name="description" content="Motivation How to understand this post Script ingredients  Modules Urls   Process overview  Visit the ISP&rsquo;s login page Login Get the consumption values Logout   Complete script Usage Conclusion    Motivation I recently caught myself repeatedly checking my internet consumption balance.
+    <meta name="description" content="Table of Contents  Motivation How to understand this post Script ingredients  Modules Urls   Process overview  Visit the ISP&rsquo;s login page Login Get the consumption values Logout   Complete script Usage Conclusion      Motivation I recently caught myself repeatedly checking my internet consumption balance.
 A perfect case for a script and an accompanying tutorial.
 For the sake of this tutorial&rsquo;s scope and the script&rsquo;s brevity I&rsquo;ll skip various code paradigms like exception handling, testing, continuous integration, virtual environments etc.">
   
@@ -77,8 +77,9 @@ For the sake of this tutorial&rsquo;s scope and the script&rsquo;s brevity I&rsq
     <time datetime="2020-04-07T18:50:00&#43;02:00">7 April, 2020</time>
   
 </header>
-    <!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+    <div class="ox-hugo-toc toc">
+<div></div>
+<div class="heading">Table of Contents</div>
 <ul>
 <li><a href="#motivation">Motivation</a></li>
 <li><a href="#how-to-understand-this-post">How to understand this post</a></li>
@@ -100,7 +101,8 @@ For the sake of this tutorial&rsquo;s scope and the script&rsquo;s brevity I&rsq
 <li><a href="#usage">Usage</a></li>
 <li><a href="#conclusion">Conclusion</a></li>
 </ul>
-<!-- raw HTML omitted -->
+</div>
+<!--endtoc-->
 <figure>
     <img src="/ox-hugo/2020-07-30_22-22-29_screenshot.png"/> 
 </figure>
@@ -120,13 +122,13 @@ mouse. <strong>Automated</strong> shows how we&rsquo;re doing it with a code sni
 as described in <a href="#usage">Usage</a></p>
 <h2 id="script-ingredients">Script ingredients</h2>
 <h3 id="modules">Modules</h3>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><a id="code-snippet--mbudget-Ingredients-modules"></a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> requests
 <span style="color:#f92672">from</span> lxml <span style="color:#f92672">import</span> html
 <span style="color:#f92672">from</span> lxml <span style="color:#f92672">import</span> etree
 </code></pre></div><h3 id="urls">Urls</h3>
 <p>Our working URLs are built upon one URL which serves as base URL in order to build up all endpoints.</p>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><a id="code-snippet--mbudget-Ingredients-urls"></a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">BASE_URL <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://selfcare.m-budget.migros.ch/eCare&#39;</span>
 LOGIN_URL <span style="color:#f92672">=</span> BASE_URL<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;/de/users/sign_in&#39;</span>
 LOGOUT_URL <span style="color:#f92672">=</span> BASE_URL<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;/de/users/sign_out&#39;</span>
@@ -141,7 +143,7 @@ by pressing F12 on your keyboard.</p>
 </figure>
 
 <h4 id="automated">Automated</h4>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<p><a id="code-snippet--mbudget-OpenUrl"></a>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -170,7 +172,7 @@ well.</p>
 <p>In particular the <code>authenticity_token</code> is interesting. It&rsquo;s part of a
 security remedy against a malicious hack. Also known as <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> Cross-site
 request-forgery or in abbreviated form <code>csrf</code>.</p>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><a id="org40baee4"></a></p>
 <figure>
     <img src="/ox-hugo/2020-07-30_16-25-58_screenshot.png"
          alt="Figure 1: Post form data"/> <figcaption>
@@ -179,7 +181,7 @@ request-forgery or in abbreviated form <code>csrf</code>.</p>
 </figure>
 
 <p>But where does that cryptic csrf token value come from?</p>
-<!-- raw HTML omitted -->
+<!--list-separator-->
 <ul>
 <li>
 <p>Finding the csrf token</p>
@@ -194,7 +196,7 @@ source).</p>
 </code></pre></div></li>
 </ul>
 <h4 id="automated">Automated</h4>
-<!-- raw HTML omitted -->
+<!--list-separator-->
 <ul>
 <li>
 <p>Fetch csrf token</p>
@@ -203,8 +205,8 @@ source).</p>
 <li><strong>Where</strong>: In the html source text at line 1</li>
 <li><strong>What</strong>: A <code>meta</code> tag named <code>csrf-token</code> contains the token as it&rsquo;s <code>content</code>. At line 2</li>
 </ol>
-<!-- raw HTML omitted -->
-<p><!-- raw HTML omitted --><!-- raw HTML omitted -->
+ <!--listend-->
+<p><a id="code-snippet--mbudget-Get-login-csrf-token"></a>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -219,22 +221,22 @@ source).</p>
 </div></p>
 </li>
 </ul>
-<!-- raw HTML omitted -->
+<!--list-separator-->
 <ul>
 <li>
 <p>Credentials</p>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><a id="code-snippet--mbudget-Ingredients-credentials"></a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">PASSWORD <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;changeMe&#39;</span>
 USERNAME <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;changeMe&#39;</span>
 </code></pre></div></li>
 </ul>
-<!-- raw HTML omitted -->
+<!--list-separator-->
 <ul>
 <li>
 <p>Prepare our form</p>
 <p>We pass the csrf token along with the remaining data as dictionary.</p>
 <p>Compare the similarity to the form in figure <a href="#org40baee4">1</a>:</p>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<p><a id="code-snippet--mbudget-Create-payload"></a>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -261,12 +263,12 @@ USERNAME <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;c
 </div></p>
 </li>
 </ul>
-<!-- raw HTML omitted -->
+<!--list-separator-->
 <ul>
 <li>
 <p>Sign-in</p>
 <p>We&rsquo;re all set and can finally sign-in passing our form</p>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<p><a id="code-snippet--mbudget-Login"></a>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -290,7 +292,7 @@ USERNAME <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;c
 <li>By <strong>searching</strong> for a value (here <strong>500</strong>) in the browsers developer console as shown below in figure <a href="#org32fa5af">2</a></li>
 <li>By mouse hovering over the element (in the browser, not the dev console) and right-click <code>Inspect element (q)</code></li>
 </ol>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><a id="org32fa5af"></a></p>
 <figure>
     <img src="/ox-hugo/2020-07-31_12-11-33_screenshot.png"
          alt="Figure 2: Searching for values and displaying css properties"/> <figcaption>
@@ -303,7 +305,7 @@ USERNAME <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;c
 <p>Here&rsquo;s how we&rsquo;re scripting the balance part starting at line 3:</p>
 <p>First we set our focus on the <strong>parenting</strong> <code>div</code> in the <code>class</code> named <code>circle__inside</code> in order to extract the <code>text</code> from it&rsquo;s first <code>[1]</code> <code>span</code> element.
 Then we loop through each <strong>child</strong> (circles) and append each circle&rsquo;s credit value to our balance list. Finally we print the balance.</p>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<p><a id="code-snippet--mbudget-Get-consumption-elements"></a>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -332,7 +334,7 @@ tree <span style="color:#f92672">=</span> etree<span style="color:#f92672">.</sp
 <li>Click sign-out (Abmelden)</li>
 </ol>
 <h4 id="automated">Automated</h4>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<p><a id="code-snippet--mbudget-logout"></a>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -342,7 +344,7 @@ tree <span style="color:#f92672">=</span> etree<span style="color:#f92672">.</sp
 </div>
 </div></p>
 <h2 id="complete-script">Complete script</h2>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<p><a id="code-snippet--m-budget-complete-script"></a>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -432,12 +434,13 @@ USERNAME <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;c
 <li>Change the <a href="#credentials">Credentials</a> in <code>~/tmp/mbudget.py</code></li>
 <li>Run it:</li>
 </ol>
-<!-- raw HTML omitted -->
+<!--listend-->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">python3 ~/tmp/mbudget.py
-</code></pre></div><!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+</code></pre></div><style>.results-fixed-block { color: blue;  }</style>
+<div class="results-fixed-block">
+  <div></div>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Your current balance is: 510 MB
-</code></pre></div><!-- raw HTML omitted -->
+</code></pre></div></div>
 <h2 id="conclusion">Conclusion</h2>
 <p>Scripting our manual steps now allows us to store and process the returned data
 further. We could schedule it using a systemd timer or cron. Or send a

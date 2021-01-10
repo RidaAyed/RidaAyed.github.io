@@ -8,8 +8,7 @@
 
 
   
-    <meta name="description" content="Unlock your iPhone Connect and login into your raspi Update - Retrieve new lists of packages Upgrade - Perform an upgrade Install the necessary packages Connect the iPhone with the raspi via USB Accept the trust dialog on the iPhone Pair the phone Accept another trust dialog the on the iPhone Create a mount folder Mount the iPhone Approve success Summary of all commands to copy/paste  Environment:
- iPhone 5SE iOS 11.">
+    <meta name="description" content="Table of Contents  Unlock your iPhone Connect and login into your raspi Update - Retrieve new lists of packages Upgrade - Perform an upgrade Install the necessary packages Connect the iPhone with the raspi via USB Accept the trust dialog on the iPhone Pair the phone Accept another trust dialog the on the iPhone Create a mount folder Mount the iPhone Approve success Summary of all commands to copy/paste    Environment:">
   
 
 
@@ -76,8 +75,9 @@
     <time datetime="2020-01-21T13:10:00&#43;01:00">21 January, 2020</time>
   
 </header>
-    <!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+    <div class="ox-hugo-toc toc">
+<div></div>
+<div class="heading">Table of Contents</div>
 <ul>
 <li><a href="#unlock-your-iphone">Unlock your iPhone</a></li>
 <li><a href="#connect-and-login-into-your-raspi">Connect and login into your raspi</a></li>
@@ -93,7 +93,8 @@
 <li><a href="#approve-success">Approve success</a></li>
 <li><a href="#summary-of-all-commands-to-copy-paste">Summary of all commands to copy/paste</a></li>
 </ul>
-<!-- raw HTML omitted -->
+</div>
+<!--endtoc-->
 <p>Environment:</p>
 <ul>
 <li>iPhone 5SE iOS 11.0.1 (15A402)</li>
@@ -107,17 +108,17 @@ avoid errors.</p>
 <p>Existence of an entry &lsquo;Host raspi&rsquo; in ~/.ssh/config is assumed:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ssh raspi
 </code></pre></div><h2 id="update-retrieve-new-lists-of-packages">Update - Retrieve new lists of packages</h2>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><a id="code-snippet--raspi-update"></a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get update
 </code></pre></div><h2 id="upgrade-perform-an-upgrade">Upgrade - Perform an upgrade</h2>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><a id="code-snippet--raspi-upgrade"></a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get upgrade
 </code></pre></div><h2 id="install-the-necessary-packages">Install the necessary packages</h2>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><a id="code-snippet--raspi-iphone-install-packages-libimobiledevice"></a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get install libimobiledevice-utils
-</code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+</code></pre></div><p><a id="code-snippet--raspi-iphone-install-packages-usbmuxd"></a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get install usbmuxd
-</code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+</code></pre></div><p><a id="code-snippet--raspi-iphone-install-packages-ifuse"></a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get install ifuse
 </code></pre></div><h2 id="connect-the-iphone-with-the-raspi-via-usb">Connect the iPhone with the raspi via USB</h2>
 <h2 id="accept-the-trust-dialog-on-the-iphone">Accept the trust dialog on the iPhone</h2>
@@ -126,7 +127,7 @@ avoid errors.</p>
 </figure>
 
 <h2 id="pair-the-phone">Pair the phone</h2>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><a id="code-snippet--raspi-iphone-pair"></a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">idevicepair pair
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">SUCCESS: Paired with device 3b9...
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">ERROR: Please accept the trust dialog on the screen of device 3b9...
@@ -137,15 +138,15 @@ avoid errors.</p>
 </figure>
 
 <h2 id="create-a-mount-folder">Create a mount folder</h2>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><a id="code-snippet--raspi-iphone-create-mount-folder"></a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo mkdir /mnt/iphone/ --verbose
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">mkdir: mkdir: created directory &#39;/mnt/iphone/&#39;
 </code></pre></div><h2 id="mount-the-iphone">Mount the iPhone</h2>
 <p>Consider storing this command <strong>as a shortcut to your desktop for convenience</strong>:</p>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><a id="code-snippet--raspi-iphone-mount-phone"></a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ifuse /mnt/iphone/
 </code></pre></div><h2 id="approve-success">Approve success</h2>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><a id="code-snippet--raspi-iphone-tree"></a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">tree -d -L <span style="color:#ae81ff">1</span> /mnt/iphone/
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">/mnt/iphone/
 ├── Books

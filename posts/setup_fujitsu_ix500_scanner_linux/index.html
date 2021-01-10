@@ -8,7 +8,7 @@
 
 
   
-    <meta name="description" content="Install package Approve the connection Get a list of devices: Get a list of all device specific options: Scan a test file Scan productively Skipping empty pages Alias the command  Install package sudo apt install sane-utils -y Approve the connection Enable the scanner by opening the scanner&rsquo;s lid
+    <meta name="description" content="Table of Contents  Install package Approve the connection Get a list of devices: Get a list of all device specific options: Scan a test file Scan productively Skipping empty pages Alias the command    Install package sudo apt install sane-utils -y Approve the connection Enable the scanner by opening the scanner&rsquo;s lid
 sudo sane-find-scanner -q found USB scanner (vendor=0x04c5 [Fujitsu], product=0x132b [ScanSnap iX500]) at libusb:001:007 found USB scanner (vendor=0x0424, product=0x7800) at libusb:001:005 Get a list of devices: scanimage --list-devices device `fujitsu:ScanSnap iX500:10443&#39; is a FUJITSU ScanSnap iX500 scanner Get a list of all device specific options: scanimage --device &#39;fujitsu:ScanSnap iX500:10443&#39; --all-options Scan a test file Scan with default settings to a temporary testfile">
   
 
@@ -76,8 +76,9 @@ sudo sane-find-scanner -q found USB scanner (vendor=0x04c5 [Fujitsu], product=0x
     <time datetime="2020-01-17T18:27:00&#43;01:00">17 January, 2020</time>
   
 </header>
-    <!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+    <div class="ox-hugo-toc toc">
+<div></div>
+<div class="heading">Table of Contents</div>
 <ul>
 <li><a href="#install-package">Install package</a></li>
 <li><a href="#approve-the-connection">Approve the connection</a></li>
@@ -88,7 +89,8 @@ sudo sane-find-scanner -q found USB scanner (vendor=0x04c5 [Fujitsu], product=0x
 <li><a href="#skipping-empty-pages">Skipping empty pages</a></li>
 <li><a href="#alias-the-command">Alias the command</a></li>
 </ul>
-<!-- raw HTML omitted -->
+</div>
+<!--endtoc-->
 <h2 id="install-package">Install package</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt install sane-utils -y
 </code></pre></div><h2 id="approve-the-connection">Approve the connection</h2>
@@ -108,7 +110,7 @@ ls --size --block-size<span style="color:#f92672">=</span>M /tmp/image.tiff
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">5M /tmp/image.tiff
 </code></pre></div><h2 id="scan-productively">Scan productively</h2>
 <p>Mind making this script executable using <code>chmod +x</code>.</p>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<p><a id="code-snippet--scan-script"></a>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -181,7 +183,10 @@ printf <span style="color:#e6db74">&#34;Scanned document(s) to:\n\
 </span><span style="color:#e6db74">           </span><span style="color:#66d9ef">$(</span>ls --size --block-size<span style="color:#f92672">=</span>M $OUT_DIR/$fileNAME*<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span></code></pre></td></tr></table>
 </div>
 </div></p>
-<!-- raw HTML omitted -->
+<div class="src-block-caption">
+  <span class="src-block-number"><a href="#code-snippet--scan-script">Code Snippet 1</a></span>:
+  Scan documents in bash with scanimage
+</div>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">scanning...
 Scanned document(s) to:
            9M /scan_2020-03-22-205607_001.tiff
@@ -195,7 +200,7 @@ empty pages. You get one file. <strong>Case-specific testing is recommended.</st
         Request driver to discard pages with low percentage of dark pixels
 </code></pre></div><h2 id="alias-the-command">Alias the command</h2>
 <p>Add this command to your .profile</p>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><a id="code-snippet--scan-script-alias"></a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">alias scan<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ssh raspi &#39;/home/pi/scripts/scan.sh /media/pi/usb500gb/scan&#39;&#34;</span>
 </code></pre></div>
     

@@ -13,8 +13,9 @@
       <link>/posts/authenticate_scrape_migros_mbudget_python/</link>
       <pubDate>Tue, 07 Apr 2020 18:50:00 +0200</pubDate>
       <guid>/posts/authenticate_scrape_migros_mbudget_python/</guid>
-      <description>&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+      <description>&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#motivation&#34;&gt;Motivation&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#how-to-understand-this-post&#34;&gt;How to understand this post&lt;/a&gt;&lt;/li&gt;
@@ -36,7 +37,8 @@
 &lt;li&gt;&lt;a href=&#34;#usage&#34;&gt;Usage&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#conclusion&#34;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;figure&gt;
     &lt;img src=&#34;/ox-hugo/2020-07-30_22-22-29_screenshot.png&#34;/&gt; 
 &lt;/figure&gt;
@@ -56,13 +58,13 @@ mouse. &lt;strong&gt;Automated&lt;/strong&gt; shows how we&amp;rsquo;re doing it
 as described in &lt;a href=&#34;#usage&#34;&gt;Usage&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;script-ingredients&#34;&gt;Script ingredients&lt;/h2&gt;
 &lt;h3 id=&#34;modules&#34;&gt;Modules&lt;/h3&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--mbudget-Ingredients-modules&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; requests
 &lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; lxml &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; html
 &lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; lxml &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; etree
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;urls&#34;&gt;Urls&lt;/h3&gt;
 &lt;p&gt;Our working URLs are built upon one URL which serves as base URL in order to build up all endpoints.&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--mbudget-Ingredients-urls&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;BASE_URL &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;https://selfcare.m-budget.migros.ch/eCare&amp;#39;&lt;/span&gt;
 LOGIN_URL &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; BASE_URL&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;/de/users/sign_in&amp;#39;&lt;/span&gt;
 LOGOUT_URL &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; BASE_URL&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;/de/users/sign_out&amp;#39;&lt;/span&gt;
@@ -77,7 +79,7 @@ by pressing F12 on your keyboard.&lt;/p&gt;
 &lt;/figure&gt;
 
 &lt;h4 id=&#34;automated&#34;&gt;Automated&lt;/h4&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--mbudget-OpenUrl&#34;&gt;&lt;/a&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
 &lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
@@ -106,7 +108,7 @@ well.&lt;/p&gt;
 &lt;p&gt;In particular the &lt;code&gt;authenticity_token&lt;/code&gt; is interesting. It&amp;rsquo;s part of a
 security remedy against a malicious hack. Also known as &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; Cross-site
 request-forgery or in abbreviated form &lt;code&gt;csrf&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;org40baee4&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;figure&gt;
     &lt;img src=&#34;/ox-hugo/2020-07-30_16-25-58_screenshot.png&#34;
          alt=&#34;Figure 1: Post form data&#34;/&gt; &lt;figcaption&gt;
@@ -115,7 +117,7 @@ request-forgery or in abbreviated form &lt;code&gt;csrf&lt;/code&gt;.&lt;/p&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;But where does that cryptic csrf token value come from?&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;!--list-separator--&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Finding the csrf token&lt;/p&gt;
@@ -130,7 +132,7 @@ source).&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&#34;automated&#34;&gt;Automated&lt;/h4&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;!--list-separator--&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Fetch csrf token&lt;/p&gt;
@@ -139,8 +141,8 @@ source).&lt;/p&gt;
 &lt;li&gt;&lt;strong&gt;Where&lt;/strong&gt;: In the html source text at line 1&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;What&lt;/strong&gt;: A &lt;code&gt;meta&lt;/code&gt; tag named &lt;code&gt;csrf-token&lt;/code&gt; contains the token as it&amp;rsquo;s &lt;code&gt;content&lt;/code&gt;. At line 2&lt;/li&gt;
 &lt;/ol&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;
+ &lt;!--listend--&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--mbudget-Get-login-csrf-token&#34;&gt;&lt;/a&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
 &lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
@@ -155,22 +157,22 @@ source).&lt;/p&gt;
 &lt;/div&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;!--list-separator--&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Credentials&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--mbudget-Ingredients-credentials&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;PASSWORD &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;changeMe&amp;#39;&lt;/span&gt;
 USERNAME &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;changeMe&amp;#39;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;!--list-separator--&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Prepare our form&lt;/p&gt;
 &lt;p&gt;We pass the csrf token along with the remaining data as dictionary.&lt;/p&gt;
 &lt;p&gt;Compare the similarity to the form in figure &lt;a href=&#34;#org40baee4&#34;&gt;1&lt;/a&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--mbudget-Create-payload&#34;&gt;&lt;/a&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
 &lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
@@ -197,12 +199,12 @@ USERNAME &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style
 &lt;/div&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;!--list-separator--&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Sign-in&lt;/p&gt;
 &lt;p&gt;We&amp;rsquo;re all set and can finally sign-in passing our form&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--mbudget-Login&#34;&gt;&lt;/a&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
 &lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
@@ -226,7 +228,7 @@ USERNAME &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style
 &lt;li&gt;By &lt;strong&gt;searching&lt;/strong&gt; for a value (here &lt;strong&gt;500&lt;/strong&gt;) in the browsers developer console as shown below in figure &lt;a href=&#34;#org32fa5af&#34;&gt;2&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;By mouse hovering over the element (in the browser, not the dev console) and right-click &lt;code&gt;Inspect element (q)&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;org32fa5af&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;figure&gt;
     &lt;img src=&#34;/ox-hugo/2020-07-31_12-11-33_screenshot.png&#34;
          alt=&#34;Figure 2: Searching for values and displaying css properties&#34;/&gt; &lt;figcaption&gt;
@@ -239,7 +241,7 @@ USERNAME &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style
 &lt;p&gt;Here&amp;rsquo;s how we&amp;rsquo;re scripting the balance part starting at line 3:&lt;/p&gt;
 &lt;p&gt;First we set our focus on the &lt;strong&gt;parenting&lt;/strong&gt; &lt;code&gt;div&lt;/code&gt; in the &lt;code&gt;class&lt;/code&gt; named &lt;code&gt;circle__inside&lt;/code&gt; in order to extract the &lt;code&gt;text&lt;/code&gt; from it&amp;rsquo;s first &lt;code&gt;[1]&lt;/code&gt; &lt;code&gt;span&lt;/code&gt; element.
 Then we loop through each &lt;strong&gt;child&lt;/strong&gt; (circles) and append each circle&amp;rsquo;s credit value to our balance list. Finally we print the balance.&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--mbudget-Get-consumption-elements&#34;&gt;&lt;/a&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
 &lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
@@ -268,7 +270,7 @@ tree &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; etree&lt;span styl
 &lt;li&gt;Click sign-out (Abmelden)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h4 id=&#34;automated&#34;&gt;Automated&lt;/h4&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--mbudget-logout&#34;&gt;&lt;/a&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
 &lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
@@ -278,7 +280,7 @@ tree &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; etree&lt;span styl
 &lt;/div&gt;
 &lt;/div&gt;&lt;/p&gt;
 &lt;h2 id=&#34;complete-script&#34;&gt;Complete script&lt;/h2&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--m-budget-complete-script&#34;&gt;&lt;/a&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
 &lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
@@ -368,12 +370,13 @@ USERNAME &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style
 &lt;li&gt;Change the &lt;a href=&#34;#credentials&#34;&gt;Credentials&lt;/a&gt; in &lt;code&gt;~/tmp/mbudget.py&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Run it:&lt;/li&gt;
 &lt;/ol&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;!--listend--&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;python3 ~/tmp/mbudget.py
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;style&gt;.results-fixed-block { color: blue;  }&lt;/style&gt;
+&lt;div class=&#34;results-fixed-block&#34;&gt;
+  &lt;div&gt;&lt;/div&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;Your current balance is: 510 MB
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;Scripting our manual steps now allows us to store and process the returned data
 further. We could schedule it using a systemd timer or cron. Or send a
@@ -394,8 +397,9 @@ notification by email or sms if a certain limit is reached.&lt;/p&gt;
       <link>/posts/test_offline_and_fast_with_python_pytest/</link>
       <pubDate>Sat, 04 Apr 2020 11:03:00 +0200</pubDate>
       <guid>/posts/test_offline_and_fast_with_python_pytest/</guid>
-      <description>&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+      <description>&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#motivation&#34;&gt;Motivation&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#requirements&#34;&gt;Requirements&lt;/a&gt;&lt;/li&gt;
@@ -407,7 +411,8 @@ notification by email or sms if a certain limit is reached.&lt;/p&gt;
 &lt;li&gt;&lt;a href=&#34;#go-back-online&#34;&gt;Go back online&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#conclusion&#34;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;While testing code against online sources like websites or APIs I often find
 myself waiting for their responses. Furthermore it feels strange to knock on anyone&amp;rsquo;s
@@ -526,8 +531,9 @@ requests.&lt;/p&gt;
       <link>/posts/mount_a_usb_drive_persistently_for_all_users/</link>
       <pubDate>Sat, 28 Mar 2020 12:50:00 +0100</pubDate>
       <guid>/posts/mount_a_usb_drive_persistently_for_all_users/</guid>
-      <description>&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+      <description>&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#create-a-mount-point&#34;&gt;Create a mount point&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#list-devices&#34;&gt;List devices&lt;/a&gt;&lt;/li&gt;
@@ -538,7 +544,8 @@ requests.&lt;/p&gt;
 &lt;li&gt;&lt;a href=&#34;#cleanup&#34;&gt;Cleanup&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#troubleshooting&#34;&gt;Troubleshooting&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;p&gt;I need to persistently permit all users read/write access to a USB drive&lt;/p&gt;
 &lt;h2 id=&#34;create-a-mount-point&#34;&gt;Create a mount point&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;mkdir /mnt/usb500
@@ -585,8 +592,9 @@ rm bar.txt
       <link>/posts/backup_iphone_linux/</link>
       <pubDate>Sat, 21 Mar 2020 20:35:00 +0100</pubDate>
       <guid>/posts/backup_iphone_linux/</guid>
-      <description>&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+      <description>&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#install-the-necessary-packages--posts-connect-iphone-to-raspi-dot-md&#34;&gt;Install the necessary packages&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#find-the-event-iphone-connected&#34;&gt;Find the event &lt;code&gt;iPhone connected&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
@@ -596,7 +604,8 @@ rm bar.txt
 &lt;li&gt;&lt;a href=&#34;#restart-and-reload-all-actors--not-the-iphone-though&#34;&gt;Restart and reload all actors (not the iPhone though)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#monitor-the-backup-process&#34;&gt;Monitor the backup process&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;p&gt;This is a follow-up on &lt;a href=&#34;/posts/connect_iphone_to_raspi/&#34;&gt;Connect an iPhone to a Raspi&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;install-the-necessary-packages--posts-connect-iphone-to-raspi-dot-md&#34;&gt;&lt;a href=&#34;/posts/connect_iphone_to_raspi/#install-the-necessary-packages&#34;&gt;Install the necessary packages&lt;/a&gt;&lt;/h2&gt;
 &lt;h2 id=&#34;find-the-event-iphone-connected&#34;&gt;Find the event &lt;code&gt;iPhone connected&lt;/code&gt;&lt;/h2&gt;
@@ -604,14 +613,14 @@ rm bar.txt
 &lt;li&gt;Connect your iPhone:&lt;/li&gt;
 &lt;li&gt;Run this script:&lt;/li&gt;
 &lt;/ol&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;!--listend--&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;lsusb | grep iPhone
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;Bus 001 Device 007: ID 05ac:12a8 Apple, Inc. iPhone5/5C/5S/6
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;catch-the-event-iphone-connected&#34;&gt;Catch the event &lt;code&gt;iPhone connected&lt;/code&gt;&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Content of /etc/udev/rules.d/99-iphone.rules&lt;/span&gt;
 SUBSYSTEM&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;usb&amp;#34;&lt;/span&gt;, ENV&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;DEVTYPE&lt;span style=&#34;color:#f92672&#34;&gt;}==&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;usb_device&amp;#34;&lt;/span&gt;, ENV&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;PRODUCT&lt;span style=&#34;color:#f92672&#34;&gt;}==&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;5ac/12[9a][0-9a-f]/*&amp;#34;&lt;/span&gt;, ACTION&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;add&amp;#34;&lt;/span&gt;, ENV&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;SYSTEMD_WANTS&lt;span style=&#34;color:#f92672&#34;&gt;}=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;iphone-connect.service&amp;#34;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;create-the-trigger-iphone-connected&#34;&gt;Create the trigger &lt;code&gt;iPhone connected&lt;/code&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--iphone-connect.service&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Content of /etc/systemd/system/iphone-connect.service&lt;/span&gt;
 &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;Service&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
 Type&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;oneshot
@@ -687,8 +696,9 @@ sudo chmod --verbose +x ~/src/scripts/FirefoxZoomOut.sh
       <link>/posts/connect_iphone_to_raspi/</link>
       <pubDate>Tue, 21 Jan 2020 13:10:00 +0100</pubDate>
       <guid>/posts/connect_iphone_to_raspi/</guid>
-      <description>&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+      <description>&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#unlock-your-iphone&#34;&gt;Unlock your iPhone&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#connect-and-login-into-your-raspi&#34;&gt;Connect and login into your raspi&lt;/a&gt;&lt;/li&gt;
@@ -704,7 +714,8 @@ sudo chmod --verbose +x ~/src/scripts/FirefoxZoomOut.sh
 &lt;li&gt;&lt;a href=&#34;#approve-success&#34;&gt;Approve success&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#summary-of-all-commands-to-copy-paste&#34;&gt;Summary of all commands to copy/paste&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;p&gt;Environment:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;iPhone 5SE iOS 11.0.1 (15A402)&lt;/li&gt;
@@ -718,17 +729,17 @@ avoid errors.&lt;/p&gt;
 &lt;p&gt;Existence of an entry &amp;lsquo;Host raspi&amp;rsquo; in ~/.ssh/config is assumed:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;ssh raspi
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;update-retrieve-new-lists-of-packages&#34;&gt;Update - Retrieve new lists of packages&lt;/h2&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--raspi-update&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo apt-get update
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;upgrade-perform-an-upgrade&#34;&gt;Upgrade - Perform an upgrade&lt;/h2&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--raspi-upgrade&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo apt-get upgrade
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;install-the-necessary-packages&#34;&gt;Install the necessary packages&lt;/h2&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--raspi-iphone-install-packages-libimobiledevice&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo apt-get install libimobiledevice-utils
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a id=&#34;code-snippet--raspi-iphone-install-packages-usbmuxd&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo apt-get install usbmuxd
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a id=&#34;code-snippet--raspi-iphone-install-packages-ifuse&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo apt-get install ifuse
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;connect-the-iphone-with-the-raspi-via-usb&#34;&gt;Connect the iPhone with the raspi via USB&lt;/h2&gt;
 &lt;h2 id=&#34;accept-the-trust-dialog-on-the-iphone&#34;&gt;Accept the trust dialog on the iPhone&lt;/h2&gt;
@@ -737,7 +748,7 @@ avoid errors.&lt;/p&gt;
 &lt;/figure&gt;
 
 &lt;h2 id=&#34;pair-the-phone&#34;&gt;Pair the phone&lt;/h2&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--raspi-iphone-pair&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;idevicepair pair
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;SUCCESS: Paired with device 3b9...
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;ERROR: Please accept the trust dialog on the screen of device 3b9...
@@ -748,15 +759,15 @@ avoid errors.&lt;/p&gt;
 &lt;/figure&gt;
 
 &lt;h2 id=&#34;create-a-mount-folder&#34;&gt;Create a mount folder&lt;/h2&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--raspi-iphone-create-mount-folder&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo mkdir /mnt/iphone/ --verbose
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;mkdir: mkdir: created directory &amp;#39;/mnt/iphone/&amp;#39;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;mount-the-iphone&#34;&gt;Mount the iPhone&lt;/h2&gt;
 &lt;p&gt;Consider storing this command &lt;strong&gt;as a shortcut to your desktop for convenience&lt;/strong&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--raspi-iphone-mount-phone&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;ifuse /mnt/iphone/
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;approve-success&#34;&gt;Approve success&lt;/h2&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--raspi-iphone-tree&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;tree -d -L &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; /mnt/iphone/
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;/mnt/iphone/
 ├── Books
@@ -800,8 +811,9 @@ tree -d -L &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; /mnt/iphone/
       <link>/posts/setup_fujitsu_ix500_scanner_linux/</link>
       <pubDate>Fri, 17 Jan 2020 18:27:00 +0100</pubDate>
       <guid>/posts/setup_fujitsu_ix500_scanner_linux/</guid>
-      <description>&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+      <description>&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#install-package&#34;&gt;Install package&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#approve-the-connection&#34;&gt;Approve the connection&lt;/a&gt;&lt;/li&gt;
@@ -812,7 +824,8 @@ tree -d -L &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; /mnt/iphone/
 &lt;li&gt;&lt;a href=&#34;#skipping-empty-pages&#34;&gt;Skipping empty pages&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#alias-the-command&#34;&gt;Alias the command&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;install-package&#34;&gt;Install package&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo apt install sane-utils -y
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;approve-the-connection&#34;&gt;Approve the connection&lt;/h2&gt;
@@ -832,7 +845,7 @@ ls --size --block-size&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;M 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;5M /tmp/image.tiff
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;scan-productively&#34;&gt;Scan productively&lt;/h2&gt;
 &lt;p&gt;Mind making this script executable using &lt;code&gt;chmod +x&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--scan-script&#34;&gt;&lt;/a&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
 &lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
@@ -905,7 +918,10 @@ printf &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Scanned document(s) to
 &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;           &lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;ls --size --block-size&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;M $OUT_DIR/$fileNAME*&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;src-block-caption&#34;&gt;
+  &lt;span class=&#34;src-block-number&#34;&gt;&lt;a href=&#34;#code-snippet--scan-script&#34;&gt;Code Snippet 1&lt;/a&gt;&lt;/span&gt;:
+  Scan documents in bash with scanimage
+&lt;/div&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;scanning...
 Scanned document(s) to:
            9M /scan_2020-03-22-205607_001.tiff
@@ -919,7 +935,7 @@ empty pages. You get one file. &lt;strong&gt;Case-specific testing is recommende
         Request driver to discard pages with low percentage of dark pixels
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;alias-the-command&#34;&gt;Alias the command&lt;/h2&gt;
 &lt;p&gt;Add this command to your .profile&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--scan-script-alias&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;alias scan&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ssh raspi &amp;#39;/home/pi/scripts/scan.sh /media/pi/usb500gb/scan&amp;#39;&amp;#34;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
@@ -950,7 +966,7 @@ empty pages. You get one file. &lt;strong&gt;Case-specific testing is recommende
 &lt;li&gt;Edit your screenshot on the fly or.. don&amp;rsquo;t&lt;/li&gt;
 &lt;li&gt;Hit &lt;code&gt;RET&lt;/code&gt; to insert your &lt;a href=&#34;#orgbffb615&#34;&gt;screenshot&lt;/a&gt; into your org file&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;orgbffb615&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;figure&gt;
     &lt;img src=&#34;/ox-hugo/screenshot-14.png&#34;
          alt=&#34;Figure 2: A screenshot taken with flameshot in org mode&#34;/&gt; &lt;figcaption&gt;
@@ -965,16 +981,18 @@ empty pages. You get one file. &lt;strong&gt;Case-specific testing is recommende
       <link>/posts/writing-letters-in-org-mode/</link>
       <pubDate>Mon, 22 Apr 2019 20:22:00 +0200</pubDate>
       <guid>/posts/writing-letters-in-org-mode/</guid>
-      <description>&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+      <description>&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#goals&#34;&gt;Goals&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#setup&#34;&gt;Setup&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#workflow--spacemacs&#34;&gt;Workflow (Spacemacs)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;goals&#34;&gt;Goals&lt;/h2&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;org8fcfbfc&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;figure&gt;
     &lt;img src=&#34;/ox-hugo/screenshot-11.png&#34;
          alt=&#34;Figure 1: Printed sample.pdf&#34;/&gt; &lt;figcaption&gt;
@@ -1088,8 +1106,9 @@ will find them. On GNU/Linux, this defaults to &lt;code&gt;~/texmf/tex/latex&lt;
       <link>/posts/howto-ox-hugo-github-pages/</link>
       <pubDate>Tue, 16 Apr 2019 19:52:00 +0200</pubDate>
       <guid>/posts/howto-ox-hugo-github-pages/</guid>
-      <description>&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+      <description>&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#setup-ox-hugo&#34;&gt;Setup ox-hugo&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#create-a-new-github-repo-via-web-front-end&#34;&gt;Create a new github repo via web front-end&lt;/a&gt;&lt;/li&gt;
@@ -1110,7 +1129,8 @@ will find them. On GNU/Linux, this defaults to &lt;code&gt;~/texmf/tex/latex&lt;
 &lt;li&gt;&lt;a href=&#34;#what-about-speed&#34;&gt;What about speed?&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#using-prodigy-for-hugo-auto-build-on-saving-the-org-file&#34;&gt;Using prodigy for hugo auto build on saving the org file&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;setup-ox-hugo&#34;&gt;Setup ox-hugo&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://ox-hugo.scripter.co/doc/usage/&#34;&gt;https://ox-hugo.scripter.co/doc/usage/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Add these lines to &lt;code&gt;.spacemacs&lt;/code&gt;&lt;/p&gt;
@@ -1141,7 +1161,7 @@ will find them. On GNU/Linux, this defaults to &lt;code&gt;~/texmf/tex/latex&lt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;cd /home/ra/RidaAyed.github.io
 git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Check our current config.toml&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--hugoConfig&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;cat /home/ra/src/RidaAyed.github.io/config.toml
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Add the Ananke theme to our config.toml&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;cd /home/ra/RidaAyed.github.io
@@ -1324,7 +1344,7 @@ cd ..
 &lt;li&gt;Add the &lt;code&gt;prodigy&lt;/code&gt; &lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;layer&lt;/li&gt;
 &lt;li&gt;Add this section at the end of &lt;code&gt;.spacemacs&lt;/code&gt;:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;!--listend--&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-elisp&#34; data-lang=&#34;elisp&#34;&gt;(prodigy-define-service
  :name &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hugo Personal Blog&amp;#34;&lt;/span&gt;
  :command &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/usr/bin/hugo&amp;#34;&lt;/span&gt;

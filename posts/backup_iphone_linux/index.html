@@ -8,8 +8,8 @@
 
 
   
-    <meta name="description" content="Install the necessary packages Find the event iPhone connected Catch the event iPhone connected Create the trigger iPhone connected Create the action Backup iPhone Restart and reload all actors (not the iPhone though) Monitor the backup process  This is a follow-up on Connect an iPhone to a Raspi.
-Install the necessary packages Find the event iPhone connected  Connect your iPhone: Run this script:  lsusb | grep iPhone Bus 001 Device 007: ID 05ac:12a8 Apple, Inc.">
+    <meta name="description" content="Table of Contents  Install the necessary packages Find the event iPhone connected Catch the event iPhone connected Create the trigger iPhone connected Create the action Backup iPhone Restart and reload all actors (not the iPhone though) Monitor the backup process    This is a follow-up on Connect an iPhone to a Raspi.
+Install the necessary packages Find the event iPhone connected  Connect your iPhone: Run this script:   lsusb | grep iPhone Bus 001 Device 007: ID 05ac:12a8 Apple, Inc.">
   
 
 
@@ -76,8 +76,9 @@ Install the necessary packages Find the event iPhone connected  Connect your iPh
     <time datetime="2020-03-21T20:35:00&#43;01:00">21 March, 2020</time>
   
 </header>
-    <!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+    <div class="ox-hugo-toc toc">
+<div></div>
+<div class="heading">Table of Contents</div>
 <ul>
 <li><a href="#install-the-necessary-packages--posts-connect-iphone-to-raspi-dot-md">Install the necessary packages</a></li>
 <li><a href="#find-the-event-iphone-connected">Find the event <code>iPhone connected</code></a></li>
@@ -87,7 +88,8 @@ Install the necessary packages Find the event iPhone connected  Connect your iPh
 <li><a href="#restart-and-reload-all-actors--not-the-iphone-though">Restart and reload all actors (not the iPhone though)</a></li>
 <li><a href="#monitor-the-backup-process">Monitor the backup process</a></li>
 </ul>
-<!-- raw HTML omitted -->
+</div>
+<!--endtoc-->
 <p>This is a follow-up on <a href="/posts/connect_iphone_to_raspi/">Connect an iPhone to a Raspi</a>.</p>
 <h2 id="install-the-necessary-packages--posts-connect-iphone-to-raspi-dot-md"><a href="/posts/connect_iphone_to_raspi/#install-the-necessary-packages">Install the necessary packages</a></h2>
 <h2 id="find-the-event-iphone-connected">Find the event <code>iPhone connected</code></h2>
@@ -95,14 +97,14 @@ Install the necessary packages Find the event iPhone connected  Connect your iPh
 <li>Connect your iPhone:</li>
 <li>Run this script:</li>
 </ol>
-<!-- raw HTML omitted -->
+<!--listend-->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">lsusb | grep iPhone
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Bus 001 Device 007: ID 05ac:12a8 Apple, Inc. iPhone5/5C/5S/6
 </code></pre></div><h2 id="catch-the-event-iphone-connected">Catch the event <code>iPhone connected</code></h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># Content of /etc/udev/rules.d/99-iphone.rules</span>
 SUBSYSTEM<span style="color:#f92672">==</span><span style="color:#e6db74">&#34;usb&#34;</span>, ENV<span style="color:#f92672">{</span>DEVTYPE<span style="color:#f92672">}==</span><span style="color:#e6db74">&#34;usb_device&#34;</span>, ENV<span style="color:#f92672">{</span>PRODUCT<span style="color:#f92672">}==</span><span style="color:#e6db74">&#34;5ac/12[9a][0-9a-f]/*&#34;</span>, ACTION<span style="color:#f92672">==</span><span style="color:#e6db74">&#34;add&#34;</span>, ENV<span style="color:#f92672">{</span>SYSTEMD_WANTS<span style="color:#f92672">}=</span><span style="color:#e6db74">&#34;iphone-connect.service&#34;</span>
 </code></pre></div><h2 id="create-the-trigger-iphone-connected">Create the trigger <code>iPhone connected</code></h2>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><a id="code-snippet--iphone-connect.service"></a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#Content of /etc/systemd/system/iphone-connect.service</span>
 <span style="color:#f92672">[</span>Service<span style="color:#f92672">]</span>
 Type<span style="color:#f92672">=</span>oneshot

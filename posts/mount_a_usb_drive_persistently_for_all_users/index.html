@@ -8,8 +8,8 @@
 
 
   
-    <meta name="description" content="Create a mount point List devices Backup &amp; print current fstab Add the device to fstab Change device&rsquo;s permission Test Cleanup Troubleshooting  I need to persistently permit all users read/write access to a USB drive
-Create a mount point mkdir /mnt/usb500 List devices lsblk -o NAME,FSTYPE,LABEL NAME FSTYPE LABEL sda └─sda1 ext4 usb500gb mmcblk0 ├─mmcblk0p1 vfat boot └─mmcblk0p2 ext4 rootfs Backup &amp; print current fstab cp /etc/fstab ~/fstab.bak cat /etc/fstab proc /proc proc defaults 0 0 PARTUUID=45eaad39-01 /boot vfat defaults 0 2 PARTUUID=45eaad39-02 / ext4 defaults,noatime 0 1 Add the device to fstab Hint: nofail do not report errors for this device if it does not exist.">
+    <meta name="description" content="Table of Contents  Create a mount point List devices Backup &amp; print current fstab Add the device to fstab Change device&rsquo;s permission Test Cleanup Troubleshooting    I need to persistently permit all users read/write access to a USB drive
+Create a mount point mkdir /mnt/usb500 List devices lsblk -o NAME,FSTYPE,LABEL NAME FSTYPE LABEL sda └─sda1 ext4 usb500gb mmcblk0 ├─mmcblk0p1 vfat boot └─mmcblk0p2 ext4 rootfs Backup &amp; print current fstab cp /etc/fstab ~/fstab.">
   
 
 
@@ -76,8 +76,9 @@ Create a mount point mkdir /mnt/usb500 List devices lsblk -o NAME,FSTYPE,LABEL N
     <time datetime="2020-03-28T12:50:00&#43;01:00">28 March, 2020</time>
   
 </header>
-    <!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+    <div class="ox-hugo-toc toc">
+<div></div>
+<div class="heading">Table of Contents</div>
 <ul>
 <li><a href="#create-a-mount-point">Create a mount point</a></li>
 <li><a href="#list-devices">List devices</a></li>
@@ -88,7 +89,8 @@ Create a mount point mkdir /mnt/usb500 List devices lsblk -o NAME,FSTYPE,LABEL N
 <li><a href="#cleanup">Cleanup</a></li>
 <li><a href="#troubleshooting">Troubleshooting</a></li>
 </ul>
-<!-- raw HTML omitted -->
+</div>
+<!--endtoc-->
 <p>I need to persistently permit all users read/write access to a USB drive</p>
 <h2 id="create-a-mount-point">Create a mount point</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mkdir /mnt/usb500
