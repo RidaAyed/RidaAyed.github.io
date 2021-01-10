@@ -8,7 +8,7 @@
 
 
   
-    <meta name="description" content="if (!jQuery) { alert(&#34;jquery is not loaded&#34;); } $( document ).ready(() = { const gallery = $(&#34;#gallery-0&#34;); gallery.justifiedGallery({ rowHeight : 150 , margins : 5 , border : 0, waitThumbnailsLoad : false, lastRow : &#34;justify&#34;, captions : false, }); let swipeboxInstance = null; gallery.">
+    <meta name="description" content="/* Changes made here sadly only apply after restarting hugo server */ /* make 5px space between the button(filter options) in the filter bar */ .justified-gallery-filterbar { display: flex; justify-content: flex-start; flex-wrap: wrap; gap: 5px; } .justified-gallery-filterbar button { padding: 6px; border: 1px solid #fff; border-radius: 5px; background-color: transparent; font-weight: bold; color: #fff; line-height: 1em; } .justified-gallery-filterbar button:hover { text-decoration: underline; } .justified-gallery-filterbar button.selected { text-decoration: underline; background-color: #fff3; } .">
   
 
 
@@ -129,6 +129,52 @@
 	
 
 	
+		 
+		/* Changes made here sadly only apply after restarting hugo server */
+/* make 5px space between the button(filter options) in the filter bar */
+.justified-gallery-filterbar {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 5px; }
+  .justified-gallery-filterbar button {
+    padding: 6px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background-color: transparent;
+    font-weight: bold;
+    color: #fff;
+    line-height: 1em; }
+    .justified-gallery-filterbar button:hover {
+      text-decoration: underline; }
+    .justified-gallery-filterbar button.selected {
+      text-decoration: underline;
+      background-color: #fff3; }
+    .justified-gallery-filterbar button svg {
+      width: 1em;
+      height: 1em;
+      transform: rotate(90deg);
+      transition: transform .2s linear; }
+    .justified-gallery-filterbar button:hover svg {
+      transform: rotate(90deg) scale(1.3); }
+
+.fulltab {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  min-height: 100%;
+  background-color: #222; }
+  .fulltab.justified-gallery-filterbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 101;
+    background-color: #222;
+    padding: 5px;
+    margin: 0px; }
+
+	
 </style>
 
 
@@ -162,10 +208,14 @@
 						
 							title="2020; 100 cm * 70 cm; Oil on linen canvas"
 						
+           data-all-metadata="map[ApertureValue:8 Artist:MORITZ HERZOG ColorSpace:1 Contrast:1 Copyright:MORITZ HERZOG CustomRendered:0 DateTime:2020-12-01 14:04:23 &#43;0100 CET DateTimeDigitized:2020-12-01 10:34:57 &#43;0100 CET DateTimeOriginal:2020-12-01 10:34:57 &#43;0100 CET ExifIFDPointer:344 ExifVersion:0231 ExposureBiasValue:0 ExposureMode:1 ExposureProgram:1 ExposureTime:1/125 FNumber:16 Flash:16 FocalLength:90 FocalLengthIn35mmFilm:70 FocalPlaneResolutionUnit:3 FocalPlaneXResolution:1876.3636474609375 FocalPlaneYResolution:1876.3636474609375 ISOSpeedRatings:100 ImageDescription:2020; 100 cm * 70 cm; Oil on linen canvas LensModel:HD PENTAX-D FA645 MACRO 90mm F2.8ED AW SR Make:RICOH IMAGING COMPANY, LTD. MeteringMode:5 Model:PENTAX 645Z ResolutionUnit:2 Saturation:2 SceneCaptureType:0 SensingMethod:2 Sharpness:2 ShutterSpeedValue:6.965784 Software:Adobe Photoshop Lightroom Classic 10.0 (Macintosh) SubjectDistanceRange:2 WhiteBalance:1 XResolution:72 YResolution:72]"
+						
+							data-description="PENTAX 645Z + HD PENTAX-D FA645 MACRO 90mm F2.8ED AW SR<br/>90mm f/16 1/125sec ISO 100"
+						
 
 						
-						
-
+							
+							data-meta="{&#34;ColorLabels&#34;:null,&#34;ImageDescription&#34;:&#34;2020; 100 cm * 70 cm; Oil on linen canvas&#34;,&#34;Rating&#34;:null,&#34;Tags&#34;:null}"
 						
 					
 					>
@@ -216,10 +266,14 @@
 						
 							title="2019; 100 cm * 70 cm; Oil on linen canvas"
 						
+           data-all-metadata="map[ApertureValue:8 Artist:MORITZ HERZOG ColorSpace:1 Contrast:1 Copyright:MORITZ HERZOG CustomRendered:0 DateTime:2020-12-01 14:04:31 &#43;0100 CET DateTimeDigitized:2020-12-01 10:41:35 &#43;0100 CET DateTimeOriginal:2020-12-01 10:41:35 &#43;0100 CET ExifIFDPointer:344 ExifVersion:0231 ExposureBiasValue:0 ExposureMode:1 ExposureProgram:1 ExposureTime:1/125 FNumber:16 Flash:16 FocalLength:90 FocalLengthIn35mmFilm:70 FocalPlaneResolutionUnit:3 FocalPlaneXResolution:1876.3636474609375 FocalPlaneYResolution:1876.3636474609375 ISOSpeedRatings:100 ImageDescription:2019; 100 cm * 70 cm; Oil on linen canvas LensModel:HD PENTAX-D FA645 MACRO 90mm F2.8ED AW SR Make:RICOH IMAGING COMPANY, LTD. MeteringMode:5 Model:PENTAX 645Z ResolutionUnit:2 Saturation:2 SceneCaptureType:0 SensingMethod:2 Sharpness:2 ShutterSpeedValue:6.965784 Software:Adobe Photoshop Lightroom Classic 10.0 (Macintosh) SubjectDistanceRange:2 WhiteBalance:1 XResolution:72 YResolution:72]"
+						
+							data-description="PENTAX 645Z + HD PENTAX-D FA645 MACRO 90mm F2.8ED AW SR<br/>90mm f/16 1/125sec ISO 100"
+						
 
 						
-						
-
+							
+							data-meta="{&#34;ColorLabels&#34;:null,&#34;ImageDescription&#34;:&#34;2019; 100 cm * 70 cm; Oil on linen canvas&#34;,&#34;Rating&#34;:null,&#34;Tags&#34;:null}"
 						
 					
 					>
@@ -270,10 +324,14 @@
 						
 							title="2019; 100 cm * 70 cm; Oil on cotton canvas"
 						
+           data-all-metadata="map[ApertureValue:8 Artist:MORITZ HERZOG ColorSpace:1 Contrast:1 Copyright:MORITZ HERZOG CustomRendered:0 DateTime:2020-12-01 14:04:36 &#43;0100 CET DateTimeDigitized:2020-12-01 10:43:14 &#43;0100 CET DateTimeOriginal:2020-12-01 10:43:14 &#43;0100 CET ExifIFDPointer:346 ExifVersion:0231 ExposureBiasValue:0 ExposureMode:1 ExposureProgram:1 ExposureTime:1/125 FNumber:16 Flash:16 FocalLength:90 FocalLengthIn35mmFilm:70 FocalPlaneResolutionUnit:3 FocalPlaneXResolution:1876.3636474609375 FocalPlaneYResolution:1876.3636474609375 ISOSpeedRatings:100 ImageDescription:2019; 100 cm * 70 cm; Oil on cotton canvas LensModel:HD PENTAX-D FA645 MACRO 90mm F2.8ED AW SR Make:RICOH IMAGING COMPANY, LTD. MeteringMode:5 Model:PENTAX 645Z ResolutionUnit:2 Saturation:2 SceneCaptureType:0 SensingMethod:2 Sharpness:2 ShutterSpeedValue:6.965784 Software:Adobe Photoshop Lightroom Classic 10.0 (Macintosh) SubjectDistanceRange:2 WhiteBalance:1 XResolution:72 YResolution:72]"
+						
+							data-description="PENTAX 645Z + HD PENTAX-D FA645 MACRO 90mm F2.8ED AW SR<br/>90mm f/16 1/125sec ISO 100"
+						
 
 						
-						
-
+							
+							data-meta="{&#34;ColorLabels&#34;:null,&#34;ImageDescription&#34;:&#34;2019; 100 cm * 70 cm; Oil on cotton canvas&#34;,&#34;Rating&#34;:null,&#34;Tags&#34;:null}"
 						
 					
 					>
@@ -324,10 +382,14 @@
 						
 							title="2019; 100 cm * 70 cm; Oil on cotton canvas"
 						
+           data-all-metadata="map[ApertureValue:8 Artist:MORITZ HERZOG ColorSpace:1 Contrast:1 Copyright:MORITZ HERZOG CustomRendered:0 DateTime:2020-12-01 14:04:20 &#43;0100 CET DateTimeDigitized:2020-12-01 10:33:44 &#43;0100 CET DateTimeOriginal:2020-12-01 10:33:44 &#43;0100 CET ExifIFDPointer:346 ExifVersion:0231 ExposureBiasValue:0 ExposureMode:1 ExposureProgram:1 ExposureTime:1/125 FNumber:16 Flash:16 FocalLength:90 FocalLengthIn35mmFilm:70 FocalPlaneResolutionUnit:3 FocalPlaneXResolution:1876.3636474609375 FocalPlaneYResolution:1876.3636474609375 ISOSpeedRatings:100 ImageDescription:2019; 100 cm * 70 cm; Oil on cotton canvas LensModel:HD PENTAX-D FA645 MACRO 90mm F2.8ED AW SR Make:RICOH IMAGING COMPANY, LTD. MeteringMode:5 Model:PENTAX 645Z ResolutionUnit:2 Saturation:2 SceneCaptureType:0 SensingMethod:2 Sharpness:2 ShutterSpeedValue:6.965784 Software:Adobe Photoshop Lightroom Classic 10.0 (Macintosh) SubjectDistanceRange:2 WhiteBalance:1 XResolution:72 YResolution:72]"
+						
+							data-description="PENTAX 645Z + HD PENTAX-D FA645 MACRO 90mm F2.8ED AW SR<br/>90mm f/16 1/125sec ISO 100"
+						
 
 						
-						
-
+							
+							data-meta="{&#34;ColorLabels&#34;:null,&#34;ImageDescription&#34;:&#34;2019; 100 cm * 70 cm; Oil on cotton canvas&#34;,&#34;Rating&#34;:null,&#34;Tags&#34;:null}"
 						
 					
 					>
@@ -378,10 +440,14 @@
 						
 							title="2020; 100 cm * 70 cm; Oil on linen canvas"
 						
+           data-all-metadata="map[ApertureValue:8 Artist:MORITZ HERZOG ColorSpace:1 Contrast:1 Copyright:MORITZ HERZOG CustomRendered:0 DateTime:2020-12-01 14:21:28 &#43;0100 CET DateTimeDigitized:2020-12-01 10:37:40 &#43;0100 CET DateTimeOriginal:2020-12-01 10:37:40 &#43;0100 CET ExifIFDPointer:344 ExifVersion:0231 ExposureBiasValue:0 ExposureMode:1 ExposureProgram:1 ExposureTime:1/125 FNumber:16 Flash:16 FocalLength:90 FocalLengthIn35mmFilm:70 FocalPlaneResolutionUnit:3 FocalPlaneXResolution:1876.3636474609375 FocalPlaneYResolution:1876.3636474609375 ISOSpeedRatings:100 ImageDescription:2020; 100 cm * 70 cm; Oil on linen canvas LensModel:HD PENTAX-D FA645 MACRO 90mm F2.8ED AW SR Make:RICOH IMAGING COMPANY, LTD. MeteringMode:5 Model:PENTAX 645Z ResolutionUnit:2 Saturation:2 SceneCaptureType:0 SensingMethod:2 Sharpness:2 ShutterSpeedValue:6.965784 Software:Adobe Photoshop Lightroom Classic 10.0 (Macintosh) SubjectDistanceRange:2 WhiteBalance:1 XResolution:72 YResolution:72]"
+						
+							data-description="PENTAX 645Z + HD PENTAX-D FA645 MACRO 90mm F2.8ED AW SR<br/>90mm f/16 1/125sec ISO 100"
+						
 
 						
-						
-
+							
+							data-meta="{&#34;ColorLabels&#34;:null,&#34;ImageDescription&#34;:&#34;2020; 100 cm * 70 cm; Oil on linen canvas&#34;,&#34;Rating&#34;:null,&#34;Tags&#34;:null}"
 						
 					
 					>
@@ -432,10 +498,14 @@
 						
 							title="2020; 100 cm * 70 cm; Oil on linen canvas"
 						
+           data-all-metadata="map[ApertureValue:8 Artist:MORITZ HERZOG ColorSpace:1 Contrast:1 Copyright:MORITZ HERZOG CustomRendered:0 DateTime:2020-12-01 14:24:26 &#43;0100 CET DateTimeDigitized:2020-12-01 10:35:52 &#43;0100 CET DateTimeOriginal:2020-12-01 10:35:52 &#43;0100 CET ExifIFDPointer:344 ExifVersion:0231 ExposureBiasValue:0 ExposureMode:1 ExposureProgram:1 ExposureTime:1/125 FNumber:16 Flash:16 FocalLength:90 FocalLengthIn35mmFilm:70 FocalPlaneResolutionUnit:3 FocalPlaneXResolution:1876.3636474609375 FocalPlaneYResolution:1876.3636474609375 ISOSpeedRatings:100 ImageDescription:2020; 100 cm * 70 cm; Oil on linen canvas LensModel:HD PENTAX-D FA645 MACRO 90mm F2.8ED AW SR Make:RICOH IMAGING COMPANY, LTD. MeteringMode:5 Model:PENTAX 645Z ResolutionUnit:2 Saturation:2 SceneCaptureType:0 SensingMethod:2 Sharpness:2 ShutterSpeedValue:6.965784 Software:Adobe Photoshop Lightroom Classic 10.0 (Macintosh) SubjectDistanceRange:2 WhiteBalance:1 XResolution:72 YResolution:72]"
+						
+							data-description="PENTAX 645Z + HD PENTAX-D FA645 MACRO 90mm F2.8ED AW SR<br/>90mm f/16 1/125sec ISO 100"
+						
 
 						
-						
-
+							
+							data-meta="{&#34;ColorLabels&#34;:null,&#34;ImageDescription&#34;:&#34;2020; 100 cm * 70 cm; Oil on linen canvas&#34;,&#34;Rating&#34;:null,&#34;Tags&#34;:null}"
 						
 					
 					>
@@ -486,10 +556,14 @@
 						
 							title="2020; 100 cm * 70 cm; Oil on linen canvas"
 						
+           data-all-metadata="map[ApertureValue:8 Artist:MORITZ HERZOG ColorSpace:1 Contrast:1 Copyright:MORITZ HERZOG CustomRendered:0 DateTime:2020-12-01 14:24:28 &#43;0100 CET DateTimeDigitized:2020-12-01 10:32:35 &#43;0100 CET DateTimeOriginal:2020-12-01 10:32:35 &#43;0100 CET ExifIFDPointer:344 ExifVersion:0231 ExposureBiasValue:0 ExposureMode:1 ExposureProgram:1 ExposureTime:1/125 FNumber:16 Flash:16 FocalLength:90 FocalLengthIn35mmFilm:70 FocalPlaneResolutionUnit:3 FocalPlaneXResolution:1876.3636474609375 FocalPlaneYResolution:1876.3636474609375 ISOSpeedRatings:100 ImageDescription:2020; 100 cm * 70 cm; Oil on linen canvas LensModel:HD PENTAX-D FA645 MACRO 90mm F2.8ED AW SR Make:RICOH IMAGING COMPANY, LTD. MeteringMode:5 Model:PENTAX 645Z ResolutionUnit:2 Saturation:2 SceneCaptureType:0 SensingMethod:2 Sharpness:2 ShutterSpeedValue:6.965784 Software:Adobe Photoshop Lightroom Classic 10.0 (Macintosh) SubjectDistanceRange:2 WhiteBalance:1 XResolution:72 YResolution:72]"
+						
+							data-description="PENTAX 645Z + HD PENTAX-D FA645 MACRO 90mm F2.8ED AW SR<br/>90mm f/16 1/125sec ISO 100"
+						
 
 						
-						
-
+							
+							data-meta="{&#34;ColorLabels&#34;:null,&#34;ImageDescription&#34;:&#34;2020; 100 cm * 70 cm; Oil on linen canvas&#34;,&#34;Rating&#34;:null,&#34;Tags&#34;:null}"
 						
 					
 					>
@@ -559,6 +633,150 @@
 		});
 
 		
+		
+
+			
+			
+			function createMetadataFilter(filterFunction) {
+				return (entry, index, array) => {
+					
+					let meta = $(entry).find("a").attr("data-meta");
+					meta = meta ? JSON.parse(meta) : {};
+					
+					let include = filterFunction(meta);
+
+					
+					
+					if(include) {
+						$(entry).find("a").addClass("galleryImg");
+					} else {
+						$(entry).find("a").removeClass("galleryImg");
+					}
+
+					return include;
+				}
+			}
+
+			
+			
+			function createTagFilter(tagsRegexString) {
+				const tagsRegex = RegExp(tagsRegexString);
+				return createMetadataFilter(meta => {
+					let tags = meta.Tags;
+					tags = tags ? tags : [];
+					return tags.some(tag => tagsRegex.test(tag));
+				});
+			};
+
+			
+			
+			function createImageDescriptionFilter(descriptionRegexString) {
+				const descriptionRegex = RegExp(descriptionRegexString);
+				return createMetadataFilter(meta => {
+					let imageDescription = meta.ImageDescription;
+					return imageDescription !== null && descriptionRegex.test(imageDescription);
+				});
+			};
+
+			
+			
+			function createRatingFilter(min, max) {
+				return createMetadataFilter(meta => {
+					let rating = meta.Rating;
+					if(rating === null){
+						rating = -1;
+					}
+					return rating >= min && rating <= max;
+				});
+			};
+
+			
+			
+			function createColorLabelFilter(color) {
+				color = color.charAt(0).toLowerCase()
+				return createMetadataFilter(meta => {
+					let colors = meta.ColorLabels;
+					return colors && colors.includes(color);
+				});
+			};
+
+			const filterOptions = [{label: 'All', Subject: '.*'}, {label: 'Linen', ImageDescription: 'linen'}, {label: 'Cotton', ImageDescription: 'cotton'}];
+			
+			
+			const filterbar = $("<div class='justified-gallery-filterbar'/>");
+			gallery.before(filterbar);
+
+			var wrapper = document.getElementById("gallery-0-wrapper");
+
+			
+			const expandIcon = '\u003csvg aria-hidden=\u0022true\u0022 focusable=\u0022false\u0022 data-prefix=\u0022fas\u0022 data-icon=\u0022expand-alt\u0022 role=\u0022img\u0022 xmlns=\u0022http:\/\/www.w3.org\/2000\/svg\u0022 viewBox=\u00220 0 448 512\u0022\u003e\u003cpath fill=\u0022currentColor\u0022 d=\u0022M212.686 315.314L120 408l32.922 31.029c15.12 15.12 4.412 40.971-16.97 40.971h-112C10.697 480 0 469.255 0 456V344c0-21.382 25.803-32.09 40.922-16.971L72 360l92.686-92.686c6.248-6.248 16.379-6.248 22.627 0l25.373 25.373c6.249 6.248 6.249 16.378 0 22.627zm22.628-118.628L328 104l-32.922-31.029C279.958 57.851 290.666 32 312.048 32h112C437.303 32 448 42.745 448 56v112c0 21.382-25.803 32.09-40.922 16.971L376 152l-92.686 92.686c-6.248 6.248-16.379 6.248-22.627 0l-25.373-25.373c-6.249-6.248-6.249-16.378 0-22.627z\u0022\u003e\u003c\/path\u003e\u003c\/svg\u003e';
+			const compressIcon = '\u003csvg aria-hidden=\u0022true\u0022 focusable=\u0022false\u0022 data-prefix=\u0022fas\u0022 data-icon=\u0022compress-alt\u0022 role=\u0022img\u0022 xmlns=\u0022http:\/\/www.w3.org\/2000\/svg\u0022 viewBox=\u00220 0 448 512\u0022\u003e\u003cpath fill=\u0022currentColor\u0022 d=\u0022M4.686 427.314L104 328l-32.922-31.029C55.958 281.851 66.666 256 88.048 256h112C213.303 256 224 266.745 224 280v112c0 21.382-25.803 32.09-40.922 16.971L152 376l-99.314 99.314c-6.248 6.248-16.379 6.248-22.627 0L4.686 449.941c-6.248-6.248-6.248-16.379 0-22.627zM443.314 84.686L344 184l32.922 31.029c15.12 15.12 4.412 40.971-16.97 40.971h-112C234.697 256 224 245.255 224 232V120c0-21.382 25.803-32.09 40.922-16.971L296 136l99.314-99.314c6.248-6.248 16.379-6.248 22.627 0l25.373 25.373c6.248 6.248 6.248 16.379 0 22.627z\u0022\u003e\u003c\/path\u003e\u003c\/svg\u003e';
+
+			function setFulltab(activate) {
+				if(activate == wrapper.classList.contains("fulltab")){
+					return;
+				}
+
+				wrapper.classList.toggle("fulltab");
+				gallery.justifiedGallery({
+					rowHeight :  150  * (activate ? 1.5 : 1.0),
+					lastRow: (activate ? "nojustify": "justify"),
+					
+					refreshTime: 0,
+				});
+				
+				gallery.data('jg.controller').startImgAnalyzer();
+				fullTabButton.html(wrapper.classList.contains("fulltab") ? compressIcon : expandIcon)
+			};
+
+			const fullTabButton = $("<button/>");
+			fullTabButton.html(expandIcon);
+			fullTabButton.click(() => setFulltab(!wrapper.classList.contains("fulltab")));
+			filterbar.append(fullTabButton);
+			$(document).keyup(e => {
+				
+				if (e.keyCode === 27){
+					setFulltab(false);
+				}
+			});
+	
+			let first = true;
+			
+			filterOptions.forEach(filterConfig => {
+				let filter; 
+				if(filterConfig.tags) {
+					filter = createTagFilter(filterConfig.tags);
+				} else if(filterConfig.rating){
+					if(filterConfig.rating.includes("-")){
+						minMax = filterConfig.rating.split("-");  
+					} else {
+						minMax = [filterConfig.rating, filterConfig.rating];  
+					}
+					filter = createRatingFilter(parseInt(minMax[0]), parseInt(minMax[1]));
+				} else if(filterConfig.color_label){
+					filter = createColorLabelFilter(filterConfig.color_label);
+				} else if(filterConfig.description){
+					filter = createImageDescriptionFilter(filterConfig.description);
+				} else {
+					
+					filter = createMetadataFilter(meta => true);
+				}
+
+				const filterButton = $("<button/>");
+				filterButton.text(filterConfig.label);
+				filterButton.click(() => {
+					gallery.justifiedGallery({filter : filter});
+					
+					filterbar.find('.selected').removeClass('selected');
+					filterButton.addClass("selected");
+				});
+				filterbar.append(filterButton);
+
+				if(first) {
+					filterButton.trigger("click");
+					first = false;
+				}
+			});
 		
 	});
 </script>
