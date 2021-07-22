@@ -8,7 +8,7 @@
 
 
   
-    <meta name="description" content="Table of Contents  Motivation How to understand this post Script ingredients  Modules Urls   Process overview  Visit the ISP&rsquo;s login page Login Get the consumption values Logout   Complete script Usage Conclusion      Motivation I recently caught myself repeatedly checking my internet consumption balance.
+    <meta name="description" content="Table of Contents  Motivation How to understand this post Script ingredients  Modules Urls   Process overview  Visit the ISP&rsquo;s login page Login Get the consumption values Logout   Complete script Usage Conclusion     Motivation I recently caught myself repeatedly checking my internet consumption balance.
 A perfect case for a script and an accompanying tutorial.
 For the sake of this tutorial&rsquo;s scope and the script&rsquo;s brevity I&rsquo;ll skip various code paradigms like exception handling, testing, continuous integration, virtual environments etc.">
   
@@ -20,7 +20,7 @@ For the sake of this tutorial&rsquo;s scope and the script&rsquo;s brevity I&rsq
 
 
 
-<meta name="generator" content="Hugo 0.80.0" />
+<meta name="generator" content="Hugo 0.83.1" />
   <title>Scraping Migros M-Budget with python | Rida Ayed</title>
   <link rel="canonical" href="/posts/authenticate_scrape_migros_mbudget_python/">
 
@@ -103,8 +103,7 @@ For the sake of this tutorial&rsquo;s scope and the script&rsquo;s brevity I&rsq
 </ul>
 </div>
 <!--endtoc-->
-<figure>
-    <img src="/ox-hugo/2020-07-30_22-22-29_screenshot.png"/> 
+<figure><img src="/ox-hugo/2020-07-30_22-22-29_screenshot.png"/>
 </figure>
 
 <h2 id="motivation">Motivation</h2>
@@ -138,8 +137,7 @@ CONSUMPTION_URL <span style="color:#f92672">=</span> BASE_URL<span style="color:
 <h4 id="manual">Manual</h4>
 <p>Launch your browser, open login and enable the browser&rsquo;s developer console
 by pressing F12 on your keyboard.</p>
-<figure>
-    <img src="/ox-hugo/2020-07-31_11-38-59_screenshot.png"/> 
+<figure><img src="/ox-hugo/2020-07-31_11-38-59_screenshot.png"/>
 </figure>
 
 <h4 id="automated">Automated</h4>
@@ -173,9 +171,8 @@ well.</p>
 security remedy against a malicious hack. Also known as <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> Cross-site
 request-forgery or in abbreviated form <code>csrf</code>.</p>
 <p><a id="org40baee4"></a></p>
-<figure>
-    <img src="/ox-hugo/2020-07-30_16-25-58_screenshot.png"
-         alt="Figure 1: Post form data"/> <figcaption>
+<figure><img src="/ox-hugo/2020-07-30_16-25-58_screenshot.png"
+         alt="Figure 1: Post form data"/><figcaption>
             <p>Figure 1: Post form data</p>
         </figcaption>
 </figure>
@@ -188,8 +185,7 @@ request-forgery or in abbreviated form <code>csrf</code>.</p>
 <p>Remember the login page? <a href="https://selfcare.m-budget.migros.ch/eCare/de/users/sign%5Fin">https://selfcare.m-budget.migros.ch/eCare/de/users/sign%5Fin</a></p>
 <p>Logout, visit it again and look at the source code (Mouse Right-Click: View page
 source).</p>
-<figure>
-    <img src="/ox-hugo/2020-07-30_16-52-01_screenshot.png"/> 
+<figure><img src="/ox-hugo/2020-07-30_16-52-01_screenshot.png"/>
 </figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">&lt;meta name=&#34;csrf-token&#34; content=&#34;mX12K...&#34; /&gt;
@@ -293,9 +289,8 @@ USERNAME <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;c
 <li>By mouse hovering over the element (in the browser, not the dev console) and right-click <code>Inspect element (q)</code></li>
 </ol>
 <p><a id="org32fa5af"></a></p>
-<figure>
-    <img src="/ox-hugo/2020-07-31_12-11-33_screenshot.png"
-         alt="Figure 2: Searching for values and displaying css properties"/> <figcaption>
+<figure><img src="/ox-hugo/2020-07-31_12-11-33_screenshot.png"
+         alt="Figure 2: Searching for values and displaying css properties"/><figcaption>
             <p>Figure 2: Searching for values and displaying css properties</p>
         </figcaption>
 </figure>
@@ -450,7 +445,7 @@ notification by email or sms if a certain limit is reached.</p>
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
-<p><a href="https://en.wikipedia.org/wiki/Cross-site%5Frequest%5Fforgery">https://en.wikipedia.org/wiki/Cross-site%5Frequest%5Fforgery</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Cross-site%5Frequest%5Fforgery">https://en.wikipedia.org/wiki/Cross-site%5Frequest%5Fforgery</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>
