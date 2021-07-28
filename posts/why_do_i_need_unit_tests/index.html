@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  
+    <meta name="description" content="So I want to compare if two dates are equal. I therefore input two dates and in return expect the comparison&rsquo;s outcome as a bool.
+Usually I would:
+  Write the function
+  Print it&rsquo;s result until I&rsquo;m happy with it
+#somecode.py from datetime import datetime def compare_two_dates(date,otherdate): return date==otherdate date = datetime.now().date() otherdate = datetime(1900,12,12) true_expected=compare_two_dates(date,date) false_expected=compare_two_dates(date,otherdate) print(&#34;true_expected:&#34;,true_expected) print(&#34;false_expected:&#34;,false_expected) true_expected: True false_expected: False   Why am I not happy with that approach?">
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.83.1" />
+  <title>Why do I need unit tests? | Rida Ayed</title>
+  <link rel="canonical" href="/posts/why_do_i_need_unit_tests/">
+
+
+  
+
+
+
+
+
+
+
+
+  
+    
+  
+  
+  <link rel="stylesheet" href="/css/base.min.b94428eebe75e333d88818267f7dd5e1598fb5e021bc7219b8b991e1559b3723.css" integrity="sha256-uUQo7r514zPYiBgmf33V4VmPteAhvHIZuLmR4VWbNyM=" crossorigin="anonymous">
+
+
+
+</head>
+
+<body>
+  <nav class="u-background">
+  <div class="u-wrapper">
+    <ul class="Banner">
+      <li class="Banner-item Banner-item--title">
+        <a class="Banner-link u-clickable" href="/">Rida Ayed</a>
+      </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/gallery/">Paintings</a>
+        </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/posts/">Posts</a>
+        </li>
+      
+    </ul>
+  </div>
+</nav>
+  <main>
+    <div class="u-wrapper">
+      <div class="u-padding">
+        
+
+  <article>
+    <header class="Heading">
+  <h2 class="Heading-title">
+    <a class="Heading-link u-clickable" href="/posts/why_do_i_need_unit_tests/" rel="bookmark">Why do I need unit tests?</a>
+  </h2>
+  
+    <time datetime="2020-07-07T12:36:00&#43;02:00">7 July, 2020</time>
+  
+</header>
+    <p>So I want to compare if two dates are equal. I therefore input two dates and
+in return expect the comparison&rsquo;s outcome as a bool.</p>
+<p>Usually I would:</p>
+<ol>
+<li>
+<p>Write the function</p>
+</li>
+<li>
+<p>Print it&rsquo;s result until I&rsquo;m happy with it</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#somecode.py</span>
+<span style="color:#f92672">from</span> datetime <span style="color:#f92672">import</span> datetime
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">compare_two_dates</span>(date,otherdate):
+    <span style="color:#66d9ef">return</span> date<span style="color:#f92672">==</span>otherdate
+
+date <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>now()<span style="color:#f92672">.</span>date()
+otherdate <span style="color:#f92672">=</span> datetime(<span style="color:#ae81ff">1900</span>,<span style="color:#ae81ff">12</span>,<span style="color:#ae81ff">12</span>)
+
+true_expected<span style="color:#f92672">=</span>compare_two_dates(date,date)
+false_expected<span style="color:#f92672">=</span>compare_two_dates(date,otherdate)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;true_expected:&#34;</span>,true_expected)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;false_expected:&#34;</span>,false_expected)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">true_expected: True
+false_expected: False
+</code></pre></div></li>
+</ol>
+<h2 id="why-am-i-not-happy-with-that-approach">Why am I not happy with that approach?</h2>
+<p>I&rsquo;m required to see the output. I&rsquo;m required to repeat it over and
+over since I can&rsquo;t remember later if I already printed the functions outcome.</p>
+<h2 id="what-do-i-want">What do I want?</h2>
+<p>Write down the result I want. Write the necessary code. Done.</p>
+<p>This translates into two steps for most of the coding:</p>
+<ul>
+<li>Write down the expected test (assert this result)</li>
+<li>Write the code to pass the test (the actual function)</li>
+<li>Done</li>
+</ul>
+<h2 id="result">Result:</h2>
+<p>No more print statements cluttering my commits. No more insecurities about
+memorizing if I ever tested this before.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># my_unit_test.py</span>
+<span style="color:#f92672">import</span> pytest
+<span style="color:#f92672">from</span> datetime <span style="color:#f92672">import</span> datetime
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">compare_two_dates</span>(date, otherdate):
+    <span style="color:#66d9ef">return</span> date <span style="color:#f92672">==</span> otherdate
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_compare_two_dates</span>():
+    date <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>now()<span style="color:#f92672">.</span>date()
+    otherdate <span style="color:#f92672">=</span> datetime(<span style="color:#ae81ff">1900</span>, <span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">12</span>)
+
+    <span style="color:#66d9ef">assert</span> compare_two_dates(date, date) <span style="color:#f92672">==</span> True
+    <span style="color:#66d9ef">assert</span> compare_two_dates(date, otherdate) <span style="color:#f92672">==</span> False
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">exec 2&gt;&amp;<span style="color:#ae81ff">1</span>
+pytest my_unit_test.py
+:
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">============================= test session starts ==============================
+platform linux -- Python 3.9.5, pytest-6.2.4, py-1.10.0, pluggy-0.13.1
+rootdir: /home/ra/tmp/83820272
+plugins: cov-2.12.1, hypothesis-6.13.14, pycharm-0.6.0, vcr-1.0.2
+collected 1 item
+
+my_unit_test.py .                                                        [100%]
+
+============================== 1 passed in 0.01s ===============================
+</code></pre></div><h2 id="conclusion">Conclusion:</h2>
+<p>Unit tests free me from printing over and over the same stuff. They free me from
+being needed to overview in person what I&rsquo;ve already written down as an expected
+result. I can agree with third parties on tests similar to a contract.</p>
+
+    
+
+
+  
+
+  
+
+
+
+
+
+    
+  
+
+  </article>
+
+
+      </div>
+    </div>
+  </main>
+  
+</body>
+
+</html>
