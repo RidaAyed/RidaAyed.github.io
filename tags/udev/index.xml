@@ -9,6 +9,21 @@
     <lastBuildDate>Sat, 21 Mar 2020 20:35:00 +0100</lastBuildDate>
     <atom:link href="/tags/udev/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Fixing [Pyright] Import could not be resolved in emacs</title>
+      <link>/posts/fixing_pyright_import_could_not_be_resolved_in_emacs/</link>
+      <pubDate>Wed, 30 Sep 2020 16:57:00 +0200</pubDate>
+      <guid>/posts/fixing_pyright_import_could_not_be_resolved_in_emacs/</guid>
+      <description>&lt;p&gt;Say you open any python file containing an import. Your ide is &lt;code&gt;spacemacs&lt;/code&gt;
+and &lt;code&gt;pyright&lt;/code&gt;. You might encounter this error:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;[Pyright] Import &amp;quot;anymodule&amp;quot; could not be resolved&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;In order to get rid of this error, hit:&lt;/p&gt;
+&lt;p&gt;&lt;kbd&gt; , F a &lt;/kbd&gt;&lt;/p&gt;
+&lt;p&gt;This launches &lt;code&gt;lsp-workspaces-folders-add&lt;/code&gt; which requires you to enter the
+project&amp;rsquo;s path e.g. &lt;code&gt;~/tmp/mypython/&lt;/code&gt; as workspace.&lt;/p&gt;
+&lt;p&gt;I had only &lt;code&gt;~/tmp/&lt;/code&gt; in the lsp-workspaces and thought it is enough. Thought wrong.&lt;/p&gt;
+</description>
+    </item>
+    <item>
       <title>Why do I need unit tests?</title>
       <link>/posts/why_do_i_need_unit_tests/</link>
       <pubDate>Tue, 07 Jul 2020 12:36:00 +0200</pubDate>
@@ -22,6 +37,7 @@ in return expect the comparison&amp;rsquo;s outcome as a bool.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Print it&amp;rsquo;s result until I&amp;rsquo;m happy with it&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--something&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#somecode.py&lt;/span&gt;
 &lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; datetime &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; datetime
 
@@ -35,9 +51,14 @@ true_expected&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;compare_two
 false_expected&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;compare_two_dates(date,otherdate)
 &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;true_expected:&amp;#34;&lt;/span&gt;,true_expected)
 &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;false_expected:&amp;#34;&lt;/span&gt;,false_expected)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;true_expected: True
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Result:&lt;/p&gt;
+&lt;style&gt;.results-fixed-block { color: blue;  }&lt;/style&gt;
+&lt;div class=&#34;results-fixed-block&#34;&gt;
+  &lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;true_expected: True
 false_expected: False
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;why-am-i-not-happy-with-that-approach&#34;&gt;Why am I not happy with that approach?&lt;/h2&gt;
 &lt;p&gt;I&amp;rsquo;m required to see the output. I&amp;rsquo;m required to repeat it over and

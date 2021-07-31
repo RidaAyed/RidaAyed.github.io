@@ -12,7 +12,9 @@
 Usually I would:
   Write the function
   Print it&rsquo;s result until I&rsquo;m happy with it
-#somecode.py from datetime import datetime def compare_two_dates(date,otherdate): return date==otherdate date = datetime.now().date() otherdate = datetime(1900,12,12) true_expected=compare_two_dates(date,date) false_expected=compare_two_dates(date,otherdate) print(&#34;true_expected:&#34;,true_expected) print(&#34;false_expected:&#34;,false_expected) true_expected: True false_expected: False   Why am I not happy with that approach?">
+
+#somecode.py from datetime import datetime def compare_two_dates(date,otherdate): return date==otherdate date = datetime.now().date() otherdate = datetime(1900,12,12) true_expected=compare_two_dates(date,date) false_expected=compare_two_dates(date,otherdate) print(&#34;true_expected:&#34;,true_expected) print(&#34;false_expected:&#34;,false_expected) Result:
+.results-fixed-block { color: blue; }  true_expected: True false_expected: False    Why am I not happy with that approach?">
   
 
 
@@ -88,6 +90,7 @@ in return expect the comparison&rsquo;s outcome as a bool.</p>
 </li>
 <li>
 <p>Print it&rsquo;s result until I&rsquo;m happy with it</p>
+<p><a id="code-snippet--something"></a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#somecode.py</span>
 <span style="color:#f92672">from</span> datetime <span style="color:#f92672">import</span> datetime
 
@@ -101,9 +104,14 @@ true_expected<span style="color:#f92672">=</span>compare_two_dates(date,date)
 false_expected<span style="color:#f92672">=</span>compare_two_dates(date,otherdate)
 <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;true_expected:&#34;</span>,true_expected)
 <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;false_expected:&#34;</span>,false_expected)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">true_expected: True
+</code></pre></div><p>Result:</p>
+<style>.results-fixed-block { color: blue;  }</style>
+<div class="results-fixed-block">
+  <div></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">true_expected: True
 false_expected: False
-</code></pre></div></li>
+</code></pre></div></div>
+</li>
 </ol>
 <h2 id="why-am-i-not-happy-with-that-approach">Why am I not happy with that approach?</h2>
 <p>I&rsquo;m required to see the output. I&rsquo;m required to repeat it over and

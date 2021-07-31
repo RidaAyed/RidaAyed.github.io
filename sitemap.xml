@@ -8,26 +8,29 @@
     <loc>/gallery/</loc>
     <lastmod>2021-01-13T22:51:30+01:00</lastmod>
   </url><url>
+    <loc>/posts/fixing_pyright_import_could_not_be_resolved_in_emacs/</loc>
+    <lastmod>2021-07-31T17:02:37+02:00</lastmod>
+  </url><url>
     <loc>/posts/</loc>
-    <lastmod>2021-07-28T18:33:39+02:00</lastmod>
+    <lastmod>2021-07-31T17:02:37+02:00</lastmod>
   </url><url>
     <loc>/posts/why_do_i_need_unit_tests/</loc>
-    <lastmod>2021-07-28T18:33:39+02:00</lastmod>
+    <lastmod>2021-07-29T11:24:32+02:00</lastmod>
   </url><url>
     <loc>/tags/python/</loc>
-    <lastmod>2021-01-10T09:29:50+01:00</lastmod>
+    <lastmod>2021-07-29T11:26:17+02:00</lastmod>
   </url><url>
     <loc>/posts/authenticate_scrape_migros_mbudget_python/</loc>
     <lastmod>2021-01-04T17:57:26+01:00</lastmod>
   </url><url>
     <loc>/tags/</loc>
-    <lastmod>2021-01-10T09:29:50+01:00</lastmod>
+    <lastmod>2021-07-29T11:26:17+02:00</lastmod>
   </url><url>
     <loc>/tags/pytest/</loc>
-    <lastmod>2021-01-10T09:29:50+01:00</lastmod>
+    <lastmod>2021-07-29T11:26:17+02:00</lastmod>
   </url><url>
     <loc>/posts/test_offline_and_fast_with_python_pytest/</loc>
-    <lastmod>2021-01-10T09:29:50+01:00</lastmod>
+    <lastmod>2021-07-29T11:26:17+02:00</lastmod>
   </url><url>
     <loc>/posts/mount_a_usb_drive_persistently_for_all_users/</loc>
     <lastmod>2020-03-28T12:55:36+01:00</lastmod>
