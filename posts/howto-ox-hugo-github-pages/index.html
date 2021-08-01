@@ -204,29 +204,9 @@ hugo server -D --navigateToChanged
 
 <h2 id="recheck-what-has-been-created">Recheck what has been created</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">tree /home/ra/RidaAyed.github.io -D -L <span style="color:#ae81ff">2</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">/home/ra/RidaAyed.github.io
-├── [Apr 14 15:52]  archetypes
-│   └── [Apr 14 15:52]  default.md
-├── [Apr 16 19:04]  config.toml
-├── [Apr 14 17:10]  content
-│   └── [Apr 16 19:11]  posts
-├── [Apr 16 19:11]  content-org
-│   ├── [Apr 16 19:11]  blog.org
-│   ├── [Apr 15 20:42]  images
-│   └── [Apr 16 19:04]  sample.org
-├── [Apr 14 15:52]  data
-├── [Apr 16 19:04]  deploy.sh
-├── [Apr 14 15:52]  layouts
-├── [Apr 16 18:30]  public
-├── [Apr 14 16:27]  resources
-│   └── [Apr 14 16:27]  _gen
-├── [Apr 14 23:29]  static
-│   └── [Apr 15 20:42]  ox-hugo
-└── [Apr 16 19:13]  themes
-    ├── [Apr 14 15:59]  ananke
-    └── [Apr 15 21:20]  hugo-coder
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">/home/ra/RidaAyed.github.io [error opening dir]
 
-15 directories, 5 files
+0 directories, 0 files
 </code></pre></div><h2 id="publish-to-github-pages">Publish to Github pages</h2>
 <p>In case you followed
 <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/#step-by-step-instructions">https://gohugo.io/hosting-and-deployment/hosting-on-github/#step-by-step-instructions</a>.
@@ -275,7 +255,7 @@ msg<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rebuildi
 <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $# -eq <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span>
 <span style="color:#66d9ef">then</span> msg<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span>
 <span style="color:#66d9ef">fi</span>
-git commit --signoff --message <span style="color:#e6db74">&#34;</span>$msg<span style="color:#e6db74">&#34;</span>
+git commit -S --message <span style="color:#e6db74">&#34;</span>$msg<span style="color:#e6db74">&#34;</span>
 
 <span style="color:#75715e"># Push source and build repos.</span>
 git push origin master

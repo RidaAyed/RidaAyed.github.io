@@ -1320,29 +1320,9 @@ hugo server -D --navigateToChanged
 
 &lt;h2 id=&#34;recheck-what-has-been-created&#34;&gt;Recheck what has been created&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;tree /home/ra/RidaAyed.github.io -D -L &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;/home/ra/RidaAyed.github.io
-├── [Apr 14 15:52]  archetypes
-│   └── [Apr 14 15:52]  default.md
-├── [Apr 16 19:04]  config.toml
-├── [Apr 14 17:10]  content
-│   └── [Apr 16 19:11]  posts
-├── [Apr 16 19:11]  content-org
-│   ├── [Apr 16 19:11]  blog.org
-│   ├── [Apr 15 20:42]  images
-│   └── [Apr 16 19:04]  sample.org
-├── [Apr 14 15:52]  data
-├── [Apr 16 19:04]  deploy.sh
-├── [Apr 14 15:52]  layouts
-├── [Apr 16 18:30]  public
-├── [Apr 14 16:27]  resources
-│   └── [Apr 14 16:27]  _gen
-├── [Apr 14 23:29]  static
-│   └── [Apr 15 20:42]  ox-hugo
-└── [Apr 16 19:13]  themes
-    ├── [Apr 14 15:59]  ananke
-    └── [Apr 15 21:20]  hugo-coder
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;/home/ra/RidaAyed.github.io [error opening dir]
 
-15 directories, 5 files
+0 directories, 0 files
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;publish-to-github-pages&#34;&gt;Publish to Github pages&lt;/h2&gt;
 &lt;p&gt;In case you followed
 &lt;a href=&#34;https://gohugo.io/hosting-and-deployment/hosting-on-github/#step-by-step-instructions&#34;&gt;https://gohugo.io/hosting-and-deployment/hosting-on-github/#step-by-step-instructions&lt;/a&gt;.
@@ -1391,7 +1371,7 @@ msg&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;c
 &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; $# -eq &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
 &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt; msg&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$1&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
 &lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
-git commit --signoff --message &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$msg&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+git commit -S --message &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$msg&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
 
 &lt;span style=&#34;color:#75715e&#34;&gt;# Push source and build repos.&lt;/span&gt;
 git push origin master
