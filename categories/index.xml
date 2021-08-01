@@ -1388,9 +1388,9 @@ git add .
 &lt;span style=&#34;color:#75715e&#34;&gt;# Commit changes.&lt;/span&gt;
 msg&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;rebuilding site `date`&amp;#34;&lt;/span&gt;
 &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; $# -eq &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt; msg&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$1&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt; msg&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$1&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
 &lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
-git commit -m &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$msg&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+git commit --signoff --message &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$msg&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
 
 &lt;span style=&#34;color:#75715e&#34;&gt;# Push source and build repos.&lt;/span&gt;
 git push origin master
@@ -1431,7 +1431,7 @@ cd ..
  :stop-signal &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;sigkill&lt;/span&gt;
  :kill-process-buffer-on-stop &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;Start prodigy to take over hugo &lt;code&gt;SPC a S r&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Start prodigy to take over hugo &lt;code&gt;SPC a t p&lt;/code&gt; and hit &lt;code&gt;r&lt;/code&gt; on &lt;em&gt;Hugo Personal Blog&lt;/em&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;figure&gt;&lt;img src=&#34;/ox-hugo/out-4.gif&#34;/&gt;
 &lt;/figure&gt;

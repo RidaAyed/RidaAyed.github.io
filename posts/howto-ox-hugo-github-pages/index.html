@@ -273,9 +273,9 @@ git add .
 <span style="color:#75715e"># Commit changes.</span>
 msg<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rebuilding site `date`&#34;</span>
 <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $# -eq <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span>
-  <span style="color:#66d9ef">then</span> msg<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span>
+<span style="color:#66d9ef">then</span> msg<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span>
 <span style="color:#66d9ef">fi</span>
-git commit -m <span style="color:#e6db74">&#34;</span>$msg<span style="color:#e6db74">&#34;</span>
+git commit --signoff --message <span style="color:#e6db74">&#34;</span>$msg<span style="color:#e6db74">&#34;</span>
 
 <span style="color:#75715e"># Push source and build repos.</span>
 git push origin master
@@ -316,7 +316,7 @@ cd ..
  :stop-signal <span style="color:#e6db74">&#39;sigkill</span>
  :kill-process-buffer-on-stop <span style="color:#66d9ef">t</span>)
 </code></pre></div><ul>
-<li>Start prodigy to take over hugo <code>SPC a S r</code></li>
+<li>Start prodigy to take over hugo <code>SPC a t p</code> and hit <code>r</code> on <em>Hugo Personal Blog</em></li>
 </ul>
 <figure><img src="/ox-hugo/out-4.gif"/>
 </figure>
