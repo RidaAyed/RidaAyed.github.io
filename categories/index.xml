@@ -12,7 +12,7 @@
       <link>/posts/fixing_pyright_import_could_not_be_resolved_in_emacs/</link>
       <pubDate>Wed, 30 Sep 2020 16:57:00 +0200</pubDate>
       <guid>/posts/fixing_pyright_import_could_not_be_resolved_in_emacs/</guid>
-      <description>&lt;p&gt;Say you open any python file containing an import. Your ide is &lt;code&gt;spacemacs&lt;/code&gt;
+      <description>&lt;p&gt;Say you open any python file containing an import. Your IDE is &lt;code&gt;spacemacs&lt;/code&gt;
 and &lt;code&gt;pyright&lt;/code&gt;. You might encounter this error:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;[Pyright] Import &amp;quot;anymodule&amp;quot; could not be resolved&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;In order to get rid of this error, hit:&lt;/p&gt;
