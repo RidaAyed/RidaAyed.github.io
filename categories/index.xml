@@ -19,7 +19,7 @@ and &lt;code&gt;pyright&lt;/code&gt;. You might encounter this error:&lt;/p&gt;
 &lt;p&gt;&lt;kbd&gt; , F a &lt;/kbd&gt;&lt;/p&gt;
 &lt;p&gt;This launches &lt;code&gt;lsp-workspaces-folders-add&lt;/code&gt; which requires you to enter the
 project&amp;rsquo;s path e.g. &lt;code&gt;~/tmp/mypython/&lt;/code&gt; as workspace.&lt;/p&gt;
-&lt;p&gt;I had only &lt;code&gt;~/tmp/&lt;/code&gt; in the lsp-workspaces and thought it is enough. Thought wrong.&lt;/p&gt;
+&lt;p&gt;I had only &lt;code&gt;~/tmp/&lt;/code&gt; in the lsp-workspaces and thought it is enough. Deleted this folder with: &lt;kbd&gt; , F d &lt;/kbd&gt;.&lt;/p&gt;
 </description>
     </item>
     <item>
