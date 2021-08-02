@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  
+    <meta name="description" content="Say I want to write about the count of my system&rsquo;s processors at the time of my writing. Or my current location&rsquo;s weather or stock shares or &hellip;use your imagination. Now I do it like that:
+ At this very moment I&rsquo;m writing this text on a machine with 4 processors.
+ In verbatim it&rsquo;s written like this:
+At this very moment I&#39;m writing this text on a machine with src_bash{cat /proc/cpuinfo | grep processor | wc -l} {{{results(=4=)}}} processors.">
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.86.1" />
+  <title>Code expansion in org mode prose text | Rida Ayed</title>
+  <link rel="canonical" href="/posts/code_expansion_in_org_mode_prose_text/">
+
+
+  
+
+
+
+
+
+
+
+
+  
+    
+  
+  
+  <link rel="stylesheet" href="/css/base.min.b94428eebe75e333d88818267f7dd5e1598fb5e021bc7219b8b991e1559b3723.css" integrity="sha256-uUQo7r514zPYiBgmf33V4VmPteAhvHIZuLmR4VWbNyM=" crossorigin="anonymous">
+
+
+
+</head>
+
+<body>
+  <nav class="u-background">
+  <div class="u-wrapper">
+    <ul class="Banner">
+      <li class="Banner-item Banner-item--title">
+        <a class="Banner-link u-clickable" href="/">Rida Ayed</a>
+      </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/gallery/">Paintings</a>
+        </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/posts/">Posts</a>
+        </li>
+      
+    </ul>
+  </div>
+</nav>
+  <main>
+    <div class="u-wrapper">
+      <div class="u-padding">
+        
+
+  <article>
+    <header class="Heading">
+  <h2 class="Heading-title">
+    <a class="Heading-link u-clickable" href="/posts/code_expansion_in_org_mode_prose_text/" rel="bookmark">Code expansion in org mode prose text</a>
+  </h2>
+  
+    <time datetime="2020-10-20T00:00:00&#43;02:00">20 October, 2020</time>
+  
+</header>
+    <p>Say I want to write about the count of my system&rsquo;s processors at the time of my writing. Or my current location&rsquo;s weather or stock shares or &hellip;use your imagination. Now I do it like that:</p>
+<blockquote>
+<p>At this very moment I&rsquo;m writing this text on a machine with <code>4</code> processors.</p>
+</blockquote>
+<p>In verbatim it&rsquo;s written like this:</p>
+<p><code>At this very moment I'm writing this text on a machine with src_bash{cat /proc/cpuinfo | grep processor | wc -l} {{{results(=4=)}}} processors.</code></p>
+<p>Practically I expand a snippet, write <strong><strong>any shelly command</strong></strong> into the curly braces and instantly have it&rsquo;s evaluated result written into my prose.</p>
+<hr>
+<p>Way more elegant than my old way doing it like this:</p>
+<blockquote>
+<p>At this very moment I&rsquo;m writing this text on a machine with this <a href="#code-snippet--src-0-b4a37322-bd9c-498c-91ef-233c5680433a">count</a> of processors:</p>
+</blockquote>
+<p><a id="code-snippet--src-0-b4a37322-bd9c-498c-91ef-233c5680433a"></a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cat /proc/cpuinfo | grep processor | wc -l
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">4
+</code></pre></div><p>In verbatim it&rsquo;s written like this:</p>
+<p><code>At this very moment I'm writing this text on a machine with this [[src_0_b4a37322-bd9c-498c-91ef-233c5680433a][count]] of processors:</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-org" data-lang="org"><span style="color:#75715e">#+NAME</span><span style="color:#75715e">: src_0_b4a37322-bd9c-498c-91ef-233c5680433a</span>
+<span style="color:#75715e">#+begin_src </span><span style="color:#75715e">sh</span><span style="color:#75715e"> :exports output
+</span><span style="color:#75715e"></span>cat /proc/cpuinfo | grep processor | wc -l
+<span style="color:#75715e">#+end_src</span>
+
+<span style="color:#75715e">#+RESULTS</span><span style="color:#75715e">:</span>
+: 4
+</code></pre></div>
+    
+
+
+  
+
+  
+
+
+
+
+
+    
+  
+
+  </article>
+
+
+      </div>
+    </div>
+  </main>
+  
+</body>
+
+</html>

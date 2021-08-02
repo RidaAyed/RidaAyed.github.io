@@ -9,6 +9,37 @@
     <lastBuildDate>Sat, 21 Mar 2020 20:35:00 +0100</lastBuildDate>
     <atom:link href="/tags/systemd/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Code expansion in org mode prose text</title>
+      <link>/posts/code_expansion_in_org_mode_prose_text/</link>
+      <pubDate>Tue, 20 Oct 2020 00:00:00 +0200</pubDate>
+      <guid>/posts/code_expansion_in_org_mode_prose_text/</guid>
+      <description>&lt;p&gt;Say I want to write about the count of my system&amp;rsquo;s processors at the time of my writing. Or my current location&amp;rsquo;s weather or stock shares or &amp;hellip;use your imagination. Now I do it like that:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;At this very moment I&amp;rsquo;m writing this text on a machine with &lt;code&gt;4&lt;/code&gt; processors.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In verbatim it&amp;rsquo;s written like this:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;At this very moment I&#39;m writing this text on a machine with src_bash{cat /proc/cpuinfo | grep processor | wc -l} {{{results(=4=)}}} processors.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Practically I expand a snippet, write &lt;strong&gt;&lt;strong&gt;any shelly command&lt;/strong&gt;&lt;/strong&gt; into the curly braces and instantly have it&amp;rsquo;s evaluated result written into my prose.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Way more elegant than my old way doing it like this:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;At this very moment I&amp;rsquo;m writing this text on a machine with this &lt;a href=&#34;#code-snippet--src-0-b4a37322-bd9c-498c-91ef-233c5680433a&#34;&gt;count&lt;/a&gt; of processors:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--src-0-b4a37322-bd9c-498c-91ef-233c5680433a&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;cat /proc/cpuinfo | grep processor | wc -l
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;4
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In verbatim it&amp;rsquo;s written like this:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;At this very moment I&#39;m writing this text on a machine with this [[src_0_b4a37322-bd9c-498c-91ef-233c5680433a][count]] of processors:&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-org&#34; data-lang=&#34;org&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#+NAME&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;: src_0_b4a37322-bd9c-498c-91ef-233c5680433a&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;#+begin_src &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;sh&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; :exports output
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;cat /proc/cpuinfo | grep processor | wc -l
+&lt;span style=&#34;color:#75715e&#34;&gt;#+end_src&lt;/span&gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;#+RESULTS&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;:&lt;/span&gt;
+: 4
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
       <title>Fixing [Pyright] Import could not be resolved in emacs</title>
       <link>/posts/fixing_pyright_import_could_not_be_resolved_in_emacs/</link>
       <pubDate>Wed, 30 Sep 2020 16:57:00 +0200</pubDate>
