@@ -24,7 +24,7 @@ Usually I would:
 
 
 
-<meta name="generator" content="Hugo 0.83.1" />
+<meta name="generator" content="Hugo 0.86.1" />
   <title>Why do I need unit tests? | Rida Ayed</title>
   <link rel="canonical" href="/posts/why_do_i_need_unit_tests/">
 
@@ -91,7 +91,7 @@ in return expect the comparison&rsquo;s outcome as a bool.</p>
 <li>
 <p>Print it&rsquo;s result until I&rsquo;m happy with it</p>
 <p><a id="code-snippet--something"></a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#somecode.py</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#somecode.py</span>
 <span style="color:#f92672">from</span> datetime <span style="color:#f92672">import</span> datetime
 
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">compare_two_dates</span>(date,otherdate):
@@ -102,13 +102,13 @@ otherdate <span style="color:#f92672">=</span> datetime(<span style="color:#ae81
 
 true_expected<span style="color:#f92672">=</span>compare_two_dates(date,date)
 false_expected<span style="color:#f92672">=</span>compare_two_dates(date,otherdate)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;true_expected:&#34;</span>,true_expected)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;false_expected:&#34;</span>,false_expected)
+print(<span style="color:#e6db74">&#34;true_expected:&#34;</span>,true_expected)
+print(<span style="color:#e6db74">&#34;false_expected:&#34;</span>,false_expected)
 </code></pre></div><p>Result:</p>
 <style>.results-fixed-block { color: blue;  }</style>
 <div class="results-fixed-block">
   <div></div>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">true_expected: True
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">true_expected: True
 false_expected: False
 </code></pre></div></div>
 </li>
@@ -127,7 +127,7 @@ over since I can&rsquo;t remember later if I already printed the functions outco
 <h2 id="result">Result:</h2>
 <p>No more print statements cluttering my commits. No more insecurities about
 memorizing if I ever tested this before.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># my_unit_test.py</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># my_unit_test.py</span>
 <span style="color:#f92672">import</span> pytest
 <span style="color:#f92672">from</span> datetime <span style="color:#f92672">import</span> datetime
 
@@ -140,12 +140,12 @@ memorizing if I ever tested this before.</p>
     date <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>now()<span style="color:#f92672">.</span>date()
     otherdate <span style="color:#f92672">=</span> datetime(<span style="color:#ae81ff">1900</span>, <span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">12</span>)
 
-    <span style="color:#66d9ef">assert</span> compare_two_dates(date, date) <span style="color:#f92672">==</span> True
-    <span style="color:#66d9ef">assert</span> compare_two_dates(date, otherdate) <span style="color:#f92672">==</span> False
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">exec 2&gt;&amp;<span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">assert</span> compare_two_dates(date, date) <span style="color:#f92672">==</span> <span style="color:#66d9ef">True</span>
+    <span style="color:#66d9ef">assert</span> compare_two_dates(date, otherdate) <span style="color:#f92672">==</span> <span style="color:#66d9ef">False</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">exec 2&gt;&amp;<span style="color:#ae81ff">1</span>
 pytest my_unit_test.py
 :
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">============================= test session starts ==============================
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">============================= test session starts ==============================
 platform linux -- Python 3.9.5, pytest-6.2.4, py-1.10.0, pluggy-0.13.1
 rootdir: /home/ra/tmp/83820272
 plugins: cov-2.12.1, hypothesis-6.13.14, pycharm-0.6.0, vcr-1.0.2

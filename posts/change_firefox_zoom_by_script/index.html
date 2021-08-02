@@ -24,7 +24,7 @@ grep layout.css.devPixelsPerPx /home/*/.mozilla/firefox/*/prefs.js Large screen:
 
 
 
-<meta name="generator" content="Hugo 0.83.1" />
+<meta name="generator" content="Hugo 0.86.1" />
   <title>Change Firefox&#39;s zoom by script | Rida Ayed</title>
   <link rel="canonical" href="/posts/change_firefox_zoom_by_script/">
 
@@ -95,11 +95,11 @@ grep layout.css.devPixelsPerPx /home/*/.mozilla/firefox/*/prefs.js Large screen:
 </figure>
 
 <p>Locate the appropriate file</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ls /home/*/.mozilla/firefox/*/prefs.js
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ls /home/*/.mozilla/firefox/*/prefs.js
 </code></pre></div><p>Locate the appropriate parameter</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">grep layout.css.devPixelsPerPx /home/*/.mozilla/firefox/*/prefs.js
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">grep layout.css.devPixelsPerPx /home/*/.mozilla/firefox/*/prefs.js
 </code></pre></div><p>Large screen: Set the zoom</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/usr/bin/env bash
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/usr/bin/env bash
 </span><span style="color:#75715e"></span>factor<span style="color:#f92672">=</span>2.5
 <span style="color:#66d9ef">if</span> grep <span style="color:#e6db74">&#39;layout.css.devPixelsPerPx&#39;</span> /home/*/.mozilla/firefox/*/prefs.js
 <span style="color:#66d9ef">then</span>
@@ -108,7 +108,7 @@ grep layout.css.devPixelsPerPx /home/*/.mozilla/firefox/*/prefs.js Large screen:
     echo <span style="color:#e6db74">&#34;user_pref(\&#34;layout.css.devPixelsPerPx\&#34;, \&#34;</span>$factor<span style="color:#e6db74">\&#34;);&#34;</span> &gt;&gt; /home/*/.mozilla/firefox/*/prefs.js
 <span style="color:#66d9ef">fi</span>
 </code></pre></div><p>Small screen: Set the zoom</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/usr/bin/env bash
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/usr/bin/env bash
 </span><span style="color:#75715e"></span>factor<span style="color:#f92672">=</span>1.0
 <span style="color:#66d9ef">if</span> grep <span style="color:#e6db74">&#39;layout.css.devPixelsPerPx&#39;</span> /home/*/.mozilla/firefox/*/prefs.js
 <span style="color:#66d9ef">then</span>
@@ -117,10 +117,10 @@ grep layout.css.devPixelsPerPx /home/*/.mozilla/firefox/*/prefs.js Large screen:
     echo <span style="color:#e6db74">&#34;user_pref(\&#34;layout.css.devPixelsPerPx\&#34;, \&#34;</span>$factor<span style="color:#e6db74">\&#34;);&#34;</span> &gt;&gt; /home/*/.mozilla/firefox/*/prefs.js
 <span style="color:#66d9ef">fi</span>
 </code></pre></div><p>Make the scripts executable</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo chmod --verbose +x ~/src/scripts/FirefoxZoomIn.sh
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo chmod --verbose +x ~/src/scripts/FirefoxZoomIn.sh
 sudo chmod --verbose +x ~/src/scripts/FirefoxZoomOut.sh
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">~/src/scripts/FirefoxZoomIn.sh
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">~/src/scripts/FirefoxZoomOut.sh
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">~/src/scripts/FirefoxZoomIn.sh
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">~/src/scripts/FirefoxZoomOut.sh
 </code></pre></div><p>Docking/undocking triggers those scripts, which I&rsquo;m handling with <a href="https://wiki.archlinux.org/index.php/Xrandr#Automatically%5Fswitch%5Fconfigurations%5Fwith%5Fautorandr">Autorandr</a>.</p>
 
     

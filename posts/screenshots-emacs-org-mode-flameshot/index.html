@@ -22,7 +22,7 @@ sudo pacman -S flameshot Add the line below to your .spacemacs custom-set-variab
 
 
 
-<meta name="generator" content="Hugo 0.83.1" />
+<meta name="generator" content="Hugo 0.86.1" />
   <title>Take screenshots in emacs org mode with flameshot | Rida Ayed</title>
   <link rel="canonical" href="/posts/screenshots-emacs-org-mode-flameshot/">
 
@@ -87,12 +87,12 @@ sudo pacman -S flameshot Add the line below to your .spacemacs custom-set-variab
 
 <h2 id="setup">Setup</h2>
 <p>Enable the <code>org</code> layer in your <code>.spacemacs</code> <code>dotspacemacs-configuration-layers</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp">dotspacemacs-configuration-layers
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp">dotspacemacs-configuration-layers
 <span style="color:#f92672">&#39;</span>(org)
 </code></pre></div><p>Install flameshot</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo pacman -S flameshot
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo pacman -S flameshot
 </code></pre></div><p>Add the line below to your <code>.spacemacs</code> <code>custom-set-variables</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp">(custom-set-variables
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp">(custom-set-variables
  <span style="color:#f92672">&#39;</span>(org-download-screenshot-method <span style="color:#e6db74">&#34;flameshot gui --raw &gt; %s&#34;</span>))
 </code></pre></div><h2 id="usage">Usage</h2>
 <ol>
