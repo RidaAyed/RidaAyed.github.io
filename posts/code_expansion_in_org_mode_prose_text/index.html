@@ -84,24 +84,27 @@ At this very moment I&#39;m writing this text on a machine with src_bash{cat /pr
 </blockquote>
 <p>In verbatim it&rsquo;s written like this:</p>
 <p><code>At this very moment I'm writing this text on a machine with src_bash{cat /proc/cpuinfo | grep processor | wc -l} {{{results(=4=)}}} processors.</code></p>
-<p>Practically I expand a snippet, write <strong><strong>any shelly command</strong></strong> into the curly braces and instantly have it&rsquo;s evaluated result written into my prose.</p>
-<hr>
-<p>Way more elegant than my old way doing it like this:</p>
+<p>Practically I expand a snippet, write <strong><strong>any bash command</strong></strong> into the curly braces and instantly have it&rsquo;s evaluated result written into my prose.</p>
+<h2 id="python-example">Python example</h2>
+<h3 id="inline">Inline</h3>
+<p>Two plus two equals <code>4</code></p>
+<p>Verbatim:</p>
 <blockquote>
-<p>At this very moment I&rsquo;m writing this text on a machine with this <a href="#code-snippet--src-0-b4a37322-bd9c-498c-91ef-233c5680433a">count</a> of processors:</p>
+<p><code>Two plus two equals src_python{return(2+2)} {{{results(=4=)}}}</code></p>
 </blockquote>
-<p><a id="code-snippet--src-0-b4a37322-bd9c-498c-91ef-233c5680433a"></a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cat /proc/cpuinfo | grep processor | wc -l
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">4
-</code></pre></div><p>In verbatim it&rsquo;s written like this:</p>
-<p><code>At this very moment I'm writing this text on a machine with this [[src_0_b4a37322-bd9c-498c-91ef-233c5680433a][count]] of processors:</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-org" data-lang="org"><span style="color:#75715e">#+NAME</span><span style="color:#75715e">: src_0_b4a37322-bd9c-498c-91ef-233c5680433a</span>
-<span style="color:#75715e">#+begin_src </span><span style="color:#75715e">sh</span><span style="color:#75715e"> :exports output
-</span><span style="color:#75715e"></span>cat /proc/cpuinfo | grep processor | wc -l
-<span style="color:#75715e">#+end_src</span>
+<h3 id="code-block">Code block</h3>
+<p>Expand any code block&rsquo;s result as well: <code>12</code></p>
+<p>Verbatim:</p>
+<blockquote>
+<p><code>Expand any [[python_example][code block]]'s result as well: call_python_example()</code></p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-org" data-lang="org"><span style="color:#75715e">#+name</span><span style="color:#75715e">: python_example</span>
+<span style="color:#75715e">#+begin_src </span><span style="color:#75715e">python</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">func</span>():
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">+</span><span style="color:#ae81ff">2</span><span style="color:#f92672">+</span><span style="color:#ae81ff">3</span><span style="color:#f92672">+</span><span style="color:#ae81ff">5</span>
 
-<span style="color:#75715e">#+RESULTS</span><span style="color:#75715e">:</span>
-: 4
+<span style="color:#66d9ef">return</span> func()
+<span style="color:#75715e">#+end_src</span>
 </code></pre></div>
     
 

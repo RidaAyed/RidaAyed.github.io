@@ -18,24 +18,27 @@
 &lt;/blockquote&gt;
 &lt;p&gt;In verbatim it&amp;rsquo;s written like this:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;At this very moment I&#39;m writing this text on a machine with src_bash{cat /proc/cpuinfo | grep processor | wc -l} {{{results(=4=)}}} processors.&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Practically I expand a snippet, write &lt;strong&gt;&lt;strong&gt;any shelly command&lt;/strong&gt;&lt;/strong&gt; into the curly braces and instantly have it&amp;rsquo;s evaluated result written into my prose.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;Way more elegant than my old way doing it like this:&lt;/p&gt;
+&lt;p&gt;Practically I expand a snippet, write &lt;strong&gt;&lt;strong&gt;any bash command&lt;/strong&gt;&lt;/strong&gt; into the curly braces and instantly have it&amp;rsquo;s evaluated result written into my prose.&lt;/p&gt;
+&lt;h2 id=&#34;python-example&#34;&gt;Python example&lt;/h2&gt;
+&lt;h3 id=&#34;inline&#34;&gt;Inline&lt;/h3&gt;
+&lt;p&gt;Two plus two equals &lt;code&gt;4&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Verbatim:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;At this very moment I&amp;rsquo;m writing this text on a machine with this &lt;a href=&#34;#code-snippet--src-0-b4a37322-bd9c-498c-91ef-233c5680433a&#34;&gt;count&lt;/a&gt; of processors:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Two plus two equals src_python{return(2+2)} {{{results(=4=)}}}&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;a id=&#34;code-snippet--src-0-b4a37322-bd9c-498c-91ef-233c5680433a&#34;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;cat /proc/cpuinfo | grep processor | wc -l
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;4
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In verbatim it&amp;rsquo;s written like this:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;At this very moment I&#39;m writing this text on a machine with this [[src_0_b4a37322-bd9c-498c-91ef-233c5680433a][count]] of processors:&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-org&#34; data-lang=&#34;org&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#+NAME&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;: src_0_b4a37322-bd9c-498c-91ef-233c5680433a&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;#+begin_src &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;sh&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; :exports output
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;cat /proc/cpuinfo | grep processor | wc -l
-&lt;span style=&#34;color:#75715e&#34;&gt;#+end_src&lt;/span&gt;
+&lt;h3 id=&#34;code-block&#34;&gt;Code block&lt;/h3&gt;
+&lt;p&gt;Expand any code block&amp;rsquo;s result as well: &lt;code&gt;12&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Verbatim:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;Expand any [[python_example][code block]]&#39;s result as well: call_python_example()&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-org&#34; data-lang=&#34;org&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#+name&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;: python_example&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;#+begin_src &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;python&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;func&lt;/span&gt;():
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;
 
-&lt;span style=&#34;color:#75715e&#34;&gt;#+RESULTS&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;:&lt;/span&gt;
-: 4
+&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; func()
+&lt;span style=&#34;color:#75715e&#34;&gt;#+end_src&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     <item>
