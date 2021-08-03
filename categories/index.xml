@@ -16,8 +16,8 @@
 &lt;blockquote&gt;
 &lt;p&gt;At this very moment I&amp;rsquo;m writing this text on a machine with &lt;code&gt;4&lt;/code&gt; processors.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;In verbatim it&amp;rsquo;s written like this:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;At this very moment I&#39;m writing this text on a machine with src_bash{cat /proc/cpuinfo | grep processor | wc -l} {{{results(=4=)}}} processors.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Verbatim:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;At this very moment I&#39;m writing this text on a machine with src_bash{cat /proc/cpuinfo | grep processor | wc -l} processors.&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Practically I expand a snippet, write &lt;strong&gt;&lt;strong&gt;any bash command&lt;/strong&gt;&lt;/strong&gt; into the curly braces and instantly have it&amp;rsquo;s evaluated result written into my prose.&lt;/p&gt;
 &lt;h2 id=&#34;python-example&#34;&gt;Python example&lt;/h2&gt;
 &lt;h3 id=&#34;inline&#34;&gt;Inline&lt;/h3&gt;
