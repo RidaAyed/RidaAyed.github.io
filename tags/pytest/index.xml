@@ -9,6 +9,33 @@
     <lastBuildDate>Sat, 04 Apr 2020 11:03:00 +0200</lastBuildDate>
     <atom:link href="/tags/pytest/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Test automation using GNU Make in ox-hugo</title>
+      <link>/posts/test_automation_gnu_make_ox_hugo/</link>
+      <pubDate>Sun, 10 Jan 2021 00:00:00 +0100</pubDate>
+      <guid>/posts/test_automation_gnu_make_ox_hugo/</guid>
+      <description>&lt;p&gt;Amongst others, I run this script as part of my tests after a system update.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Initialize variables&lt;/span&gt;
+input&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;test/site/content-org/screenshot-subtree-export-example.org
+output&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;test/site/content/writing-hugo-blog-in-org-subtree-export.md
+cd /tmp
+&lt;span style=&#34;color:#75715e&#34;&gt;# Cleanup&lt;/span&gt;
+rm -r ox-hugo
+&lt;span style=&#34;color:#75715e&#34;&gt;# Clone latest repository&lt;/span&gt;
+git clone git@github.com:kaushalmodi/ox-hugo.git
+cd ox-hugo
+&lt;span style=&#34;color:#75715e&#34;&gt;# Make change in org file&lt;/span&gt;
+sed -i &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;s/\(Kaushal\)/The awesome \1/&amp;#34;&lt;/span&gt; $input
+&lt;span style=&#34;color:#75715e&#34;&gt;# Simulate the export from org to markdown&lt;/span&gt;
+make md1 ORG_FILE&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$input
+&lt;span style=&#34;color:#75715e&#34;&gt;# Check if the changes appears in the&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# created markdown (named after the title property in org)&lt;/span&gt;
+grep Kaushal $output
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;
+test/site/content-org/screenshot-subtree-export-example.org ::
+author = [&amp;#34;The awesome Kaushal Modi&amp;#34;]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
       <title>Annotate pictures non-invasively in latex/pdf using org mode</title>
       <link>/posts/annotate-picture-latex-pdf-emacs-org-mode/</link>
       <pubDate>Thu, 10 Dec 2020 00:00:00 +0100</pubDate>
@@ -212,6 +239,29 @@ my_unit_test.py .                                                        [100%]
 being needed to overview in person what I&amp;rsquo;ve already written down as an expected
 result. I can agree with third parties on tests similar to a contract.&lt;/p&gt;
 </description>
+    </item>
+    <item>
+      <title>How to use the ox-hugo Makefile</title>
+      <link>/posts/test_automation_ox_hugo/</link>
+      <pubDate>Mon, 04 May 2020 19:31:00 +0200</pubDate>
+      <guid>/posts/test_automation_ox_hugo/</guid>
+      <description>&lt;p&gt;Amongst others, I run this script as part of my tests after a system update.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;cd /tmp
+&lt;span style=&#34;color:#75715e&#34;&gt;#Cleanup&lt;/span&gt;
+rm -r ox-hugo
+&lt;span style=&#34;color:#75715e&#34;&gt;#Clone latest repository&lt;/span&gt;
+git clone git@github.com:kaushalmodi/ox-hugo.git
+cd ox-hugo
+&lt;span style=&#34;color:#75715e&#34;&gt;#Make change in org file&lt;/span&gt;
+sed -i &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;s/\(Kaushal\)/The awesome \1/&amp;#34;&lt;/span&gt;  test/site/content-org/screenshot-subtree-export-example.org
+&lt;span style=&#34;color:#75715e&#34;&gt;#Simulate the export from org to markdown&lt;/span&gt;
+make md1 ORG_FILE&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;test/site/content-org/screenshot-subtree-export-example.org
+&lt;span style=&#34;color:#75715e&#34;&gt;#Check if the changes appear in the created markdown (named after the title property in org)&lt;/span&gt;
+grep Kaushal test/site/content/writing-hugo-blog-in-org-subtree-export.md
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;
+test/site/content-org/screenshot-subtree-export-example.org ::
+author = [&amp;#34;The awesome Kaushal Modi&amp;#34;]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     <item>
       <title>Scraping Migros M-Budget with python</title>

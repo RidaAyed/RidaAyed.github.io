@@ -2,12 +2,12 @@
 <?xml-stylesheet type="text/xsl" href="/xml/base.min.xml" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Rida Ayed</title>
-    <link>/posts/</link>
-    <description>Recent content in Posts on Rida Ayed</description>
+    <title>hugo on Rida Ayed</title>
+    <link>/tags/hugo/</link>
+    <description>Recent content in hugo on Rida Ayed</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 10 Jan 2021 00:00:00 +0100</lastBuildDate>
-    <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 May 2020 19:31:00 +0200</lastBuildDate>
+    <atom:link href="/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Test automation using GNU Make in ox-hugo</title>
       <link>/posts/test_automation_gnu_make_ox_hugo/</link>
