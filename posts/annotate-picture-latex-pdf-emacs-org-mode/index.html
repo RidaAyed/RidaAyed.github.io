@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  
+    <meta name="description" content="Goal of this method is the non-invasive annotation of pictures in LaTeX/pdf. Thus all annotations are written in LaTeX. The source picture 1 remains untouched.
+ 
+ Figure 1: Source picture
+   
+ Figure 2: Help grid enabled
+  #&#43;EXPORT_LATEX_HEADER: \usepackage[background=black,text=white,arrow=red]{callouts}  1 2 3 4 5 6 7 8 9 10 11 12 13  \begin{annotate} {\includegraphics[width=0.8\textwidth]{/home/ra/Pictures/IMG_1340.jpg}}{1.0} %\helpgrid %uncomment to enable helpgrid  \callout {-3.">
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.86.1" />
+  <title>Annotate pictures non-invasively in latex/pdf using org mode | Rida Ayed</title>
+  <link rel="canonical" href="/posts/annotate-picture-latex-pdf-emacs-org-mode/">
+
+
+  
+
+
+
+
+
+
+
+
+  
+    
+  
+  
+  <link rel="stylesheet" href="/css/base.min.b94428eebe75e333d88818267f7dd5e1598fb5e021bc7219b8b991e1559b3723.css" integrity="sha256-uUQo7r514zPYiBgmf33V4VmPteAhvHIZuLmR4VWbNyM=" crossorigin="anonymous">
+
+
+
+</head>
+
+<body>
+  <nav class="u-background">
+  <div class="u-wrapper">
+    <ul class="Banner">
+      <li class="Banner-item Banner-item--title">
+        <a class="Banner-link u-clickable" href="/">Rida Ayed</a>
+      </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/gallery/">Paintings</a>
+        </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/posts/">Posts</a>
+        </li>
+      
+    </ul>
+  </div>
+</nav>
+  <main>
+    <div class="u-wrapper">
+      <div class="u-padding">
+        
+
+  <article>
+    <header class="Heading">
+  <h2 class="Heading-title">
+    <a class="Heading-link u-clickable" href="/posts/annotate-picture-latex-pdf-emacs-org-mode/" rel="bookmark">Annotate pictures non-invasively in latex/pdf using org mode</a>
+  </h2>
+  
+    <time datetime="2020-12-10T00:00:00&#43;01:00">10 December, 2020</time>
+  
+</header>
+    <p>Goal of this method is the non-invasive annotation of pictures in LaTeX/pdf.
+Thus all annotations are written in LaTeX. The source picture <a href="#orge045a54">1</a> remains
+untouched.</p>
+<figure><img src="/ox-hugo/2021-08-03_21-13-36_screenshot.png"/>
+</figure>
+
+<p><a id="orge045a54"></a></p>
+<figure><img src="/ox-hugo/2021-08-03_21-26-06_screenshot.png"
+         alt="Figure 1: Source picture"/><figcaption>
+            <p>Figure 1: Source picture</p>
+        </figcaption>
+</figure>
+
+<figure><img src="/ox-hugo/screenshot_2019-07-22_18-34-55.png"/>
+</figure>
+
+<p><a id="orga99faea"></a></p>
+<figure><img src="/ox-hugo/screenshot_2019-07-22_18-32-55.png"
+         alt="Figure 2: Help grid enabled"/><figcaption>
+            <p>Figure 2: Help grid enabled</p>
+        </figcaption>
+</figure>
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-org" data-lang="org"><span style="color:#75715e">#+EXPORT_LATEX_HEADER</span><span style="color:#75715e">: \usepackage[background=black,text=white,arrow=red]{callouts}</span>
+</code></pre></div><p><a id="code-snippet--src:SED-HR4049"></a>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="display:block;width:100%;background-color:#3c3d38"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span></span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex">  <span style="color:#66d9ef">\begin</span>{annotate}
+  {<span style="color:#66d9ef">\includegraphics</span><span style="color:#a6e22e">[width=0.8\textwidth]</span>{/home/ra/Pictures/IMG_1340.jpg}}{1.0}
+<span style="display:block;width:100%;background-color:#3c3d38">  <span style="color:#75715e">%\helpgrid %uncomment to enable helpgrid
+</span></span><span style="color:#75715e"></span>  <span style="color:#66d9ef">\callout</span> {-3.0,5.0}{Hip}{0.0,5.0}
+  <span style="color:#66d9ef">\draw</span> [thick ,<span style="color:#66d9ef">\arcol</span>] (2.0 ,-2.0)  rectangle  (4.0 ,-4.0);
+  <span style="color:#66d9ef">\draw</span> [thick ,<span style="color:#66d9ef">\arcol</span>] (-0.3 ,-5.8)  rectangle  (0 ,-6.2);
+  <span style="color:#66d9ef">\draw</span> [red,thick,dashed] (1,5) circle (1.0);
+  <span style="color:#66d9ef">\callout</span> {-3,0.7}{Knee}{-1.1,0.7}
+  <span style="color:#66d9ef">\callout</span> {-3,-3.0}{Ankle}{2.0,-3.0}
+  <span style="color:#66d9ef">\arrow</span>{ 2.0,-4.0}{0.0,-5.8} <span style="color:#75715e">%Display the joint on the complete animal
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">\note</span> {-2.5,-8.0}{Some note without arrow}
+  <span style="color:#66d9ef">\end</span>{annotate}
+  <span style="color:#66d9ef">\newpage</span></code></pre></td></tr></table>
+</div>
+</div></p>
+<p>Things to remember:</p>
+<ul>
+<li>First define the x (horizontal) coordinates. Then define the y (vertical) coordinates.</li>
+<li>First comes the note. Then comes the arrow.</li>
+<li>A note&rsquo;s anchor is centered (not left, nor right)</li>
+<li>In order to enable the help grid as shown on <a href="#orga99faea">2</a> uncomment line 3 in <a href="#code-snippet--src:SED-HR4049">1</a></li>
+</ul>
+
+    
+
+
+  
+
+  
+
+
+
+
+
+  <footer>
+    
+      
+    
+      
+        <ul class="Tags">
+          
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="/tags/latex/" rel="tag">latex</a>
+            </li>
+          
+        </ul>
+      
+    
+  </footer>
+
+    
+  
+
+  </article>
+
+
+      </div>
+    </div>
+  </main>
+  
+</body>
+
+</html>

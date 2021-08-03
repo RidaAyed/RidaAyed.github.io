@@ -2,12 +2,12 @@
 <?xml-stylesheet type="text/xsl" href="/xml/base.min.xml" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>python on Rida Ayed</title>
-    <link>/tags/python/</link>
-    <description>Recent content in python on Rida Ayed</description>
+    <title>latex on Rida Ayed</title>
+    <link>/tags/latex/</link>
+    <description>Recent content in latex on Rida Ayed</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 07 Apr 2020 18:50:00 +0200</lastBuildDate>
-    <atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Dec 2020 00:00:00 +0100</lastBuildDate>
+    <atom:link href="/tags/latex/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Annotate pictures non-invasively in latex/pdf using org mode</title>
       <link>/posts/annotate-picture-latex-pdf-emacs-org-mode/</link>
