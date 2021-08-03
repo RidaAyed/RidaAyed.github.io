@@ -14,12 +14,12 @@
       <pubDate>Thu, 10 Dec 2020 00:00:00 +0100</pubDate>
       <guid>/posts/annotate-picture-latex-pdf-emacs-org-mode/</guid>
       <description>&lt;p&gt;Goal of this method is the non-invasive annotation of pictures in LaTeX/pdf.
-Thus all annotations are written in LaTeX. The source picture &lt;a href=&#34;#orge045a54&#34;&gt;1&lt;/a&gt; remains
+Thus all annotations are written in LaTeX. The source picture &lt;a href=&#34;#org28ae456&#34;&gt;1&lt;/a&gt; remains
 untouched.&lt;/p&gt;
 &lt;figure&gt;&lt;img src=&#34;/ox-hugo/2021-08-03_21-13-36_screenshot.png&#34;/&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;&lt;a id=&#34;orge045a54&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;org28ae456&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;figure&gt;&lt;img src=&#34;/ox-hugo/2021-08-03_21-26-06_screenshot.png&#34;
          alt=&#34;Figure 1: Source picture&#34;/&gt;&lt;figcaption&gt;
             &lt;p&gt;Figure 1: Source picture&lt;/p&gt;
@@ -29,7 +29,7 @@ untouched.&lt;/p&gt;
 &lt;figure&gt;&lt;img src=&#34;/ox-hugo/screenshot_2019-07-22_18-34-55.png&#34;/&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;&lt;a id=&#34;orga99faea&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;orgca897dd&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;figure&gt;&lt;img src=&#34;/ox-hugo/screenshot_2019-07-22_18-32-55.png&#34;
          alt=&#34;Figure 2: Help grid enabled&#34;/&gt;&lt;figcaption&gt;
             &lt;p&gt;Figure 2: Help grid enabled&lt;/p&gt;
@@ -75,7 +75,7 @@ untouched.&lt;/p&gt;
 &lt;li&gt;First define the x (horizontal) coordinates. Then define the y (vertical) coordinates.&lt;/li&gt;
 &lt;li&gt;First comes the note. Then comes the arrow.&lt;/li&gt;
 &lt;li&gt;A note&amp;rsquo;s anchor is centered (not left, nor right)&lt;/li&gt;
-&lt;li&gt;In order to enable the help grid as shown on &lt;a href=&#34;#orga99faea&#34;&gt;2&lt;/a&gt; uncomment line 3 in &lt;a href=&#34;#code-snippet--src:SED-HR4049&#34;&gt;1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;In order to enable the help grid as shown on &lt;a href=&#34;#orgca897dd&#34;&gt;2&lt;/a&gt; uncomment line 3 in &lt;a href=&#34;#code-snippet--src:SED-HR4049&#34;&gt;1&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
