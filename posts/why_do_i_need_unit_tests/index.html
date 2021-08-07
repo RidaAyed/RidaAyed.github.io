@@ -14,7 +14,7 @@ Usually I would:
   Print it&rsquo;s result until I&rsquo;m happy with it
 
 #somecode.py from datetime import datetime def compare_two_dates(date,otherdate): return date==otherdate date = datetime.now().date() otherdate = datetime(1900,12,12) true_expected=compare_two_dates(date,date) false_expected=compare_two_dates(date,otherdate) print(&#34;true_expected:&#34;,true_expected) print(&#34;false_expected:&#34;,false_expected) Result:
-.results-fixed-block { color: blue; }  true_expected: True false_expected: False    Why am I not happy with that approach?">
+true_expected: True false_expected: False   Why am I not happy with that approach?">
   
 
 
@@ -105,26 +105,23 @@ false_expected<span style="color:#f92672">=</span>compare_two_dates(date,otherda
 print(<span style="color:#e6db74">&#34;true_expected:&#34;</span>,true_expected)
 print(<span style="color:#e6db74">&#34;false_expected:&#34;</span>,false_expected)
 </code></pre></div><p>Result:</p>
-<style>.results-fixed-block { color: blue;  }</style>
-<div class="results-fixed-block">
-  <div></div>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">true_expected: True
 false_expected: False
-</code></pre></div></div>
-</li>
+</code></pre></div></li>
 </ol>
 <h2 id="why-am-i-not-happy-with-that-approach">Why am I not happy with that approach?</h2>
-<p>I&rsquo;m required to see the output. I&rsquo;m required to repeat it over and
-over since I can&rsquo;t remember later if I already printed the functions outcome.</p>
+<p>I&rsquo;m required to see the output. My focus constantly switches between
+<strong><strong>looking</strong></strong> what is printed and the code itself. I&rsquo;m required to repeat it over
+and over since I can&rsquo;t remember later if I already printed the functions
+outcome.</p>
 <h2 id="what-do-i-want">What do I want?</h2>
 <p>Write down the result I want. Write the necessary code. Done.</p>
 <p>This translates into two steps for most of the coding:</p>
-<ul>
-<li>Write down the expected test (assert this result)</li>
-<li>Write the code to pass the test (the actual function)</li>
-<li>Done</li>
-</ul>
-<h2 id="result">Result:</h2>
+<ol>
+<li>Write what I want</li>
+<li>Write the code to get what I want</li>
+</ol>
+<h2 id="result">Result</h2>
 <p>No more print statements cluttering my commits. No more insecurities about
 memorizing if I ever tested this before.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># my_unit_test.py</span>
@@ -142,13 +139,12 @@ memorizing if I ever tested this before.</p>
 
     <span style="color:#66d9ef">assert</span> compare_two_dates(date, date) <span style="color:#f92672">==</span> <span style="color:#66d9ef">True</span>
     <span style="color:#66d9ef">assert</span> compare_two_dates(date, otherdate) <span style="color:#f92672">==</span> <span style="color:#66d9ef">False</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">exec 2&gt;&amp;<span style="color:#ae81ff">1</span>
-pytest my_unit_test.py
-:
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">pytest my_unit_test.py
+echo
 </code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">============================= test session starts ==============================
-platform linux -- Python 3.9.5, pytest-6.2.4, py-1.10.0, pluggy-0.13.1
+platform linux -- Python 3.9.6, pytest-6.2.4, py-1.10.0, pluggy-0.13.1
 rootdir: /home/ra/tmp/83820272
-plugins: cov-2.12.1, hypothesis-6.13.14, pycharm-0.6.0, vcr-1.0.2
+plugins: cov-2.12.1, hypothesis-6.14.5, pycharm-0.6.0, vcr-1.0.2
 collected 1 item
 
 my_unit_test.py .                                                        [100%]
@@ -169,6 +165,22 @@ result. I can agree with third parties on tests similar to a contract.</p>
 
 
 
+
+  <footer>
+    
+      
+    
+      
+        <ul class="Tags">
+          
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="/tags/python/" rel="tag">python</a>
+            </li>
+          
+        </ul>
+      
+    
+  </footer>
 
     
   
