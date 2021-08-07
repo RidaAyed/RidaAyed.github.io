@@ -10,7 +10,7 @@
   
     <meta name="description" content="Using blender, I need to test multiple settings for my painting references e.g. lighting, material or the complete location. It all started with that minimal working example to render the sphere above.
 
-# /tmp/blender/blender_mini_example.py import bpy import time import os # Initialize variables used to print the rendered picture dir_path = os.path.dirname(os.path.realpath(__file__)) filename = str(int(time.time())) &#43; &#39;.render&#39; &#43; &#39;.png&#39; # Delete the default cube objs = bpy.data.objects objs.remove(objs[&#34;Cube&#34;], do_unlink=True) # Add a cube bpy.">
+# /tmp/blender/blender_mini_example.py import bpy import time import os # Initialize variables used to print the rendered picture dir_path = os.path.dirname(os.path.realpath(__file__)) filename = str(int(time.time())) &#43; &#39;.render&#39; &#43; &#39;.png&#39; # Delete the default cube objs = bpy.data.objects objs.remove(objs[&#34;Cube&#34;], do_unlink=True) # Add a sphere bpy.">
   
 
 
@@ -92,7 +92,7 @@ filename <span style="color:#f92672">=</span> str(int(time<span style="color:#f9
 <span style="color:#75715e"># Delete the default cube</span>
 objs <span style="color:#f92672">=</span> bpy<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>objects
 objs<span style="color:#f92672">.</span>remove(objs[<span style="color:#e6db74">&#34;Cube&#34;</span>], do_unlink<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
-<span style="color:#75715e"># Add a cube</span>
+<span style="color:#75715e"># Add a sphere</span>
 bpy<span style="color:#f92672">.</span>ops<span style="color:#f92672">.</span>mesh<span style="color:#f92672">.</span>primitive_uv_sphere_add(location<span style="color:#f92672">=</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>))
 <span style="color:#75715e"># Render</span>
 bpy<span style="color:#f92672">.</span>context<span style="color:#f92672">.</span>scene<span style="color:#f92672">.</span>render<span style="color:#f92672">.</span>filepath <span style="color:#f92672">=</span> filename
