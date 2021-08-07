@@ -9,6 +9,58 @@
     <lastBuildDate>Sat, 21 Mar 2020 20:35:00 +0100</lastBuildDate>
     <atom:link href="/tags/systemd/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Create a blender scene in python</title>
+      <link>/posts/create_blender_scene_python/</link>
+      <pubDate>Sun, 28 Feb 2021 00:00:00 +0100</pubDate>
+      <guid>/posts/create_blender_scene_python/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;/ox-hugo/2021-08-07_18-51-47_1628354650.render.png&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Using blender, I need to test multiple settings for my painting references e.g.
+lighting, material or the complete location. It all started with that minimal
+working example to render the sphere above.&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--mini&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# /tmp/blender/blender_mini_example.py&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; bpy
+&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; time
+&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; os
+&lt;span style=&#34;color:#75715e&#34;&gt;# Initialize variables used to print the rendered picture&lt;/span&gt;
+dir_path &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; os&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;path&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;dirname(os&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;path&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;realpath(__file__))
+filename &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; str(int(time&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;time())) &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;.render&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;.png&amp;#39;&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# Delete the default cube&lt;/span&gt;
+objs &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; bpy&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;data&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;objects
+objs&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;remove(objs[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Cube&amp;#34;&lt;/span&gt;], do_unlink&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;)
+&lt;span style=&#34;color:#75715e&#34;&gt;# Add a cube&lt;/span&gt;
+bpy&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;ops&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;mesh&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;primitive_uv_sphere_add(location&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;))
+&lt;span style=&#34;color:#75715e&#34;&gt;# Render&lt;/span&gt;
+bpy&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;context&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;scene&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;render&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;filepath &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; filename
+bpy&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;ops&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;render&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;render(write_still&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;)
+&lt;span style=&#34;color:#75715e&#34;&gt;# Print directory path and filename&lt;/span&gt;
+print(dir_path&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;filename)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;cd /tmp/blender
+rm *.png
+sudo prime-run blender --background --python blender_mini_example.py --verbose &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Count of png in &lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;pwd&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;: &lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;ls *.png | wc -l&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;Blender 2.93.2 (hash 1eb06de2607a built 2021-08-04 15:17:57)
+Read prefs: /root/.config/blender/2.93/config/userpref.blend
+Fra:1 Mem:89.16M (Peak 89.83M) | Time:00:00.20 | Syncing Light
+Fra:1 Mem:89.16M (Peak 89.83M) | Time:00:00.20 | Syncing Camera
+Fra:1 Mem:89.16M (Peak 89.83M) | Time:00:00.20 | Syncing Sphere
+Fra:1 Mem:89.57M (Peak 89.86M) | Time:00:00.22 | Rendering 1 / 64 samples
+Fra:1 Mem:89.52M (Peak 89.86M) | Time:00:00.33 | Rendering 26 / 64 samples
+Fra:1 Mem:89.52M (Peak 89.86M) | Time:00:00.36 | Rendering 51 / 64 samples
+Fra:1 Mem:89.52M (Peak 89.86M) | Time:00:00.38 | Rendering 64 / 64 samples
+Saved: &amp;#39;1628355229.render.png&amp;#39;
+ Time: 00:01.10 (Saving: 00:00.61)
+
+------------------Load-----------------
+/tmp/blender/1628355229.render.png
+
+Blender quit
+Count of png in /tmp/blender: 1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
       <title>Test automation using GNU Make in ox-hugo</title>
       <link>/posts/test_automation_gnu_make_ox_hugo/</link>
       <pubDate>Sun, 10 Jan 2021 00:00:00 +0100</pubDate>

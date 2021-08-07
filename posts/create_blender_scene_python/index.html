@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  
+    <meta name="description" content="Using blender, I need to test multiple settings for my painting references e.g. lighting, material or the complete location. It all started with that minimal working example to render the sphere above.
+
+# /tmp/blender/blender_mini_example.py import bpy import time import os # Initialize variables used to print the rendered picture dir_path = os.path.dirname(os.path.realpath(__file__)) filename = str(int(time.time())) &#43; &#39;.render&#39; &#43; &#39;.png&#39; # Delete the default cube objs = bpy.data.objects objs.remove(objs[&#34;Cube&#34;], do_unlink=True) # Add a cube bpy.">
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.87.0" />
+  <title>Create a blender scene in python | Rida Ayed</title>
+  <link rel="canonical" href="/posts/create_blender_scene_python/">
+
+
+  
+
+
+
+
+
+
+
+
+  
+    
+  
+  
+  <link rel="stylesheet" href="/css/base.min.b94428eebe75e333d88818267f7dd5e1598fb5e021bc7219b8b991e1559b3723.css" integrity="sha256-uUQo7r514zPYiBgmf33V4VmPteAhvHIZuLmR4VWbNyM=" crossorigin="anonymous">
+
+
+
+</head>
+
+<body>
+  <nav class="u-background">
+  <div class="u-wrapper">
+    <ul class="Banner">
+      <li class="Banner-item Banner-item--title">
+        <a class="Banner-link u-clickable" href="/">Rida Ayed</a>
+      </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/gallery/">Paintings</a>
+        </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/posts/">Posts</a>
+        </li>
+      
+    </ul>
+  </div>
+</nav>
+  <main>
+    <div class="u-wrapper">
+      <div class="u-padding">
+        
+
+  <article>
+    <header class="Heading">
+  <h2 class="Heading-title">
+    <a class="Heading-link u-clickable" href="/posts/create_blender_scene_python/" rel="bookmark">Create a blender scene in python</a>
+  </h2>
+  
+    <time datetime="2021-02-28T00:00:00&#43;01:00">28 February, 2021</time>
+  
+</header>
+    <figure><img src="/ox-hugo/2021-08-07_18-51-47_1628354650.render.png"/>
+</figure>
+
+<p>Using blender, I need to test multiple settings for my painting references e.g.
+lighting, material or the complete location. It all started with that minimal
+working example to render the sphere above.</p>
+<p><a id="code-snippet--mini"></a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># /tmp/blender/blender_mini_example.py</span>
+<span style="color:#f92672">import</span> bpy
+<span style="color:#f92672">import</span> time
+<span style="color:#f92672">import</span> os
+<span style="color:#75715e"># Initialize variables used to print the rendered picture</span>
+dir_path <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>dirname(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>realpath(__file__))
+filename <span style="color:#f92672">=</span> str(int(time<span style="color:#f92672">.</span>time())) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;.render&#39;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;.png&#39;</span>
+<span style="color:#75715e"># Delete the default cube</span>
+objs <span style="color:#f92672">=</span> bpy<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>objects
+objs<span style="color:#f92672">.</span>remove(objs[<span style="color:#e6db74">&#34;Cube&#34;</span>], do_unlink<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+<span style="color:#75715e"># Add a cube</span>
+bpy<span style="color:#f92672">.</span>ops<span style="color:#f92672">.</span>mesh<span style="color:#f92672">.</span>primitive_uv_sphere_add(location<span style="color:#f92672">=</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>))
+<span style="color:#75715e"># Render</span>
+bpy<span style="color:#f92672">.</span>context<span style="color:#f92672">.</span>scene<span style="color:#f92672">.</span>render<span style="color:#f92672">.</span>filepath <span style="color:#f92672">=</span> filename
+bpy<span style="color:#f92672">.</span>ops<span style="color:#f92672">.</span>render<span style="color:#f92672">.</span>render(write_still<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+<span style="color:#75715e"># Print directory path and filename</span>
+print(dir_path<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;/&#34;</span><span style="color:#f92672">+</span>filename)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd /tmp/blender
+rm *.png
+sudo prime-run blender --background --python blender_mini_example.py --verbose <span style="color:#ae81ff">0</span>
+echo <span style="color:#e6db74">&#34;Count of png in </span><span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span><span style="color:#e6db74">: </span><span style="color:#66d9ef">$(</span>ls *.png | wc -l<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Blender 2.93.2 (hash 1eb06de2607a built 2021-08-04 15:17:57)
+Read prefs: /root/.config/blender/2.93/config/userpref.blend
+Fra:1 Mem:89.16M (Peak 89.83M) | Time:00:00.20 | Syncing Light
+Fra:1 Mem:89.16M (Peak 89.83M) | Time:00:00.20 | Syncing Camera
+Fra:1 Mem:89.16M (Peak 89.83M) | Time:00:00.20 | Syncing Sphere
+Fra:1 Mem:89.57M (Peak 89.86M) | Time:00:00.22 | Rendering 1 / 64 samples
+Fra:1 Mem:89.52M (Peak 89.86M) | Time:00:00.33 | Rendering 26 / 64 samples
+Fra:1 Mem:89.52M (Peak 89.86M) | Time:00:00.36 | Rendering 51 / 64 samples
+Fra:1 Mem:89.52M (Peak 89.86M) | Time:00:00.38 | Rendering 64 / 64 samples
+Saved: &#39;1628355229.render.png&#39;
+ Time: 00:01.10 (Saving: 00:00.61)
+
+------------------Load-----------------
+/tmp/blender/1628355229.render.png
+
+Blender quit
+Count of png in /tmp/blender: 1
+</code></pre></div>
+    
+
+
+  
+
+  
+
+
+
+
+
+  <footer>
+    
+      
+    
+      
+        <ul class="Tags">
+          
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="/tags/python/" rel="tag">python</a>
+            </li>
+          
+        </ul>
+      
+    
+  </footer>
+
+    
+  
+
+  </article>
+
+
+      </div>
+    </div>
+  </main>
+  
+</body>
+
+</html>
