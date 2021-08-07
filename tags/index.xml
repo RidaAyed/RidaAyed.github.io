@@ -13,10 +13,8 @@
       <link>/posts/create_blender_scene_python/</link>
       <pubDate>Sun, 28 Feb 2021 00:00:00 +0100</pubDate>
       <guid>/posts/create_blender_scene_python/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;/ox-hugo/2021-08-07_18-51-47_1628354650.render.png&#34;/&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Using blender, I need to test multiple settings for my painting references e.g.
+      <description>&lt;p&gt;&lt;img src=&#34;/ox-hugo/2021-08-07_19-11-35_screenshot.png&#34; alt=&#34;&#34;&gt;
+Using blender, I need to test multiple settings for my painting references e.g.
 lighting, material or the complete location. It all started with that minimal
 working example to render the sphere above.&lt;/p&gt;
 &lt;p&gt;&lt;a id=&#34;code-snippet--mini&#34;&gt;&lt;/a&gt;&lt;/p&gt;
