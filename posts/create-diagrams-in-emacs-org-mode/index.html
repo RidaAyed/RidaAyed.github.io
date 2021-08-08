@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  
+    <meta name="description" content="Table of Contents  Mermaid-cli Mermaid for org mode Usage Problem solving    Being able to explain something with your words only prevails. For those other cases, here&rsquo;s a way to do it with diagrams in emacs org mode.
+
+ Figure 1: Gantt Diagram
+  Figure 1 was generated from this text:
+#&#43;name: gantt_diagram #&#43;BEGIN_SRC mermaid:file /tmp/gantt.png gantt dateFormat YYYY-MM-DD title Acme Project Plan section Period 3 COMP112358 :done, des1, 2099-01-29, 2099-03-07 section Period 4 Supervisory Meetings (term) :active, sup1, 2099-03-08, 2099-05-04 POP Submission :sub1, 2099-05-10, 2099-05-11 section Exams Exam Period :exams, 2099-05-06, 2099-06-06 Semester End : 2099-06-08, 2099-06-09 section Summer Supervisory Meetings : sup2, 2099-06-09, 2099-09-07 Dissertation Submission :sub2, 2099-09-06, 2099-09-07 #&#43;END_SRC Mermaid-cli1 yay mermaid-cli Mermaid for org mode2 Clone layer into ~/.">
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.87.0" />
+  <title>Create diagrams in emacs org mode | Rida Ayed</title>
+  <link rel="canonical" href="/posts/create-diagrams-in-emacs-org-mode/">
+
+
+  
+
+
+
+
+
+
+
+
+  
+    
+  
+  
+  <link rel="stylesheet" href="/css/base.min.b94428eebe75e333d88818267f7dd5e1598fb5e021bc7219b8b991e1559b3723.css" integrity="sha256-uUQo7r514zPYiBgmf33V4VmPteAhvHIZuLmR4VWbNyM=" crossorigin="anonymous">
+
+
+
+</head>
+
+<body>
+  <nav class="u-background">
+  <div class="u-wrapper">
+    <ul class="Banner">
+      <li class="Banner-item Banner-item--title">
+        <a class="Banner-link u-clickable" href="/">Rida Ayed</a>
+      </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/gallery/">Paintings</a>
+        </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/posts/">Posts</a>
+        </li>
+      
+    </ul>
+  </div>
+</nav>
+  <main>
+    <div class="u-wrapper">
+      <div class="u-padding">
+        
+
+  <article>
+    <header class="Heading">
+  <h2 class="Heading-title">
+    <a class="Heading-link u-clickable" href="/posts/create-diagrams-in-emacs-org-mode/" rel="bookmark">Create diagrams in emacs org mode</a>
+  </h2>
+  
+    <time datetime="2021-03-10T00:00:00&#43;01:00">10 March, 2021</time>
+  
+</header>
+    <div class="ox-hugo-toc toc">
+<div></div>
+<div class="heading">Table of Contents</div>
+<ul>
+<li><a href="#mermaid-cli">Mermaid-cli</a></li>
+<li><a href="#mermaid-for-org-mode">Mermaid for org mode</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#problem-solving">Problem solving</a></li>
+</ul>
+</div>
+<!--endtoc-->
+<p>Being able to explain something with your words only prevails. For those other cases,
+here&rsquo;s a way to do it with diagrams in emacs org mode.</p>
+<p><a id="org4524c17"></a></p>
+<figure><img src="/ox-hugo/gantt.png"
+         alt="Figure 1: Gantt Diagram"/><figcaption>
+            <p>Figure 1: Gantt Diagram</p>
+        </figcaption>
+</figure>
+
+<p>Figure <a href="#org4524c17">1</a> was generated from this text:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-org" data-lang="org"><span style="color:#75715e">#+name</span><span style="color:#75715e">: gantt_diagram</span>
+<span style="color:#75715e">#+BEGIN_SRC </span><span style="color:#75715e">mermaid</span><span style="color:#75715e"> :file /tmp/gantt.png
+</span><span style="color:#75715e"></span>gantt
+    dateFormat  YYYY-MM-DD
+    title  Acme Project Plan
+
+    section Period 3
+        COMP112358            :done,  des1, 2099-01-29, 2099-03-07
+
+    section Period 4
+        Supervisory Meetings (term) :active, sup1, 2099-03-08, 2099-05-04
+        POP Submission :sub1, 2099-05-10, 2099-05-11
+
+    section Exams
+        Exam Period :exams, 2099-05-06, 2099-06-06
+        Semester End : 2099-06-08, 2099-06-09
+
+    section Summer
+        Supervisory Meetings : sup2, 2099-06-09, 2099-09-07
+        Dissertation Submission :sub2, 2099-09-06, 2099-09-07
+<span style="color:#75715e">#+END_SRC</span>
+</code></pre></div><h2 id="mermaid-cli">Mermaid-cli<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">yay mermaid-cli
+</code></pre></div><h2 id="mermaid-for-org-mode">Mermaid for org mode<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></h2>
+<p>Clone layer into <code>~/.emacs.d/private</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git clone git@github.com:arnm/mermaid-layer.git ~/.emacs.d/private/mermaid
+</code></pre></div><p>Add <code>mermaid</code> layer to <code>dotspacemacs-configuration-layers</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#75715e">;; ~/.spacemacs.d/init.el</span>
+   dotspacemacs-configuration-layers
+   <span style="color:#f92672">&#39;</span>(<span style="color:#f92672">..</span>
+     mermaid
+     <span style="color:#f92672">..</span>)
+</code></pre></div><p>Get <code>mmdc</code> executable path:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">which mmdc
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">/usr/bin/mmdc
+</code></pre></div><p>Set <code>mmdc</code> executable path:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#75715e">;; ~/.spacemacs.d/init.el</span>
+(<span style="color:#66d9ef">setq</span> ob-mermaid-cli-path <span style="color:#e6db74">&#34;/usr/bin/mmdc&#34;</span>)
+</code></pre></div><h2 id="usage">Usage</h2>
+<p>Open an <code>org-mode</code> buffer, create an <code>org-babel</code> source block and run <code>org-babel-execute-src-block</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-org" data-lang="org"><span style="color:#75715e">#+begin_src </span><span style="color:#75715e">mermaid</span><span style="color:#75715e"> :file /temp/test.png
+</span><span style="color:#75715e"></span>sequenceDiagram
+A--&gt;B: Works!
+<span style="color:#75715e">#+end_src</span>
+</code></pre></div><figure><img src="/ox-hugo/test.png"/>
+</figure>
+
+<p>Export the org-mode document or invoke the <code>org-babel-execute-src-block</code> function to generate diagram.</p>
+<h2 id="problem-solving">Problem solving</h2>
+<ul>
+<li>
+<p>Check your Messages buffer</p>
+</li>
+<li>
+<p>Test if mermaid-cli works independently from emacs</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">printf <span style="color:#e6db74">&#34;graph TD;\nA--&gt;B;&#34;</span> &gt; /tmp/input.mmd
+mmdc -i /tmp/input.mmd -o /tmp/output.png
+echo <span style="color:#e6db74">&#34;file://&#34;</span>/tmp/output.png
+</code></pre></div><figure><img src="/ox-hugo/output.png"/>
+</figure>
+
+</li>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://github.com/mermaid-js/mermaid-cli">https://github.com/mermaid-js/mermaid-cli</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://github.com/arnm/mermaid-layer">https://github.com/arnm/mermaid-layer</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+    
+
+
+  
+
+  
+
+
+
+
+
+    
+  
+
+  </article>
+
+
+      </div>
+    </div>
+  </main>
+  
+</body>
+
+</html>
