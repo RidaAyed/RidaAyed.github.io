@@ -25,14 +25,14 @@
 &lt;!--endtoc--&gt;
 &lt;p&gt;Being able to explain something with your words only prevails. For those other cases,
 here&amp;rsquo;s a way to do it with diagrams in emacs org mode.&lt;/p&gt;
-&lt;p&gt;&lt;a id=&#34;org4524c17&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;orge620a54&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;figure&gt;&lt;img src=&#34;/ox-hugo/gantt.png&#34;
          alt=&#34;Figure 1: Gantt Diagram&#34;/&gt;&lt;figcaption&gt;
             &lt;p&gt;Figure 1: Gantt Diagram&lt;/p&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;Figure &lt;a href=&#34;#org4524c17&#34;&gt;1&lt;/a&gt; was generated from this text:&lt;/p&gt;
+&lt;p&gt;Figure &lt;a href=&#34;#orge620a54&#34;&gt;1&lt;/a&gt; was generated from this text:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-org&#34; data-lang=&#34;org&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#+name&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;: gantt_diagram&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;#+BEGIN_SRC &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;mermaid&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; :file /tmp/gantt.png
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;gantt
