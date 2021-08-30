@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  
+    <meta name="description" content="Using emacs org and babel1, I want to quickly note ideas in python. Now usually I start scripting up to a certain level of complexity / exhaustion which inevitably leads me to setup a complete python project folder in order to get proper unit testing.
+Following setup allows me to stay in org mode and unit test. All together.
+(defun ndk/org-babel-evaluate-test-block-from-code-block () (interactive) (save-excursion (org-babel-goto-named-src-block &#34;python_code&#34;) (org-babel-tangle &#39;(4)) (org-babel-goto-named-src-block &#34;pytest_python_code&#34;) (org-babel-execute-src-block))) (define-key evil-normal-state-map (kbd &#34;, SPC&#34;) #&#39;ndk/org-babel-evaluate-test-block-from-code-block) Evaluating the upper elisp code block binds itself to  , SPC .">
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.87.0" />
+  <title>Python unit testing in emacs org mode | Rida Ayed</title>
+  <link rel="canonical" href="/posts/python-unit-testing-emacs-org-mode/">
+
+
+  
+
+
+
+
+
+
+
+
+  
+    
+  
+  
+  <link rel="stylesheet" href="/css/base.min.b94428eebe75e333d88818267f7dd5e1598fb5e021bc7219b8b991e1559b3723.css" integrity="sha256-uUQo7r514zPYiBgmf33V4VmPteAhvHIZuLmR4VWbNyM=" crossorigin="anonymous">
+
+
+
+</head>
+
+<body>
+  <nav class="u-background">
+  <div class="u-wrapper">
+    <ul class="Banner">
+      <li class="Banner-item Banner-item--title">
+        <a class="Banner-link u-clickable" href="/">Rida Ayed</a>
+      </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/gallery/">Paintings</a>
+        </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/posts/">Posts</a>
+        </li>
+      
+    </ul>
+  </div>
+</nav>
+  <main>
+    <div class="u-wrapper">
+      <div class="u-padding">
+        
+
+  <article>
+    <header class="Heading">
+  <h2 class="Heading-title">
+    <a class="Heading-link u-clickable" href="/posts/python-unit-testing-emacs-org-mode/" rel="bookmark">Python unit testing in emacs org mode</a>
+  </h2>
+  
+    <time datetime="2021-04-08T00:00:00&#43;02:00">8 April, 2021</time>
+  
+</header>
+    <p>Using emacs org and babel<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, I want to quickly note ideas in python. Now
+usually I start scripting up to a certain level of complexity / exhaustion which
+inevitably leads me to setup a complete python project folder in order to get
+proper unit testing.</p>
+<p>Following setup allows me to stay in org mode <strong><strong>and</strong></strong> unit test. All together.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp">(defun ndk/org-babel-evaluate-test-block-from-code-block ()
+  (interactive)
+  (save-excursion
+    (org-babel-goto-named-src-block <span style="color:#e6db74">&#34;python_code&#34;</span>)
+    (org-babel-tangle <span style="color:#f92672">&#39;</span>(<span style="color:#ae81ff">4</span>))
+    (org-babel-goto-named-src-block <span style="color:#e6db74">&#34;pytest_python_code&#34;</span>)
+    (org-babel-execute-src-block)))
+
+(<span style="color:#a6e22e">define-key</span> evil-normal-state-map (kbd <span style="color:#e6db74">&#34;, SPC&#34;</span>) <span style="color:#a6e22e">#&#39;</span>ndk/org-babel-evaluate-test-block-from-code-block)
+</code></pre></div><p>Evaluating the upper <code>elisp</code> code block binds itself to <kbd> , SPC </kbd>.</p>
+<p>Now hitting <kbd> , SPC </kbd> in block <a href="#code-snippet--python-code-org">python_code</a>, exports it and subsequently runs the unit test from block <a href="#code-snippet--pytest-python-code-org">pytest_python_code</a></p>
+<p>All while I&rsquo;m staying in the code, at the same cursor position. No need to jump
+between code blocks. Beautiful quietness.</p>
+<p><a id="code-snippet--python-code-org"></a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-org" data-lang="org"><span style="color:#75715e">#+NAME</span><span style="color:#75715e">: python_code</span>
+<span style="color:#75715e">#+BEGIN_SRC </span><span style="color:#75715e">python</span><span style="color:#75715e"> :tangle /tmp/hello.py
+</span><span style="color:#75715e"></span> <span style="color:#f92672">import</span> pytest
+
+ <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_func</span>():
+     <span style="color:#66d9ef">assert</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>
+<span style="color:#75715e">#+END_SRC</span>
+</code></pre></div><p><a id="code-snippet--pytest-python-code-org"></a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-org" data-lang="org"><span style="color:#75715e">#+NAME</span><span style="color:#75715e">: pytest_python_code</span>
+<span style="color:#75715e">#+BEGIN_SRC </span><span style="color:#75715e">sh</span><span style="color:#75715e">  :results output
+</span><span style="color:#75715e"></span>  pytest /tmp/hello.py
+  rm -f /tmp/hello.py
+<span style="color:#75715e">#+END_SRC</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">============================= test session starts ==============================
+platform linux -- Python 3.9.6, pytest-6.2.4, py-1.10.0, pluggy-0.13.1
+rootdir: /tmp
+plugins: cov-2.12.1, pycharm-0.6.0, vcr-1.0.2, hypothesis-6.15.0
+collected 1 item
+
+../../../tmp/hello.py .                                                  [100%]
+
+============================== 1 passed in 0.01s ===============================
+</code></pre></div><section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://orgmode.org/worg/org-contrib/babel/">https://orgmode.org/worg/org-contrib/babel/</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+    
+
+
+  
+
+  
+
+
+
+
+
+  <footer>
+    
+      
+    
+      
+        <ul class="Tags">
+          
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="/tags/elisp/" rel="tag">elisp</a>
+            </li>
+          
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="/tags/python/" rel="tag">python</a>
+            </li>
+          
+        </ul>
+      
+    
+  </footer>
+
+    
+  
+
+  </article>
+
+
+      </div>
+    </div>
+  </main>
+  
+</body>
+
+</html>
