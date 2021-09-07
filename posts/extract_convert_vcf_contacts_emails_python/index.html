@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  
+    <meta name="description" content="I wasn&rsquo;t able to export my contacts from my iphone (iOS 11). Thus I mailed each contact to myself using an alias e.g. john.doe&#43;contact@example.com. I&rsquo;m using mu (mail indexer/searcher) version 1.6.4 for my emails. Everything else happens below:
+Extract vcf file from email contacts=~/tmp/iPhoneContacts rm -r $contacts mkdir $contacts cd $contacts foundEmails=$(mu find to:$myemail --fields &#34;l&#34;) for email in $foundEmails do mu extract $email &#39;.*.vcf&#39; done Export vcf to tsv file import fnmatch import os import re import phonenumbers ROOTPATH = &#39;/home/ra/tmp/iPhoneContacts/&#39; PATTERN = &#39;*.">
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.87.0" />
+  <title>Extract and convert vcf contacts from emails in python | Rida Ayed</title>
+  <link rel="canonical" href="/posts/extract_convert_vcf_contacts_emails_python/">
+
+
+  
+
+
+
+
+
+
+
+
+  
+    
+  
+  
+  <link rel="stylesheet" href="/css/base.min.b94428eebe75e333d88818267f7dd5e1598fb5e021bc7219b8b991e1559b3723.css" integrity="sha256-uUQo7r514zPYiBgmf33V4VmPteAhvHIZuLmR4VWbNyM=" crossorigin="anonymous">
+
+
+
+</head>
+
+<body>
+  <nav class="u-background">
+  <div class="u-wrapper">
+    <ul class="Banner">
+      <li class="Banner-item Banner-item--title">
+        <a class="Banner-link u-clickable" href="/">Rida Ayed</a>
+      </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/gallery/">Paintings</a>
+        </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/posts/">Posts</a>
+        </li>
+      
+    </ul>
+  </div>
+</nav>
+  <main>
+    <div class="u-wrapper">
+      <div class="u-padding">
+        
+
+  <article>
+    <header class="Heading">
+  <h2 class="Heading-title">
+    <a class="Heading-link u-clickable" href="/posts/extract_convert_vcf_contacts_emails_python/" rel="bookmark">Extract and convert vcf contacts from emails in python</a>
+  </h2>
+  
+    <time datetime="2021-05-27T00:00:00&#43;02:00">27 May, 2021</time>
+  
+</header>
+    <p>I wasn&rsquo;t able to export my contacts from my iphone (iOS 11). Thus I mailed each
+contact to myself using an alias e.g. <code>john.doe+contact@example.com</code>. I&rsquo;m using
+<code>mu (mail indexer/searcher) version 1.6.4</code> for my emails. Everything else happens below:</p>
+<h2 id="extract-vcf-file-from-email">Extract vcf file from email</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">contacts<span style="color:#f92672">=</span>~/tmp/iPhoneContacts
+rm -r $contacts
+mkdir $contacts
+cd $contacts
+
+foundEmails<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>mu find to:$myemail --fields <span style="color:#e6db74">&#34;l&#34;</span><span style="color:#66d9ef">)</span>
+
+<span style="color:#66d9ef">for</span> email in $foundEmails
+<span style="color:#66d9ef">do</span>
+  mu extract $email <span style="color:#e6db74">&#39;.*.vcf&#39;</span>
+<span style="color:#66d9ef">done</span>
+</code></pre></div><h2 id="export-vcf-to-tsv-file">Export vcf to tsv file</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> fnmatch
+<span style="color:#f92672">import</span> os
+<span style="color:#f92672">import</span> re
+<span style="color:#f92672">import</span> phonenumbers
+
+ROOTPATH <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/home/ra/tmp/iPhoneContacts/&#39;</span>
+PATTERN <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;*.vcf&#39;</span>
+TSV <span style="color:#f92672">=</span> open(<span style="color:#e6db74">&#39;/home/ra/tmp/iPhoneContacts/iPhoneContacts.tsv&#39;</span>, <span style="color:#e6db74">&#39;w&#39;</span>)
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">contacts</span>():
+    l <span style="color:#f92672">=</span> set()
+    <span style="color:#66d9ef">for</span> root, dirs, files <span style="color:#f92672">in</span> os<span style="color:#f92672">.</span>walk(ROOTPATH):
+        <span style="color:#66d9ef">for</span> filename <span style="color:#f92672">in</span> fnmatch<span style="color:#f92672">.</span>filter(files, PATTERN):
+            l<span style="color:#f92672">.</span>add(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(root, filename))
+    <span style="color:#66d9ef">return</span> (l)
+
+
+contactsList <span style="color:#f92672">=</span> contacts()
+print(<span style="color:#e6db74">&#34;Total </span><span style="color:#e6db74">%s</span><span style="color:#e6db74"> files:&#34;</span> <span style="color:#f92672">%</span> (PATTERN), len(contactsList))
+<span style="color:#66d9ef">for</span> contactFile <span style="color:#f92672">in</span> contactsList:
+    <span style="color:#66d9ef">with</span> open(contactFile, <span style="color:#e6db74">&#34;r&#34;</span>) <span style="color:#66d9ef">as</span> f:
+        <span style="color:#75715e">#Gets Peter Mueller Meier.contact from /home/ra/tmp/iPhoneContacts/Peter Mueller Meier.contact</span>
+        contactName <span style="color:#f92672">=</span> contactFile[(contactFile<span style="color:#f92672">.</span>rfind(<span style="color:#e6db74">&#39;/&#39;</span>)) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>::]
+        <span style="color:#75715e">#Gets Peter Mueller Meier from Peter Mueller Meier.contact</span>
+        contactName <span style="color:#f92672">=</span> contactName<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;.&#34;</span>)[<span style="color:#ae81ff">0</span>]
+        <span style="color:#75715e">#Gets remaining words after space e.g. Mueller Meier from Peter Mueller Meier</span>
+        contactName <span style="color:#f92672">=</span> contactName<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34; &#34;</span>)
+        <span style="color:#75715e">#Gets Peter from Peter Mueller Meier</span>
+        contactFirstName <span style="color:#f92672">=</span> contactName[<span style="color:#ae81ff">0</span>]
+        <span style="color:#75715e">#Gets Mueller Meier from Peter Mueller Meier</span>
+        contactLastName <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34; &#34;</span><span style="color:#f92672">.</span>join(
+            contactName[<span style="color:#ae81ff">1</span>:]) <span style="color:#66d9ef">if</span> (len(contactName)) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#34;&#34;</span>
+
+        numbrs <span style="color:#f92672">=</span> [
+            phonenumbers<span style="color:#f92672">.</span>format_number(match<span style="color:#f92672">.</span>number,
+                                       phonenumbers<span style="color:#f92672">.</span>PhoneNumberFormat<span style="color:#f92672">.</span>E164)
+            <span style="color:#66d9ef">for</span> match <span style="color:#f92672">in</span> phonenumbers<span style="color:#f92672">.</span>PhoneNumberMatcher(f<span style="color:#f92672">.</span>read(), <span style="color:#e6db74">&#34;CH&#34;</span>)
+        ]
+
+        print(contactFirstName,
+              contactLastName,
+              <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>join(numbrs),
+              sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span>,
+              file<span style="color:#f92672">=</span>TSV)
+TSV<span style="color:#f92672">.</span>close()
+</code></pre></div>
+    
+
+
+  
+
+  
+
+
+
+
+
+  <footer>
+    
+      
+    
+      
+        <ul class="Tags">
+          
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="/tags/python/" rel="tag">python</a>
+            </li>
+          
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="/tags/shell/" rel="tag">shell</a>
+            </li>
+          
+        </ul>
+      
+    
+  </footer>
+
+    
+  
+
+  </article>
+
+
+      </div>
+    </div>
+  </main>
+  
+</body>
+
+</html>

@@ -9,6 +9,75 @@
     <lastBuildDate>Sat, 21 Mar 2020 20:35:00 +0100</lastBuildDate>
     <atom:link href="/tags/udev/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Extract and convert vcf contacts from emails in python</title>
+      <link>/posts/extract_convert_vcf_contacts_emails_python/</link>
+      <pubDate>Thu, 27 May 2021 00:00:00 +0200</pubDate>
+      <guid>/posts/extract_convert_vcf_contacts_emails_python/</guid>
+      <description>&lt;p&gt;I wasn&amp;rsquo;t able to export my contacts from my iphone (iOS 11). Thus I mailed each
+contact to myself using an alias e.g. &lt;code&gt;john.doe+contact@example.com&lt;/code&gt;. I&amp;rsquo;m using
+&lt;code&gt;mu (mail indexer/searcher) version 1.6.4&lt;/code&gt; for my emails. Everything else happens below:&lt;/p&gt;
+&lt;h2 id=&#34;extract-vcf-file-from-email&#34;&gt;Extract vcf file from email&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;contacts&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;~/tmp/iPhoneContacts
+rm -r $contacts
+mkdir $contacts
+cd $contacts
+
+foundEmails&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;mu find to:$myemail --fields &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;l&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; email in $foundEmails
+&lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;
+  mu extract $email &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;.*.vcf&amp;#39;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;export-vcf-to-tsv-file&#34;&gt;Export vcf to tsv file&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; fnmatch
+&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; os
+&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; re
+&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; phonenumbers
+
+ROOTPATH &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;/home/ra/tmp/iPhoneContacts/&amp;#39;&lt;/span&gt;
+PATTERN &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;*.vcf&amp;#39;&lt;/span&gt;
+TSV &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; open(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;/home/ra/tmp/iPhoneContacts/iPhoneContacts.tsv&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;w&amp;#39;&lt;/span&gt;)
+
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;contacts&lt;/span&gt;():
+    l &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; set()
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; root, dirs, files &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; os&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;walk(ROOTPATH):
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; filename &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; fnmatch&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;filter(files, PATTERN):
+            l&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add(os&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;path&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;join(root, filename))
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; (l)
+
+
+contactsList &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; contacts()
+print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Total &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; files:&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; (PATTERN), len(contactsList))
+&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; contactFile &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; contactsList:
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;with&lt;/span&gt; open(contactFile, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;r&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; f:
+        &lt;span style=&#34;color:#75715e&#34;&gt;#Gets Peter Mueller Meier.contact from /home/ra/tmp/iPhoneContacts/Peter Mueller Meier.contact&lt;/span&gt;
+        contactName &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; contactFile[(contactFile&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;rfind(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;)) &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;::]
+        &lt;span style=&#34;color:#75715e&#34;&gt;#Gets Peter Mueller Meier from Peter Mueller Meier.contact&lt;/span&gt;
+        contactName &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; contactName&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;split(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.&amp;#34;&lt;/span&gt;)[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]
+        &lt;span style=&#34;color:#75715e&#34;&gt;#Gets remaining words after space e.g. Mueller Meier from Peter Mueller Meier&lt;/span&gt;
+        contactName &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; contactName&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;split(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;)
+        &lt;span style=&#34;color:#75715e&#34;&gt;#Gets Peter from Peter Mueller Meier&lt;/span&gt;
+        contactFirstName &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; contactName[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]
+        &lt;span style=&#34;color:#75715e&#34;&gt;#Gets Mueller Meier from Peter Mueller Meier&lt;/span&gt;
+        contactLastName &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;join(
+            contactName[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;:]) &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (len(contactName)) &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+
+        numbrs &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [
+            phonenumbers&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;format_number(match&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;number,
+                                       phonenumbers&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;PhoneNumberFormat&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;E164)
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; match &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; phonenumbers&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;PhoneNumberMatcher(f&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;read(), &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;CH&amp;#34;&lt;/span&gt;)
+        ]
+
+        print(contactFirstName,
+              contactLastName,
+              &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\t&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;join(numbrs),
+              sep&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\t&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;,
+              file&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;TSV)
+TSV&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;close()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
       <title>Python unit testing in emacs org mode</title>
       <link>/posts/python-unit-testing-emacs-org-mode/</link>
       <pubDate>Thu, 08 Apr 2021 00:00:00 +0200</pubDate>
