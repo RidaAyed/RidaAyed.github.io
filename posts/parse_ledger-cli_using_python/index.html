@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  
+    <meta name="description" content="#file.dat 2099/02/07 * foo ; MD5Sum: 4d2965fa2879f3c528006f2e9c3bca8d Expenses:Groceries CHF 10 Assets:Cash 2099/11/07 * bar ; MD5Sum: 4d2965fa2879f3c528006f2e9c3bca8e Expenses:Groceries CHF 20 Assets:Cash import subprocess from datetime import datetime format = &#34;&#39;%(cleared)\t%D\t%P\t%(quantity(scrub(display_amount)))\t%(join(note | xact.note))\n&#39;&#34; query = &#34;ledger -f file.dat csv Assets:Cash --csv-format &#34; &#43; format runQuery = subprocess.check_output((query), shell=True).splitlines() trx = [x.decode(&#34;utf-8&#34;).split(&#34;\t&#34;) for x in runQuery] date = datetime.strptime(trx[0][1],&#34;%Y/%m/%d&#34;) print(&#34;Month of first transaction is&#34;,date.month) Month of first transaction is 11 ">
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.87.0" />
+  <title>Parse ledger-cli using python | Rida Ayed</title>
+  <link rel="canonical" href="/posts/parse_ledger-cli_using_python/">
+
+
+  
+
+
+
+
+
+
+
+
+  
+    
+  
+  
+  <link rel="stylesheet" href="/css/base.min.b94428eebe75e333d88818267f7dd5e1598fb5e021bc7219b8b991e1559b3723.css" integrity="sha256-uUQo7r514zPYiBgmf33V4VmPteAhvHIZuLmR4VWbNyM=" crossorigin="anonymous">
+
+
+
+</head>
+
+<body>
+  <nav class="u-background">
+  <div class="u-wrapper">
+    <ul class="Banner">
+      <li class="Banner-item Banner-item--title">
+        <a class="Banner-link u-clickable" href="/">Rida Ayed</a>
+      </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/gallery/">Paintings</a>
+        </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/posts/">Posts</a>
+        </li>
+      
+    </ul>
+  </div>
+</nav>
+  <main>
+    <div class="u-wrapper">
+      <div class="u-padding">
+        
+
+  <article>
+    <header class="Heading">
+  <h2 class="Heading-title">
+    <a class="Heading-link u-clickable" href="/posts/parse_ledger-cli_using_python/" rel="bookmark">Parse ledger-cli using python</a>
+  </h2>
+  
+    <time datetime="2021-07-15T00:00:00&#43;02:00">15 July, 2021</time>
+  
+</header>
+    <pre><code class="language-ledger" data-lang="ledger">#file.dat
+2099/02/07 * foo
+    ; MD5Sum: 4d2965fa2879f3c528006f2e9c3bca8d
+    Expenses:Groceries                                 CHF 10
+    Assets:Cash
+
+2099/11/07 * bar
+    ; MD5Sum: 4d2965fa2879f3c528006f2e9c3bca8e
+    Expenses:Groceries                                 CHF 20
+    Assets:Cash
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> subprocess
+<span style="color:#f92672">from</span> datetime <span style="color:#f92672">import</span> datetime
+
+format <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#39;%(cleared)</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">%D</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">%P</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">%(quantity(scrub(display_amount)))</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">%(join(note | xact.note))</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;&#34;</span>
+query <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ledger -f file.dat csv Assets:Cash --csv-format &#34;</span> <span style="color:#f92672">+</span> format
+runQuery <span style="color:#f92672">=</span> subprocess<span style="color:#f92672">.</span>check_output((query), shell<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)<span style="color:#f92672">.</span>splitlines()
+trx <span style="color:#f92672">=</span> [x<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>)<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span>) <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> runQuery]
+date <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>strptime(trx[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">1</span>],<span style="color:#e6db74">&#34;%Y/%m/</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">&#34;</span>)
+print(<span style="color:#e6db74">&#34;Month of first transaction is&#34;</span>,date<span style="color:#f92672">.</span>month)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Month of first transaction is 11
+</code></pre></div>
+    
+
+
+  
+
+  
+
+
+
+
+
+  <footer>
+    
+      
+    
+      
+        <ul class="Tags">
+          
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="/tags/finance/" rel="tag">finance</a>
+            </li>
+          
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="/tags/python/" rel="tag">python</a>
+            </li>
+          
+        </ul>
+      
+    
+  </footer>
+
+    
+  
+
+  </article>
+
+
+      </div>
+    </div>
+  </main>
+  
+</body>
+
+</html>

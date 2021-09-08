@@ -2,11 +2,12 @@
 <?xml-stylesheet type="text/xsl" href="/xml/base.min.xml" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Rida Ayed</title>
-    <link>/categories/</link>
-    <description>Recent content in Categories on Rida Ayed</description>
+    <title>finance on Rida Ayed</title>
+    <link>/tags/finance/</link>
+    <description>Recent content in finance on Rida Ayed</description>
     <generator>Hugo -- gohugo.io</generator>
-    <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Jul 2021 00:00:00 +0200</lastBuildDate>
+    <atom:link href="/tags/finance/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Parse ledger-cli using python</title>
       <link>/posts/parse_ledger-cli_using_python/</link>
