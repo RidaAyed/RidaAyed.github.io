@@ -8,7 +8,8 @@
 
 
   
-    <meta name="description" content="#file.dat 2099/02/07 * foo ; MD5Sum: 4d2965fa2879f3c528006f2e9c3bca8d Expenses:Groceries CHF 10 Assets:Cash 2099/11/07 * bar ; MD5Sum: 4d2965fa2879f3c528006f2e9c3bca8e Expenses:Groceries CHF 20 Assets:Cash import subprocess from datetime import datetime format = &#34;&#39;%(cleared)\t%D\t%P\t%(quantity(scrub(display_amount)))\t%(join(note | xact.note))\n&#39;&#34; query = &#34;ledger -f file.dat csv Assets:Cash --csv-format &#34; &#43; format runQuery = subprocess.check_output((query), shell=True).splitlines() trx = [x.decode(&#34;utf-8&#34;).split(&#34;\t&#34;) for x in runQuery] date = datetime.strptime(trx[0][1],&#34;%Y/%m/%d&#34;) print(&#34;Month of first transaction is&#34;,date.month) Month of first transaction is 11 ">
+    <meta name="description" content="#Content of file.dat 2099/02/07 * foo ; MD5Sum: 4d2965fa2879f3c528006f2e9c3bca8d Expenses:Groceries CHF 10 Assets:Cash 2099/11/07 * bar ; MD5Sum: 4d2965fa2879f3c528006f2e9c3bca8e Expenses:Groceries CHF 20 Assets:Cash 
+import subprocess from datetime import datetime format = &#34;&#39;%(cleared)\t%D\t%P\t%(quantity(scrub(display_amount)))\t%(join(note | xact.note))\n&#39;&#34; query = &#34;ledger -f file.dat csv Assets:Cash --csv-format &#34; &#43; format runQuery = subprocess.check_output((query), shell=True).splitlines() trx = [x.decode(&#34;utf-8&#34;).split(&#34;\t&#34;) for x in runQuery] return datetime.strptime(trx[0][1],&#34;%Y/%m/%d&#34;).month Month of first transaction is 11">
   
 
 
@@ -71,7 +72,7 @@
     <time datetime="2021-07-15T00:00:00&#43;02:00">15 July, 2021</time>
   
 </header>
-    <pre><code class="language-ledger" data-lang="ledger">#file.dat
+    <pre><code class="language-ledger" data-lang="ledger">#Content of file.dat
 2099/02/07 * foo
     ; MD5Sum: 4d2965fa2879f3c528006f2e9c3bca8d
     Expenses:Groceries                                 CHF 10
@@ -81,17 +82,17 @@
     ; MD5Sum: 4d2965fa2879f3c528006f2e9c3bca8e
     Expenses:Groceries                                 CHF 20
     Assets:Cash
-</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> subprocess
+</code></pre><p><a id="code-snippet--python-ledger-parse-example"></a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> subprocess
 <span style="color:#f92672">from</span> datetime <span style="color:#f92672">import</span> datetime
 
 format <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#39;%(cleared)</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">%D</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">%P</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">%(quantity(scrub(display_amount)))</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">%(join(note | xact.note))</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;&#34;</span>
 query <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ledger -f file.dat csv Assets:Cash --csv-format &#34;</span> <span style="color:#f92672">+</span> format
 runQuery <span style="color:#f92672">=</span> subprocess<span style="color:#f92672">.</span>check_output((query), shell<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)<span style="color:#f92672">.</span>splitlines()
 trx <span style="color:#f92672">=</span> [x<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>)<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span>) <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> runQuery]
-date <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>strptime(trx[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">1</span>],<span style="color:#e6db74">&#34;%Y/%m/</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">&#34;</span>)
-print(<span style="color:#e6db74">&#34;Month of first transaction is&#34;</span>,date<span style="color:#f92672">.</span>month)
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Month of first transaction is 11
-</code></pre></div>
+<span style="color:#66d9ef">return</span> datetime<span style="color:#f92672">.</span>strptime(trx[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">1</span>],<span style="color:#e6db74">&#34;%Y/%m/</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">&#34;</span>)<span style="color:#f92672">.</span>month
+</code></pre></div><p>Month of first transaction is <code>11</code></p>
+
     
 
 
