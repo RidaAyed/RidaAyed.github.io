@@ -9,6 +9,147 @@
     <lastBuildDate>Thu, 15 Jul 2021 00:00:00 +0200</lastBuildDate>
     <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Update your financial ledger by email in python</title>
+      <link>/posts/update-financial-ledger-email-python/</link>
+      <pubDate>Wed, 18 Aug 2021 00:00:00 +0200</pubDate>
+      <guid>/posts/update-financial-ledger-email-python/</guid>
+      <description>&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#abstract&#34;&gt;Abstract&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#goal&#34;&gt;Goal&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#manual-process-briefly-explained&#34;&gt;Manual process briefly explained&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#script-step-by-step&#34;&gt;Script - Step by step&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#complete-script&#34;&gt;Complete script&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
+&lt;h2 id=&#34;abstract&#34;&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;Each time I buy something and pay it later, my &lt;strong&gt;expenses and liabilities increase&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;In this blog post I&amp;rsquo;m using the example of the reservation of a tennis court.&lt;/p&gt;
+&lt;p&gt;Once a year, the club sends an invoice for every reservation made. In order to
+reflect this in my finances, I note each reservation as transaction into my
+ledger. Final goal is to create such a post into my &lt;a href=&#34;https://www.ledger-cli.org/&#34;&gt;ledger&lt;/a&gt; &lt;strong&gt;completely
+automatic&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;goal&#34;&gt;Goal&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-ledger&#34; data-lang=&#34;ledger&#34;&gt;2021/3/27 Tennis
+    Expenses    CHF 10
+    Liabilities
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;manual-process-briefly-explained&#34;&gt;Manual process briefly explained&lt;/h2&gt;
+&lt;p&gt;In order to keep my ledger up, a couple of steps are necessary. For a better
+understanding of what&amp;rsquo;s happening in the &lt;a href=&#34;#script-step-by-step&#34;&gt;python&lt;/a&gt; script below, I briefly go over
+the manual process:&lt;/p&gt;
+&lt;h3 id=&#34;query-mu-for-emails&#34;&gt;Query mu for emails&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;mu find from:no-reply@t.gotcourts.com subject:Reservation --fields &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;d s l&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;read-the-email-headers&#34;&gt;Read the email headers&lt;/h3&gt;
+&lt;p&gt;Backslash and line-break added manually for better reading&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;Sat 27 Mar 2021 06:54:07 PM CET \
+GotCourts - Reservation confirmation \
+/home/ra/Maildir/AnyOtherProvider/INBOX/new/1616867898.105333_1.x,U=3935:2,
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;extract-the-html-content-if-plain-text-is-not-provided&#34;&gt;Extract the html content if plain-text is not provided&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;mu extract --parts&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; /home/ra/Maildir/AnyOtherProvider/INBOX/new/1616867898.105333_1.x,U&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;3935:2,
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;read-html-content&#34;&gt;Read html content&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;Partner: &amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;amp;nbsp;&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;Price: 10 CHF&amp;lt;p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;write-the-ledger-post&#34;&gt;Write the ledger post&lt;/h3&gt;
+&lt;p&gt;Parse and fetch all information. Write the post as shown in &lt;a href=&#34;#goal&#34;&gt;Goal&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;script-step-by-step&#34;&gt;Script - Step by step&lt;/h2&gt;
+&lt;p&gt;We start by importing the necessary modules&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; subprocess
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; datetime &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; datetime
+&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; re
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Query &lt;a href=&#34;https://github.com/djcb/mu/&#34;&gt;mu&lt;/a&gt; and return the fields &lt;code&gt;(d)ate&lt;/code&gt;, &lt;code&gt;(s)ubject&lt;/code&gt; and &lt;code&gt;fi(l)e&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;MU_FIND_QUERY &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;mu find &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; myemailAlias &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; --fields &amp;#39;d s l&amp;#39;&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Run the current mu query&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;mu_command&lt;/span&gt;(MU_FIND_QUERY):
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; subprocess&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;check_output((MU_FIND_QUERY), shell&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;splitlines()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Create a list of results returned by mu&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;EMAILS &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [mystr&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;decode(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf-8&amp;#34;&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;split(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; mystr &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; mu_command(MU_FIND_QUERY)]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In our case, the sender&amp;rsquo;s unable to provide plain-text. We tackle this obstacle
+by &lt;a href=&#34;#extract-the-html-content-if-plain-text-is-not-provided&#34;&gt;extracting&lt;/a&gt; the html part.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;MU_EXTRACT_QUERY &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;mu extract --target-dir=/tmp/ --overwrite --parts=1 &amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We subsequently store it temporarily &lt;code&gt;/tmp/1.msgpart&lt;/code&gt;. Finally we read and
+return it&amp;rsquo;s content.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;html_extract&lt;/span&gt;(file):
+    mu_command(MU_EXTRACT_QUERY &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; file)
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;with&lt;/span&gt; open(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/tmp/1.msgpart&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; f:
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; f&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;read()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We parse the content for the price. A match contains at least one positive
+integer followed by another zero based integer followed by &lt;code&gt;CHF&lt;/code&gt;. Thus e.g. &lt;code&gt;10 CHF&lt;/code&gt; is a &lt;strong&gt;match&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;PRICE_REG &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;[1-9]+[0-9]*(?= CHF)&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If found, we return the price &lt;strong&gt;match&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;search_price&lt;/span&gt;(file):
+    text &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; html_extract(file)
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; text:
+        match &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; re&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;search(PRICE_REG, text)
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; match:
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; match&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;group(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;mu&lt;/code&gt; returns the date&amp;rsquo;s month name abbreviated in English e.g. &lt;code&gt;JAN&lt;/code&gt;. Thankfully python&amp;rsquo;s
+&lt;a href=&#34;https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior&#34;&gt;strptime&lt;/a&gt; method cover&amp;rsquo;s this format.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;month&lt;/span&gt;(text):
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; str(datetime&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;strptime(text, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%b&amp;#34;&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;month)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now we&amp;rsquo;re all set regarding the necessary information to create a proper ledger
+posting.&lt;/p&gt;
+&lt;p&gt;For each parsed email we write/print a posting to our ledger file. But only if the
+email contains a price.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;{email[3]}/{month(email[2])}/{email[1]}&lt;/code&gt; prints the year/month/day e.g.
+&lt;code&gt;2021/12/31&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;email[-1]&lt;/code&gt; prints the emails file path, we pass it as argument to get the
+price by &lt;code&gt;{search_price(email[-1])}&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;parse&lt;/span&gt;(query_file):
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;with&lt;/span&gt; open(query_file, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;w&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; f:
+        [
+            print(&lt;span style=&#34;color:#e6db74&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{&lt;/span&gt;email[&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;]&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{&lt;/span&gt;month(email[&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;])&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{&lt;/span&gt;email[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;]&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; Tennis
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    Expenses:Tennis    CHF &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{&lt;/span&gt;search_price(email[&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;])&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    Liabilities:Tennis
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;            &amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;,
+                  file&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;f) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; email &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; EMAILS &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; search_price(email[&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;])
+        ]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Catch and print any exception&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;:
+    parse(query_file)
+&lt;span style=&#34;color:#66d9ef&#34;&gt;except&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;BaseException&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; e:
+    print(e)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;complete-script&#34;&gt;Complete script&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; subprocess
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; datetime &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; datetime
+&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; re
+MU_FIND_QUERY &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;mu find &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; myemailAlias &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; --fields &amp;#39;d s l&amp;#39;&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;mu_command&lt;/span&gt;(MU_FIND_QUERY):
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; subprocess&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;check_output((MU_FIND_QUERY), shell&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;splitlines()
+EMAILS &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [mystr&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;decode(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf-8&amp;#34;&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;split(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; mystr &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; mu_command(MU_FIND_QUERY)]
+MU_EXTRACT_QUERY &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;mu extract --target-dir=/tmp/ --overwrite --parts=1 &amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;html_extract&lt;/span&gt;(file):
+    mu_command(MU_EXTRACT_QUERY &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; file)
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;with&lt;/span&gt; open(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/tmp/1.msgpart&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; f:
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; f&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;read()
+PRICE_REG &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;[1-9]+[0-9]*(?= CHF)&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;search_price&lt;/span&gt;(file):
+    text &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; html_extract(file)
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; text:
+        match &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; re&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;search(PRICE_REG, text)
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; match:
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; match&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;group(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;)
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;month&lt;/span&gt;(text):
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; str(datetime&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;strptime(text, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%b&amp;#34;&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;month)
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;parse&lt;/span&gt;(query_file):
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;with&lt;/span&gt; open(query_file, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;w&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; f:
+        [
+            print(&lt;span style=&#34;color:#e6db74&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{&lt;/span&gt;email[&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;]&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{&lt;/span&gt;month(email[&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;])&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{&lt;/span&gt;email[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;]&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; Tennis
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    Expenses:Tennis    CHF &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{&lt;/span&gt;search_price(email[&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;])&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    Liabilities:Tennis
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;            &amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;,
+                  file&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;f) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; email &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; EMAILS &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; search_price(email[&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;])
+        ]
+&lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;:
+    parse(query_file)
+&lt;span style=&#34;color:#66d9ef&#34;&gt;except&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;BaseException&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; e:
+    print(e)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
       <title>Parse ledger-cli using python</title>
       <link>/posts/parse_ledger-cli_using_python/</link>
       <pubDate>Thu, 15 Jul 2021 00:00:00 +0200</pubDate>
