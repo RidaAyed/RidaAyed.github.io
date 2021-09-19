@@ -6,8 +6,50 @@
     <link>/tags/</link>
     <description>Recent content in Tags on Rida Ayed</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 15 Jul 2021 00:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 05 Sep 2021 00:00:00 +0200</lastBuildDate>
     <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Parse contacts from email in python</title>
+      <link>/posts/parse-contacts-email-python/</link>
+      <pubDate>Sun, 05 Sep 2021 00:00:00 +0200</pubDate>
+      <guid>/posts/parse-contacts-email-python/</guid>
+      <description>&lt;p&gt;Process all your email contacts using &lt;a href=&#34;https://github.com/djcb/mu/&#34;&gt;mu&lt;/a&gt; and python.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://manpages.debian.org/testing/maildir-utils/mu-cfind.1.en.html&#34;&gt;mu-cfind&lt;/a&gt; returns all contacts:&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--mu-cfind&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;mu cfind
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Excerpt from the returned results&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;...
+Newsletter Museum Tinguely infos@tinguely.ch
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Script&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--python-mu-cfind&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; subprocess
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; collections &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; namedtuple
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# fetch raw input&lt;/span&gt;
+query &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;mu cfind&amp;#34;&lt;/span&gt;
+subprocess&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;check_output((query), shell&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;splitlines()
+runQuery &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; subprocess&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;check_output((query), shell&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;splitlines()
+raw_contacts &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [line&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;decode(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf-8&amp;#34;&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;split(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; line &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; runQuery]
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# process input to output&lt;/span&gt;
+Contact &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; namedtuple(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Contact&amp;#39;&lt;/span&gt;, [&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;email&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;])
+
+Contacts &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tuple(
+&lt;span style=&#34;color:#75715e&#34;&gt;# Get email including only the last element&lt;/span&gt;
+    Contact(email&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;raw_contact[&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;],
+&lt;span style=&#34;color:#75715e&#34;&gt;# Get name from all elements excluding the last element&lt;/span&gt;
+            name&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;raw_contact[:&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;])
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; raw_contact &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; raw_contacts)
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# print to stdout tab separated&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; Contact &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; Contacts:
+    print(Contact&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;email,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;join(Contact&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;name),sep&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\t&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&amp;lt;/tmp/mu_contacts.tsv&amp;gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;grep &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Tinguely&amp;#34;&lt;/span&gt; /tmp/mu_contacts.tsv
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;infos@tinguely.ch	Newsletter Museum Tinguely
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
     <item>
       <title>Update your financial ledger by email in python</title>
       <link>/posts/update-financial-ledger-email-python/</link>
