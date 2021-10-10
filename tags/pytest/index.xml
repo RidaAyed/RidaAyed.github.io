@@ -9,30 +9,6 @@
     <lastBuildDate>Sat, 04 Apr 2020 11:03:00 +0200</lastBuildDate>
     <atom:link href="/tags/pytest/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>GPG export your ssh authentication keys</title>
-      <link>/posts/gpg_export_ssh_authentication_keys/</link>
-      <pubDate>Wed, 08 Sep 2021 00:00:00 +0200</pubDate>
-      <guid>/posts/gpg_export_ssh_authentication_keys/</guid>
-      <description>&lt;p&gt;First get our authentication &lt;code&gt;[A]&lt;/code&gt; subkey&amp;rsquo;s fingerprint:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;gpg2 --list-secret-keys --keyid-format LONG | grep &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;\[A\]&amp;#39;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;ssb   rsa4096/45EDA5801C0D18FF 2019-04-05 [A]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now we use this subkey&amp;rsquo;s fingerprint to generate both our private and public ssh keys:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;temp&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/tmp/id_rsa &lt;span style=&#34;color:#75715e&#34;&gt;#Temp file&lt;/span&gt;
-rm -f $temp &lt;span style=&#34;color:#75715e&#34;&gt;#Delete previous temp file&lt;/span&gt;
-public&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;~/.ssh/id_rsa.pub
-private&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;~/.ssh/id_rsa
-gpg2 --export-ssh-key 45EDA5801C0D18FF &amp;gt; $public
-gpg2 --armor --export-secret-subkeys 45EDA5801C0D18FF &amp;gt; $temp
-chmod &lt;span style=&#34;color:#ae81ff&#34;&gt;400&lt;/span&gt; $temp
-ssh-keygen -y -e -f $temp &amp;gt; $private
-
-tail $private -n &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#Show us some lines after finishing&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;apiRMW4tRzHFJU5HGOqs4dFGKjJgAx/oK/uPKdeic6ITRoeQF35qfG3Q3ucg8d08jEU5JV
-XKam3HUFm3/LnQ==
----- END SSH2 PUBLIC KEY ----
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-    </item>
-    <item>
       <title>Parse contacts from email in python</title>
       <link>/posts/parse-contacts-email-python/</link>
       <pubDate>Sun, 05 Sep 2021 00:00:00 +0200</pubDate>
