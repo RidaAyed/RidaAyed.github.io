@@ -2,13 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/posts/</loc>
+    <lastmod>2021-10-14T22:30:40+02:00</lastmod>
+  </url><url>
+    <loc>/posts/shark-flower-sunrise-venice/</loc>
+    <lastmod>2021-10-14T22:30:40+02:00</lastmod>
+  </url><url>
     <loc>/</loc>
     <lastmod>2021-09-27T00:11:50+02:00</lastmod>
   </url><url>
     <loc>/posts/parse-contacts-email-python/</loc>
-    <lastmod>2021-09-19T14:49:05+02:00</lastmod>
-  </url><url>
-    <loc>/posts/</loc>
     <lastmod>2021-09-19T14:49:05+02:00</lastmod>
   </url><url>
     <loc>/tags/python/</loc>
