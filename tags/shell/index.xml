@@ -491,27 +491,43 @@ bpy&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;context&lt;span style
 bpy&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;ops&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;render&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;render(write_still&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;)
 &lt;span style=&#34;color:#75715e&#34;&gt;# Print directory path and filename&lt;/span&gt;
 print(dir_path&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;filename)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;cd /tmp/blender
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I&amp;rsquo;ve added line 7 in order to get rid of unneeded
+addons-on and their accompanying exceptions.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;6
+&lt;/span&gt;&lt;span style=&#34;display:block;width:100%;background-color:#3c3d38&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;7
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;cd /tmp/blender
 rm *.png
-sudo prime-run blender --background --python blender_mini_example.py --verbose &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Count of png in &lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;pwd&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;: &lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;ls *.png | wc -l&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;Blender 2.93.2 (hash 1eb06de2607a built 2021-08-04 15:17:57)
-Read prefs: /root/.config/blender/2.93/config/userpref.blend
-Fra:1 Mem:89.16M (Peak 89.83M) | Time:00:00.20 | Syncing Light
-Fra:1 Mem:89.16M (Peak 89.83M) | Time:00:00.20 | Syncing Camera
-Fra:1 Mem:89.16M (Peak 89.83M) | Time:00:00.20 | Syncing Sphere
-Fra:1 Mem:89.57M (Peak 89.86M) | Time:00:00.22 | Rendering 1 / 64 samples
-Fra:1 Mem:89.52M (Peak 89.86M) | Time:00:00.33 | Rendering 26 / 64 samples
-Fra:1 Mem:89.52M (Peak 89.86M) | Time:00:00.36 | Rendering 51 / 64 samples
-Fra:1 Mem:89.52M (Peak 89.86M) | Time:00:00.38 | Rendering 64 / 64 samples
-Saved: &amp;#39;1628355229.render.png&amp;#39;
- Time: 00:01.10 (Saving: 00:00.61)
+blender &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    --background &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    --python blender_mini_example.py &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    --verbose &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;display:block;width:100%;background-color:#3c3d38&#34;&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    --factory-startup&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;Blender 2.93.6 (hash c842a90e2fa1 built 2021-11-17 16:06:39)
+/run/user/1000/gvfs/ non-existent directory
+Fra:1 Mem:88.84M (Peak 89.51M) | Time:00:00.14 | Syncing Light
+Fra:1 Mem:88.84M (Peak 89.51M) | Time:00:00.14 | Syncing Camera
+Fra:1 Mem:88.84M (Peak 89.51M) | Time:00:00.14 | Syncing Sphere
+Fra:1 Mem:89.25M (Peak 89.54M) | Time:00:00.20 | Rendering 1 / 64 samples
+Fra:1 Mem:89.20M (Peak 89.54M) | Time:00:01.24 | Rendering 26 / 64 samples
+Fra:1 Mem:89.20M (Peak 89.54M) | Time:00:02.02 | Rendering 51 / 64 samples
+Fra:1 Mem:89.20M (Peak 89.54M) | Time:00:02.43 | Rendering 64 / 64 samples
+Saved: &amp;#39;1639292187.render.png&amp;#39;
+ Time: 00:03.13 (Saving: 00:00.61)
 
-------------------Load-----------------
-/tmp/blender/1628355229.render.png
+/tmp/blender/1639292187.render.png
 
 Blender quit
-Count of png in /tmp/blender: 1
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     <item>
