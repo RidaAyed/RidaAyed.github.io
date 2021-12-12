@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  
+    <meta name="description" content="#Content of ~/tmp/file.dat 2099/02/07 * acme Expenses:Groceries $ 1 Assets:Cash 2089/11/07 * foobar Expenses:Groceries $ 4 Assets:Cash I want &ndash; from the account Assets:Cash and from the latest transaction (acme) &ndash; only the date.
+I need the date formatted as Year-Month-Day.
+
+ledger -f ~/tmp/file.dat reg \  Assets:Cash \  --tail 1 \  --format %D \  --date-format %Y-%m-%d 2099-11-07 ">
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.89.4" />
+  <title>Get latest ledger transaction&#39;s date only | Rida Ayed</title>
+  <link rel="canonical" href="/posts/get-latest-ledger-transaction-s-date-only/">
+
+
+  
+
+
+
+
+
+
+
+
+  
+    
+  
+  
+  <link rel="stylesheet" href="/css/base.min.0a14d9b2d3de3e67f8417dc74ce72a16f6d441f478d4f14b3e19a4995b2afd53.css" integrity="sha256-ChTZstPePmf4QX3HTOcqFvbUQfR41PFLPhmkmVsq/VM=" crossorigin="anonymous">
+
+
+
+</head>
+
+<body>
+  <nav class="u-background">
+  <div class="u-wrapper">
+    <ul class="Banner">
+      <li class="Banner-item Banner-item--title">
+        <a class="Banner-link u-clickable" href="/">Rida Ayed</a>
+      </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/gallery/">Paintings</a>
+        </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/posts/">Blog</a>
+        </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/index.xml">RSS</a>
+        </li>
+      
+    </ul>
+  </div>
+</nav>
+  <main>
+    <div class="u-wrapper">
+      <div class="u-padding">
+        
+
+  <article>
+    <header class="Heading">
+  <h2 class="Heading-title">
+    <a class="Heading-link u-clickable" href="/posts/get-latest-ledger-transaction-s-date-only/" rel="bookmark">Get latest ledger transaction&#39;s date only</a>
+  </h2>
+  
+    <time datetime="2021-12-12T16:33:00&#43;01:00">12 December, 2021</time>
+  
+</header>
+    <pre tabindex="0"><code class="language-ledger" data-lang="ledger">#Content of ~/tmp/file.dat
+2099/02/07 * acme
+    Expenses:Groceries                                 $ 1
+    Assets:Cash
+
+2089/11/07 * foobar
+    Expenses:Groceries                                 $ 4
+    Assets:Cash
+</code></pre><p>I want &ndash;  from the account <code>Assets:Cash</code> and from the latest transaction (acme) &ndash; only the
+date.</p>
+<p>I need the date formatted as <code>Year-Month-Day</code>.</p>
+<p><a id="code-snippet--get-latest-ledger-post-date"></a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ledger -f ~/tmp/file.dat reg <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>       Assets:Cash <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>       --tail <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>       --format %D <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>       --date-format %Y-%m-%d
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">2099-11-07
+</code></pre></div>
+    
+
+
+  
+
+  
+
+
+
+
+
+  <footer>
+    
+      
+    
+      
+        <ul class="Tags">
+          
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="/tags/finance/" rel="tag">finance</a>
+            </li>
+          
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="/tags/ledger/" rel="tag">ledger</a>
+            </li>
+          
+        </ul>
+      
+    
+  </footer>
+
+    
+  
+
+  </article>
+
+
+      </div>
+    </div>
+  </main>
+  
+</body>
+
+</html>

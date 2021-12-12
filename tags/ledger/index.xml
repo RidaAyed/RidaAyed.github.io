@@ -2,12 +2,12 @@
 <?xml-stylesheet type="text/xsl" href="/xml/base.min.xml" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>python on Rida Ayed</title>
-    <link>/tags/python/</link>
-    <description>Recent content in python on Rida Ayed</description>
+    <title>ledger on Rida Ayed</title>
+    <link>/tags/ledger/</link>
+    <description>Recent content in ledger on Rida Ayed</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 05 Sep 2021 00:00:00 +0200</lastBuildDate>
-    <atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Dec 2021 16:33:00 +0100</lastBuildDate>
+    <atom:link href="/tags/ledger/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Get latest ledger transaction&#39;s date only</title>
       <link>/posts/get-latest-ledger-transaction-s-date-only/</link>
