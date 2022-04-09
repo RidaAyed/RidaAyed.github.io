@@ -21,7 +21,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="generator" content="Hugo 0.96.0" />
   <title>Write a letter in org mode | Rida Ayed</title>
   <link rel="canonical" href="/posts/writing-letters-in-org-mode/">
 
@@ -124,21 +124,21 @@ possibilities:</p>
 <p>Custom LCO files must be placed in a directory where LaTeX
 will find them. On GNU/Linux, this defaults to <code>~/texmf/tex/latex</code>.</p>
 <p>Create the folder <code>~/texmf/tex</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mkdir -p ~/texmf/tex
-</code></pre></div><p>Create a new file <code>~/texmf/tex/mySN.lco</code> containing these lines:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\ProvidesFile</span>{mySN.lco}[2019/04/22 my_letter-class-option]
-<span style="color:#66d9ef">\LoadLetterOption</span>{SN}
-<span style="color:#66d9ef">\let\raggedsignature</span>=<span style="color:#66d9ef">\raggedright</span>
-<span style="color:#66d9ef">\setplength</span>{toaddrvpos}{60mm}
-<span style="color:#66d9ef">\setplength</span>{backaddrheight}{-3mm}
-<span style="color:#66d9ef">\setplength</span>{toaddrheight}{25.5mm}
-<span style="color:#66d9ef">\usepackage</span><span style="color:#a6e22e">[german]</span>{babel}
-<span style="color:#66d9ef">\endinput</span>
-</code></pre></div><p>You can test whether foo.lco is recognized by TeX Live by running the command</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">kpsewhich mySN.lco
-</code></pre></div><p>After adding a file to the TeX Live path you may have to run</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mktexlsr
-</code></pre></div><h3 id="create-the-yasnippets-template">Create the yasnippets template</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mkdir -p ~/texmf/tex
+</span></span></code></pre></div><p>Create a new file <code>~/texmf/tex/mySN.lco</code> containing these lines:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-latex" data-lang="latex"><span style="display:flex;"><span><span style="color:#66d9ef">\ProvidesFile</span>{mySN.lco}[2019/04/22 my_letter-class-option]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">\LoadLetterOption</span>{SN}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">\let\raggedsignature</span>=<span style="color:#66d9ef">\raggedright</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">\setplength</span>{toaddrvpos}{60mm}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">\setplength</span>{backaddrheight}{-3mm}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">\setplength</span>{toaddrheight}{25.5mm}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">\usepackage</span><span style="color:#a6e22e">[german]</span>{babel}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">\endinput</span>
+</span></span></code></pre></div><p>You can test whether foo.lco is recognized by TeX Live by running the command</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>kpsewhich mySN.lco
+</span></span></code></pre></div><p>After adding a file to the TeX Live path you may have to run</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mktexlsr
+</span></span></code></pre></div><h3 id="create-the-yasnippets-template">Create the yasnippets template</h3>
 <p>Create <em>home/ra</em>.emacs.d/private/snippets/text-mode/exampleLetter containing lines below:</p>
 <pre tabindex="0"><code class="language-snippet" data-lang="snippet"># -*- mode: snippet -*-
 # name:myExampleLetter

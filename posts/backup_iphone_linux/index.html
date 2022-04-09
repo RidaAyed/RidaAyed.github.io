@@ -19,7 +19,7 @@ Install the necessary packages Find the event iPhone connected  Connect your iPh
 
 
 
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="generator" content="Hugo 0.96.0" />
   <title>Backup an iPhone with Linux | Rida Ayed</title>
   <link rel="canonical" href="/posts/backup_iphone_linux/">
 
@@ -106,32 +106,32 @@ Install the necessary packages Find the event iPhone connected  Connect your iPh
 <li>Run this script:</li>
 </ol>
 <!--listend-->
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">lsusb | grep iPhone
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Bus 001 Device 007: ID 05ac:12a8 Apple, Inc. iPhone5/5C/5S/6
-</code></pre></div><h2 id="catch-the-event-iphone-connected">Catch the event <code>iPhone connected</code></h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># Content of /etc/udev/rules.d/99-iphone.rules</span>
-SUBSYSTEM<span style="color:#f92672">==</span><span style="color:#e6db74">&#34;usb&#34;</span>, ENV<span style="color:#f92672">{</span>DEVTYPE<span style="color:#f92672">}==</span><span style="color:#e6db74">&#34;usb_device&#34;</span>, ENV<span style="color:#f92672">{</span>PRODUCT<span style="color:#f92672">}==</span><span style="color:#e6db74">&#34;5ac/12[9a][0-9a-f]/*&#34;</span>, ACTION<span style="color:#f92672">==</span><span style="color:#e6db74">&#34;add&#34;</span>, ENV<span style="color:#f92672">{</span>SYSTEMD_WANTS<span style="color:#f92672">}=</span><span style="color:#e6db74">&#34;iphone-connect.service&#34;</span>
-</code></pre></div><h2 id="create-the-trigger-iphone-connected">Create the trigger <code>iPhone connected</code></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>lsusb | grep iPhone
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Bus 001 Device 007: ID 05ac:12a8 Apple, Inc. iPhone5/5C/5S/6
+</span></span></code></pre></div><h2 id="catch-the-event-iphone-connected">Catch the event <code>iPhone connected</code></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Content of /etc/udev/rules.d/99-iphone.rules</span>
+</span></span><span style="display:flex;"><span>SUBSYSTEM<span style="color:#f92672">==</span><span style="color:#e6db74">&#34;usb&#34;</span>, ENV<span style="color:#f92672">{</span>DEVTYPE<span style="color:#f92672">}==</span><span style="color:#e6db74">&#34;usb_device&#34;</span>, ENV<span style="color:#f92672">{</span>PRODUCT<span style="color:#f92672">}==</span><span style="color:#e6db74">&#34;5ac/12[9a][0-9a-f]/*&#34;</span>, ACTION<span style="color:#f92672">==</span><span style="color:#e6db74">&#34;add&#34;</span>, ENV<span style="color:#f92672">{</span>SYSTEMD_WANTS<span style="color:#f92672">}=</span><span style="color:#e6db74">&#34;iphone-connect.service&#34;</span>
+</span></span></code></pre></div><h2 id="create-the-trigger-iphone-connected">Create the trigger <code>iPhone connected</code></h2>
 <p><a id="code-snippet--iphone-connect.service"></a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#Content of /etc/systemd/system/iphone-connect.service</span>
-<span style="color:#f92672">[</span>Service<span style="color:#f92672">]</span>
-Type<span style="color:#f92672">=</span>oneshot
-ExecStart<span style="color:#f92672">=</span>/bin/sh /home/pi/scripts/backup_iphone.sh
-</code></pre></div><h2 id="create-the-action-backup-iphone">Create the action <code>Backup iPhone</code></h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># Content of ~/scripts/backup_iphone.sh</span>
-src<span style="color:#f92672">=</span>/mnt/iphone/ <span style="color:#75715e">#Must exist in prior</span>
-dst<span style="color:#f92672">=</span>/media/pi/usb500gb <span style="color:#75715e">#Must exist in prior</span>
-log<span style="color:#f92672">=</span>/home/pi/backup_iphone.log
-sleep <span style="color:#ae81ff">5</span>
-ifuse $src <span style="color:#f92672">&amp;&amp;</span>
-    rsync --verbose --archive --compress --update --log-file<span style="color:#f92672">=</span>$log $src $dst
-</code></pre></div><h2 id="restart-and-reload-all-actors--not-the-iphone-though">Restart and reload all actors (not the iPhone though)</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo udevadm control --reload-rules <span style="color:#f92672">&amp;&amp;</span> udevadm trigger
-service udev restart
-systemctl daemon-reload <span style="color:#75715e">#THIS one is crucial</span>
-</code></pre></div><h2 id="monitor-the-backup-process">Monitor the backup process</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">journalctl -f --unit<span style="color:#f92672">=</span>iphone-connect.service --output<span style="color:#f92672">=</span>cat
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#Content of /etc/systemd/system/iphone-connect.service</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Service<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>Type<span style="color:#f92672">=</span>oneshot
+</span></span><span style="display:flex;"><span>ExecStart<span style="color:#f92672">=</span>/bin/sh /home/pi/scripts/backup_iphone.sh
+</span></span></code></pre></div><h2 id="create-the-action-backup-iphone">Create the action <code>Backup iPhone</code></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Content of ~/scripts/backup_iphone.sh</span>
+</span></span><span style="display:flex;"><span>src<span style="color:#f92672">=</span>/mnt/iphone/ <span style="color:#75715e">#Must exist in prior</span>
+</span></span><span style="display:flex;"><span>dst<span style="color:#f92672">=</span>/media/pi/usb500gb <span style="color:#75715e">#Must exist in prior</span>
+</span></span><span style="display:flex;"><span>log<span style="color:#f92672">=</span>/home/pi/backup_iphone.log
+</span></span><span style="display:flex;"><span>sleep <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>ifuse $src <span style="color:#f92672">&amp;&amp;</span>
+</span></span><span style="display:flex;"><span>    rsync --verbose --archive --compress --update --log-file<span style="color:#f92672">=</span>$log $src $dst
+</span></span></code></pre></div><h2 id="restart-and-reload-all-actors--not-the-iphone-though">Restart and reload all actors (not the iPhone though)</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo udevadm control --reload-rules <span style="color:#f92672">&amp;&amp;</span> udevadm trigger
+</span></span><span style="display:flex;"><span>service udev restart
+</span></span><span style="display:flex;"><span>systemctl daemon-reload <span style="color:#75715e">#THIS one is crucial</span>
+</span></span></code></pre></div><h2 id="monitor-the-backup-process">Monitor the backup process</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>journalctl -f --unit<span style="color:#f92672">=</span>iphone-connect.service --output<span style="color:#f92672">=</span>cat
+</span></span></code></pre></div>
     
 
 

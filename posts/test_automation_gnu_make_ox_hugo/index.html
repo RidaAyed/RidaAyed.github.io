@@ -9,7 +9,7 @@
 
   
     <meta name="description" content="Amongst others, I run this script as part of my tests after a system update.
-#Initialize variables input=test/site/content-org/screenshot-subtree-export-example.org output=test/site/content/writing-hugo-blog-in-org-subtree-export.md cd /tmp # Cleanup rm -r ox-hugo # Clone latest repository git clone git@github.com:kaushalmodi/ox-hugo.git cd ox-hugo # Make change in org file sed -i &#34;s/\(Kaushal\)/The awesome \1/&#34; $input # Simulate the export from org to markdown make md1 ORG_FILE=$input # Check if the changes appears in the # created markdown (named after the title property in org) grep Kaushal $output test/site/content-org/screenshot-subtree-export-example.">
+#Initialize variables input=test/site/content-org/screenshot-subtree-export-example.org output=test/site/content/writing-hugo-blog-in-org-subtree-export.md cd /tmp # Cleanup rm -r ox-hugo # Clone latest repository git clone git@github.com:kaushalmodi/ox-hugo.git cd ox-hugo # Make change in org file sed -i &#34;s/\(Kaushal\)/The awesome \1/&#34; $input # Simulate the export from org to markdown make md1 ORG_FILE=$input # Check if the changes appears in the # created markdown (named after the title property in org) grep Kaushal $output  test/site/content-org/screenshot-subtree-export-example.">
   
 
 
@@ -19,7 +19,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="generator" content="Hugo 0.96.0" />
   <title>Test automation using GNU Make in ox-hugo | Rida Ayed</title>
   <link rel="canonical" href="/posts/test_automation_gnu_make_ox_hugo/">
 
@@ -85,26 +85,26 @@
   
 </header>
     <p>Amongst others, I run this script as part of my tests after a system update.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#Initialize variables</span>
-input<span style="color:#f92672">=</span>test/site/content-org/screenshot-subtree-export-example.org
-output<span style="color:#f92672">=</span>test/site/content/writing-hugo-blog-in-org-subtree-export.md
-cd /tmp
-<span style="color:#75715e"># Cleanup</span>
-rm -r ox-hugo
-<span style="color:#75715e"># Clone latest repository</span>
-git clone git@github.com:kaushalmodi/ox-hugo.git
-cd ox-hugo
-<span style="color:#75715e"># Make change in org file</span>
-sed -i <span style="color:#e6db74">&#34;s/\(Kaushal\)/The awesome \1/&#34;</span> $input
-<span style="color:#75715e"># Simulate the export from org to markdown</span>
-make md1 ORG_FILE<span style="color:#f92672">=</span>$input
-<span style="color:#75715e"># Check if the changes appears in the</span>
-<span style="color:#75715e"># created markdown (named after the title property in org)</span>
-grep Kaushal $output
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">
-test/site/content-org/screenshot-subtree-export-example.org ::
-author = [&#34;The awesome Kaushal Modi&#34;]
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#Initialize variables</span>
+</span></span><span style="display:flex;"><span>input<span style="color:#f92672">=</span>test/site/content-org/screenshot-subtree-export-example.org
+</span></span><span style="display:flex;"><span>output<span style="color:#f92672">=</span>test/site/content/writing-hugo-blog-in-org-subtree-export.md
+</span></span><span style="display:flex;"><span>cd /tmp
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Cleanup</span>
+</span></span><span style="display:flex;"><span>rm -r ox-hugo
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Clone latest repository</span>
+</span></span><span style="display:flex;"><span>git clone git@github.com:kaushalmodi/ox-hugo.git
+</span></span><span style="display:flex;"><span>cd ox-hugo
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Make change in org file</span>
+</span></span><span style="display:flex;"><span>sed -i <span style="color:#e6db74">&#34;s/\(Kaushal\)/The awesome \1/&#34;</span> $input
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Simulate the export from org to markdown</span>
+</span></span><span style="display:flex;"><span>make md1 ORG_FILE<span style="color:#f92672">=</span>$input
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Check if the changes appears in the</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># created markdown (named after the title property in org)</span>
+</span></span><span style="display:flex;"><span>grep Kaushal $output
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>test/site/content-org/screenshot-subtree-export-example.org ::
+</span></span><span style="display:flex;"><span>author = [&#34;The awesome Kaushal Modi&#34;]
+</span></span></code></pre></div>
     
 
 

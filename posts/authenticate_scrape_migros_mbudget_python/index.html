@@ -20,7 +20,7 @@ For the sake of this tutorial&rsquo;s scope and the script&rsquo;s brevity I&rsq
 
 
 
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="generator" content="Hugo 0.96.0" />
   <title>Scraping Migros M-Budget with python | Rida Ayed</title>
   <link rel="canonical" href="/posts/authenticate_scrape_migros_mbudget_python/">
 
@@ -130,17 +130,17 @@ as described in <a href="#usage">Usage</a></p>
 <h2 id="script-ingredients">Script ingredients</h2>
 <h3 id="modules">Modules</h3>
 <p><a id="code-snippet--mbudget-Ingredients-modules"></a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> requests
-<span style="color:#f92672">from</span> lxml <span style="color:#f92672">import</span> html
-<span style="color:#f92672">from</span> lxml <span style="color:#f92672">import</span> etree
-</code></pre></div><h3 id="urls">Urls</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> requests
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> lxml <span style="color:#f92672">import</span> html
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> lxml <span style="color:#f92672">import</span> etree
+</span></span></code></pre></div><h3 id="urls">Urls</h3>
 <p>Our working URLs are built upon one URL which serves as base URL in order to build up all endpoints.</p>
 <p><a id="code-snippet--mbudget-Ingredients-urls"></a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">BASE_URL <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://selfcare.m-budget.migros.ch/eCare&#39;</span>
-LOGIN_URL <span style="color:#f92672">=</span> BASE_URL<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;/de/users/sign_in&#39;</span>
-LOGOUT_URL <span style="color:#f92672">=</span> BASE_URL<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;/de/users/sign_out&#39;</span>
-CONSUMPTION_URL <span style="color:#f92672">=</span> BASE_URL<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;/prepaid/de/my_consumption/index&#39;</span>
-</code></pre></div><h2 id="process-overview">Process overview</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>BASE_URL <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://selfcare.m-budget.migros.ch/eCare&#39;</span>
+</span></span><span style="display:flex;"><span>LOGIN_URL <span style="color:#f92672">=</span> BASE_URL<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;/de/users/sign_in&#39;</span>
+</span></span><span style="display:flex;"><span>LOGOUT_URL <span style="color:#f92672">=</span> BASE_URL<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;/de/users/sign_out&#39;</span>
+</span></span><span style="display:flex;"><span>CONSUMPTION_URL <span style="color:#f92672">=</span> BASE_URL<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;/prepaid/de/my_consumption/index&#39;</span>
+</span></span></code></pre></div><h2 id="process-overview">Process overview</h2>
 <h3 id="visit-the-isp-s-login-page">Visit the ISP&rsquo;s login page</h3>
 <h4 id="manual">Manual</h4>
 <p>Launch your browser, open login and enable the browser&rsquo;s developer console
@@ -150,14 +150,14 @@ by pressing F12 on your keyboard.</p>
 
 <h4 id="automated">Automated</h4>
 <p><a id="code-snippet--mbudget-OpenUrl"></a>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">session_requests <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>session()
-result <span style="color:#f92672">=</span> session_requests<span style="color:#f92672">.</span>get(LOGIN_URL)</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>session_requests <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>session()
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> session_requests<span style="color:#f92672">.</span>get(LOGIN_URL)</span></span></code></pre></td></tr></table>
 </div>
 </div></p>
 <h3 id="login">Login</h3>
@@ -196,8 +196,8 @@ source).</p>
 <figure><img src="/ox-hugo/2020-07-30_16-52-01_screenshot.png"/>
 </figure>
 
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">&lt;meta name=&#34;csrf-token&#34; content=&#34;mX12K...&#34; /&gt;
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>&lt;meta name=&#34;csrf-token&#34; content=&#34;mX12K...&#34; /&gt;
+</span></span></code></pre></div></li>
 </ul>
 <h4 id="automated">Automated</h4>
 <!--list-separator-->
@@ -211,16 +211,16 @@ source).</p>
 </ol>
  <!--listend-->
 <p><a id="code-snippet--mbudget-Get-login-csrf-token"></a>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    tree <span style="color:#f92672">=</span> html<span style="color:#f92672">.</span>fromstring(result<span style="color:#f92672">.</span>text)
-    authenticity_token <span style="color:#f92672">=</span> tree<span style="color:#f92672">.</span>xpath(<span style="color:#e6db74">&#34;//meta[@name=&#39;csrf-token&#39;]/@content&#34;</span>)[<span style="color:#ae81ff">0</span>]
-    </code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    tree <span style="color:#f92672">=</span> html<span style="color:#f92672">.</span>fromstring(result<span style="color:#f92672">.</span>text)
+</span></span><span style="display:flex;"><span>    authenticity_token <span style="color:#f92672">=</span> tree<span style="color:#f92672">.</span>xpath(<span style="color:#e6db74">&#34;//meta[@name=&#39;csrf-token&#39;]/@content&#34;</span>)[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>    </span></span></code></pre></td></tr></table>
 </div>
 </div></p>
 </li>
@@ -230,9 +230,9 @@ source).</p>
 <li>
 <p>Credentials</p>
 <p><a id="code-snippet--mbudget-Ingredients-credentials"></a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">PASSWORD <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;changeMe&#39;</span>
-USERNAME <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;changeMe&#39;</span>
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>PASSWORD <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;changeMe&#39;</span>
+</span></span><span style="display:flex;"><span>USERNAME <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;changeMe&#39;</span>
+</span></span></code></pre></div></li>
 </ul>
 <!--list-separator-->
 <ul>
@@ -241,28 +241,28 @@ USERNAME <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;c
 <p>We pass the csrf token along with the remaining data as dictionary.</p>
 <p>Compare the similarity to the form in figure <a href="#org40baee4">1</a>:</p>
 <p><a id="code-snippet--mbudget-Create-payload"></a>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    data <span style="color:#f92672">=</span> {
-        <span style="color:#e6db74">&#39;utf8&#39;</span>: <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\u2713</span><span style="color:#e6db74">&#39;</span>,
-        <span style="color:#e6db74">&#39;authenticity_token&#39;</span>: authenticity_token,
-        <span style="color:#e6db74">&#39;user[id]&#39;</span>: USERNAME,
-        <span style="color:#e6db74">&#39;user[password]&#39;</span>: PASSWORD,
-        <span style="color:#e6db74">&#39;user[reseller]&#39;</span>: <span style="color:#e6db74">&#39;33&#39;</span>,
-        <span style="color:#e6db74">&#39;button&#39;</span>: <span style="color:#e6db74">&#39;&#39;</span>
-    }
-    </code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    data <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;utf8&#39;</span>: <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\u2713</span><span style="color:#e6db74">&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;authenticity_token&#39;</span>: authenticity_token,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;user[id]&#39;</span>: USERNAME,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;user[password]&#39;</span>: PASSWORD,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;user[reseller]&#39;</span>: <span style="color:#e6db74">&#39;33&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;button&#39;</span>: <span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    </span></span></code></pre></td></tr></table>
 </div>
 </div></p>
 </li>
@@ -273,18 +273,18 @@ USERNAME <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;c
 <p>Sign-in</p>
 <p>We&rsquo;re all set and can finally sign-in passing our form</p>
 <p><a id="code-snippet--mbudget-Login"></a>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    result <span style="color:#f92672">=</span> session_requests<span style="color:#f92672">.</span>post(LOGIN_URL,
-                                   data<span style="color:#f92672">=</span>data,
-                                   headers<span style="color:#f92672">=</span>dict(referer<span style="color:#f92672">=</span>LOGIN_URL))
-    </code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    result <span style="color:#f92672">=</span> session_requests<span style="color:#f92672">.</span>post(LOGIN_URL,
+</span></span><span style="display:flex;"><span>                                   data<span style="color:#f92672">=</span>data,
+</span></span><span style="display:flex;"><span>                                   headers<span style="color:#f92672">=</span>dict(referer<span style="color:#f92672">=</span>LOGIN_URL))
+</span></span><span style="display:flex;"><span>    </span></span></code></pre></td></tr></table>
 </div>
 </div></p>
 </li>
@@ -309,24 +309,24 @@ USERNAME <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;c
 <p>First we set our focus on the <strong>parenting</strong> <code>div</code> in the <code>class</code> named <code>circle__inside</code> in order to extract the <code>text</code> from it&rsquo;s first <code>[1]</code> <code>span</code> element.
 Then we loop through each <strong>child</strong> (circles) and append each circle&rsquo;s credit value to our balance list. Finally we print the balance.</p>
 <p><a id="code-snippet--mbudget-Get-consumption-elements"></a>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="display:block;width:100%;background-color:#3c3d38"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span></span><span style="display:block;width:100%;background-color:#3c3d38"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span></span><span style="display:block;width:100%;background-color:#3c3d38"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span></span><span style="display:block;width:100%;background-color:#3c3d38"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span></span><span style="display:block;width:100%;background-color:#3c3d38"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="background-color:#3c3d38"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></span><span style="background-color:#3c3d38"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></span><span style="background-color:#3c3d38"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></span><span style="background-color:#3c3d38"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></span><span style="background-color:#3c3d38"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">result <span style="color:#f92672">=</span> session_requests<span style="color:#f92672">.</span>get(CONSUMPTION_URL)
-tree <span style="color:#f92672">=</span> etree<span style="color:#f92672">.</span>HTML(result<span style="color:#f92672">.</span>text)
-<span style="display:block;width:100%;background-color:#3c3d38">circles <span style="color:#f92672">=</span> tree<span style="color:#f92672">.</span>xpath(<span style="color:#e6db74">&#39;.//div[@class=&#34;circle__inside&#34;]//span[1]/text()&#39;</span>)
-</span><span style="display:block;width:100%;background-color:#3c3d38">balance <span style="color:#f92672">=</span> []
-</span><span style="display:block;width:100%;background-color:#3c3d38"><span style="color:#66d9ef">for</span> credit <span style="color:#f92672">in</span> circles:
-</span><span style="display:block;width:100%;background-color:#3c3d38">    balance<span style="color:#f92672">.</span>append(int(credit))
-</span><span style="display:block;width:100%;background-color:#3c3d38">print(<span style="color:#e6db74">&#34;Your current balance is:&#34;</span>, sum(balance), <span style="color:#e6db74">&#34;MB&#34;</span>)</span></code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>result <span style="color:#f92672">=</span> session_requests<span style="color:#f92672">.</span>get(CONSUMPTION_URL)
+</span></span><span style="display:flex;"><span>tree <span style="color:#f92672">=</span> etree<span style="color:#f92672">.</span>HTML(result<span style="color:#f92672">.</span>text)
+</span></span><span style="display:flex; background-color:#3c3d38"><span>circles <span style="color:#f92672">=</span> tree<span style="color:#f92672">.</span>xpath(<span style="color:#e6db74">&#39;.//div[@class=&#34;circle__inside&#34;]//span[1]/text()&#39;</span>)
+</span></span><span style="display:flex; background-color:#3c3d38"><span>balance <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex; background-color:#3c3d38"><span><span style="color:#66d9ef">for</span> credit <span style="color:#f92672">in</span> circles:
+</span></span><span style="display:flex; background-color:#3c3d38"><span>    balance<span style="color:#f92672">.</span>append(int(credit))
+</span></span><span style="display:flex; background-color:#3c3d38"><span>print(<span style="color:#e6db74">&#34;Your current balance is:&#34;</span>, sum(balance), <span style="color:#e6db74">&#34;MB&#34;</span>)</span></span></code></pre></td></tr></table>
 </div>
 </div></p>
 <h3 id="logout">Logout</h3>
@@ -338,112 +338,112 @@ tree <span style="color:#f92672">=</span> etree<span style="color:#f92672">.</sp
 </ol>
 <h4 id="automated">Automated</h4>
 <p><a id="code-snippet--mbudget-logout"></a>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">response <span style="color:#f92672">=</span> session_requests<span style="color:#f92672">.</span>get(LOGOUT_URL)</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>response <span style="color:#f92672">=</span> session_requests<span style="color:#f92672">.</span>get(LOGOUT_URL)</span></span></code></pre></td></tr></table>
 </div>
 </div></p>
 <h2 id="complete-script">Complete script</h2>
 <p><a id="code-snippet--m-budget-complete-script"></a>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> requests
-<span style="color:#f92672">from</span> lxml <span style="color:#f92672">import</span> html
-<span style="color:#f92672">from</span> lxml <span style="color:#f92672">import</span> etree
-BASE_URL <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://selfcare.m-budget.migros.ch/eCare&#39;</span>
-LOGIN_URL <span style="color:#f92672">=</span> BASE_URL<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;/de/users/sign_in&#39;</span>
-LOGOUT_URL <span style="color:#f92672">=</span> BASE_URL<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;/de/users/sign_out&#39;</span>
-CONSUMPTION_URL <span style="color:#f92672">=</span> BASE_URL<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;/prepaid/de/my_consumption/index&#39;</span>
-PASSWORD <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;changeMe&#39;</span>
-USERNAME <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;changeMe&#39;</span>
-
-
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
-    session_requests <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>session()
-    result <span style="color:#f92672">=</span> session_requests<span style="color:#f92672">.</span>get(LOGIN_URL)
-    tree <span style="color:#f92672">=</span> html<span style="color:#f92672">.</span>fromstring(result<span style="color:#f92672">.</span>text)
-    authenticity_token <span style="color:#f92672">=</span> tree<span style="color:#f92672">.</span>xpath(<span style="color:#e6db74">&#34;//meta[@name=&#39;csrf-token&#39;]/@content&#34;</span>)[<span style="color:#ae81ff">0</span>]
-    data <span style="color:#f92672">=</span> {
-        <span style="color:#e6db74">&#39;utf8&#39;</span>: <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\u2713</span><span style="color:#e6db74">&#39;</span>,
-        <span style="color:#e6db74">&#39;authenticity_token&#39;</span>: authenticity_token,
-        <span style="color:#e6db74">&#39;user[id]&#39;</span>: USERNAME,
-        <span style="color:#e6db74">&#39;user[password]&#39;</span>: PASSWORD,
-        <span style="color:#e6db74">&#39;user[reseller]&#39;</span>: <span style="color:#e6db74">&#39;33&#39;</span>,
-        <span style="color:#e6db74">&#39;button&#39;</span>: <span style="color:#e6db74">&#39;&#39;</span>
-    }
-    result <span style="color:#f92672">=</span> session_requests<span style="color:#f92672">.</span>post(LOGIN_URL,
-                                   data<span style="color:#f92672">=</span>data,
-                                   headers<span style="color:#f92672">=</span>dict(referer<span style="color:#f92672">=</span>LOGIN_URL))
-    result <span style="color:#f92672">=</span> session_requests<span style="color:#f92672">.</span>get(CONSUMPTION_URL)
-    tree <span style="color:#f92672">=</span> etree<span style="color:#f92672">.</span>HTML(result<span style="color:#f92672">.</span>text)
-    circles <span style="color:#f92672">=</span> tree<span style="color:#f92672">.</span>xpath(<span style="color:#e6db74">&#39;.//div[@class=&#34;circle__inside&#34;]//span[1]/text()&#39;</span>)
-    balance <span style="color:#f92672">=</span> []
-    <span style="color:#66d9ef">for</span> credit <span style="color:#f92672">in</span> circles:
-        balance<span style="color:#f92672">.</span>append(int(credit))
-    print(<span style="color:#e6db74">&#34;Your current balance is:&#34;</span>, sum(balance), <span style="color:#e6db74">&#34;MB&#34;</span>)
-    response <span style="color:#f92672">=</span> session_requests<span style="color:#f92672">.</span>get(LOGOUT_URL)
-
-<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
-    main()</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> requests
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> lxml <span style="color:#f92672">import</span> html
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> lxml <span style="color:#f92672">import</span> etree
+</span></span><span style="display:flex;"><span>BASE_URL <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://selfcare.m-budget.migros.ch/eCare&#39;</span>
+</span></span><span style="display:flex;"><span>LOGIN_URL <span style="color:#f92672">=</span> BASE_URL<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;/de/users/sign_in&#39;</span>
+</span></span><span style="display:flex;"><span>LOGOUT_URL <span style="color:#f92672">=</span> BASE_URL<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;/de/users/sign_out&#39;</span>
+</span></span><span style="display:flex;"><span>CONSUMPTION_URL <span style="color:#f92672">=</span> BASE_URL<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;/prepaid/de/my_consumption/index&#39;</span>
+</span></span><span style="display:flex;"><span>PASSWORD <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;changeMe&#39;</span>
+</span></span><span style="display:flex;"><span>USERNAME <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;changeMe&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+</span></span><span style="display:flex;"><span>    session_requests <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>session()
+</span></span><span style="display:flex;"><span>    result <span style="color:#f92672">=</span> session_requests<span style="color:#f92672">.</span>get(LOGIN_URL)
+</span></span><span style="display:flex;"><span>    tree <span style="color:#f92672">=</span> html<span style="color:#f92672">.</span>fromstring(result<span style="color:#f92672">.</span>text)
+</span></span><span style="display:flex;"><span>    authenticity_token <span style="color:#f92672">=</span> tree<span style="color:#f92672">.</span>xpath(<span style="color:#e6db74">&#34;//meta[@name=&#39;csrf-token&#39;]/@content&#34;</span>)[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>    data <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;utf8&#39;</span>: <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\u2713</span><span style="color:#e6db74">&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;authenticity_token&#39;</span>: authenticity_token,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;user[id]&#39;</span>: USERNAME,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;user[password]&#39;</span>: PASSWORD,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;user[reseller]&#39;</span>: <span style="color:#e6db74">&#39;33&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;button&#39;</span>: <span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    result <span style="color:#f92672">=</span> session_requests<span style="color:#f92672">.</span>post(LOGIN_URL,
+</span></span><span style="display:flex;"><span>                                   data<span style="color:#f92672">=</span>data,
+</span></span><span style="display:flex;"><span>                                   headers<span style="color:#f92672">=</span>dict(referer<span style="color:#f92672">=</span>LOGIN_URL))
+</span></span><span style="display:flex;"><span>    result <span style="color:#f92672">=</span> session_requests<span style="color:#f92672">.</span>get(CONSUMPTION_URL)
+</span></span><span style="display:flex;"><span>    tree <span style="color:#f92672">=</span> etree<span style="color:#f92672">.</span>HTML(result<span style="color:#f92672">.</span>text)
+</span></span><span style="display:flex;"><span>    circles <span style="color:#f92672">=</span> tree<span style="color:#f92672">.</span>xpath(<span style="color:#e6db74">&#39;.//div[@class=&#34;circle__inside&#34;]//span[1]/text()&#39;</span>)
+</span></span><span style="display:flex;"><span>    balance <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> credit <span style="color:#f92672">in</span> circles:
+</span></span><span style="display:flex;"><span>        balance<span style="color:#f92672">.</span>append(int(credit))
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Your current balance is:&#34;</span>, sum(balance), <span style="color:#e6db74">&#34;MB&#34;</span>)
+</span></span><span style="display:flex;"><span>    response <span style="color:#f92672">=</span> session_requests<span style="color:#f92672">.</span>get(LOGOUT_URL)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    main()</span></span></code></pre></td></tr></table>
 </div>
 </div></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Your current balance is: 510 MB
-</code></pre></div><h2 id="usage">Usage</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Your current balance is: 510 MB
+</span></span></code></pre></div><h2 id="usage">Usage</h2>
 <ol>
 <li>Store the complete <a href="#code-snippet--m-budget-complete-script">script</a> above as e.g. <code>~/tmp/mbudget.py</code></li>
 <li>Change the <a href="#credentials">Credentials</a> in <code>~/tmp/mbudget.py</code></li>
 <li>Run it:</li>
 </ol>
 <!--listend-->
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">python3 ~/tmp/mbudget.py
-</code></pre></div><style>.results-fixed-block { color: blue;  }</style>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>python3 ~/tmp/mbudget.py
+</span></span></code></pre></div><style>.results-fixed-block { color: blue;  }</style>
 <div class="results-fixed-block">
   <div></div>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Your current balance is: 510 MB
-</code></pre></div></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Your current balance is: 510 MB
+</span></span></code></pre></div></div>
 <h2 id="conclusion">Conclusion</h2>
 <p>Scripting our manual steps now allows us to store and process the returned data
 further. We could schedule it using a systemd timer or cron. Or send a

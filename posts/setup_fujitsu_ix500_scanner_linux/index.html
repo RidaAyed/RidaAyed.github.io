@@ -19,7 +19,7 @@ sudo sane-find-scanner -q found USB scanner (vendor=0x04c5 [Fujitsu], product=0x
 
 
 
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="generator" content="Hugo 0.96.0" />
   <title>Setup a Fujitsu ix500 scanner on Linux | Rida Ayed</title>
   <link rel="canonical" href="/posts/setup_fujitsu_ix500_scanner_linux/">
 
@@ -100,117 +100,117 @@ sudo sane-find-scanner -q found USB scanner (vendor=0x04c5 [Fujitsu], product=0x
 </div>
 <!--endtoc-->
 <h2 id="install-package">Install package</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt install sane-utils -y
-</code></pre></div><h2 id="approve-the-connection">Approve the connection</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt install sane-utils -y
+</span></span></code></pre></div><h2 id="approve-the-connection">Approve the connection</h2>
 <p>Enable the scanner by opening the scanner&rsquo;s lid</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo sane-find-scanner -q
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">found USB scanner (vendor=0x04c5 [Fujitsu], product=0x132b [ScanSnap iX500]) at libusb:001:007
-found USB scanner (vendor=0x0424, product=0x7800) at libusb:001:005
-</code></pre></div><h2 id="get-a-list-of-devices">Get a list of devices:</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">scanimage --list-devices
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">device `fujitsu:ScanSnap iX500:10443&#39; is a FUJITSU ScanSnap iX500 scanner
-</code></pre></div><h2 id="get-a-list-of-all-device-specific-options">Get a list of all device specific options:</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">scanimage --device <span style="color:#e6db74">&#39;fujitsu:ScanSnap iX500:10443&#39;</span> --all-options
-</code></pre></div><h2 id="scan-a-test-file">Scan a test file</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo sane-find-scanner -q
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>found USB scanner (vendor=0x04c5 [Fujitsu], product=0x132b [ScanSnap iX500]) at libusb:001:007
+</span></span><span style="display:flex;"><span>found USB scanner (vendor=0x0424, product=0x7800) at libusb:001:005
+</span></span></code></pre></div><h2 id="get-a-list-of-devices">Get a list of devices:</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>scanimage --list-devices
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>device `fujitsu:ScanSnap iX500:10443&#39; is a FUJITSU ScanSnap iX500 scanner
+</span></span></code></pre></div><h2 id="get-a-list-of-all-device-specific-options">Get a list of all device specific options:</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>scanimage --device <span style="color:#e6db74">&#39;fujitsu:ScanSnap iX500:10443&#39;</span> --all-options
+</span></span></code></pre></div><h2 id="scan-a-test-file">Scan a test file</h2>
 <p>Scan with default settings to a temporary testfile</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">scanimage --format<span style="color:#f92672">=</span>tiff &gt; /tmp/image.tiff
-ls --size --block-size<span style="color:#f92672">=</span>M /tmp/image.tiff
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">5M /tmp/image.tiff
-</code></pre></div><h2 id="scan-productively">Scan productively</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>scanimage --format<span style="color:#f92672">=</span>tiff &gt; /tmp/image.tiff
+</span></span><span style="display:flex;"><span>ls --size --block-size<span style="color:#f92672">=</span>M /tmp/image.tiff
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>5M /tmp/image.tiff
+</span></span></code></pre></div><h2 id="scan-productively">Scan productively</h2>
 <p>Mind making this script executable using <code>chmod +x</code>.</p>
 <p><a id="code-snippet--scan-script"></a>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="display:block;width:100%;background-color:#3c3d38"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span></span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="background-color:#3c3d38"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span></span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/bin/bash
-</span><span style="color:#75715e"></span><span style="color:#75715e">#Content of ~/scripts/scan.sh</span>
-<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $1 -eq <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span>
-<span style="color:#66d9ef">then</span>
-    OUT_DIR<span style="color:#f92672">=</span>/tmp
-<span style="color:#66d9ef">else</span>
-    OUT_DIR<span style="color:#f92672">=</span>$1
-<span style="color:#66d9ef">fi</span>
-fileNAME<span style="color:#f92672">=</span>scan_<span style="color:#e6db74">`</span>date +%Y-%m-%d-%H%M%S<span style="color:#e6db74">`</span>_
-
-echo <span style="color:#e6db74">&#39;scanning...&#39;</span>
-scanimage --verbose<span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>          --page-width 221.121<span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>          --page-height 876.695<span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>          -l 0<span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>          -t 0<span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>          -x 221.121<span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>          -y 876.695 <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>          --ald<span style="color:#f92672">=</span>yes <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>          --overscan On <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>          --prepick<span style="color:#f92672">=</span>On <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>          --mode Gray <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>          --resolution <span style="color:#ae81ff">300</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>          --source <span style="color:#e6db74">&#39;ADF Duplex&#39;</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>          --swcrop<span style="color:#f92672">=</span>yes <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>          --buffermode On <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>          --swdespeck <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>          --swdeskew<span style="color:#f92672">=</span>yes <span style="color:#ae81ff">\
-</span><span style="display:block;width:100%;background-color:#3c3d38"><span style="color:#ae81ff"></span>          --swskip 20% <span style="color:#ae81ff">\
-</span></span><span style="color:#ae81ff"></span>--device <span style="color:#e6db74">&#39;fujitsu:ScanSnap iX500:10443&#39;</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>         --batch<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$OUT_DIR<span style="color:#e6db74">/</span>$fileNAME<span style="color:#e6db74">%03d.tiff&#34;</span>
-printf <span style="color:#e6db74">&#34;Scanned document(s) to:\n\
-</span><span style="color:#e6db74">           </span><span style="color:#66d9ef">$(</span>ls --size --block-size<span style="color:#f92672">=</span>M $OUT_DIR/$fileNAME*<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span></code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#Content of ~/scripts/scan.sh</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $1 -eq <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    OUT_DIR<span style="color:#f92672">=</span>/tmp
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    OUT_DIR<span style="color:#f92672">=</span>$1
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>fileNAME<span style="color:#f92672">=</span>scan_<span style="color:#e6db74">`</span>date +%Y-%m-%d-%H%M%S<span style="color:#e6db74">`</span>_
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;scanning...&#39;</span>
+</span></span><span style="display:flex;"><span>scanimage --verbose<span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>          --page-width 221.121<span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>          --page-height 876.695<span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>          -l 0<span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>          -t 0<span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>          -x 221.121<span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>          -y 876.695 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>          --ald<span style="color:#f92672">=</span>yes <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>          --overscan On <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>          --prepick<span style="color:#f92672">=</span>On <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>          --mode Gray <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>          --resolution <span style="color:#ae81ff">300</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>          --source <span style="color:#e6db74">&#39;ADF Duplex&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>          --swcrop<span style="color:#f92672">=</span>yes <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>          --buffermode On <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>          --swdespeck <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>          --swdeskew<span style="color:#f92672">=</span>yes <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex; background-color:#3c3d38"><span><span style="color:#ae81ff"></span>          --swskip 20% <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--device <span style="color:#e6db74">&#39;fujitsu:ScanSnap iX500:10443&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>         --batch<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$OUT_DIR<span style="color:#e6db74">/</span>$fileNAME<span style="color:#e6db74">%03d.tiff&#34;</span>
+</span></span><span style="display:flex;"><span>printf <span style="color:#e6db74">&#34;Scanned document(s) to:\n\
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           </span><span style="color:#66d9ef">$(</span>ls --size --block-size<span style="color:#f92672">=</span>M $OUT_DIR/$fileNAME*<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span></span></span></code></pre></td></tr></table>
 </div>
 </div></p>
 <div class="src-block-caption">
   <span class="src-block-number"><a href="#code-snippet--scan-script">Code Snippet 1</a></span>:
   Scan documents in bash with scanimage
 </div>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">scanning...
-Scanned document(s) to:
-           9M /scan_2020-03-22-205607_001.tiff
-9M /scan_2020-03-22-205607_002.tiff
-</code></pre></div><h2 id="skipping-empty-pages">Skipping empty pages</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>scanning...
+</span></span><span style="display:flex;"><span>Scanned document(s) to:
+</span></span><span style="display:flex;"><span>           9M /scan_2020-03-22-205607_001.tiff
+</span></span><span style="display:flex;"><span>9M /scan_2020-03-22-205607_002.tiff
+</span></span></code></pre></div><h2 id="skipping-empty-pages">Skipping empty pages</h2>
 <p>Pay attention at the highlighted <code>swskip</code> in the <a href="#code-snippet--scan-script">script</a> above. Lower values e.g. <code>5%</code> almost
 never skip empty pages. You get two files (double sided document). Higher values e.g. <code>20%</code> skip
 empty pages. You get one file. <strong>Case-specific testing is recommended.</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">scanimage --help | grep swskip --after-context<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">    --swskip 0..100% (in steps of 0.100006) [0]
-        Request driver to discard pages with low percentage of dark pixels
-</code></pre></div><h2 id="alias-the-command">Alias the command</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>scanimage --help | grep swskip --after-context<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>    --swskip 0..100% (in steps of 0.100006) [0]
+</span></span><span style="display:flex;"><span>        Request driver to discard pages with low percentage of dark pixels
+</span></span></code></pre></div><h2 id="alias-the-command">Alias the command</h2>
 <p>Add this command to your .profile</p>
 <p><a id="code-snippet--scan-script-alias"></a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">alias scan<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ssh raspi &#39;/home/pi/scripts/scan.sh /media/pi/usb500gb/scan&#39;&#34;</span>
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>alias scan<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ssh raspi &#39;/home/pi/scripts/scan.sh /media/pi/usb500gb/scan&#39;&#34;</span>
+</span></span></code></pre></div>
     
 
 

@@ -14,7 +14,7 @@ mu-cfind returns all contacts:
 mu cfind Excerpt from the returned results
 ... Newsletter Museum Tinguely infos@tinguely.ch ... Script
 
-import subprocess from collections import namedtuple # fetch raw input query = &#34;mu cfind&#34; subprocess.check_output((query), shell=True).splitlines() runQuery = subprocess.check_output((query), shell=True).splitlines() raw_contacts = [line.decode(&#34;utf-8&#34;).split(&#34; &#34;) for line in runQuery] # process input to output Contact = namedtuple(&#39;Contact&#39;, [&#39;email&#39;, &#39;name&#39;]) Contacts = tuple( # Get email including only the last element Contact(email=raw_contact[-1], # Get name from all elements excluding the last element name=raw_contact[:-1]) for raw_contact in raw_contacts) # print to stdout tab separated for Contact in Contacts: print(Contact.">
+import subprocess from collections import namedtuple  # fetch raw input query = &#34;mu cfind&#34; subprocess.check_output((query), shell=True).splitlines() runQuery = subprocess.check_output((query), shell=True).splitlines() raw_contacts = [line.decode(&#34;utf-8&#34;).split(&#34; &#34;) for line in runQuery]  # process input to output Contact = namedtuple(&#39;Contact&#39;, [&#39;email&#39;, &#39;name&#39;])  Contacts = tuple( # Get email including only the last element  Contact(email=raw_contact[-1], # Get name from all elements excluding the last element  name=raw_contact[:-1])  for raw_contact in raw_contacts)  # print to stdout tab separated for Contact in Contacts:  print(Contact.">
   
 
 
@@ -24,7 +24,7 @@ import subprocess from collections import namedtuple # fetch raw input query = &
 
 
 
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="generator" content="Hugo 0.96.0" />
   <title>Parse contacts from email in python | Rida Ayed</title>
   <link rel="canonical" href="/posts/parse-contacts-email-python/">
 
@@ -92,39 +92,39 @@ import subprocess from collections import namedtuple # fetch raw input query = &
     <p>Process all your email contacts using <a href="https://github.com/djcb/mu/">mu</a> and python.</p>
 <p><a href="https://manpages.debian.org/testing/maildir-utils/mu-cfind.1.en.html">mu-cfind</a> returns all contacts:</p>
 <p><a id="code-snippet--mu-cfind"></a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mu cfind
-</code></pre></div><p>Excerpt from the returned results</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">...
-Newsletter Museum Tinguely infos@tinguely.ch
-...
-</code></pre></div><p>Script</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mu cfind
+</span></span></code></pre></div><p>Excerpt from the returned results</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>Newsletter Museum Tinguely infos@tinguely.ch
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>Script</p>
 <p><a id="code-snippet--python-mu-cfind"></a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> subprocess
-<span style="color:#f92672">from</span> collections <span style="color:#f92672">import</span> namedtuple
-
-<span style="color:#75715e"># fetch raw input</span>
-query <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;mu cfind&#34;</span>
-subprocess<span style="color:#f92672">.</span>check_output((query), shell<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)<span style="color:#f92672">.</span>splitlines()
-runQuery <span style="color:#f92672">=</span> subprocess<span style="color:#f92672">.</span>check_output((query), shell<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)<span style="color:#f92672">.</span>splitlines()
-raw_contacts <span style="color:#f92672">=</span> [line<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>)<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34; &#34;</span>) <span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> runQuery]
-
-<span style="color:#75715e"># process input to output</span>
-Contact <span style="color:#f92672">=</span> namedtuple(<span style="color:#e6db74">&#39;Contact&#39;</span>, [<span style="color:#e6db74">&#39;email&#39;</span>, <span style="color:#e6db74">&#39;name&#39;</span>])
-
-Contacts <span style="color:#f92672">=</span> tuple(
-<span style="color:#75715e"># Get email including only the last element</span>
-    Contact(email<span style="color:#f92672">=</span>raw_contact[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>],
-<span style="color:#75715e"># Get name from all elements excluding the last element</span>
-            name<span style="color:#f92672">=</span>raw_contact[:<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])
-    <span style="color:#66d9ef">for</span> raw_contact <span style="color:#f92672">in</span> raw_contacts)
-
-<span style="color:#75715e"># print to stdout tab separated</span>
-<span style="color:#66d9ef">for</span> Contact <span style="color:#f92672">in</span> Contacts:
-    print(Contact<span style="color:#f92672">.</span>email,<span style="color:#e6db74">&#34; &#34;</span><span style="color:#f92672">.</span>join(Contact<span style="color:#f92672">.</span>name),sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span>)
-</code></pre></div><p>&lt;/tmp/mu_contacts.tsv&gt;</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">grep <span style="color:#e6db74">&#34;Tinguely&#34;</span> /tmp/mu_contacts.tsv
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">infos@tinguely.ch	Newsletter Museum Tinguely
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> subprocess
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> collections <span style="color:#f92672">import</span> namedtuple
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># fetch raw input</span>
+</span></span><span style="display:flex;"><span>query <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;mu cfind&#34;</span>
+</span></span><span style="display:flex;"><span>subprocess<span style="color:#f92672">.</span>check_output((query), shell<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)<span style="color:#f92672">.</span>splitlines()
+</span></span><span style="display:flex;"><span>runQuery <span style="color:#f92672">=</span> subprocess<span style="color:#f92672">.</span>check_output((query), shell<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)<span style="color:#f92672">.</span>splitlines()
+</span></span><span style="display:flex;"><span>raw_contacts <span style="color:#f92672">=</span> [line<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>)<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34; &#34;</span>) <span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> runQuery]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># process input to output</span>
+</span></span><span style="display:flex;"><span>Contact <span style="color:#f92672">=</span> namedtuple(<span style="color:#e6db74">&#39;Contact&#39;</span>, [<span style="color:#e6db74">&#39;email&#39;</span>, <span style="color:#e6db74">&#39;name&#39;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Contacts <span style="color:#f92672">=</span> tuple(
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Get email including only the last element</span>
+</span></span><span style="display:flex;"><span>    Contact(email<span style="color:#f92672">=</span>raw_contact[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>],
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Get name from all elements excluding the last element</span>
+</span></span><span style="display:flex;"><span>            name<span style="color:#f92672">=</span>raw_contact[:<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> raw_contact <span style="color:#f92672">in</span> raw_contacts)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># print to stdout tab separated</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> Contact <span style="color:#f92672">in</span> Contacts:
+</span></span><span style="display:flex;"><span>    print(Contact<span style="color:#f92672">.</span>email,<span style="color:#e6db74">&#34; &#34;</span><span style="color:#f92672">.</span>join(Contact<span style="color:#f92672">.</span>name),sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><p>&lt;/tmp/mu_contacts.tsv&gt;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>grep <span style="color:#e6db74">&#34;Tinguely&#34;</span> /tmp/mu_contacts.tsv
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>infos@tinguely.ch	Newsletter Museum Tinguely
+</span></span></code></pre></div>
     
 
 

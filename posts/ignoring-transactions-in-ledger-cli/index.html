@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  
+    <meta name="description" content="Given is a ledger file containing imported bank transactions we want to ignore. Let&rsquo;s take a pending transaction for example. It has a merely formal character but no mathematical impact. Thus we want transactions having the word pending in the payee line not taken into account from ledger.
+
+2012-03-10 KFC **pending** Expenses:Food $20.00 Assets:Cash 2012-03-10 KFC Expenses:Food $20.00 Assets:Cash Code Snippet 1: example.ledger   $-40.00 Assets:Cash  $40.00 Expenses:Food --------------------  0 We circumvent the pending transaction using automated transactions and a complex expression">
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.96.0" />
+  <title>Ignore transactions in ledger-cli | Rida Ayed</title>
+  <link rel="canonical" href="/posts/ignoring-transactions-in-ledger-cli/">
+
+
+  
+
+
+
+
+
+
+
+
+  
+    
+  
+  
+  <link rel="stylesheet" href="/css/base.min.8260d13a9faa133f33c5197211cfbacc4be6112daa44b27a6485fae09d77b5ed.css" integrity="sha256-gmDROp&#43;qEz8zxRlyEc&#43;6zEvmES2qRLJ6ZIX64J13te0=" crossorigin="anonymous">
+
+
+
+</head>
+
+<body>
+  <nav class="u-background">
+  <div class="u-wrapper">
+    <ul class="Banner">
+      <li class="Banner-item Banner-item--title">
+        <a class="Banner-link u-clickable" href="/">Rida Ayed</a>
+      </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/gallery/">Paintings</a>
+        </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/about/">About</a>
+        </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/posts/">Blog</a>
+        </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/index.xml">RSS</a>
+        </li>
+      
+    </ul>
+  </div>
+</nav>
+  <main>
+    <div class="u-wrapper">
+      <div class="u-padding">
+        
+
+  <article>
+    <header class="Heading">
+  <h2 class="Heading-title">
+    <a class="Heading-link u-clickable" href="/posts/ignoring-transactions-in-ledger-cli/" rel="bookmark">Ignore transactions in ledger-cli</a>
+  </h2>
+  
+    <time datetime="2021-11-01T00:00:00&#43;01:00">1 November, 2021</time>
+  
+</header>
+    <p>Given is a ledger file containing imported bank transactions we want to ignore. Let&rsquo;s take a <strong>pending</strong> transaction for example. It has a merely formal character but no mathematical impact. Thus we want transactions having the word <strong><strong>pending</strong></strong> in the payee line <strong><strong>not taken into account</strong></strong> from ledger.</p>
+<p><a id="code-snippet--ledger-complex-automated-expression-base"></a></p>
+<pre tabindex="0"><code class="language-ledger" data-lang="ledger">2012-03-10 KFC **pending**
+    Expenses:Food                $20.00
+    Assets:Cash
+
+2012-03-10 KFC
+    Expenses:Food                $20.00
+    Assets:Cash
+</code></pre><div class="src-block-caption">
+  <span class="src-block-number"><a href="#code-snippet--ledger-complex-automated-expression-base">Code Snippet 1</a>:</span>
+  example.ledger
+</div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>             $-40.00  Assets:Cash
+</span></span><span style="display:flex;"><span>              $40.00  Expenses:Food
+</span></span><span style="display:flex;"><span>--------------------
+</span></span><span style="display:flex;"><span>                   0
+</span></span></code></pre></div><p>We circumvent the <strong><strong>pending</strong></strong> transaction using <a href="https://www.ledger-cli.org/3.0/doc/ledger3.html#Automated-Transactions">automated transactions</a> and a <a href="https://www.ledger-cli.org/3.0/doc/ledger3.html#Complex-expressions">complex expression</a></p>
+<p><a id="code-snippet--ledger-complex-automated-expression"></a></p>
+<pre tabindex="0"><code class="language-ledger" data-lang="ledger">= @/pending/
+    ($account)                  -1
+</code></pre><div class="src-block-caption">
+  <span class="src-block-number"><a href="#code-snippet--ledger-complex-automated-expression">Code Snippet 2</a>:</span>
+  Complex expression in an automated transaction
+</div>
+<p>By prepending <a href="#code-snippet--ledger-complex-automated-expression-base">1</a> with <a href="#code-snippet--ledger-complex-automated-expression">2</a>, the <code>pending</code> transaction doesn&rsquo;t get accounted anymore</p>
+<p><a id="code-snippet--ledger-complex-automated-expression-complete"></a></p>
+<pre tabindex="0"><code class="language-ledger" data-lang="ledger">= @/pending/
+    ($account)                  -1
+
+2012-03-10 KFC **pending**
+    Expenses:Food                $20.00
+    Assets:Cash
+
+2012-03-10 KFC
+    Expenses:Food                $20.00
+    Assets:Cash
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>             $-20.00  Assets:Cash
+</span></span><span style="display:flex;"><span>              $20.00  Expenses:Food
+</span></span><span style="display:flex;"><span>--------------------
+</span></span><span style="display:flex;"><span>                   0
+</span></span></code></pre></div><p>The reason lies in the <code>register</code> command. Note that the result from <a href="#code-snippet--ledger-complex-automated-expression-base">1</a> derives from the <code>balance</code> command.</p>
+<p>The plain example register on <a href="#code-snippet--ledger-complex-automated-expression-base">1</a> returns:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>12-Mar-10 KFC **pending**       Expenses:Food                $20.00       $20.00
+</span></span><span style="display:flex;"><span>                                Assets:Cash                 $-20.00            0
+</span></span><span style="display:flex;"><span>12-Mar-10 KFC                   Expenses:Food                $20.00       $20.00
+</span></span><span style="display:flex;"><span>                                Assets:Cash                 $-20.00            0
+</span></span></code></pre></div><p>Whereas <strong>with</strong> <a href="#code-snippet--ledger-complex-automated-expression">2</a> appended we get this result from the register:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>12-Mar-10 KFC **pending**       Expenses:Food                $20.00       $20.00
+</span></span><span style="display:flex;"><span>                                Assets:Cash                 $-20.00            0
+</span></span><span style="display:flex;"><span>                                (Expenses:Food)             $-20.00      $-20.00
+</span></span><span style="display:flex;"><span>                                (Assets:Cash)                $20.00            0
+</span></span><span style="display:flex;"><span>12-Mar-10 KFC                   Expenses:Food                $20.00       $20.00
+</span></span><span style="display:flex;"><span>                                Assets:Cash                 $-20.00            0
+</span></span></code></pre></div><p>Note that the <strong><strong>virtual</strong></strong> transactions are surrounded by braces.</p>
+<h2 id="summary">Summary</h2>
+<p>By using ledger&rsquo;s builtin options, we&rsquo;re able to ignore transactions instead of e.g. deleting them. The applied method uses complex expressions and automated transactions. In ledger terminology, the latter are called <strong><strong>virtual</strong></strong> transactions. Virtual transactions are evaluated on runtime. They aren&rsquo;t read from any ledger file. On the opposite, <strong><strong>real</strong></strong> transactions are transactions that are read from the ledger file. It is crucial to note that <strong><strong>virtual</strong></strong> transactions can be ignored by using ledger with the <a href="https://www.ledger-cli.org/3.0/doc/ledger3.html#Working-with-multiple-funds-and-accounts">real</a> option e.g. <code>ledger -f example.ledger reg --real</code></p>
+
+    
+
+
+  
+
+  
+
+
+
+
+
+  <footer>
+    
+      
+    
+      
+        <ul class="Tags">
+          
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="/tags/finance/" rel="tag">finance</a>
+            </li>
+          
+        </ul>
+      
+    
+  </footer>
+
+    
+  
+
+  </article>
+
+
+      </div>
+    </div>
+  </main>
+  
+</body>
+
+</html>

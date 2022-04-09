@@ -20,7 +20,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="generator" content="Hugo 0.96.0" />
   <title>Create a blender scene in python | Rida Ayed</title>
   <link rel="canonical" href="/posts/create_blender_scene_python/">
 
@@ -90,61 +90,61 @@ Using blender, I need to test multiple settings for my painting references e.g.
 lighting, material or the complete location. It all started with that minimal
 working example to render the sphere above.</p>
 <p><a id="code-snippet--mini"></a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># /tmp/blender/blender_mini_example.py</span>
-<span style="color:#f92672">import</span> bpy
-<span style="color:#f92672">import</span> time
-<span style="color:#f92672">import</span> os
-<span style="color:#75715e"># Initialize variables used to print the rendered picture</span>
-dir_path <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>dirname(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>realpath(__file__))
-filename <span style="color:#f92672">=</span> str(int(time<span style="color:#f92672">.</span>time())) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;.render&#39;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;.png&#39;</span>
-<span style="color:#75715e"># Delete the default cube</span>
-objs <span style="color:#f92672">=</span> bpy<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>objects
-objs<span style="color:#f92672">.</span>remove(objs[<span style="color:#e6db74">&#34;Cube&#34;</span>], do_unlink<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
-<span style="color:#75715e"># Add a sphere</span>
-bpy<span style="color:#f92672">.</span>ops<span style="color:#f92672">.</span>mesh<span style="color:#f92672">.</span>primitive_uv_sphere_add(location<span style="color:#f92672">=</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>))
-<span style="color:#75715e"># Render</span>
-bpy<span style="color:#f92672">.</span>context<span style="color:#f92672">.</span>scene<span style="color:#f92672">.</span>render<span style="color:#f92672">.</span>filepath <span style="color:#f92672">=</span> filename
-bpy<span style="color:#f92672">.</span>ops<span style="color:#f92672">.</span>render<span style="color:#f92672">.</span>render(write_still<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
-<span style="color:#75715e"># Print directory path and filename</span>
-print(dir_path<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;/&#34;</span><span style="color:#f92672">+</span>filename)
-</code></pre></div><p>I&rsquo;ve added line 7 in order to get rid of unneeded
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># /tmp/blender/blender_mini_example.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> bpy
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> time
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Initialize variables used to print the rendered picture</span>
+</span></span><span style="display:flex;"><span>dir_path <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>dirname(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>realpath(__file__))
+</span></span><span style="display:flex;"><span>filename <span style="color:#f92672">=</span> str(int(time<span style="color:#f92672">.</span>time())) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;.render&#39;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;.png&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Delete the default cube</span>
+</span></span><span style="display:flex;"><span>objs <span style="color:#f92672">=</span> bpy<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>objects
+</span></span><span style="display:flex;"><span>objs<span style="color:#f92672">.</span>remove(objs[<span style="color:#e6db74">&#34;Cube&#34;</span>], do_unlink<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Add a sphere</span>
+</span></span><span style="display:flex;"><span>bpy<span style="color:#f92672">.</span>ops<span style="color:#f92672">.</span>mesh<span style="color:#f92672">.</span>primitive_uv_sphere_add(location<span style="color:#f92672">=</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>))
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Render</span>
+</span></span><span style="display:flex;"><span>bpy<span style="color:#f92672">.</span>context<span style="color:#f92672">.</span>scene<span style="color:#f92672">.</span>render<span style="color:#f92672">.</span>filepath <span style="color:#f92672">=</span> filename
+</span></span><span style="display:flex;"><span>bpy<span style="color:#f92672">.</span>ops<span style="color:#f92672">.</span>render<span style="color:#f92672">.</span>render(write_still<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Print directory path and filename</span>
+</span></span><span style="display:flex;"><span>print(dir_path<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;/&#34;</span><span style="color:#f92672">+</span>filename)
+</span></span></code></pre></div><p>I&rsquo;ve added line 7 in order to get rid of unneeded
 addons-on and their accompanying exceptions.</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="display:block;width:100%;background-color:#3c3d38"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="background-color:#3c3d38"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd /tmp/blender
-rm *.png
-blender <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    --background <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    --python blender_mini_example.py <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    --verbose <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">\
-</span><span style="display:block;width:100%;background-color:#3c3d38"><span style="color:#ae81ff"></span>    --factory-startup</span></code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cd /tmp/blender
+</span></span><span style="display:flex;"><span>rm *.png
+</span></span><span style="display:flex;"><span>blender <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --background <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --python blender_mini_example.py <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --verbose <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex; background-color:#3c3d38"><span><span style="color:#ae81ff"></span>    --factory-startup</span></span></code></pre></td></tr></table>
 </div>
 </div>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Blender 2.93.6 (hash c842a90e2fa1 built 2021-11-17 16:06:39)
-/run/user/1000/gvfs/ non-existent directory
-Fra:1 Mem:88.84M (Peak 89.51M) | Time:00:00.14 | Syncing Light
-Fra:1 Mem:88.84M (Peak 89.51M) | Time:00:00.14 | Syncing Camera
-Fra:1 Mem:88.84M (Peak 89.51M) | Time:00:00.14 | Syncing Sphere
-Fra:1 Mem:89.25M (Peak 89.54M) | Time:00:00.20 | Rendering 1 / 64 samples
-Fra:1 Mem:89.20M (Peak 89.54M) | Time:00:01.24 | Rendering 26 / 64 samples
-Fra:1 Mem:89.20M (Peak 89.54M) | Time:00:02.02 | Rendering 51 / 64 samples
-Fra:1 Mem:89.20M (Peak 89.54M) | Time:00:02.43 | Rendering 64 / 64 samples
-Saved: &#39;1639292187.render.png&#39;
- Time: 00:03.13 (Saving: 00:00.61)
-
-/tmp/blender/1639292187.render.png
-
-Blender quit
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Blender 2.93.6 (hash c842a90e2fa1 built 2021-11-17 16:06:39)
+</span></span><span style="display:flex;"><span>/run/user/1000/gvfs/ non-existent directory
+</span></span><span style="display:flex;"><span>Fra:1 Mem:88.84M (Peak 89.51M) | Time:00:00.14 | Syncing Light
+</span></span><span style="display:flex;"><span>Fra:1 Mem:88.84M (Peak 89.51M) | Time:00:00.14 | Syncing Camera
+</span></span><span style="display:flex;"><span>Fra:1 Mem:88.84M (Peak 89.51M) | Time:00:00.14 | Syncing Sphere
+</span></span><span style="display:flex;"><span>Fra:1 Mem:89.25M (Peak 89.54M) | Time:00:00.20 | Rendering 1 / 64 samples
+</span></span><span style="display:flex;"><span>Fra:1 Mem:89.20M (Peak 89.54M) | Time:00:01.24 | Rendering 26 / 64 samples
+</span></span><span style="display:flex;"><span>Fra:1 Mem:89.20M (Peak 89.54M) | Time:00:02.02 | Rendering 51 / 64 samples
+</span></span><span style="display:flex;"><span>Fra:1 Mem:89.20M (Peak 89.54M) | Time:00:02.43 | Rendering 64 / 64 samples
+</span></span><span style="display:flex;"><span>Saved: &#39;1639292187.render.png&#39;
+</span></span><span style="display:flex;"><span> Time: 00:03.13 (Saving: 00:00.61)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>/tmp/blender/1639292187.render.png
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Blender quit
+</span></span></code></pre></div>
     
 
 
