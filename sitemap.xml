@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/</loc>
-    <lastmod>2022-03-02T20:08:41+01:00</lastmod>
+    <loc>/about/</loc>
+    <lastmod>2022-05-08T16:02:19+02:00</lastmod>
   </url><url>
     <loc>/gallery/</loc>
-    <lastmod>2022-03-02T19:44:49+01:00</lastmod>
+    <lastmod>2022-05-08T15:48:28+02:00</lastmod>
   </url><url>
-    <loc>/about/</loc>
-    <lastmod>2022-03-02T19:34:27+01:00</lastmod>
+    <loc>/</loc>
+    <lastmod>2022-05-08T15:14:59+02:00</lastmod>
   </url><url>
     <loc>/tags/finance/</loc>
     <lastmod>2022-04-09T19:59:10+02:00</lastmod>
@@ -18,13 +18,13 @@
     <lastmod>2022-04-09T19:59:10+02:00</lastmod>
   </url><url>
     <loc>/posts/</loc>
-    <lastmod>2022-04-09T19:59:10+02:00</lastmod>
+    <lastmod>2022-05-08T16:14:12+02:00</lastmod>
   </url><url>
     <loc>/tags/</loc>
     <lastmod>2022-04-09T19:59:10+02:00</lastmod>
   </url><url>
     <loc>/posts/shark-flower-sunrise-venice/</loc>
-    <lastmod>2022-03-02T17:43:13+01:00</lastmod>
+    <lastmod>2022-05-08T16:14:12+02:00</lastmod>
   </url><url>
     <loc>/posts/get-latest-ledger-transaction-s-date-only/</loc>
     <lastmod>2022-03-18T12:08:19+01:00</lastmod>
