@@ -2,11 +2,11 @@
 <?xml-stylesheet type="text/xsl" href="/xml/base.min.xml" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Index on Rida Ayed</title>
+    <title>Rida Ayed</title>
     <link>/</link>
-    <description>Recent content in Index on Rida Ayed</description>
+    <description>Recent content on Rida Ayed</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 08 May 2022 15:14:59 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 09 May 2022 09:03:29 +0200</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ignore transactions in ledger-cli</title>
