@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/tags/blender/</loc>
+    <lastmod>2022-05-16T14:45:22+02:00</lastmod>
+  </url><url>
+    <loc>/posts/blender-python-development-workflow/</loc>
+    <lastmod>2022-05-16T14:45:22+02:00</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2022-05-16T14:45:22+02:00</lastmod>
+  </url><url>
+    <loc>/tags/python/</loc>
+    <lastmod>2022-05-16T14:45:22+02:00</lastmod>
+  </url><url>
+    <loc>/tags/shell/</loc>
+    <lastmod>2022-05-16T14:45:22+02:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2022-05-16T14:45:22+02:00</lastmod>
+  </url><url>
     <loc>/about/</loc>
     <lastmod>2022-05-09T09:07:07+02:00</lastmod>
   </url><url>
@@ -17,12 +35,6 @@
     <loc>/posts/ignoring-transactions-in-ledger-cli/</loc>
     <lastmod>2022-04-09T19:59:10+02:00</lastmod>
   </url><url>
-    <loc>/posts/</loc>
-    <lastmod>2022-05-08T16:14:12+02:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
-    <lastmod>2022-04-09T19:59:10+02:00</lastmod>
-  </url><url>
     <loc>/posts/shark-flower-sunrise-venice/</loc>
     <lastmod>2022-05-08T16:14:12+02:00</lastmod>
   </url><url>
@@ -35,9 +47,6 @@
     <loc>/posts/parse-contacts-email-python/</loc>
     <lastmod>2021-09-19T14:49:05+02:00</lastmod>
   </url><url>
-    <loc>/tags/python/</loc>
-    <lastmod>2021-12-12T08:18:19+01:00</lastmod>
-  </url><url>
     <loc>/posts/update-financial-ledger-email-python/</loc>
     <lastmod>2021-12-12T08:25:51+01:00</lastmod>
   </url><url>
@@ -45,9 +54,6 @@
     <lastmod>2021-09-14T12:05:34+02:00</lastmod>
   </url><url>
     <loc>/posts/extract_convert_vcf_contacts_emails_python/</loc>
-    <lastmod>2021-09-07T19:03:35+02:00</lastmod>
-  </url><url>
-    <loc>/tags/shell/</loc>
     <lastmod>2021-09-07T19:03:35+02:00</lastmod>
   </url><url>
     <loc>/tags/elisp/</loc>

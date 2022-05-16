@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  
+    <meta name="description" content="Edit the python script Keep a terminal open running the watch script e.g. $ sh watch.sh See the rendered result  Each time you save the python script, the watch script gets notified and re-executes. I&rsquo;m using feh (note the highlighted line in the watch script) to see the rendered result, since it refreshes automatically.
+
+#/tmp/blender_mini_example.py import bpy # Delete the default cube objs = bpy.data.objects objs.remove(objs[&#34;Cube&#34;], do_unlink=True) # Add a sphere bpy.">
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.96.0" />
+  <title>Blender python development workflow | Rida Ayed</title>
+  <link rel="canonical" href="/posts/blender-python-development-workflow/">
+
+
+  
+
+
+
+
+
+
+
+
+  
+    
+  
+  
+  <link rel="stylesheet" href="/css/base.min.b94428eebe75e333d88818267f7dd5e1598fb5e021bc7219b8b991e1559b3723.css" integrity="sha256-uUQo7r514zPYiBgmf33V4VmPteAhvHIZuLmR4VWbNyM=" crossorigin="anonymous">
+
+
+
+</head>
+
+<body>
+  <nav class="u-background">
+  <div class="u-wrapper">
+    <ul class="Banner">
+      <li class="Banner-item Banner-item--title">
+        <a class="Banner-link u-clickable" href="/">Rida Ayed</a>
+      </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/about/">Contact</a>
+        </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/posts/">Blog</a>
+        </li>
+      
+    </ul>
+  </div>
+</nav>
+  <main>
+    <div class="u-wrapper">
+      <div class="u-padding">
+        
+
+  <article>
+    <header class="Heading">
+  <h2 class="Heading-title">
+    <a class="Heading-link u-clickable" href="/posts/blender-python-development-workflow/" rel="bookmark">Blender python development workflow</a>
+  </h2>
+  
+    <time datetime="2022-05-16T14:06:00&#43;02:00">16 May, 2022</time>
+  
+</header>
+    <figure><img src="/ox-hugo/2022-05-16_14-25-08_orgmode.png"/>
+</figure>
+
+<ol>
+<li>Edit the <a href="#code-snippet--scr-python">python script</a></li>
+<li>Keep a terminal open running the <a href="#code-snippet--scr-watch">watch</a> script e.g. <code>$ sh watch.sh</code></li>
+<li>See the rendered result</li>
+</ol>
+<p>Each time you save the <a href="#code-snippet--scr-python">python script</a>, the <a href="#code-snippet--scr-watch">watch</a> script gets <a href="https://archlinux.org/packages/community/x86_64/inotify-tools/">notified</a> and re-executes. I&rsquo;m using <a href="https://feh.finalrewind.org/">feh</a> (note the highlighted line in the <a href="#code-snippet--scr-watch">watch</a> script) to see the rendered result, since it refreshes automatically.</p>
+<p><a id="code-snippet--scr-python"></a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#/tmp/blender_mini_example.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> bpy
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Delete the default cube</span>
+</span></span><span style="display:flex;"><span>objs <span style="color:#f92672">=</span> bpy<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>objects
+</span></span><span style="display:flex;"><span>objs<span style="color:#f92672">.</span>remove(objs[<span style="color:#e6db74">&#34;Cube&#34;</span>], do_unlink<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Add a sphere</span>
+</span></span><span style="display:flex;"><span>bpy<span style="color:#f92672">.</span>ops<span style="color:#f92672">.</span>mesh<span style="color:#f92672">.</span>primitive_uv_sphere_add(location<span style="color:#f92672">=</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>))
+</span></span></code></pre></div><p><a id="code-snippet--scr-watch"></a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># /tmp/watch.sh</span>
+</span></span><span style="display:flex;"><span>frame<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>filename<span style="color:#f92672">=</span>/tmp/foo_
+</span></span><span style="display:flex;"><span>python<span style="color:#f92672">=</span>blender_mini_example.py
+</span></span><span style="display:flex;"><span>myscript <span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    blender <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        --background <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        --python blender_mini_example.py <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        --verbose <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        --factory-startup <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        --use-extension <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        --render-output //$filename <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        --render-frame $frame
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Run blender the first time</span>
+</span></span><span style="display:flex;"><span>myscript
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Open the result</span>
+</span></span><span style="display:flex; background-color:#3c3d38"><span>feh <span style="color:#e6db74">${</span>filename<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;000</span>$frame<span style="color:#e6db74">.png&#34;</span> &amp;
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Re-run blender each time the script is saved</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> inotifywait --event modify $python; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    myscript
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div>
+    
+
+
+  
+
+  
+
+
+
+
+
+  <footer>
+    
+      
+    
+      
+        <ul class="Tags">
+          
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="/tags/python/" rel="tag">python</a>
+            </li>
+          
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="/tags/blender/" rel="tag">blender</a>
+            </li>
+          
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="/tags/shell/" rel="tag">shell</a>
+            </li>
+          
+        </ul>
+      
+    
+  </footer>
+
+    
+  
+
+  </article>
+
+
+      </div>
+    </div>
+  </main>
+  
+</body>
+
+</html>

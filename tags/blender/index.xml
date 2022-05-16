@@ -2,12 +2,12 @@
 <?xml-stylesheet type="text/xsl" href="/xml/base.min.xml" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Rida Ayed</title>
-    <link>/tags/</link>
-    <description>Recent content in Tags on Rida Ayed</description>
+    <title>blender on Rida Ayed</title>
+    <link>/tags/blender/</link>
+    <description>Recent content in blender on Rida Ayed</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 16 May 2022 14:06:00 +0200</lastBuildDate>
-    <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/blender/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Blender python development workflow</title>
       <link>/posts/blender-python-development-workflow/</link>
