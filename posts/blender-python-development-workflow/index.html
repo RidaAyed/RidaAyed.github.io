@@ -98,12 +98,12 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># /tmp/watch.sh</span>
 </span></span><span style="display:flex;"><span>frame<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>filename<span style="color:#f92672">=</span>/tmp/foo_
-</span></span><span style="display:flex;"><span>python<span style="color:#f92672">=</span>blender_mini_example.py
-</span></span><span style="display:flex;"><span>myscript <span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>mypython<span style="color:#f92672">=</span>blender_mini_example.py
+</span></span><span style="display:flex;"><span>myblender <span style="color:#f92672">()</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    blender <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        --background <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        --python blender_mini_example.py <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        --python $mypython <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        --verbose <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        --factory-startup <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        --use-extension <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">\
@@ -111,12 +111,12 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        --render-frame $frame
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Run blender the first time</span>
-</span></span><span style="display:flex;"><span>myscript
+</span></span><span style="display:flex;"><span>myblender
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Open the result</span>
 </span></span><span style="display:flex; background-color:#3c3d38"><span>feh <span style="color:#e6db74">${</span>filename<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;000</span>$frame<span style="color:#e6db74">.png&#34;</span> &amp;
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Re-run blender each time the script is saved</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> inotifywait --event modify $python; <span style="color:#66d9ef">do</span>
-</span></span><span style="display:flex;"><span>    myscript
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> inotifywait --event modify $mypython; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    myblender
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
 </span></span></code></pre></div>
     
