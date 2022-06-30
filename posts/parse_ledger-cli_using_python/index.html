@@ -8,8 +8,7 @@
 
 
   
-    <meta name="description" content="#Content of file.dat 2099/02/07 * foo ; MD5Sum: 4d2965fa2879f3c528006f2e9c3bca8d Expenses:Groceries CHF 10 Assets:Cash 2099/11/07 * bar ; MD5Sum: 4d2965fa2879f3c528006f2e9c3bca8e Expenses:Groceries CHF 20 Assets:Cash 
-import subprocess from datetime import datetime  format = &#34;&#39;%(cleared)\t%D\t%P\t%(quantity(scrub(display_amount)))\t%(join(note | xact.note))\n&#39;&#34; query = &#34;ledger -f file.dat csv Assets:Cash --csv-format &#34; &#43; format runQuery = subprocess.check_output((query), shell=True).splitlines() trx = [x.decode(&#34;utf-8&#34;).split(&#34;\t&#34;) for x in runQuery] return datetime.strptime(trx[0][1],&#34;%Y/%m/%d&#34;).month Month of first transaction is 11">
+    <meta name="description" content="#Content of file.dat 2099/02/07 * foo ; MD5Sum: 4d2965fa2879f3c528006f2e9c3bca8d Expenses:Groceries CHF 10 Assets:Cash 2099/11/07 * bar ; MD5Sum: 4d2965fa2879f3c528006f2e9c3bca8e Expenses:Groceries CHF 20 Assets:Cash import subprocess from datetime import datetime format = &#34;&#39;%(cleared)\t%D\t%P\t%(quantity(scrub(display_amount)))\t%(join(note | xact.note))\n&#39;&#34; query = &#34;ledger -f file.dat csv Assets:Cash --csv-format &#34; &#43; format runQuery = subprocess.check_output((query), shell=True).splitlines() trx = [x.decode(&#34;utf-8&#34;).split(&#34;\t&#34;) for x in runQuery] return datetime.strptime(trx[0][1],&#34;%Y/%m/%d&#34;).month Month of first transaction is 11">
   
 
 
@@ -19,7 +18,7 @@ import subprocess from datetime import datetime  format = &#34;&#39;%(cleared)\t
 
 
 
-<meta name="generator" content="Hugo 0.96.0" />
+<meta name="generator" content="Hugo 0.101.0" />
   <title>Parse ledger-cli using python | Rida Ayed</title>
   <link rel="canonical" href="/posts/parse_ledger-cli_using_python/">
 

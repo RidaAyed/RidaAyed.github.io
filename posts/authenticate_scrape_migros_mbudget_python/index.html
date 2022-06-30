@@ -8,7 +8,7 @@
 
 
   
-    <meta name="description" content="Table of Contents  Motivation How to understand this post Script ingredients  Modules Urls   Process overview  Visit the ISP&rsquo;s login page Login Get the consumption values Logout   Complete script Usage Conclusion     Motivation I recently caught myself repeatedly checking my internet consumption balance.
+    <meta name="description" content="Table of Contents Motivation How to understand this post Script ingredients Modules Urls Process overview Visit the ISP&rsquo;s login page Login Get the consumption values Logout Complete script Usage Conclusion Motivation I recently caught myself repeatedly checking my internet consumption balance.
 A perfect case for a script and an accompanying tutorial.
 For the sake of this tutorial&rsquo;s scope and the script&rsquo;s brevity I&rsquo;ll skip various code paradigms like exception handling, testing, continuous integration, virtual environments etc.">
   
@@ -20,7 +20,7 @@ For the sake of this tutorial&rsquo;s scope and the script&rsquo;s brevity I&rsq
 
 
 
-<meta name="generator" content="Hugo 0.96.0" />
+<meta name="generator" content="Hugo 0.101.0" />
   <title>Scraping Migros M-Budget with python | Rida Ayed</title>
   <link rel="canonical" href="/posts/authenticate_scrape_migros_mbudget_python/">
 
@@ -186,7 +186,7 @@ request-forgery or in abbreviated form <code>csrf</code>.</p>
 <p>Logout, visit it again and look at the source code (Mouse Right-Click: View page
 source).</p>
 <figure><img src="/ox-hugo/2020-07-30_16-52-01_screenshot.png"/>
-</figure>
+    </figure>
 
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>&lt;meta name=&#34;csrf-token&#34; content=&#34;mX12K...&#34; /&gt;
 </span></span></code></pre></div></li>
@@ -207,12 +207,10 @@ source).</p>
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    tree <span style="color:#f92672">=</span> html<span style="color:#f92672">.</span>fromstring(result<span style="color:#f92672">.</span>text)
-</span></span><span style="display:flex;"><span>    authenticity_token <span style="color:#f92672">=</span> tree<span style="color:#f92672">.</span>xpath(<span style="color:#e6db74">&#34;//meta[@name=&#39;csrf-token&#39;]/@content&#34;</span>)[<span style="color:#ae81ff">0</span>]
-</span></span><span style="display:flex;"><span>    </span></span></code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>tree <span style="color:#f92672">=</span> html<span style="color:#f92672">.</span>fromstring(result<span style="color:#f92672">.</span>text)
+</span></span><span style="display:flex;"><span>authenticity_token <span style="color:#f92672">=</span> tree<span style="color:#f92672">.</span>xpath(<span style="color:#e6db74">&#34;//meta[@name=&#39;csrf-token&#39;]/@content&#34;</span>)[<span style="color:#ae81ff">0</span>]</span></span></code></pre></td></tr></table>
 </div>
 </div></p>
 </li>
@@ -243,18 +241,16 @@ source).</p>
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    data <span style="color:#f92672">=</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;utf8&#39;</span>: <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\u2713</span><span style="color:#e6db74">&#39;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;authenticity_token&#39;</span>: authenticity_token,
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;user[id]&#39;</span>: USERNAME,
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;user[password]&#39;</span>: PASSWORD,
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;user[reseller]&#39;</span>: <span style="color:#e6db74">&#39;33&#39;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;button&#39;</span>: <span style="color:#e6db74">&#39;&#39;</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    </span></span></code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>data <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;utf8&#39;</span>: <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\u2713</span><span style="color:#e6db74">&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;authenticity_token&#39;</span>: authenticity_token,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;user[id]&#39;</span>: USERNAME,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;user[password]&#39;</span>: PASSWORD,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;user[reseller]&#39;</span>: <span style="color:#e6db74">&#39;33&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;button&#39;</span>: <span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></td></tr></table>
 </div>
 </div></p>
 </li>
@@ -270,13 +266,11 @@ source).</p>
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    result <span style="color:#f92672">=</span> session_requests<span style="color:#f92672">.</span>post(LOGIN_URL,
-</span></span><span style="display:flex;"><span>                                   data<span style="color:#f92672">=</span>data,
-</span></span><span style="display:flex;"><span>                                   headers<span style="color:#f92672">=</span>dict(referer<span style="color:#f92672">=</span>LOGIN_URL))
-</span></span><span style="display:flex;"><span>    </span></span></code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>result <span style="color:#f92672">=</span> session_requests<span style="color:#f92672">.</span>post(LOGIN_URL,
+</span></span><span style="display:flex;"><span>                               data<span style="color:#f92672">=</span>data,
+</span></span><span style="display:flex;"><span>                               headers<span style="color:#f92672">=</span>dict(referer<span style="color:#f92672">=</span>LOGIN_URL))</span></span></code></pre></td></tr></table>
 </div>
 </div></p>
 </li>
@@ -441,14 +435,14 @@ Then we loop through each <strong>child</strong> (circles) and append each circl
 further. We could schedule it using a systemd timer or cron. Or send a
 notification by email or sms if a certain limit is reached.</p>
 <p>And of course: No more clicking, calculating and repeating.</p>
-<section class="footnotes" role="doc-endnotes">
+<div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn:1" role="doc-endnote">
+<li id="fn:1">
 <p><a href="https://en.wikipedia.org/wiki/Cross-site%5Frequest%5Fforgery">https://en.wikipedia.org/wiki/Cross-site%5Frequest%5Fforgery</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
-</section>
+</div>
 
     
 

@@ -9,7 +9,7 @@
 
   
     <meta name="description" content="I wasn&rsquo;t able to export my contacts from my iphone (iOS 11). Thus I mailed each contact to myself using an alias e.g. john.doe&#43;contact@example.com. I&rsquo;m using mu (mail indexer/searcher) version 1.6.4 for my emails. Everything else happens below:
-Extract vcf file from email contacts=~/tmp/iPhoneContacts rm -r $contacts mkdir $contacts cd $contacts  foundEmails=$(mu find to:$myemail --fields &#34;l&#34;)  for email in $foundEmails do  mu extract $email &#39;.*.vcf&#39; done Export vcf to tsv file import fnmatch import os import re import phonenumbers  ROOTPATH = &#39;/home/ra/tmp/iPhoneContacts/&#39; PATTERN = &#39;*.">
+Extract vcf file from email contacts=~/tmp/iPhoneContacts rm -r $contacts mkdir $contacts cd $contacts foundEmails=$(mu find to:$myemail --fields &#34;l&#34;) for email in $foundEmails do mu extract $email &#39;.*.vcf&#39; done Export vcf to tsv file import fnmatch import os import re import phonenumbers ROOTPATH = &#39;/home/ra/tmp/iPhoneContacts/&#39; PATTERN = &#39;*.">
   
 
 
@@ -19,7 +19,7 @@ Extract vcf file from email contacts=~/tmp/iPhoneContacts rm -r $contacts mkdir 
 
 
 
-<meta name="generator" content="Hugo 0.96.0" />
+<meta name="generator" content="Hugo 0.101.0" />
   <title>Extract and convert vcf contacts from emails in python | Rida Ayed</title>
   <link rel="canonical" href="/posts/extract_convert_vcf_contacts_emails_python/">
 
