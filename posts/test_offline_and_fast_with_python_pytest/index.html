@@ -19,7 +19,7 @@ A solution for this issue comes in the form of vcrpy.">
 
 
 
-<meta name="generator" content="Hugo 0.101.0" />
+<meta name="generator" content="Hugo 0.108.0">
   <title>Testing APIs offline and fast with vcrpy | Rida Ayed</title>
   <link rel="canonical" href="/posts/test_offline_and_fast_with_python_pytest/">
 
@@ -37,7 +37,7 @@ A solution for this issue comes in the form of vcrpy.">
     
   
   
-  <link rel="stylesheet" href="/css/base.min.b94428eebe75e333d88818267f7dd5e1598fb5e021bc7219b8b991e1559b3723.css" integrity="sha256-uUQo7r514zPYiBgmf33V4VmPteAhvHIZuLmR4VWbNyM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/base.min.7edf2aa1a507c25a254adca377a5c41a4ba6c56d1f894ed4a36d9d0b608e0a92.css" integrity="sha256-ft8qoaUHwlolStyjd6XEGkumxW0fiU7Uo22dC2COCpI=" crossorigin="anonymous">
 
 
 
@@ -133,12 +133,12 @@ door every couple of seconds just to test what I&rsquo;m processing locally anyw
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pytest
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@pytest</span><span style="color:#f92672">.</span>fixture(scope<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;module&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@pytest.fixture</span>(scope<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;module&#39;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">vcr_cassette_dir</span>(request):
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Put all cassettes in ~/tmp/vhs/{module}/{test}.yaml</span>
 </span></span><span style="display:flex; background-color:#3c3d38"><span>    <span style="color:#66d9ef">return</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(<span style="color:#e6db74">&#39;/home/ra/tmp/vhs&#39;</span>, request<span style="color:#f92672">.</span>module<span style="color:#f92672">.</span>__name__)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@pytest</span><span style="color:#f92672">.</span>mark<span style="color:#f92672">.</span>vcr()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@pytest.mark.vcr</span>()
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_mbudget</span>():
 </span></span><span style="display:flex;"><span>    response <span style="color:#f92672">=</span> urllib<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>urlopen(<span style="color:#e6db74">&#39;https://selfcare.m-budget.migros.ch/eCare/de/users/sign_in&#39;</span>)<span style="color:#f92672">.</span>read()
 </span></span><span style="display:flex; background-color:#3c3d38"><span>    <span style="color:#66d9ef">assert</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;csrf-token&#39;</span> <span style="color:#f92672">in</span> response</span></span></code></pre></td></tr></table>
