@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -19,7 +19,7 @@ Extract vcf file from email contacts=~/tmp/iPhoneContacts rm -r $contacts mkdir 
 
 
 
-<meta name="generator" content="Hugo 0.108.0">
+<meta name="generator" content="Hugo 0.112.3">
   <title>Extract and convert vcf contacts from emails in python | Rida Ayed</title>
   <link rel="canonical" href="/posts/extract_convert_vcf_contacts_emails_python/">
 
@@ -127,9 +127,9 @@ contact to myself using an alias e.g. <code>john.doe+contact@example.com</code>.
 </span></span><span style="display:flex;"><span>            contactName[<span style="color:#ae81ff">1</span>:]) <span style="color:#66d9ef">if</span> (len(contactName)) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        numbrs <span style="color:#f92672">=</span> [
-</span></span><span style="display:flex;"><span>            phonenumbers<span style="color:#f92672">.</span>format_number(match<span style="color:#f92672">.</span>number,
+</span></span><span style="display:flex;"><span>            phonenumbers<span style="color:#f92672">.</span>format_number(<span style="color:#66d9ef">match</span><span style="color:#f92672">.</span>number,
 </span></span><span style="display:flex;"><span>                                       phonenumbers<span style="color:#f92672">.</span>PhoneNumberFormat<span style="color:#f92672">.</span>E164)
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> match <span style="color:#f92672">in</span> phonenumbers<span style="color:#f92672">.</span>PhoneNumberMatcher(f<span style="color:#f92672">.</span>read(), <span style="color:#e6db74">&#34;CH&#34;</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> <span style="color:#66d9ef">match</span> <span style="color:#f92672">in</span> phonenumbers<span style="color:#f92672">.</span>PhoneNumberMatcher(f<span style="color:#f92672">.</span>read(), <span style="color:#e6db74">&#34;CH&#34;</span>)
 </span></span><span style="display:flex;"><span>        ]
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        print(contactFirstName,

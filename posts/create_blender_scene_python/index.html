@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -19,7 +19,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.108.0">
+<meta name="generator" content="Hugo 0.112.3">
   <title>Create a blender scene in python | Rida Ayed</title>
   <link rel="canonical" href="/posts/create_blender_scene_python/">
 
@@ -102,13 +102,13 @@ working example to render the sphere above.</p>
 addons-on and their accompanying exceptions.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="org-coderef--9ac8df-1"><a style="outline:none;text-decoration:none;color:inherit" href="#org-coderef--9ac8df-1">1</a>
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="org-coderef--9ac8df-2"><a style="outline:none;text-decoration:none;color:inherit" href="#org-coderef--9ac8df-2">2</a>
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="org-coderef--9ac8df-3"><a style="outline:none;text-decoration:none;color:inherit" href="#org-coderef--9ac8df-3">3</a>
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="org-coderef--9ac8df-4"><a style="outline:none;text-decoration:none;color:inherit" href="#org-coderef--9ac8df-4">4</a>
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="org-coderef--9ac8df-5"><a style="outline:none;text-decoration:none;color:inherit" href="#org-coderef--9ac8df-5">5</a>
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="org-coderef--9ac8df-6"><a style="outline:none;text-decoration:none;color:inherit" href="#org-coderef--9ac8df-6">6</a>
-</span><span style="background-color:#3c3d38"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="org-coderef--9ac8df-7"><a style="outline:none;text-decoration:none;color:inherit" href="#org-coderef--9ac8df-7">7</a>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="org-coderef--9ac8df-1"><a style="outline:none;text-decoration:none;color:inherit" href="#org-coderef--9ac8df-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="org-coderef--9ac8df-2"><a style="outline:none;text-decoration:none;color:inherit" href="#org-coderef--9ac8df-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="org-coderef--9ac8df-3"><a style="outline:none;text-decoration:none;color:inherit" href="#org-coderef--9ac8df-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="org-coderef--9ac8df-4"><a style="outline:none;text-decoration:none;color:inherit" href="#org-coderef--9ac8df-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="org-coderef--9ac8df-5"><a style="outline:none;text-decoration:none;color:inherit" href="#org-coderef--9ac8df-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="org-coderef--9ac8df-6"><a style="outline:none;text-decoration:none;color:inherit" href="#org-coderef--9ac8df-6">6</a>
+</span><span style="background-color:#3c3d38"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="org-coderef--9ac8df-7"><a style="outline:none;text-decoration:none;color:inherit" href="#org-coderef--9ac8df-7">7</a>
 </span></span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cd /tmp/blender
