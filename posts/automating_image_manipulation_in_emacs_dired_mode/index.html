@@ -8,8 +8,8 @@
 
 
   
-    <meta name="description" content="I&rsquo;m managing my pictures using emacs dired, specifically image-dired. I found myself repeatedly marking pictures and in order to paste their filpaths in various shell scripts for further manipulation.
-This article introduces a convenient way to automate image manipulation tasks using a Bash script and Emacs Dired mode. It presents an approach to creating a Bash script that resizes images, applies padding and aspect ratio, and removes EXIF information. The script is then bound to a key C-c C-x in Emacs Dired mode, allowing users to easily apply these operations to multiple images with a single key press.">
+    <meta name="description" content="I manage my images using emacs dired, specifically image-dired. I found myself repeatedly marking images in order to paste their filepaths into various shell scripts for further manipulation.
+This article presents a convenient way to automate image manipulation tasks using a Bash script and Emacs Dired mode. It presents an approach to creating a Bash script that resizes images, applies padding and aspect ratio, and removes EXIF information. The script is then bound to a C-c C-x key in Emacs Dired mode, allowing users to easily apply these operations to multiple images with a single keystroke.">
   
 
 
@@ -76,8 +76,8 @@ This article introduces a convenient way to automate image manipulation tasks us
     <time datetime="2023-07-18T15:52:00&#43;02:00">18 July, 2023</time>
   
 </header>
-    <p>I&rsquo;m managing my pictures using emacs dired, specifically image-dired. I found myself repeatedly marking pictures and in order to paste their filpaths in various shell scripts for further manipulation.</p>
-<p>This article introduces a convenient way to automate image manipulation tasks using a Bash script and Emacs Dired mode. It presents an approach to creating a Bash script that resizes images, applies padding and aspect ratio, and removes EXIF information. The script is then bound to a key <kbd> C-c C-x</kbd> in Emacs Dired mode, allowing users to easily apply these operations to multiple images with a single key press. The article also covers making the script executable and monitoring the script&rsquo;s output using journalctl.</p>
+    <p>I manage my images using emacs dired, specifically image-dired. I found myself repeatedly marking images in order to paste their filepaths into various shell scripts for further manipulation.</p>
+<p>This article presents a convenient way to automate image manipulation tasks using a Bash script and Emacs Dired mode. It presents an approach to creating a Bash script that resizes images, applies padding and aspect ratio, and removes EXIF information. The script is then bound to a C-c C-x key in Emacs Dired mode, allowing users to easily apply these operations to multiple images with a single keystroke. The article also covers making the script executable and monitoring the output of the script using journalctl.</p>
 <h2 id="image-manipulation-script">Image manipulation script</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#~/bin/image_manipulation.sh</span>
 </span></span><span style="display:flex;"><span>outdir<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/tmp/</span><span style="color:#66d9ef">$(</span>date +%Y%m%d_%H%M%S<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>  <span style="color:#75715e"># Create a directory with the current date and time</span>
@@ -127,6 +127,26 @@ This article introduces a convenient way to automate image manipulation tasks us
 
 
 
+
+  <footer>
+    
+      
+    
+      
+        <ul class="Tags">
+          
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="/tags/elisp/" rel="tag">elisp</a>
+            </li>
+          
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="/tags/shell/" rel="tag">shell</a>
+            </li>
+          
+        </ul>
+      
+    
+  </footer>
 
     
   

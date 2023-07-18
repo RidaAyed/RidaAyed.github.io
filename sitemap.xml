@@ -3,10 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/posts/automating_image_manipulation_in_emacs_dired_mode/</loc>
-    <lastmod>2023-07-18T16:12:04+02:00</lastmod>
+    <lastmod>2023-07-18T18:20:47+02:00</lastmod>
+  </url><url>
+    <loc>/tags/elisp/</loc>
+    <lastmod>2023-07-18T18:20:47+02:00</lastmod>
   </url><url>
     <loc>/posts/</loc>
-    <lastmod>2023-07-18T16:12:04+02:00</lastmod>
+    <lastmod>2023-07-18T18:20:47+02:00</lastmod>
+  </url><url>
+    <loc>/tags/shell/</loc>
+    <lastmod>2023-07-18T18:20:47+02:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2023-07-18T18:20:47+02:00</lastmod>
   </url><url>
     <loc>/artnow/</loc>
     <lastmod>2022-06-10T17:27:55+02:00</lastmod>
@@ -18,12 +27,6 @@
     <lastmod>2022-05-17T09:47:09+02:00</lastmod>
   </url><url>
     <loc>/tags/python/</loc>
-    <lastmod>2022-05-17T09:51:55+02:00</lastmod>
-  </url><url>
-    <loc>/tags/shell/</loc>
-    <lastmod>2022-05-17T09:51:55+02:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2022-05-17T09:51:55+02:00</lastmod>
   </url><url>
     <loc>/about/</loc>
@@ -61,9 +64,6 @@
   </url><url>
     <loc>/posts/extract_convert_vcf_contacts_emails_python/</loc>
     <lastmod>2021-09-07T19:03:35+02:00</lastmod>
-  </url><url>
-    <loc>/tags/elisp/</loc>
-    <lastmod>2021-08-30T22:47:08+02:00</lastmod>
   </url><url>
     <loc>/posts/python-unit-testing-emacs-org-mode/</loc>
     <lastmod>2021-08-30T22:47:08+02:00</lastmod>
