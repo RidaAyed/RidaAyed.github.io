@@ -2,6 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/posts/automating_image_manipulation_in_emacs_dired_mode/</loc>
+    <lastmod>2023-07-18T16:12:04+02:00</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2023-07-18T16:12:04+02:00</lastmod>
+  </url><url>
     <loc>/artnow/</loc>
     <lastmod>2022-06-10T17:27:55+02:00</lastmod>
   </url><url>
@@ -10,9 +16,6 @@
   </url><url>
     <loc>/posts/blender-python-development-workflow/</loc>
     <lastmod>2022-05-17T09:47:09+02:00</lastmod>
-  </url><url>
-    <loc>/posts/</loc>
-    <lastmod>2022-05-17T09:51:55+02:00</lastmod>
   </url><url>
     <loc>/tags/python/</loc>
     <lastmod>2022-05-17T09:51:55+02:00</lastmod>

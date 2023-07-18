@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  
+    <meta name="description" content="I&rsquo;m managing my pictures using emacs dired, specifically image-dired. I found myself repeatedly marking pictures and in order to paste their filpaths in various shell scripts for further manipulation.
+This article introduces a convenient way to automate image manipulation tasks using a Bash script and Emacs Dired mode. It presents an approach to creating a Bash script that resizes images, applies padding and aspect ratio, and removes EXIF information. The script is then bound to a key C-c C-x in Emacs Dired mode, allowing users to easily apply these operations to multiple images with a single key press.">
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.112.3">
+  <title>Automating Image Manipulation in Emacs Dired Mode | Rida Ayed</title>
+  <link rel="canonical" href="/posts/automating_image_manipulation_in_emacs_dired_mode/">
+
+
+  
+
+
+
+
+
+
+
+
+  
+    
+  
+  
+  <link rel="stylesheet" href="/css/base.min.7edf2aa1a507c25a254adca377a5c41a4ba6c56d1f894ed4a36d9d0b608e0a92.css" integrity="sha256-ft8qoaUHwlolStyjd6XEGkumxW0fiU7Uo22dC2COCpI=" crossorigin="anonymous">
+
+
+
+</head>
+
+<body>
+  <nav class="u-background">
+  <div class="u-wrapper">
+    <ul class="Banner">
+      <li class="Banner-item Banner-item--title">
+        <a class="Banner-link u-clickable" href="/">Rida Ayed</a>
+      </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/about/">Contact</a>
+        </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/posts/">Blog</a>
+        </li>
+      
+    </ul>
+  </div>
+</nav>
+  <main>
+    <div class="u-wrapper">
+      <div class="u-padding">
+        
+
+  <article>
+    <header class="Heading">
+  <h2 class="Heading-title">
+    <a class="Heading-link u-clickable" href="/posts/automating_image_manipulation_in_emacs_dired_mode/" rel="bookmark">Automating Image Manipulation in Emacs Dired Mode</a>
+  </h2>
+  
+    <time datetime="2023-07-18T15:52:00&#43;02:00">18 July, 2023</time>
+  
+</header>
+    <p>I&rsquo;m managing my pictures using emacs dired, specifically image-dired. I found myself repeatedly marking pictures and in order to paste their filpaths in various shell scripts for further manipulation.</p>
+<p>This article introduces a convenient way to automate image manipulation tasks using a Bash script and Emacs Dired mode. It presents an approach to creating a Bash script that resizes images, applies padding and aspect ratio, and removes EXIF information. The script is then bound to a key <kbd> C-c C-x</kbd> in Emacs Dired mode, allowing users to easily apply these operations to multiple images with a single key press. The article also covers making the script executable and monitoring the script&rsquo;s output using journalctl.</p>
+<h2 id="image-manipulation-script">Image manipulation script</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#~/bin/image_manipulation.sh</span>
+</span></span><span style="display:flex;"><span>outdir<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/tmp/</span><span style="color:#66d9ef">$(</span>date +%Y%m%d_%H%M%S<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>  <span style="color:#75715e"># Create a directory with the current date and time</span>
+</span></span><span style="display:flex;"><span>mkdir $outdir
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> arg in <span style="color:#e6db74">&#34;</span>$@<span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    source<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$arg<span style="color:#e6db74">&#34;</span>  <span style="color:#75715e"># Store the source file path</span>
+</span></span><span style="display:flex;"><span>    filename<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>source##*/<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>  <span style="color:#75715e"># Extract the filename from the source file path</span>
+</span></span><span style="display:flex;"><span>    outfile<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$outdir<span style="color:#e6db74">/</span>$filename<span style="color:#e6db74">&#34;</span>  <span style="color:#75715e"># Specify the output file path</span>
+</span></span><span style="display:flex;"><span>    tmpfile<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$outdir<span style="color:#e6db74">/tmp_</span>$filename<span style="color:#e6db74">&#34;</span>  <span style="color:#75715e"># Specify the temporary file path</span>
+</span></span><span style="display:flex;"><span>    logger <span style="color:#e6db74">&#34;Source: </span>$arg<span style="color:#e6db74">, outfile: </span>$outfile<span style="color:#e6db74">, tmpfile: </span>$tmpfile<span style="color:#e6db74">&#34;</span>  <span style="color:#75715e"># Log the source, output, and temporary file paths</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    convert <span style="color:#e6db74">&#34;</span>$source<span style="color:#e6db74">&#34;</span> -resize 1350x1350 <span style="color:#e6db74">&#34;</span>$tmpfile<span style="color:#e6db74">&#34;</span>  <span style="color:#75715e"># Resize the image</span>
+</span></span><span style="display:flex;"><span>    ~/Downloads/aspectpad -a 1.25 -m al -p white <span style="color:#e6db74">&#34;</span>$tmpfile<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$outfile<span style="color:#e6db74">&#34;</span>  <span style="color:#75715e"># Apply padding and aspect ratio</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Remove all EXIF information from the image except the Orientation tag</span>
+</span></span><span style="display:flex;"><span>    exiftool -overwrite_original -all<span style="color:#f92672">=</span> -tagsfromfile @ -Orientation <span style="color:#e6db74">&#34;</span>$outfile<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    rm $tmpfile  <span style="color:#75715e"># Remove the temporary file</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Save the outdir path in the Emacs killring for easy access</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;</span>$outdir<span style="color:#e6db74">&#34;</span> &gt; /tmp/kill
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>exit
+</span></span></code></pre></div><h2 id="make-the-script-executable">Make the script executable</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo chmod +x ~/bin/image_manipulation.sh
+</span></span></code></pre></div><h2 id="bind-script-to-key-in-emacs-dired-mode">Bind script to key in emacs dired mode</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my-dired-send-to-image_manipulation ()
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Send marked files in Dired to ~/bin/image_manipulation.sh
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  assure ~/bin is in $PATH)&#34;</span>
+</span></span><span style="display:flex;"><span>  (interactive)
+</span></span><span style="display:flex;"><span>  (let ((files (dired-get-marked-files)))
+</span></span><span style="display:flex;"><span>    (shell-command (<span style="color:#a6e22e">concat</span> <span style="color:#e6db74">&#34;image_manipulation.sh &#34;</span> (<span style="color:#a6e22e">mapconcat</span> <span style="color:#a6e22e">#&#39;</span>shell-quote-argument files <span style="color:#e6db74">&#34; &#34;</span>)))
+</span></span><span style="display:flex;"><span>    (<span style="color:#a6e22e">message</span> <span style="color:#e6db74">&#34;Sent to image_manipulation.sh: %s&#34;</span> files)))
+</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">define-key</span> dired-mode-map (kbd <span style="color:#e6db74">&#34;C-c C-x&#34;</span>) <span style="color:#e6db74">&#39;my-dired-send-to-foo</span>)
+</span></span></code></pre></div><h2 id="check-script-output-in-log">Check script output in log</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>journalctl -f
+</span></span></code></pre></div>
+    
+
+
+  
+
+  
+
+
+
+
+
+    
+  
+
+  </article>
+
+
+      </div>
+    </div>
+  </main>
+  
+</body>
+
+</html>
