@@ -113,7 +113,7 @@ This article presents a convenient way to automate image manipulation tasks usin
 </span></span><span style="display:flex;"><span>  (let ((files (dired-get-marked-files)))
 </span></span><span style="display:flex;"><span>    (shell-command (<span style="color:#a6e22e">concat</span> <span style="color:#e6db74">&#34;image_manipulation.sh &#34;</span> (<span style="color:#a6e22e">mapconcat</span> <span style="color:#a6e22e">#&#39;</span>shell-quote-argument files <span style="color:#e6db74">&#34; &#34;</span>)))
 </span></span><span style="display:flex;"><span>    (<span style="color:#a6e22e">message</span> <span style="color:#e6db74">&#34;Sent to image_manipulation.sh: %s&#34;</span> files)))
-</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">define-key</span> dired-mode-map (kbd <span style="color:#e6db74">&#34;C-c C-x&#34;</span>) <span style="color:#e6db74">&#39;my-dired-send-to-foo</span>)
+</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">define-key</span> dired-mode-map (kbd <span style="color:#e6db74">&#34;C-c C-x&#34;</span>) <span style="color:#e6db74">&#39;my-dired-send-to-image_manipulation</span>)
 </span></span></code></pre></div><h2 id="check-script-output-in-log">Check script output in log</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>journalctl -f
 </span></span></code></pre></div>
