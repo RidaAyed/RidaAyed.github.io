@@ -2,12 +2,13 @@
 <?xml-stylesheet type="text/xsl" href="/xml/base.min.xml" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Rida Ayed</title>
-    <link>/categories/</link>
-    <description>Recent content in Categories on Rida Ayed</description>
+    <title>bash on Rida Ayed</title>
+    <link>/tags/bash/</link>
+    <description>Recent content in bash on Rida Ayed</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 30 Mar 2020 15:50:00 +0200</lastBuildDate>
+    <atom:link href="/tags/bash/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Automating Image Manipulation in Emacs Dired Mode</title>
       <link>/posts/automating_image_manipulation_in_emacs_dired_mode/</link>

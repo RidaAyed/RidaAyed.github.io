@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  
+    <meta name="description" content="This script takes a screenshot of a website. It does so headless with Firefox. A backup is taken before doing anything. It deletes traces left during the process.
+Backup exec 2&gt;&amp;1 orig=/home/ra/.mozilla/firefox backup=/home/ra/tmp/firefox_backup rm -rf $backup mkdir -p $backup cp -r $orig $backup : Create the test profile which firefox &gt;/dev/null 2&gt;&amp;1 &amp;&amp; firefox --version which firefox &gt;/dev/null 2&gt;&amp;1 &amp;&amp; firefox -CreateProfile headlessTest Take the screenshot exec 2&gt;&amp;1 start_time=&#34;$(date -u &#43;%s)&#34; dt=$(date &#39;&#43;%Y-%m-%d-%H%M%S&#39;) filename=/tmp/$dt-headlessTest.">
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.119.0">
+  <title>Take website screenshots with headless Firefox | Rida Ayed</title>
+  <link rel="canonical" href="/posts/take_website_screenshots_with_headless_firefox/">
+
+
+  
+
+
+
+
+
+
+
+
+  
+    
+  
+  
+  <link rel="stylesheet" href="/css/base.min.1ec2bb198a4da4cd3b72a7a9d66a8f05b29054bf56cfbd9edc630f77ba04aa61.css" integrity="sha256-HsK7GYpNpM07cqep1mqPBbKQVL9Wz72e3GMPd7oEqmE=" crossorigin="anonymous">
+
+
+
+</head>
+
+<body>
+  <nav class="u-background">
+  <div class="u-wrapper">
+    <ul class="Banner">
+      <li class="Banner-item Banner-item--title">
+        <a class="Banner-link u-clickable" href="/">Rida Ayed</a>
+      </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/about/">About</a>
+        </li>
+      
+    </ul>
+  </div>
+</nav>
+  <main>
+    <div class="u-wrapper">
+      <div class="u-padding">
+        
+
+  <article>
+    <header class="Heading">
+  <h2 class="Heading-title">
+    <a class="Heading-link u-clickable" href="/posts/take_website_screenshots_with_headless_firefox/" rel="bookmark">Take website screenshots with headless Firefox</a>
+  </h2>
+  
+    <time datetime="2020-03-30T15:50:00&#43;02:00">30 March, 2020</time>
+  
+</header>
+    <p>This script takes a screenshot of a website. It does so headless with Firefox. A backup is
+taken before doing anything. It deletes traces left during the process.</p>
+<h2 id="backup">Backup</h2>
+<p><a id="code-snippet--headless-firefox-screenshot-backup"></a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>     exec 2&gt;&amp;<span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>     orig<span style="color:#f92672">=</span>/home/ra/.mozilla/firefox
+</span></span><span style="display:flex;"><span>     backup<span style="color:#f92672">=</span>/home/ra/tmp/firefox_backup
+</span></span><span style="display:flex;"><span>     rm -rf $backup
+</span></span><span style="display:flex;"><span>     mkdir -p $backup
+</span></span><span style="display:flex;"><span>     cp -r $orig $backup
+</span></span><span style="display:flex;"><span>     :
+</span></span></code></pre></div><h2 id="create-the-test-profile">Create the test profile</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>   which firefox &gt;/dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> firefox --version
+</span></span><span style="display:flex;"><span>   which firefox &gt;/dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> firefox -CreateProfile headlessTest
+</span></span></code></pre></div><h2 id="take-the-screenshot">Take the screenshot</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>     exec 2&gt;&amp;<span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>     start_time<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>date -u +%s<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>     dt<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>date <span style="color:#e6db74">&#39;+%Y-%m-%d-%H%M%S&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>     filename<span style="color:#f92672">=</span>/tmp/$dt-headlessTest.jpg
+</span></span><span style="display:flex;"><span>     url<span style="color:#f92672">=</span>https://www.gnu.org/software/emacs/
+</span></span><span style="display:flex;"><span>     which firefox &gt;/dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> firefox <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                                          -P headlessTest <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                                          --screenshot $filename $url <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                                          --window-size<span style="color:#f92672">=</span>1024,768
+</span></span><span style="display:flex;"><span>     end_time<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>date -u +%s<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>     elapsed<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$((</span>$end_time<span style="color:#f92672">-</span>$start_time<span style="color:#66d9ef">))</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>     echo <span style="color:#e6db74">&#34;Total of </span>$elapsed<span style="color:#e6db74"> seconds elapsed for screenshot: </span>$filename<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>     echo <span style="color:#e6db74">&#34;Size: </span><span style="color:#66d9ef">$(</span>du --block-size K $filename<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>     :
+</span></span></code></pre></div><h2 id="cleanup-and-restore">Cleanup and restore</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>     exec 2&gt;&amp;<span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>     orig<span style="color:#f92672">=</span>/home/ra/.mozilla/firefox
+</span></span><span style="display:flex;"><span>     backup<span style="color:#f92672">=</span>/home/ra/tmp/firefox
+</span></span><span style="display:flex;"><span>     rm -rf $orig/*
+</span></span><span style="display:flex;"><span>     cp -r $backup/* $orig
+</span></span><span style="display:flex;"><span>     rm -rf $backup <span style="color:#75715e">#Uncomment to delete the backup</span>
+</span></span><span style="display:flex;"><span>     echo <span style="color:#e6db74">&#34;Done&#34;</span>
+</span></span><span style="display:flex;"><span>     :
+</span></span></code></pre></div><h2 id="fullscript">Fullscript</h2>
+<p><a id="code-snippet--headless-firefox-screenshot-fullscript"></a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>          exec 2&gt;&amp;<span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>          orig<span style="color:#f92672">=</span>/home/ra/.mozilla/firefox
+</span></span><span style="display:flex;"><span>          backup<span style="color:#f92672">=</span>/home/ra/tmp/firefox_backup
+</span></span><span style="display:flex;"><span>          rm -rf $backup
+</span></span><span style="display:flex;"><span>          mkdir -p $backup
+</span></span><span style="display:flex;"><span>          cp -r $orig $backup
+</span></span><span style="display:flex;"><span>          :
+</span></span><span style="display:flex;"><span>        which firefox &gt;/dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> firefox --version
+</span></span><span style="display:flex;"><span>        which firefox &gt;/dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> firefox -CreateProfile headlessTest
+</span></span><span style="display:flex;"><span>          exec 2&gt;&amp;<span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>          start_time<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>date -u +%s<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>          dt<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>date <span style="color:#e6db74">&#39;+%Y-%m-%d-%H%M%S&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>          filename<span style="color:#f92672">=</span>/tmp/$dt-headlessTest.jpg
+</span></span><span style="display:flex;"><span>          url<span style="color:#f92672">=</span>https://www.gnu.org/software/emacs/
+</span></span><span style="display:flex;"><span>          which firefox &gt;/dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> firefox <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                                               -P headlessTest <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                                               --screenshot $filename $url <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                                               --window-size<span style="color:#f92672">=</span>1024,768
+</span></span><span style="display:flex;"><span>          end_time<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>date -u +%s<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>          elapsed<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$((</span>$end_time<span style="color:#f92672">-</span>$start_time<span style="color:#66d9ef">))</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>          echo <span style="color:#e6db74">&#34;Total of </span>$elapsed<span style="color:#e6db74"> seconds elapsed for screenshot: </span>$filename<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>          echo <span style="color:#e6db74">&#34;Size: </span><span style="color:#66d9ef">$(</span>du --block-size K $filename<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>          :
+</span></span><span style="display:flex;"><span>          exec 2&gt;&amp;<span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>          orig<span style="color:#f92672">=</span>/home/ra/.mozilla/firefox
+</span></span><span style="display:flex;"><span>          backup<span style="color:#f92672">=</span>/home/ra/tmp/firefox
+</span></span><span style="display:flex;"><span>          rm -rf $orig/*
+</span></span><span style="display:flex;"><span>          cp -r $backup/* $orig
+</span></span><span style="display:flex;"><span>          rm -rf $backup <span style="color:#75715e">#Uncomment to delete the backup</span>
+</span></span><span style="display:flex;"><span>          echo <span style="color:#e6db74">&#34;Done&#34;</span>
+</span></span><span style="display:flex;"><span>          :
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>4.0K /home/ra/.mozilla/firefox
+</span></span><span style="display:flex;"><span>4.0K /home/ra/tmp/firefox
+</span></span><span style="display:flex;"><span>*** You are running in headless mode.
+</span></span><span style="display:flex;"><span>Total of 7 seconds elapsed for screenshot: /tmp/2020-03-30-154448-headlessTest.jpg
+</span></span><span style="display:flex;"><span>Size: 104K	/tmp/2020-03-30-154448-headlessTest.jpg
+</span></span><span style="display:flex;"><span>4.0K /home/ra/.mozilla/firefox
+</span></span><span style="display:flex;"><span>4.0K /home/ra/tmp/firefox
+</span></span></code></pre></div>
+    
+
+
+  
+
+  
+
+
+
+
+
+  <footer>
+    
+      
+    
+      
+        <ul class="Tags">
+          
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="/tags/bash/" rel="tag">bash</a>
+            </li>
+          
+        </ul>
+      
+    
+  </footer>
+
+    
+  
+
+  </article>
+
+
+      </div>
+    </div>
+  </main>
+  
+</body>
+
+</html>
