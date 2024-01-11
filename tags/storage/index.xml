@@ -10,6 +10,24 @@
     <lastBuildDate>Sat, 28 Mar 2020 12:50:00 +0100</lastBuildDate>
     <atom:link href="/tags/storage/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>How to pipenv install a git pull request from github</title>
+      <link>/posts/how-to-pipenv-install-a-git-pull-request-from-github/</link>
+      <pubDate>Thu, 11 Jan 2024 10:46:00 +0100</pubDate>
+      <guid>/posts/how-to-pipenv-install-a-git-pull-request-from-github/</guid>
+      <description>&lt;p&gt;Given is this pullrequest &lt;a href=&#34;https://github.com/joeyespo/pytest-watch/pull/108&#34;&gt;https://github.com/joeyespo/pytest-watch/pull/108&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pipenv install -d &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;git+https://github.com/joeyespo/pytest-watch.git@refs/pull/108/head#egg&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;pytest-watch
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The &lt;code&gt;-d&lt;/code&gt; flag installs the package in the &lt;a href=&#34;#code-snippet--2024diff&#34;&gt;Pipfile&amp;rsquo;s&lt;/a&gt; &lt;code&gt;[dev-packages]&lt;/code&gt; section&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;#egg=pytest-watch&lt;/code&gt; suffix changes the &lt;code&gt;pytest-watch&lt;/code&gt; &lt;a href=&#34;#code-snippet--2024diff&#34;&gt;Pipfile&lt;/a&gt; from &lt;code&gt;&amp;quot;*&amp;quot;&lt;/code&gt; to &lt;code&gt;{ref = &amp;quot;refs/pull/108/head&amp;quot;, git = &amp;quot;git+https://github.com/joeyespo/pytest-watch.git&amp;quot;}&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--2024diff&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-diff&#34; data-lang=&#34;diff&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[dev-packages]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;debugpy = &amp;#34;*&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-pytest-watch = &amp;#34;*&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+pytest-watch = {ref = &amp;#34;refs/pull/108/head&amp;#34;, git = &amp;#34;git+https://github.com/joeyespo/pytest-watch.git&amp;#34;}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;&lt;/span&gt;epc = &amp;#34;*&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
       <title>Automating Image Manipulation in Emacs Dired Mode</title>
       <link>/posts/automating_image_manipulation_in_emacs_dired_mode/</link>
       <pubDate>Tue, 18 Jul 2023 15:52:00 +0200</pubDate>
