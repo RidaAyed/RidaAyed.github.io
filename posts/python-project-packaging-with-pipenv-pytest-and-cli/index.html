@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  
+    <meta name="description" content="Table of Contents A minimal python project Installing the package in a virtual environment using pipenv with python 3.8 Review the installation in perspective of pipenv and python 3.8 How can I start a python project the proper way? Extensible, with tests, as library and cli application, in a virtual environment and with an older python version (raspberry pi). I&rsquo;ve spent days conquering the same problems over and over again.">
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.121.2">
+  <title>Python project packaging with pipenv pytest and cli | Rida Ayed</title>
+  <link rel="canonical" href="/posts/python-project-packaging-with-pipenv-pytest-and-cli/">
+
+
+  
+
+
+
+
+
+
+
+
+  
+    
+  
+  
+  <link rel="stylesheet" href="/css/base.min.1ec2bb198a4da4cd3b72a7a9d66a8f05b29054bf56cfbd9edc630f77ba04aa61.css" integrity="sha256-HsK7GYpNpM07cqep1mqPBbKQVL9Wz72e3GMPd7oEqmE=" crossorigin="anonymous">
+
+
+
+</head>
+
+<body>
+  <nav class="u-background">
+  <div class="u-wrapper">
+    <ul class="Banner">
+      <li class="Banner-item Banner-item--title">
+        <a class="Banner-link u-clickable" href="/">Rida Ayed</a>
+      </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/about/">About</a>
+        </li>
+      
+    </ul>
+  </div>
+</nav>
+  <main>
+    <div class="u-wrapper">
+      <div class="u-padding">
+        
+
+  <article>
+    <header class="Heading">
+  <h2 class="Heading-title">
+    <a class="Heading-link u-clickable" href="/posts/python-project-packaging-with-pipenv-pytest-and-cli/" rel="bookmark">Python project packaging with pipenv pytest and cli</a>
+  </h2>
+  
+    <time datetime="2024-04-22T11:41:00&#43;02:00">22 April, 2024</time>
+  
+</header>
+    <div class="ox-hugo-toc toc">
+<div class="heading">Table of Contents</div>
+<ul>
+<li><a href="#a-minimal-python-project">A minimal python project</a></li>
+<li><a href="#installing-the-package-in-a-virtual-environment-using-pipenv-with-python-3-dot-8">Installing the package in a virtual environment using pipenv with python 3.8</a></li>
+<li><a href="#review-the-installation-in-perspective-of-pipenv-and-python-3-dot-8">Review the installation in perspective of pipenv and python 3.8</a></li>
+</ul>
+</div>
+<!--endtoc-->
+<p>How can I start a python project the proper way? Extensible, with tests, as library and cli application, in a virtual environment and with an older python version (raspberry pi).
+I&rsquo;ve spent days conquering the same problems over and over again. Imports from parent modules not working. Tests work but the cli doesn&rsquo;t. Pipenv not installing the right python version. You name it.
+Each time I think I&rsquo;m all set, I&rsquo;m encountering another missed step in my endeavour for clean code.
+This &rsquo;essay&rsquo; shall be the base for my future python projects.</p>
+<h2 id="a-minimal-python-project">A minimal python project</h2>
+<p>Our starting point is: <a href="https://packaging.python.org/en/latest/tutorials/packaging-projects/">https://packaging.python.org/en/latest/tutorials/packaging-projects/</a>
+I&rsquo;ll use the absolute minimum. E.g. <code>pyproject.toml</code> contains no description nor licence etc.
+Furthermore I&rsquo;ve deleted files e.g. <code>readme.md</code> and directories e.g. <code>tests</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>/home/ra/tmp/$ tree packaging_tutorial
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>packaging_tutorial
+</span></span><span style="display:flex;"><span>├── pyproject.toml
+</span></span><span style="display:flex;"><span>└── src
+</span></span><span style="display:flex;"><span>    └── example_package
+</span></span><span style="display:flex;"><span>        ├── example.py
+</span></span><span style="display:flex;"><span>        └── __init__.py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>3 directories, 3 files
+</span></span></code></pre></div><p>Let&rsquo;s have a look at the content of <code>pyproject.toml</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">build-system</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">requires</span> = [<span style="color:#e6db74">&#34;hatchling&#34;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">build-backend</span> = <span style="color:#e6db74">&#34;hatchling.build&#34;</span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">project</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;example_package&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">version</span> = <span style="color:#e6db74">&#34;0.0.1&#34;</span>
+</span></span></code></pre></div><h2 id="installing-the-package-in-a-virtual-environment-using-pipenv-with-python-3-dot-8">Installing the package in a virtual environment using pipenv with python 3.8</h2>
+<p>We replicate the steps from<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> not from <code>pypi</code> but locally from within the project&rsquo;s folder (thus the dot <code>.</code> after <code>-e</code>).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pipenv install -e . --python 3.8
+</span></span></code></pre></div><p>The <code>-e</code> flag (editable) allows further development (hence editing) alongside the installation.</p>
+<p>But am I really installing if using a virtual environment? At this moment I&rsquo;ll leave the flag since I haven&rsquo;t detected any downsides to it yet.</p>
+<p>Ensure the virtual environment has been created</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pipenv --venv
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/home/ra/.local/share/virtualenvs/packaging_tutorial-okktpVF3
+</span></span></code></pre></div><p>Ensure version 3.8 is used as virtual python environment</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>python -V
+</span></span></code></pre></div><p>Check the new directory structure</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>tree packaging_tutorial
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>packaging_tutorial
+</span></span><span style="display:flex;"><span>├── Pipfile
+</span></span><span style="display:flex;"><span>├── Pipfile.lock
+</span></span><span style="display:flex;"><span>├── pyproject.toml
+</span></span><span style="display:flex;"><span>└── src
+</span></span><span style="display:flex;"><span>    └── example_package
+</span></span><span style="display:flex;"><span>        ├── example.py
+</span></span><span style="display:flex;"><span>        └── __init__.py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>3 directories, 5 files
+</span></span></code></pre></div><p>Let&rsquo;s have a look at Pipfile&rsquo;s content:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[[<span style="color:#a6e22e">source</span>]]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">url</span> = <span style="color:#e6db74">&#34;https://pypi.org/simple&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">verify_ssl</span> = <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;pypi&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">packages</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">example-package</span> = {<span style="color:#a6e22e">file</span> = <span style="color:#e6db74">&#34;.&#34;</span>, <span style="color:#a6e22e">editable</span> = <span style="color:#66d9ef">true</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">dev-packages</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">requires</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">python_version</span> = <span style="color:#e6db74">&#34;3.8&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">python_full_version</span> = <span style="color:#e6db74">&#34;3.8.12&#34;</span>
+</span></span></code></pre></div><p>Activate the virtual environment</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pipenv shell
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>python
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Python 3.8.12 (default, Dec  4 2021, 10:54:00)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># [GCC 11.1.0] on linux</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Type &#34;help&#34;, &#34;copyright&#34;, &#34;credits&#34; or &#34;license&#34; for more information.</span>
+</span></span></code></pre></div><p>Mind that I changed the name from <del>example_package_YOUR_USERNAME_HERE</del> to <code>example_package</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#f92672">from</span> example_package <span style="color:#f92672">import</span> example
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> example<span style="color:#f92672">.</span>add_one(<span style="color:#ae81ff">2</span>)
+</span></span></code></pre></div><h2 id="review-the-installation-in-perspective-of-pipenv-and-python-3-dot-8">Review the installation in perspective of pipenv and python 3.8</h2>
+<p>At this stage we&rsquo;ve successfully replicated the package installation <strong>locally</strong> with <strong>pipenv</strong> and <strong>another python version</strong> (3.8).</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://packaging.python.org/en/latest/tutorials/packaging-projects/#installing-your-newly-uploaded-package">https://packaging.python.org/en/latest/tutorials/packaging-projects/#installing-your-newly-uploaded-package</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+    
+
+
+  
+
+  
+
+
+
+
+
+    
+  
+
+  </article>
+
+
+      </div>
+    </div>
+  </main>
+  
+</body>
+
+</html>
