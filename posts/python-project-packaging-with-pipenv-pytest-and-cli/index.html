@@ -8,7 +8,7 @@
 
 
   
-    <meta name="description" content="Table of Contents A minimal python project Installing the package in a virtual environment using pipenv with python 3.8 Review the installation in perspective of pipenv and python 3.8 Run something from the cli Review our current (cli) project&rsquo;s state How can I start a python project the proper way? Extensible, scalable, with tests, as library and cli application, in a virtual environment and with an older python version e.">
+    <meta name="description" content="Table of Contents A minimal python project Installing the package in a virtual environment using pipenv with python 3.8 Review the installation in perspective of pipenv and python 3.8 Run something from the cli Review our current (cli) project&rsquo;s state How can I start a python project the proper way? Extensible, with tests, as library and cli application, in a virtual environment and with an older python version (raspberry pi).">
   
 
 
@@ -82,9 +82,9 @@
 </ul>
 </div>
 <!--endtoc-->
-<p>How can I start a python project the proper way? Extensible, scalable, with tests, as library and cli application, in a virtual environment and with an older python version e.g. raspberry pi.
-I&rsquo;ve spent days conquering the same problems over and over again. Imports from parent modules not working. Tests work but the cli doesn&rsquo;t. Pipenv not installing the right python version. You name it.
-Each time I think I&rsquo;m all set, I&rsquo;m encountering another missed step in my endeavour for clean code.
+<p>How can I start a python project the proper way? Extensible, with tests, as library and cli application, in a virtual environment and with an older python version (raspberry pi).</p>
+<p>I&rsquo;ve spent days conquering the same problems over and over again. Notorious import problems. Imports from parent modules not working. Tests work but the cli doesn&rsquo;t. Pipenv not installing the right python version. You name it.</p>
+<p>Each time I think I&rsquo;m all set, I&rsquo;m encountering another missed step in my endeavour for clean code.
 This &rsquo;essay&rsquo; shall be the base for my future python projects.</p>
 <h2 id="a-minimal-python-project">A minimal python project</h2>
 <p>Our starting point is: <a href="https://packaging.python.org/en/latest/tutorials/packaging-projects/">https://packaging.python.org/en/latest/tutorials/packaging-projects/</a>
@@ -106,7 +106,9 @@ Furthermore I&rsquo;ve deleted files e.g. <code>readme.md</code> and directories
 </span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">project</span>]
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;example_package&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">version</span> = <span style="color:#e6db74">&#34;0.0.1&#34;</span>
-</span></span></code></pre></div><h2 id="installing-the-package-in-a-virtual-environment-using-pipenv-with-python-3-dot-8">Installing the package in a virtual environment using pipenv with python 3.8</h2>
+</span></span></code></pre></div><p><mark>What&rsquo;s most counterintuitive is that the name key under the [project] section in pyproject.toml must match the name of the package (example_package) and <strong><strong>not</strong></strong> the parent&rsquo;s directory name (packaging_tutorial). In my mind the parent directory <strong><strong>is</strong></strong> the project&rsquo;s name.
+In fact, the parent directory name seems completely negligible in perspective of development.</mark></p>
+<h2 id="installing-the-package-in-a-virtual-environment-using-pipenv-with-python-3-dot-8">Installing the package in a virtual environment using pipenv with python 3.8</h2>
 <p>We replicate the steps from<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> not from <code>pypi</code> but locally from within the project&rsquo;s folder (thus the dot <code>.</code> after <code>-e</code>).</p>
 <p><a id="code-snippet--pipenv-install-e"></a></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pipenv install -e . --python 3.8
@@ -115,6 +117,8 @@ Furthermore I&rsquo;ve deleted files e.g. <code>readme.md</code> and directories
 <p>Ensure the virtual environment has been created</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pipenv --venv
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/home/ra/.local/share/virtualenvs/packaging_tutorial-okktpVF3
+</span></span></code></pre></div><p>Activate this project&rsquo;s virtualenv</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pipenv shell
 </span></span></code></pre></div><p>Ensure version 3.8 is used as virtual python environment</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>python -V
 </span></span></code></pre></div><p>Check the new directory structure</p>
