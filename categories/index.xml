@@ -24,7 +24,7 @@
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;!--endtoc--&gt;
-&lt;p&gt;How can I start a python project the proper way? Extensible, with tests, as library and cli application, in a virtual environment and with an older python version (raspberry pi).&lt;/p&gt;
+How can I start a python project the proper way? Extensible, with tests, as library and cli application, in a virtual environment and with an older python version (raspberry pi).
 &lt;p&gt;I&amp;rsquo;ve spent days conquering the same problems over and over again. Notorious import problems. Imports from parent modules not working. Tests work but the cli doesn&amp;rsquo;t. Pipenv not installing the right python version. You name it.&lt;/p&gt;
 &lt;p&gt;Each time I think I&amp;rsquo;m all set, I&amp;rsquo;m encountering another missed step in my endeavour for clean code.
 This &amp;rsquo;essay&amp;rsquo; shall be the base for my future python projects.&lt;/p&gt;
