@@ -10,6 +10,99 @@
     <lastBuildDate>Mon, 09 May 2022 09:03:29 +0200</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Font awesome icons in hugo footer</title>
+      <link>/posts/font-awesome-icons-in-hugo-footer/</link>
+      <pubDate>Sun, 05 May 2024 11:19:00 +0200</pubDate>
+      <guid>/posts/font-awesome-icons-in-hugo-footer/</guid>
+      <description>&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#directory-path-and-completeness&#34;&gt;Directory path and completeness&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#config-dot-toml&#34;&gt;config.toml&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#usage-of-the-icons-as-ox-hugo-shortcodes&#34;&gt;Usage of the icons as ox-hugo shortcodes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#conclusion&#34;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
+&lt;p&gt;I followed this concise blog post&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; about embedding font awesome in hugo.
+Of course I expected everything to work flawless in my environment as well.
+As usual, this presumption was wrong.&lt;/p&gt;
+&lt;p&gt;Simply adding {{&amp;lt; fa bath &amp;gt;}} to the &lt;code&gt;footer&lt;/code&gt; key in config.toml nor in this org mode file will not work.&lt;/p&gt;
+&lt;p&gt;This post shall show how to circumvent that flaws, use fontawesome in hugo&amp;rsquo;s footer section and overall in your blog&amp;rsquo;s content using ox-hugo.&lt;/p&gt;
+&lt;h2 id=&#34;directory-path-and-completeness&#34;&gt;Directory path and completeness&lt;/h2&gt;
+&lt;p&gt;Opposed to the instructions&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; I put the files &lt;del&gt;not in the static&lt;/del&gt; but in the &lt;strong&gt;assets&lt;/strong&gt; folder. I had to create it first.&lt;/p&gt;
+&lt;p&gt;Furthermore I put the &lt;strong&gt;complete&lt;/strong&gt; Fontawesome directory, not only a particular file. &lt;code&gt;fa.html&lt;/code&gt;&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt; pointing to subdirectories made me skeptic about picking only particular files.&lt;/p&gt;
+&lt;h2 id=&#34;config-dot-toml&#34;&gt;config.toml&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;js&lt;/code&gt; key is documented in my theme&amp;rsquo;s repository&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;. You might encounter other ways for your particular theme in order to customize css/js assets.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[&lt;span style=&#34;color:#a6e22e&#34;&gt;params&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;js&lt;/span&gt; = [&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/fontawesome/js/all.js&amp;#34;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;footer&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;lt;a href=&amp;#34;https://instagram.com/rida.ayed&amp;#34;&amp;gt;&amp;lt;div class=&amp;#34;fab fa-fab fa-instagram&amp;#34;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/a&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;lt;a href=&amp;#34;https://github.com/RidaAyed&amp;#34;&amp;gt;&amp;lt;div class=&amp;#34;fab fa-fab fa-github&amp;#34;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/a&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now the footer contains links with icons. Namely 
+
+
+  
+
+
+&lt;i class=&#34;fab  fa-fab  fa-instagram &#34;&gt;
+  
+  
+    
+    &lt;link href=&#34;/fontawesome/css/all.min.css&#34; rel=&#34;stylesheet&#34;&gt;
+  
+&lt;/i&gt;
+ and 
+
+
+  
+
+
+&lt;i class=&#34;fab  fa-fab  fa-github &#34;&gt;
+  
+  
+&lt;/i&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;usage-of-the-icons-as-ox-hugo-shortcodes&#34;&gt;Usage of the icons as ox-hugo shortcodes&lt;/h2&gt;
+&lt;p&gt;Although being documented&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;, I rather show the shortcode usage in ox-hugo again and specifically:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;@@hugo:{ {&amp;lt; fa bath &amp;gt;}}@@
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Only by chance I noticed that surrounding the shortcode with the equal sign &amp;ldquo;=&amp;rdquo; works as well. Like&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;={ {&amp;lt; fa bath &amp;gt;}}=
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;mark&gt;You must delete that first space between the curly brackets from my upper examples. So {{ instead of { {&lt;br /&gt;&lt;/mark&gt; Both examples result in: 
+
+
+
+&lt;i class=&#34;fas  fa-bath &#34;&gt;
+  
+  
+&lt;/i&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;I showed how to extend the icon usage into the footer section of a hugo website. Furthermore you should be able to use the icon shortcodes in a org file considering ox-hugo as blog platform.&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://matze.rocks/posts/fontawesome_in_hugo/&#34;&gt;https://matze.rocks/posts/fontawesome_in_hugo/&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://matze.rocks/posts/fontawesome_in_hugo/#2-include-font-awesome-in-your-project&#34;&gt;https://matze.rocks/posts/fontawesome_in_hugo/#2-include-font-awesome-in-your-project&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://matze.rocks/posts/fontawesome_in_hugo/#3-add-custom-shortcode&#34;&gt;https://matze.rocks/posts/fontawesome_in_hugo/#3-add-custom-shortcode&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ldeso/hugo-flex#custom-css-and-js&#34;&gt;https://github.com/ldeso/hugo-flex#custom-css-and-js&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:5&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://ox-hugo.scripter.co/doc/shortcodes/&#34;&gt;https://ox-hugo.scripter.co/doc/shortcodes/&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    <item>
       <title>Python project packaging with pipenv pytest and cli</title>
       <link>/posts/python-project-packaging-with-pipenv-pytest-and-cli/</link>
       <pubDate>Mon, 22 Apr 2024 11:41:00 +0200</pubDate>
@@ -25,7 +118,19 @@
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;!--endtoc--&gt;
-How can I start a python project the proper way? Extensible, with tests, as library and cli application, in a virtual environment and with an older python version (raspberry pi).
+
+
+
+
+&lt;i class=&#34;fas  fa-bath &#34;&gt;
+  
+  
+    
+    &lt;link href=&#34;/fontawesome/css/all.min.css&#34; rel=&#34;stylesheet&#34;&gt;
+  
+&lt;/i&gt;
+
+&lt;p&gt;How can I start a python project the proper way? Extensible, with tests, as library and cli application, in a virtual environment and with an older python version (raspberry pi).&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve spent days conquering the same problems over and over again. Notorious import problems. Imports from parent modules not working. Tests work but the cli doesn&amp;rsquo;t. Pipenv not installing the right python version. You name it.&lt;/p&gt;
 &lt;p&gt;Each time I think I&amp;rsquo;m all set, I&amp;rsquo;m encountering another missed step in my endeavour for clean code.
 This &amp;rsquo;essay&amp;rsquo; shall be the base for my future python projects.&lt;/p&gt;
@@ -155,7 +260,7 @@ In fact, the parent directory name seems completely negligible in perspective of
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; __name__ &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    example&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_one(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now &lt;code&gt;python -m example_package&lt;/code&gt; works.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now running &lt;code&gt;python -m example_package&lt;/code&gt; in terminal being in &lt;code&gt;/packaging_tutorial&lt;/code&gt; works.&lt;/p&gt;
 &lt;h2 id=&#34;review-our-current--cli--project-s-state&#34;&gt;Review our current (cli) project&amp;rsquo;s state&lt;/h2&gt;
 &lt;p&gt;At this point we&amp;rsquo;re able to&lt;/p&gt;
 &lt;ol&gt;

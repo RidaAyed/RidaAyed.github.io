@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  
+    <meta name="description" content="Table of Contents Directory path and completeness config.toml Usage of the icons as ox-hugo shortcodes Conclusion I followed this concise blog post1 about embedding font awesome in hugo. Of course I expected everything to work flawless in my environment as well. As usual, this presumption was wrong.
+Simply adding {{&lt; fa bath &gt;}} to the footer key in config.toml nor in this org mode file will not work.
+This post shall show how to circumvent that flaws, use fontawesome in hugo&rsquo;s footer section and overall in your blog&rsquo;s content using ox-hugo.">
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.121.2">
+  <title>Font awesome icons in hugo footer | Rida Ayed</title>
+  <link rel="canonical" href="/posts/font-awesome-icons-in-hugo-footer/">
+
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+  
+  
+  
+
+  
+    
+  
+  
+  <link rel="stylesheet" href="/css/base.min.7267752c3baf5d7989b4ff63862b99557184d61b1099d8e225a8c5c9f7b2486b.css" integrity="sha256-cmd1LDuvXXmJtP9jhiuZVXGE1hsQmdjiJajFyfeySGs=" crossorigin="anonymous">
+
+
+
+  <script defer src="/js/base.min.70b098dab71f837cb63b52c0d70a0bb5cb00d96768e4645adeb2f0a5bca79222.js" integrity="sha256-cLCY2rcfg3y2O1LA1woLtcsA2Wdo5GRa3rLwpbynkiI=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <nav class="u-background">
+  <div class="u-wrapper">
+    <ul class="Banner">
+      <li class="Banner-item Banner-item--title">
+        <a class="Banner-link u-clickable" href="/">Rida Ayed</a>
+      </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/posts/">Blog</a>
+        </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/about/">About</a>
+        </li>
+      
+    </ul>
+  </div>
+</nav>
+  <main>
+    <div class="u-wrapper">
+      <div class="u-padding">
+        
+
+  <article>
+    <header class="Heading">
+  <h2 class="Heading-title">
+    <a class="Heading-link u-clickable" href="/posts/font-awesome-icons-in-hugo-footer/" rel="bookmark">Font awesome icons in hugo footer</a>
+  </h2>
+  
+    <time datetime="2024-05-05T11:19:00&#43;02:00">5 May, 2024</time>
+  
+</header>
+    <div class="ox-hugo-toc toc">
+<div class="heading">Table of Contents</div>
+<ul>
+<li><a href="#directory-path-and-completeness">Directory path and completeness</a></li>
+<li><a href="#config-dot-toml">config.toml</a></li>
+<li><a href="#usage-of-the-icons-as-ox-hugo-shortcodes">Usage of the icons as ox-hugo shortcodes</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</div>
+<!--endtoc-->
+<p>I followed this concise blog post<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> about embedding font awesome in hugo.
+Of course I expected everything to work flawless in my environment as well.
+As usual, this presumption was wrong.</p>
+<p>Simply adding {{&lt; fa bath &gt;}} to the <code>footer</code> key in config.toml nor in this org mode file will not work.</p>
+<p>This post shall show how to circumvent that flaws, use fontawesome in hugo&rsquo;s footer section and overall in your blog&rsquo;s content using ox-hugo.</p>
+<h2 id="directory-path-and-completeness">Directory path and completeness</h2>
+<p>Opposed to the instructions<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> I put the files <del>not in the static</del> but in the <strong>assets</strong> folder. I had to create it first.</p>
+<p>Furthermore I put the <strong>complete</strong> Fontawesome directory, not only a particular file. <code>fa.html</code><sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> pointing to subdirectories made me skeptic about picking only particular files.</p>
+<h2 id="config-dot-toml">config.toml</h2>
+<p>The <code>js</code> key is documented in my theme&rsquo;s repository<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>. You might encounter other ways for your particular theme in order to customize css/js assets.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">params</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">js</span> = [<span style="color:#e6db74">&#34;/fontawesome/js/all.js&#34;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">footer</span> = <span style="color:#e6db74">&#39;&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&lt;a href=&#34;https://instagram.com/rida.ayed&#34;&gt;&lt;div class=&#34;fab fa-fab fa-instagram&#34;&gt;&lt;/div&gt;&lt;/a&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&lt;a href=&#34;https://github.com/RidaAyed&#34;&gt;&lt;div class=&#34;fab fa-fab fa-github&#34;&gt;&lt;/div&gt;&lt;/a&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;</span>
+</span></span></code></pre></div><p>Now the footer contains links with icons. Namely 
+
+
+  
+
+
+<i class="fab  fa-fab  fa-instagram ">
+  
+  
+    
+    <link href="/fontawesome/css/all.min.css" rel="stylesheet">
+  
+</i>
+ and 
+
+
+  
+
+
+<i class="fab  fa-fab  fa-github ">
+  
+  
+</i>
+</p>
+<h2 id="usage-of-the-icons-as-ox-hugo-shortcodes">Usage of the icons as ox-hugo shortcodes</h2>
+<p>Although being documented<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>, I rather show the shortcode usage in ox-hugo again and specifically:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>@@hugo:{ {&lt; fa bath &gt;}}@@
+</span></span></code></pre></div><p>Only by chance I noticed that surrounding the shortcode with the equal sign &ldquo;=&rdquo; works as well. Like</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>={ {&lt; fa bath &gt;}}=
+</span></span></code></pre></div><p><mark>You must delete that first space between the curly brackets from my upper examples. So {{ instead of { {<br /></mark> Both examples result in: 
+
+
+
+<i class="fas  fa-bath ">
+  
+  
+</i>
+</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>I showed how to extend the icon usage into the footer section of a hugo website. Furthermore you should be able to use the icon shortcodes in a org file considering ox-hugo as blog platform.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://matze.rocks/posts/fontawesome_in_hugo/">https://matze.rocks/posts/fontawesome_in_hugo/</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://matze.rocks/posts/fontawesome_in_hugo/#2-include-font-awesome-in-your-project">https://matze.rocks/posts/fontawesome_in_hugo/#2-include-font-awesome-in-your-project</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://matze.rocks/posts/fontawesome_in_hugo/#3-add-custom-shortcode">https://matze.rocks/posts/fontawesome_in_hugo/#3-add-custom-shortcode</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p><a href="https://github.com/ldeso/hugo-flex#custom-css-and-js">https://github.com/ldeso/hugo-flex#custom-css-and-js</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p><a href="https://ox-hugo.scripter.co/doc/shortcodes/">https://ox-hugo.scripter.co/doc/shortcodes/</a>&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+    
+
+
+  
+
+  
+
+
+
+
+
+    
+  
+
+  </article>
+
+
+      </div>
+    </div>
+  </main>
+  
+  <footer class="Footer">
+    <div class="u-wrapper">
+      <div class="u-padding">
+        <a href="https://instagram.com/rida.ayed"><div class="fab fa-fab fa-instagram"></div></a>
+<a href="https://github.com/RidaAyed"><div class="fab fa-fab fa-github"></div></a>
+
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>
