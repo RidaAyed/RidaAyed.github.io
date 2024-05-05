@@ -8,9 +8,8 @@
 
 
   
-    <meta name="description" content="Table of Contents Directory path and completeness config.toml Usage of the icons as ox-hugo shortcodes Conclusion I followed this concise blog post1 about embedding font awesome in hugo. Of course I expected everything to work flawless in my environment as well. As usual, this presumption was wrong.
-Simply adding {{&lt; fa bath &gt;}} to the footer key in config.toml nor in this org mode file will not work.
-This post shall show how to circumvent that flaws, use fontawesome in hugo&rsquo;s footer section and overall in your blog&rsquo;s content using ox-hugo.">
+    <meta name="description" content="Table of Contents Directory path and completeness config.toml Usage of the icons with ox-hugo shortcodes in content Conclusion I followed this concise blog post1 about embedding font awesome in hugo. Of course, I expected everything to work flawlessly in my environment as well. And of course, this presumption was wrong again.
+Either simply adding {{&lt; fa bath &gt;}} to the footer key in config.toml nor as content into any org-mode file will work.">
   
 
 
@@ -92,19 +91,19 @@ This post shall show how to circumvent that flaws, use fontawesome in hugo&rsquo
 <ul>
 <li><a href="#directory-path-and-completeness">Directory path and completeness</a></li>
 <li><a href="#config-dot-toml">config.toml</a></li>
-<li><a href="#usage-of-the-icons-as-ox-hugo-shortcodes">Usage of the icons as ox-hugo shortcodes</a></li>
+<li><a href="#usage-of-the-icons-with-ox-hugo-shortcodes-in-content">Usage of the icons with ox-hugo shortcodes in content</a></li>
 <li><a href="#conclusion">Conclusion</a></li>
 </ul>
 </div>
 <!--endtoc-->
 <p>I followed this concise blog post<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> about embedding font awesome in hugo.
-Of course I expected everything to work flawless in my environment as well.
-As usual, this presumption was wrong.</p>
-<p>Simply adding {{&lt; fa bath &gt;}} to the <code>footer</code> key in config.toml nor in this org mode file will not work.</p>
+Of course, I expected everything to work flawlessly in my environment as well.
+And of course, this presumption was wrong again.</p>
+<p>Either simply adding {{&lt; fa bath &gt;}} to the <code>footer</code> key in config.toml nor as content into any org-mode file will work.</p>
 <p>This post shall show how to circumvent that flaws, use fontawesome in hugo&rsquo;s footer section and overall in your blog&rsquo;s content using ox-hugo.</p>
 <h2 id="directory-path-and-completeness">Directory path and completeness</h2>
 <p>Opposed to the instructions<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> I put the files <del>not in the static</del> but in the <strong>assets</strong> folder. I had to create it first.</p>
-<p>Furthermore I put the <strong>complete</strong> Fontawesome directory, not only a particular file. <code>fa.html</code><sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> pointing to subdirectories made me skeptic about picking only particular files.</p>
+<p>Furthermore I put the <strong>complete</strong> Fontawesome directory, not only a particular file. Filepaths in <code>fa.html</code><sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>, pointing to subdirectories, made me skeptic about picking only particular files.</p>
 <h2 id="config-dot-toml">config.toml</h2>
 <p>The <code>js</code> key is documented in my theme&rsquo;s repository<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>. You might encounter other ways for your particular theme in order to customize css/js assets.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">params</span>]
@@ -137,12 +136,14 @@ As usual, this presumption was wrong.</p>
   
 </i>
 </p>
-<h2 id="usage-of-the-icons-as-ox-hugo-shortcodes">Usage of the icons as ox-hugo shortcodes</h2>
-<p>Although being documented<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>, I rather show the shortcode usage in ox-hugo again and specifically:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>@@hugo:{ {&lt; fa bath &gt;}}@@
-</span></span></code></pre></div><p>Only by chance I noticed that surrounding the shortcode with the equal sign &ldquo;=&rdquo; works as well. Like</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>={ {&lt; fa bath &gt;}}=
-</span></span></code></pre></div><p><mark>You must delete that first space between the curly brackets from my upper examples. So {{ instead of { {<br /></mark> Both examples result in: 
+<h2 id="usage-of-the-icons-with-ox-hugo-shortcodes-in-content">Usage of the icons with ox-hugo shortcodes in content</h2>
+<p>Although being documented<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>, I rather show the shortcode usage in ox-hugo again and specifically.</p>
+<p>For example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Lorem @@hugo:{ {&lt; fa bath &gt;}}@@ ipsum
+</span></span></code></pre></div><p>Only by chance, I noticed that surrounding the shortcode with the equal sign &ldquo;=&rdquo; works as well.</p>
+<p>For example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Lorem ={ {&lt; fa bath &gt;}}= ipsum
+</span></span></code></pre></div><p><mark>You must delete that first space between the curly brackets from my upper examples. So {{ instead of { {<br /></mark> Both examples result in: Lorem 
 
 
 
@@ -150,7 +151,7 @@ As usual, this presumption was wrong.</p>
   
   
 </i>
-</p>
+ ipsum</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>I showed how to extend the icon usage into the footer section of a hugo website. Furthermore you should be able to use the icon shortcodes in a org file considering ox-hugo as blog platform.</p>
 <div class="footnotes" role="doc-endnotes">
