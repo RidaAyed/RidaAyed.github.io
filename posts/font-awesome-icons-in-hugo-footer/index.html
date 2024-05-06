@@ -102,9 +102,9 @@ And of course, this presumption was wrong again.</p>
 <p>Neither simply adding {{&lt; fa bath &gt;}} to the <code>footer</code> key in config.toml nor as content into any org-mode file will work.</p>
 <p>This post shall show how to circumvent that flaws, use fontawesome in hugo&rsquo;s footer section and overall in your blog&rsquo;s content using ox-hugo.</p>
 <h2 id="directory-path-and-completeness">Directory path and completeness</h2>
-<p>In contradiction to the instructions<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>, I put the files <del>not in the static</del> but in the <strong>assets</strong> directory. I had to create it first.</p>
+<p>In contradiction to the instructions<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>, I put the <code>fontawesome</code> directory <del>not in the static</del> but in the <strong>assets</strong> directory. I had to create it first.</p>
 <p>Furthermore I put the <strong>complete</strong> fontawesome directory, not only a particular file. Filepaths in <code>fa.html</code><sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>, pointing to subdirectories, made me skeptic about picking only particular files.</p>
-<p>Thus after following the instructions part about downloading and adding the fa.html, the <code>siteroot/assets</code> directory tree should look like:</p>
+<p>Thus, after following the instruction steps about downloading and adding the fa.html, the <code>siteroot/assets</code> directory tree should look like:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>tree -d -L <span style="color:#ae81ff">2</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>.
 </span></span><span style="display:flex;"><span>└── fontawesome
