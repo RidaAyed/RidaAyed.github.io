@@ -12,7 +12,8 @@
 Setup Enable the org layer in your .spacemacs dotspacemacs-configuration-layers
 dotspacemacs-configuration-layers &#39;(org) Install flameshot
 sudo pacman -S flameshot Add the line below to your .spacemacs custom-set-variables
-(custom-set-variables &#39;(org-download-screenshot-method &#34;flameshot gui --raw &gt; %s&#34;)) Usage Take your screenshot , i s or M-x org-download-screenshot in org mode Edit your screenshot on the fly or.. don&rsquo;t Hit RET to insert your screenshot into your org file Figure 2: A screenshot taken with flameshot in org mode">
+(custom-set-variables &#39;(org-download-screenshot-method &#34;flameshot gui --raw &gt; %s&#34;)) Usage While being in your org buffer:
+Take your screenshot hitting , i D s or calling M-x org-download-screenshot Edit your screenshot on the fly or.. don&rsquo;t Hit RET to insert your screenshot into your org file Figure 2: A screenshot taken with flameshot in org mode">
   
 
 
@@ -91,29 +92,30 @@ sudo pacman -S flameshot Add the line below to your .spacemacs custom-set-variab
 </header>
     <figure><img src="/ox-hugo/out.gif"
          alt="Figure 1: Screencast showing flameshot in action"/><figcaption>
-            <p>Figure 1: Screencast showing flameshot in action</p>
+            <p><span class="figure-number">Figure 1: </span>Screencast showing flameshot in action</p>
         </figcaption>
 </figure>
 
 <h2 id="setup">Setup</h2>
 <p>Enable the <code>org</code> layer in your <code>.spacemacs</code> <code>dotspacemacs-configuration-layers</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span>dotspacemacs-configuration-layers
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&#39;</span>(org)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span>    dotspacemacs-configuration-layers
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#39;</span>(org)
 </span></span></code></pre></div><p>Install flameshot</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo pacman -S flameshot
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span> sudo pacman -S flameshot
 </span></span></code></pre></div><p>Add the line below to your <code>.spacemacs</code> <code>custom-set-variables</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span>(custom-set-variables
-</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(org-download-screenshot-method <span style="color:#e6db74">&#34;flameshot gui --raw &gt; %s&#34;</span>))
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span> (custom-set-variables
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#39;</span>(org-download-screenshot-method <span style="color:#e6db74">&#34;flameshot gui --raw &gt; %s&#34;</span>))
 </span></span></code></pre></div><h2 id="usage">Usage</h2>
+<p>While being in your org buffer:</p>
 <ol>
-<li>Take your screenshot <code>,</code> <code>i</code> <code>s</code> or <code>M-x org-download-screenshot</code> in org mode</li>
+<li>Take your screenshot hitting <kbd> , i D s </kbd>  or calling <code>M-x org-download-screenshot</code></li>
 <li>Edit your screenshot on the fly or.. don&rsquo;t</li>
-<li>Hit <code>RET</code> to insert your <a href="#orgbffb615">screenshot</a> into your org file</li>
+<li>Hit <code>RET</code> to insert your <a href="#figure--flameshotScreenshot">screenshot</a> into your org file</li>
 </ol>
-<p><a id="orgbffb615"></a></p>
+<p><a id="figure--flameshotScreenshot"></a></p>
 <figure><img src="/ox-hugo/screenshot-14.png"
          alt="Figure 2: A screenshot taken with flameshot in org mode"/><figcaption>
-            <p>Figure 2: A screenshot taken with flameshot in org mode</p>
+            <p><span class="figure-number">Figure 2: </span>A screenshot taken with flameshot in org mode</p>
         </figcaption>
 </figure>
 

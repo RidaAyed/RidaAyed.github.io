@@ -2285,29 +2285,30 @@ empty pages. You get one file. &lt;strong&gt;Case-specific testing is recommende
       <guid>/posts/screenshots-emacs-org-mode-flameshot/</guid>
       <description>&lt;figure&gt;&lt;img src=&#34;/ox-hugo/out.gif&#34;
          alt=&#34;Figure 1: Screencast showing flameshot in action&#34;/&gt;&lt;figcaption&gt;
-            &lt;p&gt;Figure 1: Screencast showing flameshot in action&lt;/p&gt;
+            &lt;p&gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 1: &lt;/span&gt;Screencast showing flameshot in action&lt;/p&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;h2 id=&#34;setup&#34;&gt;Setup&lt;/h2&gt;
 &lt;p&gt;Enable the &lt;code&gt;org&lt;/code&gt; layer in your &lt;code&gt;.spacemacs&lt;/code&gt; &lt;code&gt;dotspacemacs-configuration-layers&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-elisp&#34; data-lang=&#34;elisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;dotspacemacs-configuration-layers
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;(org)
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-elisp&#34; data-lang=&#34;elisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    dotspacemacs-configuration-layers
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;(org)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Install flameshot&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo pacman -S flameshot
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; sudo pacman -S flameshot
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Add the line below to your &lt;code&gt;.spacemacs&lt;/code&gt; &lt;code&gt;custom-set-variables&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-elisp&#34; data-lang=&#34;elisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(custom-set-variables
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;(org-download-screenshot-method &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;flameshot gui --raw &amp;gt; %s&amp;#34;&lt;/span&gt;))
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-elisp&#34; data-lang=&#34;elisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; (custom-set-variables
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;(org-download-screenshot-method &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;flameshot gui --raw &amp;gt; %s&amp;#34;&lt;/span&gt;))
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
+&lt;p&gt;While being in your org buffer:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;Take your screenshot &lt;code&gt;,&lt;/code&gt; &lt;code&gt;i&lt;/code&gt; &lt;code&gt;s&lt;/code&gt; or &lt;code&gt;M-x org-download-screenshot&lt;/code&gt; in org mode&lt;/li&gt;
+&lt;li&gt;Take your screenshot hitting &lt;kbd&gt; , i D s &lt;/kbd&gt;  or calling &lt;code&gt;M-x org-download-screenshot&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Edit your screenshot on the fly or.. don&amp;rsquo;t&lt;/li&gt;
-&lt;li&gt;Hit &lt;code&gt;RET&lt;/code&gt; to insert your &lt;a href=&#34;#orgbffb615&#34;&gt;screenshot&lt;/a&gt; into your org file&lt;/li&gt;
+&lt;li&gt;Hit &lt;code&gt;RET&lt;/code&gt; to insert your &lt;a href=&#34;#figure--flameshotScreenshot&#34;&gt;screenshot&lt;/a&gt; into your org file&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;a id=&#34;orgbffb615&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;figure--flameshotScreenshot&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;figure&gt;&lt;img src=&#34;/ox-hugo/screenshot-14.png&#34;
          alt=&#34;Figure 2: A screenshot taken with flameshot in org mode&#34;/&gt;&lt;figcaption&gt;
-            &lt;p&gt;Figure 2: A screenshot taken with flameshot in org mode&lt;/p&gt;
+            &lt;p&gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 2: &lt;/span&gt;A screenshot taken with flameshot in org mode&lt;/p&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
 
