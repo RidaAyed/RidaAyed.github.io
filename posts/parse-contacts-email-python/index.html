@@ -19,6 +19,19 @@ import subprocess from collections import namedtuple # fetch raw input query = &
 
 
 
+  <meta property="og:title" content="Parse contacts from email in python" />
+<meta property="og:description" content="Process all your email contacts using mu and python.
+mu-cfind returns all contacts:
+mu cfind Excerpt from the returned results
+... Newsletter Museum Tinguely infos@tinguely.ch ... Script
+import subprocess from collections import namedtuple # fetch raw input query = &#34;mu cfind&#34; subprocess.check_output((query), shell=True).splitlines() runQuery = subprocess.check_output((query), shell=True).splitlines() raw_contacts = [line.decode(&#34;utf-8&#34;).split(&#34; &#34;) for line in runQuery] # process input to output Contact = namedtuple(&#39;Contact&#39;, [&#39;email&#39;, &#39;name&#39;]) Contacts = tuple( # Get email including only the last element Contact(email=raw_contact[-1], # Get name from all elements excluding the last element name=raw_contact[:-1]) for raw_contact in raw_contacts) # print to stdout tab separated for Contact in Contacts: print(Contact." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/parse-contacts-email-python/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-09-05T00:00:00+02:00" />
+<meta property="article:modified_time" content="2021-09-19T14:49:05+02:00" />
+
+
+
 
 
 

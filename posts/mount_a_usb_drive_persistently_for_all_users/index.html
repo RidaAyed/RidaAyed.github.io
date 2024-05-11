@@ -16,6 +16,16 @@ Create a mount point mkdir /mnt/usb500 List devices lsblk -o NAME,FSTYPE,LABEL N
 
 
 
+  <meta property="og:title" content="Mount a USB drive persistently for all users" />
+<meta property="og:description" content="Table of Contents Create a mount point List devices Backup &amp; print current fstab Add the device to fstab Change device&rsquo;s permission Test Cleanup Troubleshooting I need to persistently permit all users read/write access to a USB drive
+Create a mount point mkdir /mnt/usb500 List devices lsblk -o NAME,FSTYPE,LABEL NAME FSTYPE LABEL sda └─sda1 ext4 usb500gb mmcblk0 ├─mmcblk0p1 vfat boot └─mmcblk0p2 ext4 rootfs Backup &amp; print current fstab cp /etc/fstab ~/fstab." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/mount_a_usb_drive_persistently_for_all_users/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-03-28T12:50:00+01:00" />
+<meta property="article:modified_time" content="2020-03-28T12:55:36+01:00" />
+
+
+
 
 
 

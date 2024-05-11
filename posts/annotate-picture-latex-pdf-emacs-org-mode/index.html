@@ -18,6 +18,18 @@ Figure 2: Help grid enabled
 
 
 
+  <meta property="og:title" content="Annotate pictures non-invasively in latex/pdf using org mode" />
+<meta property="og:description" content="Goal of this method is the non-invasive annotation of pictures in LaTeX/pdf. Thus all annotations are written in LaTeX. The source picture 1 remains untouched.
+Figure 1: Source picture
+Figure 2: Help grid enabled
+#&#43;EXPORT_LATEX_HEADER: \usepackage[background=black,text=white,arrow=red]{callouts} 1 2 3 4 5 6 7 8 9 10 11 12 13 \begin{annotate} {\includegraphics[width=0.8\textwidth]{/home/ra/Pictures/IMG_1340.jpg}}{1.0} %\helpgrid %uncomment to enable helpgrid \callout {-3.0,5.0}{Hip}{0.0,5.0} \draw [thick ,\arcol] (2.0 ,-2.0) rectangle (4.0 ,-4.0); \draw [thick ,\arcol] (-0.3 ,-5." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/annotate-picture-latex-pdf-emacs-org-mode/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-12-10T00:00:00+01:00" />
+<meta property="article:modified_time" content="2021-08-03T21:48:30+02:00" />
+
+
+
 
 
 

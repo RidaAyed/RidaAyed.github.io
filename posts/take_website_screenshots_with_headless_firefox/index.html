@@ -16,6 +16,16 @@ Backup exec 2&gt;&amp;1 orig=/home/ra/.mozilla/firefox backup=/home/ra/tmp/firef
 
 
 
+  <meta property="og:title" content="Take website screenshots with headless Firefox" />
+<meta property="og:description" content="This script takes a screenshot of a website. It does so headless with Firefox. A backup is taken before doing anything. It deletes traces left during the process.
+Backup exec 2&gt;&amp;1 orig=/home/ra/.mozilla/firefox backup=/home/ra/tmp/firefox_backup rm -rf $backup mkdir -p $backup cp -r $orig $backup : Create the test profile which firefox &gt;/dev/null 2&gt;&amp;1 &amp;&amp; firefox --version which firefox &gt;/dev/null 2&gt;&amp;1 &amp;&amp; firefox -CreateProfile headlessTest Take the screenshot exec 2&gt;&amp;1 start_time=&#34;$(date -u &#43;%s)&#34; dt=$(date &#39;&#43;%Y-%m-%d-%H%M%S&#39;) filename=/tmp/$dt-headlessTest." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/take_website_screenshots_with_headless_firefox/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-03-30T15:50:00+02:00" />
+<meta property="article:modified_time" content="2023-11-22T11:18:28+01:00" />
+
+
+
 
 
 

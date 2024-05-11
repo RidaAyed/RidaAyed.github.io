@@ -15,6 +15,15 @@
 
 
 
+  <meta property="og:title" content="Parse ledger-cli using python" />
+<meta property="og:description" content="#Content of file.dat 2099/02/07 * foo ; MD5Sum: 4d2965fa2879f3c528006f2e9c3bca8d Expenses:Groceries CHF 10 Assets:Cash 2099/11/07 * bar ; MD5Sum: 4d2965fa2879f3c528006f2e9c3bca8e Expenses:Groceries CHF 20 Assets:Cash import subprocess from datetime import datetime format = &#34;&#39;%(cleared)\t%D\t%P\t%(quantity(scrub(display_amount)))\t%(join(note | xact.note))\n&#39;&#34; query = &#34;ledger -f file.dat csv Assets:Cash --csv-format &#34; &#43; format runQuery = subprocess.check_output((query), shell=True).splitlines() trx = [x.decode(&#34;utf-8&#34;).split(&#34;\t&#34;) for x in runQuery] return datetime.strptime(trx[0][1],&#34;%Y/%m/%d&#34;).month Month of first transaction is 11" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/parse_ledger-cli_using_python/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-07-15T00:00:00+02:00" />
+<meta property="article:modified_time" content="2021-09-14T12:05:34+02:00" />
+
+
+
 
 
 

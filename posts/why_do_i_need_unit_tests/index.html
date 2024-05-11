@@ -20,6 +20,20 @@ true_expected: True false_expected: False Why am I not happy with that approach?
 
 
 
+  <meta property="og:title" content="Why do I need unit tests?" />
+<meta property="og:description" content="So I want to compare if two dates are equal. I therefore input two dates and in return expect the comparison&rsquo;s outcome as a bool.
+Usually I would:
+Write the function
+Print it&rsquo;s result until I&rsquo;m happy with it
+#somecode.py from datetime import datetime def compare_two_dates(date,otherdate): return date==otherdate date = datetime.now().date() otherdate = datetime(1900,12,12) true_expected=compare_two_dates(date,date) false_expected=compare_two_dates(date,otherdate) print(&#34;true_expected:&#34;,true_expected) print(&#34;false_expected:&#34;,false_expected) Result:
+true_expected: True false_expected: False Why am I not happy with that approach?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/why_do_i_need_unit_tests/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-07-07T12:36:00+02:00" />
+<meta property="article:modified_time" content="2021-08-07T19:38:03+02:00" />
+
+
+
 
 
 

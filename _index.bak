@@ -1,0 +1,24 @@
++++
+title = "Rida Ayed"
+lastmod = 2022-05-09T09:03:29+02:00
+draft = false
++++
+<br>
+{{< gallery
+    match="*"
+    sortOrder="desc"
+    loadJQuery="true"
+    previewType="blur"
+    showExif=false
+    thumbnailResizeOptions="600x600 q95 Lanczos"
+    imageResizeOptions="1920x1080 q90 Lanczos"
+    embedPreview="true"
+    storeSelectedFilterInUrl="true"
+    filterOptions="[{label: 'Paintings', description: '200 cm|170 cm|100 cm|65 cm'},{label: 'Studies', description: '60 cm|51 cm|graphite|charcoal|marker|paper|cardboard'},{label: 'Events', description: 'Vernissage|vernissage'}]"
+>}}
+Prices on request
+
+Photo credits:
+- [Moritz Herzog Photography](https://www.moritzherzog.com)
+- [Viswerk](https://www.viswerk.ch)
+- [Daniel Spehr](http://www.spehr.ch)

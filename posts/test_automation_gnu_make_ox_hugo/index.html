@@ -16,6 +16,16 @@
 
 
 
+  <meta property="og:title" content="Test automation using GNU Make in ox-hugo" />
+<meta property="og:description" content="Amongst others, I run this script as part of my tests after a system update.
+#Initialize variables input=test/site/content-org/screenshot-subtree-export-example.org output=test/site/content/writing-hugo-blog-in-org-subtree-export.md cd /tmp # Cleanup rm -r ox-hugo # Clone latest repository git clone git@github.com:kaushalmodi/ox-hugo.git cd ox-hugo # Make change in org file sed -i &#34;s/\(Kaushal\)/The awesome \1/&#34; $input # Simulate the export from org to markdown make md1 ORG_FILE=$input # Check if the changes appears in the # created markdown (named after the title property in org) grep Kaushal $output test/site/content-org/screenshot-subtree-export-example." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/test_automation_gnu_make_ox_hugo/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-01-10T00:00:00+01:00" />
+<meta property="article:modified_time" content="2021-08-07T16:31:35+02:00" />
+
+
+
 
 
 

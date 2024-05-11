@@ -18,6 +18,18 @@ The #egg=pytest-watch suffix changes the pytest-watch Pipfile from &quot;*&quot;
 
 
 
+  <meta property="og:title" content="How to pipenv install a git pull request from github" />
+<meta property="og:description" content="Given is this pullrequest https://github.com/joeyespo/pytest-watch/pull/108
+pipenv install -d \ git&#43;https://github.com/joeyespo/pytest-watch.git@refs/pull/108/head#egg=pytest-watch The -d flag installs the package in the Pipfile&rsquo;s [dev-packages] section
+The #egg=pytest-watch suffix changes the pytest-watch Pipfile from &quot;*&quot; to {ref = &quot;refs/pull/108/head&quot;, git = &quot;git&#43;https://github.com/joeyespo/pytest-watch.git&quot;}
+[dev-packages] debugpy = &#34;*&#34; -pytest-watch = &#34;*&#34; &#43;pytest-watch = {ref = &#34;refs/pull/108/head&#34;, git = &#34;git&#43;https://github.com/joeyespo/pytest-watch.git&#34;} epc = &#34;*&#34; " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/how-to-pipenv-install-a-git-pull-request-from-github/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-01-11T10:46:00+01:00" />
+<meta property="article:modified_time" content="2024-01-11T10:59:57+01:00" />
+
+
+
 
 
 
