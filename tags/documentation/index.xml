@@ -16,7 +16,7 @@
       <guid>/posts/setup-share-ox-hugo-blog-social-media/</guid>
       <description>&lt;p&gt;While preparing to share this &lt;a href=&#34;/posts/create_blender_scene_python/&#34;&gt;post&lt;/a&gt; on LinkedIn, I noticed something&amp;rsquo;s missing. &lt;br/&gt;
 The preview didn&amp;rsquo;t show an image or description. &lt;br/&gt;
-Apparently there&amp;rsquo;s a special so-called &lt;em&gt;Open Graph&lt;/em&gt; &lt;a href=&#34;https://ogp.me/&#34;&gt;protocol&lt;/a&gt; that solves that problem. &lt;br/&gt;&lt;/p&gt;
+Apparently there&amp;rsquo;s a special so-called &lt;em&gt;Open Graph&lt;/em&gt; &lt;a href=&#34;https://ogp.me/&#34;&gt;protocol&lt;/a&gt; that solves this problem. &lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;From the protocol&amp;rsquo;s introduction: &lt;br/&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;The Open Graph protocol enables any web page to become a &lt;br/&gt;
