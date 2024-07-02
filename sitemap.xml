@@ -2,14 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/posts/</loc>
+    <lastmod>2024-07-02T09:14:41+02:00</lastmod>
+  </url><url>
+    <loc>/posts/setup-share-ox-hugo-blog-social-media/</loc>
+    <lastmod>2024-07-02T09:14:41+02:00</lastmod>
+  </url><url>
     <loc>/</loc>
     <lastmod>2024-05-10T12:08:53+02:00</lastmod>
   </url><url>
     <loc>/posts/font-awesome-icons-in-hugo-footer/</loc>
     <lastmod>2024-05-10T08:44:57+02:00</lastmod>
-  </url><url>
-    <loc>/posts/</loc>
-    <lastmod>2024-05-14T13:22:56+02:00</lastmod>
   </url><url>
     <loc>/tags/python/</loc>
     <lastmod>2024-05-11T21:37:13+02:00</lastmod>

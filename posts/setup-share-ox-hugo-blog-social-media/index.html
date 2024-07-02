@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  
+    <meta name="description" content="While preparing to share this post on LinkedIn, I noticed something&rsquo;s missing. The preview didn&rsquo;t show an image or description. Apparently there&rsquo;s a special so called Open Graph protcol that solves that problem. From the protcolol&rsquo;s introduction: The Open Graph protocol enables any web page to become a rich object in a social graph. For instance, this is used on Facebook to allow any web page to have the same functionality as any other object on Facebook.">
+  
+
+
+
+
+
+  <meta property="og:title" content="Set up to share ox-hugo blog posts on social media" />
+<meta property="og:description" content="While preparing to share this post on LinkedIn, I noticed something&rsquo;s missing. The preview didn&rsquo;t show an image or description. Apparently there&rsquo;s a special so called Open Graph protcol that solves that problem. From the protcolol&rsquo;s introduction: The Open Graph protocol enables any web page to become a rich object in a social graph. For instance, this is used on Facebook to allow any web page to have the same functionality as any other object on Facebook." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/setup-share-ox-hugo-blog-social-media/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-07-02T09:00:00+02:00" />
+<meta property="article:modified_time" content="2024-07-02T09:14:41+02:00" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.121.2">
+  <title>Set up to share ox-hugo blog posts on social media | Rida Ayed</title>
+  <link rel="canonical" href="/posts/setup-share-ox-hugo-blog-social-media/">
+
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+  
+  
+  
+
+  
+    
+  
+  
+  <link rel="stylesheet" href="/css/base.min.7267752c3baf5d7989b4ff63862b99557184d61b1099d8e225a8c5c9f7b2486b.css" integrity="sha256-cmd1LDuvXXmJtP9jhiuZVXGE1hsQmdjiJajFyfeySGs=" crossorigin="anonymous">
+
+
+
+  <script defer src="/js/base.min.70b098dab71f837cb63b52c0d70a0bb5cb00d96768e4645adeb2f0a5bca79222.js" integrity="sha256-cLCY2rcfg3y2O1LA1woLtcsA2Wdo5GRa3rLwpbynkiI=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <nav class="u-background">
+  <div class="u-wrapper">
+    <ul class="Banner">
+      <li class="Banner-item Banner-item--title">
+        <a class="Banner-link u-clickable" href="/">Rida Ayed</a>
+      </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/posts/">Blog</a>
+        </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/about/">About</a>
+        </li>
+      
+    </ul>
+  </div>
+</nav>
+  <main>
+    <div class="u-wrapper">
+      <div class="u-padding">
+        
+
+  <article>
+    <header class="Heading">
+  <h2 class="Heading-title">
+    <a class="Heading-link u-clickable" href="/posts/setup-share-ox-hugo-blog-social-media/" rel="bookmark">Set up to share ox-hugo blog posts on social media</a>
+  </h2>
+  
+    <time datetime="2024-07-02T09:00:00&#43;02:00">2 July, 2024</time>
+  
+</header>
+    <p>While preparing to share this <a href="/posts/create_blender_scene_python/">post</a> on LinkedIn, I noticed something&rsquo;s missing. <br/>
+The preview didn&rsquo;t show an image or description. <br/>
+Apparently there&rsquo;s a special so called Open Graph <a href="https://ogp.me/">protcol</a> that solves that problem. <br/></p>
+<p>From the protcolol&rsquo;s introduction: <br/></p>
+<blockquote>
+<p>The Open Graph protocol enables any web page to become a <br/>
+rich object in a social graph. For instance, this is used on Facebook to allow <br/>
+any web page to have the same functionality as any other object on Facebook. <br/></p>
+</blockquote>
+<p>I got it working in <a href="https://ox-hugo.scripter.co/">ox-hugo</a> by: <br/></p>
+<ol>
+<li>Adding <strong>opengraph = true</strong> in the <strong>[params]</strong> section of hugo&rsquo;s <strong>config.toml</strong> <br/></li>
+<li>Adding this org <a href="https://orgmode.org/guide/Properties.html">property</a> for the <em>image</em>: <strong>EXPORT_HUGO_CUSTOM_FRONT_MATTER</strong> <br/></li>
+<li>Adding this org <a href="https://orgmode.org/manual/Blocks.html">block</a> for <em>description</em>: <strong>begin_description</strong> <br/></li>
+</ol>
+<p>Long story short. Here&rsquo;s the applied change for the beforementioned <a href="/posts/create_blender_scene_python/">post</a>. Shortened but still raw: <br/></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git show 2ce4aa9
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>     :ID:       d8a908ad-6672-4931-b3ea-0b595a53e272
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">+    :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :images &#39;(/ox-hugo/2021-08-07_19-11-35_screenshot.png)
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e"></span>     :END:
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">+#+begin_description
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+Create an image in blender using python. In the most minimal way we&#39;ll add a sphere and render the image.
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+#+end_description
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e"></span>...
+</span></span></code></pre></div>
+    
+
+
+  
+
+  
+
+
+
+
+
+    
+  
+
+  </article>
+
+
+      </div>
+    </div>
+  </main>
+  
+  <footer class="Footer">
+    <div class="u-wrapper">
+      <div class="u-padding">
+        <a href="https://instagram.com/rida.ayed"><div class="fab fa-fab fa-instagram"></div></a>
+<a href="https://github.com/RidaAyed"><div class="fab fa-fab fa-github"></div></a>
+<a href="https://linkedin.com/in/ridaayed"><div class="fab fa-fab fa-linkedin"></div></a>
+<a href="/index.xml"><div class="fa fa-fa fa-rss"></div></a>
+
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>

@@ -9,6 +9,39 @@
     <language>en</language>
     <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Set up to share ox-hugo blog posts on social media</title>
+      <link>/posts/setup-share-ox-hugo-blog-social-media/</link>
+      <pubDate>Tue, 02 Jul 2024 09:00:00 +0200</pubDate>
+      <guid>/posts/setup-share-ox-hugo-blog-social-media/</guid>
+      <description>&lt;p&gt;While preparing to share this &lt;a href=&#34;/posts/create_blender_scene_python/&#34;&gt;post&lt;/a&gt; on LinkedIn, I noticed something&amp;rsquo;s missing. &lt;br/&gt;
+The preview didn&amp;rsquo;t show an image or description. &lt;br/&gt;
+Apparently there&amp;rsquo;s a special so called Open Graph &lt;a href=&#34;https://ogp.me/&#34;&gt;protcol&lt;/a&gt; that solves that problem. &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;From the protcolol&amp;rsquo;s introduction: &lt;br/&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The Open Graph protocol enables any web page to become a &lt;br/&gt;
+rich object in a social graph. For instance, this is used on Facebook to allow &lt;br/&gt;
+any web page to have the same functionality as any other object on Facebook. &lt;br/&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I got it working in &lt;a href=&#34;https://ox-hugo.scripter.co/&#34;&gt;ox-hugo&lt;/a&gt; by: &lt;br/&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Adding &lt;strong&gt;opengraph = true&lt;/strong&gt; in the &lt;strong&gt;[params]&lt;/strong&gt; section of hugo&amp;rsquo;s &lt;strong&gt;config.toml&lt;/strong&gt; &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;Adding this org &lt;a href=&#34;https://orgmode.org/guide/Properties.html&#34;&gt;property&lt;/a&gt; for the &lt;em&gt;image&lt;/em&gt;: &lt;strong&gt;EXPORT_HUGO_CUSTOM_FRONT_MATTER&lt;/strong&gt; &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;Adding this org &lt;a href=&#34;https://orgmode.org/manual/Blocks.html&#34;&gt;block&lt;/a&gt; for &lt;em&gt;description&lt;/em&gt;: &lt;strong&gt;begin_description&lt;/strong&gt; &lt;br/&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Long story short. Here&amp;rsquo;s the applied change for the beforementioned &lt;a href=&#34;/posts/create_blender_scene_python/&#34;&gt;post&lt;/a&gt;. Shortened but still raw: &lt;br/&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git show 2ce4aa9
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-diff&#34; data-lang=&#34;diff&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     :ID:       d8a908ad-6672-4931-b3ea-0b595a53e272
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+    :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :images &amp;#39;(/ox-hugo/2021-08-07_19-11-35_screenshot.png)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;&lt;/span&gt;     :END:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+#+begin_description
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+Create an image in blender using python. In the most minimal way we&amp;#39;ll add a sphere and render the image.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+#+end_description
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;&lt;/span&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
       <title>Font awesome icons in hugo footer</title>
       <link>/posts/font-awesome-icons-in-hugo-footer/</link>
       <pubDate>Sun, 05 May 2024 11:19:00 +0200</pubDate>
