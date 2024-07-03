@@ -7,8 +7,40 @@
     <description>Recent content in Posts on Rida Ayed</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 02 Jul 2024 09:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 03 Jul 2024 09:53:00 +0200</lastBuildDate>
     <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fix treemacs-add-project wrong type argument hash table p nil</title>
+      <link>/posts/fix-treemacs-add-project-wrong-type-argument-hash-table-p-nil/</link>
+      <pubDate>Wed, 03 Jul 2024 09:53:00 +0200</pubDate>
+      <guid>/posts/fix-treemacs-add-project-wrong-type-argument-hash-table-p-nil/</guid>
+      <description>&lt;p&gt;After a recent cleanup of treemacs projects, I wanted to add again a known project:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;~/src/django&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Yet &lt;kbd&gt; M-x treemacs-add-project&lt;/kbd&gt; returned&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;(wrong-type-argument hash-table-p nil)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Debugging with &lt;kbd&gt; M-x debug-on-error&lt;/kbd&gt; gave away a suspicious &lt;code&gt;gethash&lt;/code&gt; call:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Debugger entered--Lisp error:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (wrong-type-argument hash-table-p nil)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  gethash(&amp;#34;/home/ra/src/django/crm&amp;#34; nil nil)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  treemacs-add-project(&amp;#34;/home/ra/src/django/&amp;#34;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;gethash(&amp;quot;/home/ra/src/django/crm&amp;quot; nil nil)&lt;/code&gt; contains &lt;code&gt;crm&lt;/code&gt;. &lt;strong&gt;But why?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;So I started digging in the treemacs options by calling &lt;kbd&gt; M-x &lt;/kbd&gt; &lt;kbd&gt; custom-options  &lt;/kbd&gt; and found &lt;code&gt;treemacs-persist-file&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;A short glance at that file gave away the problem:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cat ~/.emacs.default/.cache/treemacs-persist&lt;/code&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;...
+#+* Default
+#+** crm
+#+ - path :: ~/src/django/crm
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The project was already there &lt;strong&gt;&lt;strong&gt;but&lt;/strong&gt;&lt;/strong&gt; only it&amp;rsquo;s subdir (crm) was added to treemacs. Mind that only the parent dir is versioned (.git).&lt;/p&gt;
+&lt;p&gt;Long story short:&lt;/p&gt;
+&lt;style&gt;.org-center { margin-left: auto; margin-right: auto; text-align: center; }&lt;/style&gt;
+&lt;div class=&#34;org-center&#34;&gt;
+&lt;p&gt;Check if a project&amp;rsquo;s subdirectory already exists in treemacs e.g. &lt;code&gt;~/src/django/crm&lt;/code&gt; before attempting to add it&amp;rsquo;s &lt;strong&gt;&lt;strong&gt;versioned parent&lt;/strong&gt;&lt;/strong&gt; e.g. &lt;code&gt;~/src/django&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
     <item>
       <title>Set up to share ox-hugo blog posts on social media</title>
       <link>/posts/setup-share-ox-hugo-blog-social-media/</link>
