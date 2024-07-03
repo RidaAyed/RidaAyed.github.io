@@ -34,7 +34,7 @@ A short glance at that file gave away the problem:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/fix-treemacs-add-project-wrong-type-argument-hash-table-p-nil/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-07-03T09:53:00+02:00" />
-<meta property="article:modified_time" content="2024-07-03T10:12:16+02:00" />
+<meta property="article:modified_time" content="2024-07-03T11:43:11+02:00" />
 
 
 
@@ -122,13 +122,13 @@ A short glance at that file gave away the problem:" />
 <p>So I started digging in the treemacs options by calling <kbd> M-x </kbd> <kbd> custom-options  </kbd> and found <code>treemacs-persist-file</code></p>
 <p>A short glance at that file gave away the problem:</p>
 <p><code>cat ~/.emacs.default/.cache/treemacs-persist</code></p>
-<pre tabindex="0"><code class="language-example" data-lang="example">...
-#+* Default
-#+** crm
-#+ - path :: ~/src/django/crm
+<pre tabindex="0"><code class="language-fundamental" data-lang="fundamental">...
+* Default
+** crm
+ - path :: ~/src/django/crm
 ...
 </code></pre><p>The project was already there <strong><strong>but</strong></strong> only it&rsquo;s subdir (crm) was added to treemacs. Mind that only the parent dir is versioned (.git).</p>
-<p>Long story short:</p>
+<p>Long story short 💡:</p>
 <style>.org-center { margin-left: auto; margin-right: auto; text-align: center; }</style>
 <div class="org-center">
 <p>Check if a project&rsquo;s subdirectory already exists in treemacs e.g. <code>~/src/django/crm</code> before attempting to add it&rsquo;s <strong><strong>versioned parent</strong></strong> e.g. <code>~/src/django</code>.</p>

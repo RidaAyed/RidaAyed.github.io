@@ -28,13 +28,13 @@
 &lt;p&gt;So I started digging in the treemacs options by calling &lt;kbd&gt; M-x &lt;/kbd&gt; &lt;kbd&gt; custom-options  &lt;/kbd&gt; and found &lt;code&gt;treemacs-persist-file&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;A short glance at that file gave away the problem:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;cat ~/.emacs.default/.cache/treemacs-persist&lt;/code&gt;&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;...
-#+* Default
-#+** crm
-#+ - path :: ~/src/django/crm
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-fundamental&#34; data-lang=&#34;fundamental&#34;&gt;...
+* Default
+** crm
+ - path :: ~/src/django/crm
 ...
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The project was already there &lt;strong&gt;&lt;strong&gt;but&lt;/strong&gt;&lt;/strong&gt; only it&amp;rsquo;s subdir (crm) was added to treemacs. Mind that only the parent dir is versioned (.git).&lt;/p&gt;
-&lt;p&gt;Long story short:&lt;/p&gt;
+&lt;p&gt;Long story short 💡:&lt;/p&gt;
 &lt;style&gt;.org-center { margin-left: auto; margin-right: auto; text-align: center; }&lt;/style&gt;
 &lt;div class=&#34;org-center&#34;&gt;
 &lt;p&gt;Check if a project&amp;rsquo;s subdirectory already exists in treemacs e.g. &lt;code&gt;~/src/django/crm&lt;/code&gt; before attempting to add it&amp;rsquo;s &lt;strong&gt;&lt;strong&gt;versioned parent&lt;/strong&gt;&lt;/strong&gt; e.g. &lt;code&gt;~/src/django&lt;/code&gt;.&lt;/p&gt;
