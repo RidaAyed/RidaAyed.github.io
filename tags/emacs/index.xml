@@ -2,13 +2,13 @@
 <?xml-stylesheet type="text/xsl" href="/xml/base.min.xml" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Rida Ayed</title>
-    <link>/posts/</link>
-    <description>Recent content in Posts on Rida Ayed</description>
+    <title>emacs on Rida Ayed</title>
+    <link>/tags/emacs/</link>
+    <description>Recent content in emacs on Rida Ayed</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 03 Jul 2024 09:53:00 +0200</lastBuildDate>
-    <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fix treemacs-add-project wrong type argument hash table p nil</title>
       <link>/posts/fix-treemacs-add-project-wrong-type-argument-hash-table-p-nil/</link>

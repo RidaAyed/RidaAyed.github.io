@@ -1218,7 +1218,7 @@ untouched.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     <item>
-      <title>Fixing [Pyright] Import could not be resolved in emacs</title>
+      <title>Fix [Pyright] Import could not be resolved in emacs</title>
       <link>/posts/fixing_pyright_import_could_not_be_resolved_in_emacs/</link>
       <pubDate>Wed, 30 Sep 2020 16:57:00 +0200</pubDate>
       <guid>/posts/fixing_pyright_import_could_not_be_resolved_in_emacs/</guid>

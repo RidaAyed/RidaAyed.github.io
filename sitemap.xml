@@ -2,11 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/tags/emacs/</loc>
+    <lastmod>2024-07-04T09:20:26+02:00</lastmod>
+  </url><url>
     <loc>/posts/fix-treemacs-add-project-wrong-type-argument-hash-table-p-nil/</loc>
-    <lastmod>2024-07-03T11:43:11+02:00</lastmod>
+    <lastmod>2024-07-04T09:17:55+02:00</lastmod>
   </url><url>
     <loc>/posts/</loc>
-    <lastmod>2024-07-03T11:43:11+02:00</lastmod>
+    <lastmod>2024-07-04T09:20:26+02:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2024-07-04T09:20:26+02:00</lastmod>
   </url><url>
     <loc>/posts/setup-share-ox-hugo-blog-social-media/</loc>
     <lastmod>2024-07-02T09:24:56+02:00</lastmod>
@@ -18,13 +24,10 @@
     <lastmod>2024-05-10T08:44:57+02:00</lastmod>
   </url><url>
     <loc>/tags/python/</loc>
-    <lastmod>2024-05-11T21:37:13+02:00</lastmod>
+    <lastmod>2024-07-04T09:20:26+02:00</lastmod>
   </url><url>
     <loc>/posts/python-project-packaging-with-pipenv-pytest-and-cli/</loc>
     <lastmod>2024-05-11T20:42:41+02:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
-    <lastmod>2024-05-14T13:22:56+02:00</lastmod>
   </url><url>
     <loc>/posts/how-to-pipenv-install-a-git-pull-request-from-github/</loc>
     <lastmod>2024-01-11T10:59:57+01:00</lastmod>
@@ -105,7 +108,7 @@
     <lastmod>2024-05-14T13:22:38+02:00</lastmod>
   </url><url>
     <loc>/posts/fixing_pyright_import_could_not_be_resolved_in_emacs/</loc>
-    <lastmod>2021-08-02T13:31:26+02:00</lastmod>
+    <lastmod>2024-07-04T09:20:26+02:00</lastmod>
   </url><url>
     <loc>/posts/why_do_i_need_unit_tests/</loc>
     <lastmod>2021-08-07T19:38:03+02:00</lastmod>
