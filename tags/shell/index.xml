@@ -10,6 +10,25 @@
     <lastBuildDate>Tue, 18 Jul 2023 15:52:00 +0200</lastBuildDate>
     <atom:link href="/tags/shell/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Call a bash script with arguments in python</title>
+      <link>/posts/call-bash-script-with-arguments-in-python/</link>
+      <pubDate>Wed, 10 Jul 2024 10:53:00 +0200</pubDate>
+      <guid>/posts/call-bash-script-with-arguments-in-python/</guid>
+      <description>&lt;p&gt;foo.py&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex; background-color:#3c3d38&#34;&gt;&lt;span&gt;arguments&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;join([&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;foo&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;bar&amp;#34;&lt;/span&gt;])
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cmd&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;foo.sh&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;subprocess&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;run([&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;/bin/env&amp;#39;&lt;/span&gt;, cmd, args])
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;foo.sh:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/bin/sh
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; arg in &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$@&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    echo $arg
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now calling &lt;code&gt;python foo.py&lt;/code&gt; calls &lt;code&gt;foo.sh&lt;/code&gt; with &lt;strong&gt;arguments&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Mind possible offtopic tasks like &lt;code&gt;chmod +x&lt;/code&gt;, permissions etc.&lt;/p&gt;
+&lt;p&gt;Source: &lt;a href=&#34;https://unix.stackexchange.com/a/144519/274797&#34;&gt;https://unix.stackexchange.com/a/144519/274797&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    <item>
       <title>Fix treemacs-add-project wrong type argument hash table p nil</title>
       <link>/posts/fix-treemacs-add-project-wrong-type-argument-hash-table-p-nil/</link>
       <pubDate>Wed, 03 Jul 2024 09:53:00 +0200</pubDate>
