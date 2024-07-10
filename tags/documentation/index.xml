@@ -25,7 +25,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now calling &lt;code&gt;python foo.py&lt;/code&gt; calls &lt;code&gt;foo.sh&lt;/code&gt; with &lt;strong&gt;arguments&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;Mind possible offtopic tasks like &lt;code&gt;chmod +x&lt;/code&gt;, permissions etc.&lt;/p&gt;
-&lt;p&gt;Source: &lt;a href=&#34;https://unix.stackexchange.com/a/144519/274797&#34;&gt;https://unix.stackexchange.com/a/144519/274797&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://unix.stackexchange.com/a/144519/274797&#34;&gt;Source&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     <item>
