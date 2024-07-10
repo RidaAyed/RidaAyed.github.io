@@ -9,7 +9,7 @@
 
   
     <meta name="description" content="foo.py
-arguments=&#34; &#34;.join([&#34;foo&#34;, &#34;bar&#34;]) cmd=&#34;foo.sh&#34; subprocess.run([&#39;/bin/env&#39;, cmd, arguments]) foo.sh:
+arguments=&#34; &#34;.join([&#34;foo&#34;, &#34;bar&#34;]) cmd=&#34;foo.sh&#34; subprocess.run([&#39;/bin/env&#39;, cmd]&#43;arguments) foo.sh:
 #!/bin/sh for arg in &#34;$@&#34;; do echo $arg done Now calling python foo.py calls foo.sh with arguments.
 Mind possible offtopic tasks like chmod &#43;x, permissions etc.
 Source: https://unix.stackexchange.com/a/144519/274797">
@@ -21,14 +21,14 @@ Source: https://unix.stackexchange.com/a/144519/274797">
 
   <meta property="og:title" content="Call a bash script with arguments in python" />
 <meta property="og:description" content="foo.py
-arguments=&#34; &#34;.join([&#34;foo&#34;, &#34;bar&#34;]) cmd=&#34;foo.sh&#34; subprocess.run([&#39;/bin/env&#39;, cmd, arguments]) foo.sh:
+arguments=&#34; &#34;.join([&#34;foo&#34;, &#34;bar&#34;]) cmd=&#34;foo.sh&#34; subprocess.run([&#39;/bin/env&#39;, cmd]&#43;arguments) foo.sh:
 #!/bin/sh for arg in &#34;$@&#34;; do echo $arg done Now calling python foo.py calls foo.sh with arguments.
 Mind possible offtopic tasks like chmod &#43;x, permissions etc.
 Source: https://unix.stackexchange.com/a/144519/274797" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/call-bash-script-with-arguments-in-python/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-07-10T10:53:00+02:00" />
-<meta property="article:modified_time" content="2024-07-10T11:26:48+02:00" />
+<meta property="article:modified_time" content="2024-07-10T12:06:08+02:00" />
 
 
 
@@ -105,7 +105,7 @@ Source: https://unix.stackexchange.com/a/144519/274797" />
     <p>foo.py</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-python" data-lang="python"><span style="display:flex; background-color:#3c3d38"><span>arguments<span style="color:#f92672">=</span><span style="color:#e6db74">&#34; &#34;</span><span style="color:#f92672">.</span>join([<span style="color:#e6db74">&#34;foo&#34;</span>, <span style="color:#e6db74">&#34;bar&#34;</span>])
 </span></span><span style="display:flex;"><span>cmd<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;foo.sh&#34;</span>
-</span></span><span style="display:flex;"><span>subprocess<span style="color:#f92672">.</span>run([<span style="color:#e6db74">&#39;/bin/env&#39;</span>, cmd, arguments])
+</span></span><span style="display:flex;"><span>subprocess<span style="color:#f92672">.</span>run([<span style="color:#e6db74">&#39;/bin/env&#39;</span>, cmd]<span style="color:#f92672">+</span>arguments)
 </span></span></code></pre></div><p>foo.sh:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/sh
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> arg in <span style="color:#e6db74">&#34;</span>$@<span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">do</span>
