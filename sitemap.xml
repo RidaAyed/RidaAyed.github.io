@@ -2,10 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/posts/call-bash-script-with-arguments-in-python/</loc>
-    <lastmod>2024-07-10T13:34:28+02:00</lastmod>
+    <loc>/posts/create-public-s3-bucket-aws-cli/</loc>
+    <lastmod>2024-07-13T10:57:56+02:00</lastmod>
   </url><url>
     <loc>/posts/</loc>
+    <lastmod>2024-07-13T10:57:56+02:00</lastmod>
+  </url><url>
+    <loc>/posts/call-bash-script-with-arguments-in-python/</loc>
     <lastmod>2024-07-10T13:34:28+02:00</lastmod>
   </url><url>
     <loc>/tags/emacs/</loc>
