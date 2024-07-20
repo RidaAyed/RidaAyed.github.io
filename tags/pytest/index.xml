@@ -18,7 +18,6 @@
 &lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#create-a-bucket-name&#34;&gt;Create a bucket name&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#store-the-bucket-name-as-variable&#34;&gt;Store the bucket name as variable&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#create-the-bucket&#34;&gt;Create the bucket&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#delete-public-access-block&#34;&gt;Delete public access block&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#create-a-policy-to-allow-public-read-access-on-the-bucket&#34;&gt;Create a policy to allow public read access on the bucket&lt;/a&gt;&lt;/li&gt;
@@ -33,13 +32,17 @@
 &lt;!--endtoc--&gt;
 &lt;p&gt;Given is an application requiring public network storage. &lt;br/&gt;
 I&amp;rsquo;ve deciced to give AWS S3 a try. &lt;br/&gt;
-The given setup options are: Infrastructure as code e.g. &lt;code&gt;aws-cdk&lt;/code&gt;, &lt;code&gt;boto3&lt;/code&gt; or an &lt;code&gt;aws cli&lt;/code&gt; bash script. &lt;br/&gt;
-I&amp;rsquo;m going with the &lt;code&gt;aws cli&lt;/code&gt; due to the non-repeating nature of that job. &lt;br/&gt;&lt;/p&gt;
+My given setup options are: &lt;br/&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;aws-cdk&lt;/code&gt; aka Infrastructure as code &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;boto3&lt;/code&gt; &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;aws cli&lt;/code&gt; bash script &lt;br/&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Due to the non-repeating nature of that job, I&amp;rsquo;m going with the &lt;code&gt;aws cli&lt;/code&gt; bash script &lt;br/&gt;&lt;/p&gt;
 &lt;h2 id=&#34;create-a-bucket-name&#34;&gt;Create a bucket name&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;python -c &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;import uuid;print(uuid.uuid4())&amp;#34;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bucket&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;python -m uuid&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo $bucket
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd643901-34ab-48ec-9435-5ffd23c0580b
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;store-the-bucket-name-as-variable&#34;&gt;Store the bucket name as variable&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bucket&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;cd643901-34ab-48ec-9435-5ffd23c0580b
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;create-the-bucket&#34;&gt;Create the bucket&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;aws s3 mb &lt;span style=&#34;color:#ae81ff&#34;&gt;\
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;s3://$bucket &lt;span style=&#34;color:#ae81ff&#34;&gt;\

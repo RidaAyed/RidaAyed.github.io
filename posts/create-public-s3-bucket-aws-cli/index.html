@@ -8,7 +8,7 @@
 
 
   
-    <meta name="description" content="Table of Contents Create a bucket name Store the bucket name as variable Create the bucket Delete public access block Create a policy to allow public read access on the bucket Apply the policy to the bucket Create an example file Upload the example file to our bucket [Assert] Download the file using wget Delete all files in the bucket Delete the bucket Given is an application requiring public network storage.">
+    <meta name="description" content="Table of Contents Create a bucket name Create the bucket Delete public access block Create a policy to allow public read access on the bucket Apply the policy to the bucket Create an example file Upload the example file to our bucket [Assert] Download the file using wget Delete all files in the bucket Delete the bucket Given is an application requiring public network storage. I&rsquo;ve deciced to give AWS S3 a try.">
   
 
 
@@ -16,11 +16,11 @@
 
 
   <meta property="og:title" content="Create a public S3 bucket using the aws cli" />
-<meta property="og:description" content="Table of Contents Create a bucket name Store the bucket name as variable Create the bucket Delete public access block Create a policy to allow public read access on the bucket Apply the policy to the bucket Create an example file Upload the example file to our bucket [Assert] Download the file using wget Delete all files in the bucket Delete the bucket Given is an application requiring public network storage." />
+<meta property="og:description" content="Table of Contents Create a bucket name Create the bucket Delete public access block Create a policy to allow public read access on the bucket Apply the policy to the bucket Create an example file Upload the example file to our bucket [Assert] Download the file using wget Delete all files in the bucket Delete the bucket Given is an application requiring public network storage. I&rsquo;ve deciced to give AWS S3 a try." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/create-public-s3-bucket-aws-cli/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-07-13T10:38:00+02:00" />
-<meta property="article:modified_time" content="2024-07-14T07:27:23+02:00" />
+<meta property="article:modified_time" content="2024-07-20T14:58:43+02:00" />
 
 
 
@@ -98,7 +98,6 @@
 <div class="heading">Table of Contents</div>
 <ul>
 <li><a href="#create-a-bucket-name">Create a bucket name</a></li>
-<li><a href="#store-the-bucket-name-as-variable">Store the bucket name as variable</a></li>
 <li><a href="#create-the-bucket">Create the bucket</a></li>
 <li><a href="#delete-public-access-block">Delete public access block</a></li>
 <li><a href="#create-a-policy-to-allow-public-read-access-on-the-bucket">Create a policy to allow public read access on the bucket</a></li>
@@ -113,13 +112,17 @@
 <!--endtoc-->
 <p>Given is an application requiring public network storage. <br/>
 I&rsquo;ve deciced to give AWS S3 a try. <br/>
-The given setup options are: Infrastructure as code e.g. <code>aws-cdk</code>, <code>boto3</code> or an <code>aws cli</code> bash script. <br/>
-I&rsquo;m going with the <code>aws cli</code> due to the non-repeating nature of that job. <br/></p>
+My given setup options are: <br/></p>
+<ul>
+<li><code>aws-cdk</code> aka Infrastructure as code <br/></li>
+<li><code>boto3</code> <br/></li>
+<li><code>aws cli</code> bash script <br/></li>
+</ul>
+<p>Due to the non-repeating nature of that job, I&rsquo;m going with the <code>aws cli</code> bash script <br/></p>
 <h2 id="create-a-bucket-name">Create a bucket name</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>python -c <span style="color:#e6db74">&#34;import uuid;print(uuid.uuid4())&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bucket<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>python -m uuid<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>echo $bucket
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>cd643901-34ab-48ec-9435-5ffd23c0580b
-</span></span></code></pre></div><h2 id="store-the-bucket-name-as-variable">Store the bucket name as variable</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bucket<span style="color:#f92672">=</span>cd643901-34ab-48ec-9435-5ffd23c0580b
 </span></span></code></pre></div><h2 id="create-the-bucket">Create the bucket</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>aws s3 mb <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>s3://$bucket <span style="color:#ae81ff">\
