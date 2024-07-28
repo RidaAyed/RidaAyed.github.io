@@ -2,10 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/posts/create-public-s3-bucket-aws-cli/</loc>
-    <lastmod>2024-07-20T18:33:15+02:00</lastmod>
+    <loc>/tags/emacs/</loc>
+    <lastmod>2024-07-28T11:59:29+02:00</lastmod>
+  </url><url>
+    <loc>/posts/image-dired-mark-tagged-files-partially/</loc>
+    <lastmod>2024-07-28T11:59:29+02:00</lastmod>
   </url><url>
     <loc>/posts/</loc>
+    <lastmod>2024-07-28T11:59:29+02:00</lastmod>
+  </url><url>
+    <loc>/tags/regex/</loc>
+    <lastmod>2024-07-28T11:59:29+02:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2024-07-28T11:59:29+02:00</lastmod>
+  </url><url>
+    <loc>/posts/create-public-s3-bucket-aws-cli/</loc>
     <lastmod>2024-07-20T18:33:15+02:00</lastmod>
   </url><url>
     <loc>/tags/bash/</loc>
@@ -16,12 +28,6 @@
   </url><url>
     <loc>/tags/python/</loc>
     <lastmod>2024-07-19T07:59:38+02:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
-    <lastmod>2024-07-19T07:59:38+02:00</lastmod>
-  </url><url>
-    <loc>/tags/emacs/</loc>
-    <lastmod>2024-07-04T09:20:26+02:00</lastmod>
   </url><url>
     <loc>/posts/fix-treemacs-add-project-wrong-type-argument-hash-table-p-nil/</loc>
     <lastmod>2024-07-04T09:17:55+02:00</lastmod>

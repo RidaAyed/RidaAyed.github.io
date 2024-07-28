@@ -10,6 +10,22 @@
     <lastBuildDate>Sat, 28 Mar 2020 12:50:00 +0100</lastBuildDate>
     <atom:link href="/tags/storage/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Mark tagged files partially in image-dired</title>
+      <link>/posts/image-dired-mark-tagged-files-partially/</link>
+      <pubDate>Sun, 28 Jul 2024 11:48:00 +0200</pubDate>
+      <guid>/posts/image-dired-mark-tagged-files-partially/</guid>
+      <description>&lt;p&gt;Given your &lt;a href=&#34;https://www.gnu.org/software/emacs/manual/html_node/emacs/Image_002dDired.htmls&#34;&gt;image-dired&lt;/a&gt; tags have similar beginnings e.g &lt;br/&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;0.jpg;foo
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;1.jpg;foo:
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now all you enter &amp;ndash; in order to mark images &amp;ndash; tagged with &lt;code&gt;foo&lt;/code&gt; &lt;strong&gt;but not foo:&lt;/strong&gt;, is this: &lt;br/&gt;
+&lt;kbd&gt; M-x &lt;/kbd&gt; &lt;code&gt;image-dired-mark-tagged-files&lt;/code&gt; foo$ &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note the dollar sign suffix&lt;/strong&gt; &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;Why is such profane regex noteworthy? &lt;br/&gt;
+See how &lt;code&gt;image-dired-dired.el&lt;/code&gt; preliminary establishes the tag collection: &lt;br/&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\(^[^;\n]+\\);\\(.*\\)&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
       <title>Create a public S3 bucket using the aws cli</title>
       <link>/posts/create-public-s3-bucket-aws-cli/</link>
       <pubDate>Sat, 13 Jul 2024 10:38:00 +0200</pubDate>
