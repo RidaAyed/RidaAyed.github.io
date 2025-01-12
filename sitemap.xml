@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/newsletter/</loc>
+    <lastmod>2025-01-12T17:46:30+01:00</lastmod>
+  </url><url>
     <loc>/about/</loc>
     <lastmod>2025-01-10T12:06:07+01:00</lastmod>
-  </url><url>
-    <loc>/newsletter/</loc>
-    <lastmod>2025-01-10T12:04:19+01:00</lastmod>
   </url><url>
     <loc>/mw/</loc>
     <lastmod>2025-01-03T16:08:53+01:00</lastmod>
