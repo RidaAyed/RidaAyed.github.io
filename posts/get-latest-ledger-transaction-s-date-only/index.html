@@ -8,7 +8,7 @@
 
 
   
-    <meta name="description" content="#Content of ~/tmp/file.dat 2099/02/07 * acme Expenses:Groceries $ 1 Assets:Cash 2089/11/07 * foobar Expenses:Groceries $ 4 Assets:Cash I want &ndash; from the account Assets:Cash and from the latest transaction (acme) &ndash; only the date.
+    <meta name="description" content=" #Content of ~/tmp/file.dat 2099/02/07 * acme Expenses:Groceries $ 1 Assets:Cash 2089/11/07 * foobar Expenses:Groceries $ 4 Assets:Cash I want &ndash; from the account Assets:Cash and from the latest transaction (acme) &ndash; only the date.
 I need the date formatted as Year-Month-Day.
 ledger -f ~/tmp/file.dat reg \ Assets:Cash \ --tail 1 \ --format %D \ --date-format %Y-%m-%d 2099-11-07 ">
   
@@ -18,7 +18,7 @@ ledger -f ~/tmp/file.dat reg \ Assets:Cash \ --tail 1 \ --format %D \ --date-for
 
 
   <meta property="og:title" content="Get latest ledger transaction&#39;s date only" />
-<meta property="og:description" content="#Content of ~/tmp/file.dat 2099/02/07 * acme Expenses:Groceries $ 1 Assets:Cash 2089/11/07 * foobar Expenses:Groceries $ 4 Assets:Cash I want &ndash; from the account Assets:Cash and from the latest transaction (acme) &ndash; only the date.
+<meta property="og:description" content=" #Content of ~/tmp/file.dat 2099/02/07 * acme Expenses:Groceries $ 1 Assets:Cash 2089/11/07 * foobar Expenses:Groceries $ 4 Assets:Cash I want &ndash; from the account Assets:Cash and from the latest transaction (acme) &ndash; only the date.
 I need the date formatted as Year-Month-Day.
 ledger -f ~/tmp/file.dat reg \ Assets:Cash \ --tail 1 \ --format %D \ --date-format %Y-%m-%d 2099-11-07 " />
 <meta property="og:type" content="article" />
@@ -41,6 +41,13 @@ ledger -f ~/tmp/file.dat reg \ Assets:Cash \ --tail 1 \ --format %D \ --date-for
 
 
 
+  
+  
+    
+    
+  
+  
+
 
 
 
@@ -57,7 +64,7 @@ ledger -f ~/tmp/file.dat reg \ Assets:Cash \ --tail 1 \ --format %D \ --date-for
     
   
   
-  <link rel="stylesheet" href="/css/base.min.7267752c3baf5d7989b4ff63862b99557184d61b1099d8e225a8c5c9f7b2486b.css" integrity="sha256-cmd1LDuvXXmJtP9jhiuZVXGE1hsQmdjiJajFyfeySGs=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/base.min.247959e5b5dd620fc878726875d2a2398fad5eb978e43aa098f74446ff5d28cc.css" integrity="sha256-JHlZ5bXdYg/IeHJoddKiOY&#43;tXrl45DqgmPdERv9dKMw=" crossorigin="anonymous">
 
 
 
@@ -101,25 +108,31 @@ ledger -f ~/tmp/file.dat reg \ Assets:Cash \ --tail 1 \ --format %D \ --date-for
   
 </header>
 
-    <pre tabindex="0"><code class="language-ledger" data-lang="ledger">#Content of ~/tmp/file.dat
+    
+
+<pre tabindex="0"><code class="language-ledger" data-lang="ledger">#Content of ~/tmp/file.dat
 2099/02/07 * acme
     Expenses:Groceries                                 $ 1
     Assets:Cash
 
 2089/11/07 * foobar
     Expenses:Groceries                                 $ 4
-    Assets:Cash
-</code></pre><p>I want &ndash;  from the account <code>Assets:Cash</code> and from the latest transaction (acme) &ndash; only the
+    Assets:Cash</code></pre>
+<p>I want &ndash;  from the account <code>Assets:Cash</code> and from the latest transaction (acme) &ndash; only the
 date.</p>
 <p>I need the date formatted as <code>Year-Month-Day</code>.</p>
 <p><a id="code-snippet--get-latest-ledger-post-date"></a></p>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ledger -f ~/tmp/file.dat reg <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>       Assets:Cash <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>       --tail <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>       --format %D <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>       --date-format %Y-%m-%d
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>2099-11-07
-</span></span></code></pre></div>
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>       --date-format %Y-%m-%d</span></span></code></pre></div>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>2099-11-07</span></span></code></pre></div>
+
     
 
 

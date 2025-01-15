@@ -39,6 +39,13 @@ sudo sane-find-scanner -q found USB scanner (vendor=0x04c5 [Fujitsu], product=0x
 
 
 
+  
+  
+    
+    
+  
+  
+
 
 
 
@@ -55,7 +62,7 @@ sudo sane-find-scanner -q found USB scanner (vendor=0x04c5 [Fujitsu], product=0x
     
   
   
-  <link rel="stylesheet" href="/css/base.min.7267752c3baf5d7989b4ff63862b99557184d61b1099d8e225a8c5c9f7b2486b.css" integrity="sha256-cmd1LDuvXXmJtP9jhiuZVXGE1hsQmdjiJajFyfeySGs=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/base.min.247959e5b5dd620fc878726875d2a2398fad5eb978e43aa098f74446ff5d28cc.css" integrity="sha256-JHlZ5bXdYg/IeHJoddKiOY&#43;tXrl45DqgmPdERv9dKMw=" crossorigin="anonymous">
 
 
 
@@ -115,23 +122,39 @@ sudo sane-find-scanner -q found USB scanner (vendor=0x04c5 [Fujitsu], product=0x
 </div>
 <!--endtoc-->
 <h2 id="install-package">Install package</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt install sane-utils -y
-</span></span></code></pre></div><h2 id="approve-the-connection">Approve the connection</h2>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt install sane-utils -y</span></span></code></pre></div>
+<h2 id="approve-the-connection">Approve the connection</h2>
 <p>Enable the scanner by opening the scanner&rsquo;s lid</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo sane-find-scanner -q
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>found USB scanner (vendor=0x04c5 [Fujitsu], product=0x132b [ScanSnap iX500]) at libusb:001:007
-</span></span><span style="display:flex;"><span>found USB scanner (vendor=0x0424, product=0x7800) at libusb:001:005
-</span></span></code></pre></div><h2 id="get-a-list-of-devices">Get a list of devices:</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>scanimage --list-devices
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>device `fujitsu:ScanSnap iX500:10443&#39; is a FUJITSU ScanSnap iX500 scanner
-</span></span></code></pre></div><h2 id="get-a-list-of-all-device-specific-options">Get a list of all device specific options:</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>scanimage --device <span style="color:#e6db74">&#39;fujitsu:ScanSnap iX500:10443&#39;</span> --all-options
-</span></span></code></pre></div><h2 id="scan-a-test-file">Scan a test file</h2>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo sane-find-scanner -q</span></span></code></pre></div>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>found USB scanner (vendor=0x04c5 [Fujitsu], product=0x132b [ScanSnap iX500]) at libusb:001:007
+</span></span><span style="display:flex;"><span>found USB scanner (vendor=0x0424, product=0x7800) at libusb:001:005</span></span></code></pre></div>
+<h2 id="get-a-list-of-devices">Get a list of devices:</h2>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>scanimage --list-devices</span></span></code></pre></div>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>device `fujitsu:ScanSnap iX500:10443&#39; is a FUJITSU ScanSnap iX500 scanner</span></span></code></pre></div>
+<h2 id="get-a-list-of-all-device-specific-options">Get a list of all device specific options:</h2>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>scanimage --device <span style="color:#e6db74">&#39;fujitsu:ScanSnap iX500:10443&#39;</span> --all-options</span></span></code></pre></div>
+<h2 id="scan-a-test-file">Scan a test file</h2>
 <p>Scan with default settings to a temporary testfile</p>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>scanimage --format<span style="color:#f92672">=</span>tiff &gt; /tmp/image.tiff
-</span></span><span style="display:flex;"><span>ls --size --block-size<span style="color:#f92672">=</span>M /tmp/image.tiff
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>5M /tmp/image.tiff
-</span></span></code></pre></div><h2 id="scan-productively">Scan productively</h2>
+</span></span><span style="display:flex;"><span>ls --size --block-size<span style="color:#f92672">=</span>M /tmp/image.tiff</span></span></code></pre></div>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>5M /tmp/image.tiff</span></span></code></pre></div>
+<h2 id="scan-productively">Scan productively</h2>
 <p>Mind making this script executable using <code>chmod +x</code>.</p>
 <p><a id="code-snippet--scan-script"></a>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;">
@@ -210,22 +233,30 @@ sudo sane-find-scanner -q found USB scanner (vendor=0x04c5 [Fujitsu], product=0x
   <span class="src-block-number"><a href="#code-snippet--scan-script">Code Snippet 1</a></span>:
   Scan documents in bash with scanimage
 </div>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>scanning...
 </span></span><span style="display:flex;"><span>Scanned document(s) to:
 </span></span><span style="display:flex;"><span>           9M /scan_2020-03-22-205607_001.tiff
-</span></span><span style="display:flex;"><span>9M /scan_2020-03-22-205607_002.tiff
-</span></span></code></pre></div><h2 id="skipping-empty-pages">Skipping empty pages</h2>
+</span></span><span style="display:flex;"><span>9M /scan_2020-03-22-205607_002.tiff</span></span></code></pre></div>
+<h2 id="skipping-empty-pages">Skipping empty pages</h2>
 <p>Pay attention at the highlighted <code>swskip</code> in the <a href="#code-snippet--scan-script">script</a> above. Lower values e.g. <code>5%</code> almost
 never skip empty pages. You get two files (double sided document). Higher values e.g. <code>20%</code> skip
 empty pages. You get one file. <strong>Case-specific testing is recommended.</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>scanimage --help | grep swskip --after-context<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>    --swskip 0..100% (in steps of 0.100006) [0]
-</span></span><span style="display:flex;"><span>        Request driver to discard pages with low percentage of dark pixels
-</span></span></code></pre></div><h2 id="alias-the-command">Alias the command</h2>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>scanimage --help | grep swskip --after-context<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span></span></span></code></pre></div>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>    --swskip 0..100% (in steps of 0.100006) [0]
+</span></span><span style="display:flex;"><span>        Request driver to discard pages with low percentage of dark pixels</span></span></code></pre></div>
+<h2 id="alias-the-command">Alias the command</h2>
 <p>Add this command to your .profile</p>
 <p><a id="code-snippet--scan-script-alias"></a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>alias scan<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ssh raspi &#39;/home/pi/scripts/scan.sh /media/pi/usb500gb/scan&#39;&#34;</span>
-</span></span></code></pre></div>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>alias scan<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ssh raspi &#39;/home/pi/scripts/scan.sh /media/pi/usb500gb/scan&#39;&#34;</span></span></span></code></pre></div>
+
     
 
 

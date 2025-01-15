@@ -35,6 +35,13 @@
 
 
 
+  
+  
+    
+    
+  
+  
+
 
 
 
@@ -51,7 +58,7 @@
     
   
   
-  <link rel="stylesheet" href="/css/base.min.7267752c3baf5d7989b4ff63862b99557184d61b1099d8e225a8c5c9f7b2486b.css" integrity="sha256-cmd1LDuvXXmJtP9jhiuZVXGE1hsQmdjiJajFyfeySGs=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/base.min.247959e5b5dd620fc878726875d2a2398fad5eb978e43aa098f74446ff5d28cc.css" integrity="sha256-JHlZ5bXdYg/IeHJoddKiOY&#43;tXrl45DqgmPdERv9dKMw=" crossorigin="anonymous">
 
 
 
@@ -100,6 +107,8 @@ Using blender, I need to test multiple settings for my painting references e.g.
 lighting, material or the complete location. It all started with that minimal
 working example to render the sphere above.</p>
 <p><a id="code-snippet--mini"></a></p>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># /tmp/blender/blender_mini_example.py</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> bpy
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> time
@@ -116,9 +125,11 @@ working example to render the sphere above.</p>
 </span></span><span style="display:flex;"><span>bpy<span style="color:#f92672">.</span>context<span style="color:#f92672">.</span>scene<span style="color:#f92672">.</span>render<span style="color:#f92672">.</span>filepath <span style="color:#f92672">=</span> filename
 </span></span><span style="display:flex;"><span>bpy<span style="color:#f92672">.</span>ops<span style="color:#f92672">.</span>render<span style="color:#f92672">.</span>render(write_still<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Print directory path and filename</span>
-</span></span><span style="display:flex;"><span>print(dir_path<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;/&#34;</span><span style="color:#f92672">+</span>filename)
-</span></span></code></pre></div><p>I&rsquo;ve added line <a href="#org-coderef--9ac8df-7">7</a> in order to get rid of unneeded
+</span></span><span style="display:flex;"><span>print(dir_path<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;/&#34;</span><span style="color:#f92672">+</span>filename)</span></span></code></pre></div>
+<p>I&rsquo;ve added line <a href="#org-coderef--9ac8df-7">7</a> in order to get rid of unneeded
 addons-on and their accompanying exceptions.</p>
+
+
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="org-coderef--9ac8df-1"><a style="outline:none;text-decoration:none;color:inherit" href="#org-coderef--9ac8df-1">1</a>
@@ -136,10 +147,12 @@ addons-on and their accompanying exceptions.</p>
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --background <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --python blender_mini_example.py <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --verbose <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex; background-color:#3c3d38"><span><span style="color:#ae81ff"></span>    --factory-startup
-</span></span></code></pre></td></tr></table>
+</span></span></span><span style="display:flex; background-color:#3c3d38"><span><span style="color:#ae81ff"></span>    --factory-startup</span></span></code></pre></td></tr></table>
 </div>
-</div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Blender 2.93.6 (hash c842a90e2fa1 built 2021-11-17 16:06:39)
+</div>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Blender 2.93.6 (hash c842a90e2fa1 built 2021-11-17 16:06:39)
 </span></span><span style="display:flex;"><span>/run/user/1000/gvfs/ non-existent directory
 </span></span><span style="display:flex;"><span>Fra:1 Mem:88.84M (Peak 89.51M) | Time:00:00.14 | Syncing Light
 </span></span><span style="display:flex;"><span>Fra:1 Mem:88.84M (Peak 89.51M) | Time:00:00.14 | Syncing Camera
@@ -153,8 +166,8 @@ addons-on and their accompanying exceptions.</p>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>/tmp/blender/1639292187.render.png
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Blender quit
-</span></span></code></pre></div>
+</span></span><span style="display:flex;"><span>Blender quit</span></span></code></pre></div>
+
     
 
 

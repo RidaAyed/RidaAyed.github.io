@@ -37,6 +37,13 @@
 
 
 
+  
+  
+    
+    
+  
+  
+
 
 
 
@@ -53,7 +60,7 @@
     
   
   
-  <link rel="stylesheet" href="/css/base.min.7267752c3baf5d7989b4ff63862b99557184d61b1099d8e225a8c5c9f7b2486b.css" integrity="sha256-cmd1LDuvXXmJtP9jhiuZVXGE1hsQmdjiJajFyfeySGs=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/base.min.247959e5b5dd620fc878726875d2a2398fad5eb978e43aa098f74446ff5d28cc.css" integrity="sha256-JHlZ5bXdYg/IeHJoddKiOY&#43;tXrl45DqgmPdERv9dKMw=" crossorigin="anonymous">
 
 
 
@@ -123,20 +130,32 @@ My given setup options are: <br/></p>
 </ul>
 <p>Due to the non-repeating nature of that job, I&rsquo;m going with the <code>aws cli</code> bash script <br/></p>
 <h2 id="create-an-arbitrary-bucket-name">Create an arbitrary bucket name</h2>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bucket<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>python -m uuid<span style="color:#66d9ef">)</span>
-</span></span><span style="display:flex;"><span>echo $bucket
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>cd643901-34ab-48ec-9435-5ffd23c0580b
-</span></span></code></pre></div><h2 id="create-the-bucket">Create the bucket</h2>
+</span></span><span style="display:flex;"><span>echo $bucket</span></span></code></pre></div>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>cd643901-34ab-48ec-9435-5ffd23c0580b</span></span></code></pre></div>
+<h2 id="create-the-bucket">Create the bucket</h2>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>aws s3 mb <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>s3://$bucket <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--region us-east-1
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>make_bucket: cd643901-34ab-48ec-9435-5ffd23c0580b
-</span></span></code></pre></div><h2 id="delete-public-access-block">Delete public access block</h2>
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--region us-east-1</span></span></code></pre></div>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>make_bucket: cd643901-34ab-48ec-9435-5ffd23c0580b</span></span></code></pre></div>
+<h2 id="delete-public-access-block">Delete public access block</h2>
 <p><mark>The necessity of this step requires further investigation <br/></mark></p>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>aws s3api delete-public-access-block --bucket <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>$bucket 
-</span></span></code></pre></div><h2 id="create-a-policy-to-allow-public-read-access-on-the-bucket">Create a policy to allow public read access on the bucket</h2>
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>$bucket </span></span></code></pre></div>
+<h2 id="create-a-policy-to-allow-public-read-access-on-the-bucket">Create a policy to allow public read access on the bucket</h2>
 <p>/tmp/policy.json: <br/></p>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Statement&#34;</span>:[
 </span></span><span style="display:flex;"><span>    {
@@ -147,26 +166,38 @@ My given setup options are: <br/></p>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:s3:::cd643901-34ab-48ec-9435-5ffd23c0580b&#34;</span>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>  ]
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="apply-the-policy-to-the-bucket">Apply the policy to the bucket</h2>
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<h2 id="apply-the-policy-to-the-bucket">Apply the policy to the bucket</h2>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>aws s3api put-bucket-policy --bucket <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>$bucket <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--policy file:///tmp/policy.json
-</span></span></code></pre></div><h2 id="create-an-example-file">Create an example file</h2>
-<pre tabindex="0"><code class="language-nil" data-lang="nil">echo foobar &gt;&gt; /tmp/foo.txt
-</code></pre><h2 id="upload-the-example-file-to-our-bucket">Upload the example file to our bucket</h2>
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--policy file:///tmp/policy.json</span></span></code></pre></div>
+<h2 id="create-an-example-file">Create an example file</h2>
+
+
+<pre tabindex="0"><code class="language-nil" data-lang="nil">echo foobar &gt;&gt; /tmp/foo.txt</code></pre>
+<h2 id="upload-the-example-file-to-our-bucket">Upload the example file to our bucket</h2>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>aws s3 cp /tmp/foo.txt <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>s3://$bucket
-</span></span></code></pre></div><h2 id="assert-download-the-file-using-wget">[Assert] Download the file using wget</h2>
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>s3://$bucket</span></span></code></pre></div>
+<h2 id="assert-download-the-file-using-wget">[Assert] Download the file using wget</h2>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>wget -O /tmp/downloaded_foo.txt <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span><span style="color:#e6db74">&#34;https://</span>$bucket<span style="color:#e6db74">.s3.us-east-1.amazonaws.com/foo.txt&#34;</span>
-</span></span></code></pre></div><h2 id="delete-all-files-in-the-bucket">Delete all files in the bucket</h2>
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span><span style="color:#e6db74">&#34;https://</span>$bucket<span style="color:#e6db74">.s3.us-east-1.amazonaws.com/foo.txt&#34;</span></span></span></code></pre></div>
+<h2 id="delete-all-files-in-the-bucket">Delete all files in the bucket</h2>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>aws s3 rm <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>s3://$bucket/*
-</span></span></code></pre></div><h2 id="delete-the-bucket">Delete the bucket</h2>
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>s3://$bucket/*</span></span></code></pre></div>
+<h2 id="delete-the-bucket">Delete the bucket</h2>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>aws s3api delete-bucket --bucket <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>$bucket
-</span></span></code></pre></div>
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>$bucket</span></span></code></pre></div>
+
     
 
 

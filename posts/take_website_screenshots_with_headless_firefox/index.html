@@ -39,6 +39,13 @@ Backup exec 2&gt;&amp;1 orig=/home/ra/.mozilla/firefox backup=/home/ra/tmp/firef
 
 
 
+  
+  
+    
+    
+  
+  
+
 
 
 
@@ -55,7 +62,7 @@ Backup exec 2&gt;&amp;1 orig=/home/ra/.mozilla/firefox backup=/home/ra/tmp/firef
     
   
   
-  <link rel="stylesheet" href="/css/base.min.7267752c3baf5d7989b4ff63862b99557184d61b1099d8e225a8c5c9f7b2486b.css" integrity="sha256-cmd1LDuvXXmJtP9jhiuZVXGE1hsQmdjiJajFyfeySGs=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/base.min.247959e5b5dd620fc878726875d2a2398fad5eb978e43aa098f74446ff5d28cc.css" integrity="sha256-JHlZ5bXdYg/IeHJoddKiOY&#43;tXrl45DqgmPdERv9dKMw=" crossorigin="anonymous">
 
 
 
@@ -103,17 +110,23 @@ Backup exec 2&gt;&amp;1 orig=/home/ra/.mozilla/firefox backup=/home/ra/tmp/firef
 taken before doing anything. It deletes traces left during the process.</p>
 <h2 id="backup">Backup</h2>
 <p><a id="code-snippet--headless-firefox-screenshot-backup"></a></p>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>     exec 2&gt;&amp;<span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>     orig<span style="color:#f92672">=</span>/home/ra/.mozilla/firefox
 </span></span><span style="display:flex;"><span>     backup<span style="color:#f92672">=</span>/home/ra/tmp/firefox_backup
 </span></span><span style="display:flex;"><span>     rm -rf $backup
 </span></span><span style="display:flex;"><span>     mkdir -p $backup
 </span></span><span style="display:flex;"><span>     cp -r $orig $backup
-</span></span><span style="display:flex;"><span>     :
-</span></span></code></pre></div><h2 id="create-the-test-profile">Create the test profile</h2>
+</span></span><span style="display:flex;"><span>     :</span></span></code></pre></div>
+<h2 id="create-the-test-profile">Create the test profile</h2>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>   which firefox &gt;/dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> firefox --version
-</span></span><span style="display:flex;"><span>   which firefox &gt;/dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> firefox -CreateProfile headlessTest
-</span></span></code></pre></div><h2 id="take-the-screenshot">Take the screenshot</h2>
+</span></span><span style="display:flex;"><span>   which firefox &gt;/dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> firefox -CreateProfile headlessTest</span></span></code></pre></div>
+<h2 id="take-the-screenshot">Take the screenshot</h2>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>     exec 2&gt;&amp;<span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>     start_time<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>date -u +%s<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>     dt<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>date <span style="color:#e6db74">&#39;+%Y-%m-%d-%H%M%S&#39;</span><span style="color:#66d9ef">)</span>
@@ -127,8 +140,10 @@ taken before doing anything. It deletes traces left during the process.</p>
 </span></span><span style="display:flex;"><span>     elapsed<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$((</span>$end_time<span style="color:#f92672">-</span>$start_time<span style="color:#66d9ef">))</span><span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>     echo <span style="color:#e6db74">&#34;Total of </span>$elapsed<span style="color:#e6db74"> seconds elapsed for screenshot: </span>$filename<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>     echo <span style="color:#e6db74">&#34;Size: </span><span style="color:#66d9ef">$(</span>du --block-size K $filename<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>     :
-</span></span></code></pre></div><h2 id="cleanup-and-restore">Cleanup and restore</h2>
+</span></span><span style="display:flex;"><span>     :</span></span></code></pre></div>
+<h2 id="cleanup-and-restore">Cleanup and restore</h2>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>     exec 2&gt;&amp;<span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>     orig<span style="color:#f92672">=</span>/home/ra/.mozilla/firefox
 </span></span><span style="display:flex;"><span>     backup<span style="color:#f92672">=</span>/home/ra/tmp/firefox
@@ -136,9 +151,11 @@ taken before doing anything. It deletes traces left during the process.</p>
 </span></span><span style="display:flex;"><span>     cp -r $backup/* $orig
 </span></span><span style="display:flex;"><span>     rm -rf $backup <span style="color:#75715e">#Uncomment to delete the backup</span>
 </span></span><span style="display:flex;"><span>     echo <span style="color:#e6db74">&#34;Done&#34;</span>
-</span></span><span style="display:flex;"><span>     :
-</span></span></code></pre></div><h2 id="fullscript">Fullscript</h2>
+</span></span><span style="display:flex;"><span>     :</span></span></code></pre></div>
+<h2 id="fullscript">Fullscript</h2>
 <p><a id="code-snippet--headless-firefox-screenshot-fullscript"></a></p>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>          exec 2&gt;&amp;<span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>          orig<span style="color:#f92672">=</span>/home/ra/.mozilla/firefox
 </span></span><span style="display:flex;"><span>          backup<span style="color:#f92672">=</span>/home/ra/tmp/firefox_backup
@@ -169,15 +186,17 @@ taken before doing anything. It deletes traces left during the process.</p>
 </span></span><span style="display:flex;"><span>          cp -r $backup/* $orig
 </span></span><span style="display:flex;"><span>          rm -rf $backup <span style="color:#75715e">#Uncomment to delete the backup</span>
 </span></span><span style="display:flex;"><span>          echo <span style="color:#e6db74">&#34;Done&#34;</span>
-</span></span><span style="display:flex;"><span>          :
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>4.0K /home/ra/.mozilla/firefox
+</span></span><span style="display:flex;"><span>          :</span></span></code></pre></div>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>4.0K /home/ra/.mozilla/firefox
 </span></span><span style="display:flex;"><span>4.0K /home/ra/tmp/firefox
 </span></span><span style="display:flex;"><span>*** You are running in headless mode.
 </span></span><span style="display:flex;"><span>Total of 7 seconds elapsed for screenshot: /tmp/2020-03-30-154448-headlessTest.jpg
 </span></span><span style="display:flex;"><span>Size: 104K	/tmp/2020-03-30-154448-headlessTest.jpg
 </span></span><span style="display:flex;"><span>4.0K /home/ra/.mozilla/firefox
-</span></span><span style="display:flex;"><span>4.0K /home/ra/tmp/firefox
-</span></span></code></pre></div>
+</span></span><span style="display:flex;"><span>4.0K /home/ra/tmp/firefox</span></span></code></pre></div>
+
     
 
 

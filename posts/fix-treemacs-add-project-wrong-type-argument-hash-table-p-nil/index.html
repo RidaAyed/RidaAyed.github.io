@@ -51,6 +51,13 @@ A short glance at that file gave away the problem:" />
 
 
 
+  
+  
+    
+    
+  
+  
+
 
 
 
@@ -67,7 +74,7 @@ A short glance at that file gave away the problem:" />
     
   
   
-  <link rel="stylesheet" href="/css/base.min.7267752c3baf5d7989b4ff63862b99557184d61b1099d8e225a8c5c9f7b2486b.css" integrity="sha256-cmd1LDuvXXmJtP9jhiuZVXGE1hsQmdjiJajFyfeySGs=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/base.min.247959e5b5dd620fc878726875d2a2398fad5eb978e43aa098f74446ff5d28cc.css" integrity="sha256-JHlZ5bXdYg/IeHJoddKiOY&#43;tXrl45DqgmPdERv9dKMw=" crossorigin="anonymous">
 
 
 
@@ -116,21 +123,25 @@ A short glance at that file gave away the problem:" />
 <p>Yet <kbd> M-x treemacs-add-project</kbd> returned</p>
 <p><code>(wrong-type-argument hash-table-p nil)</code></p>
 <p>Debugging with <kbd> M-x debug-on-error</kbd> gave away a suspicious <code>gethash</code> call:</p>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Debugger entered--Lisp error:
 </span></span><span style="display:flex;"><span>  (wrong-type-argument hash-table-p nil)
 </span></span><span style="display:flex;"><span>  gethash(&#34;/home/ra/src/django/crm&#34; nil nil)
 </span></span><span style="display:flex;"><span>  treemacs-add-project(&#34;/home/ra/src/django/&#34;)
-</span></span><span style="display:flex;"><span>...
-</span></span></code></pre></div><p><code>gethash(&quot;/home/ra/src/django/crm&quot; nil nil)</code> contains <code>crm</code>. <strong>But why?</strong></p>
+</span></span><span style="display:flex;"><span>...</span></span></code></pre></div>
+<p><code>gethash(&quot;/home/ra/src/django/crm&quot; nil nil)</code> contains <code>crm</code>. <strong>But why?</strong></p>
 <p>So I started digging in the treemacs options by calling <kbd> M-x </kbd> <kbd> custom-options  </kbd> and found <code>treemacs-persist-file</code></p>
 <p>A short glance at that file gave away the problem:</p>
 <p><code>cat ~/.emacs.default/.cache/treemacs-persist</code></p>
+
+
 <pre tabindex="0"><code class="language-fundamental" data-lang="fundamental">...
 * Default
 ** crm
  - path :: ~/src/django/crm
-...
-</code></pre><p>The project was already there <strong><strong>but</strong></strong> only it&rsquo;s subdir (crm) was added to treemacs. Mind that only the parent dir is versioned (.git).</p>
+...</code></pre>
+<p>The project was already there <strong><strong>but</strong></strong> only it&rsquo;s subdir (crm) was added to treemacs. Mind that only the parent dir is versioned (.git).</p>
 <p>Long story short 💡:</p>
 <style>.org-center { margin-left: auto; margin-right: auto; text-align: center; }</style>
 <div class="org-center">

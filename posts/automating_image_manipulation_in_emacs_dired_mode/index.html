@@ -39,6 +39,13 @@ This article presents a convenient way to automate image manipulation tasks usin
 
 
 
+  
+  
+    
+    
+  
+  
+
 
 
 
@@ -55,7 +62,7 @@ This article presents a convenient way to automate image manipulation tasks usin
     
   
   
-  <link rel="stylesheet" href="/css/base.min.7267752c3baf5d7989b4ff63862b99557184d61b1099d8e225a8c5c9f7b2486b.css" integrity="sha256-cmd1LDuvXXmJtP9jhiuZVXGE1hsQmdjiJajFyfeySGs=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/base.min.247959e5b5dd620fc878726875d2a2398fad5eb978e43aa098f74446ff5d28cc.css" integrity="sha256-JHlZ5bXdYg/IeHJoddKiOY&#43;tXrl45DqgmPdERv9dKMw=" crossorigin="anonymous">
 
 
 
@@ -102,6 +109,8 @@ This article presents a convenient way to automate image manipulation tasks usin
     <p>I manage my images using emacs dired, specifically image-dired. I found myself repeatedly marking images in order to paste their filepaths into various shell scripts for further manipulation.</p>
 <p>This article presents a convenient way to automate image manipulation tasks using a Bash script and Emacs Dired mode. It presents an approach to creating a Bash script that resizes images, applies padding and aspect ratio, and removes EXIF information. The script is then bound to a C-c C-x key in Emacs Dired mode, allowing users to easily apply these operations to multiple images with a single keystroke. The article also covers making the script executable and monitoring the output of the script using journalctl.</p>
 <h2 id="image-manipulation-script">Image manipulation script</h2>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#~/bin/image_manipulation.sh</span>
 </span></span><span style="display:flex;"><span>outdir<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/tmp/</span><span style="color:#66d9ef">$(</span>date +%Y%m%d_%H%M%S<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>  <span style="color:#75715e"># Create a directory with the current date and time</span>
 </span></span><span style="display:flex;"><span>mkdir $outdir
@@ -125,10 +134,14 @@ This article presents a convenient way to automate image manipulation tasks usin
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Save the outdir path in the Emacs killring for easy access</span>
 </span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;</span>$outdir<span style="color:#e6db74">&#34;</span> &gt; /tmp/kill
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>exit
-</span></span></code></pre></div><h2 id="make-the-script-executable">Make the script executable</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo chmod +x ~/bin/image_manipulation.sh
-</span></span></code></pre></div><h2 id="bind-script-to-key-in-emacs-dired-mode">Bind script to key in emacs dired mode</h2>
+</span></span><span style="display:flex;"><span>exit</span></span></code></pre></div>
+<h2 id="make-the-script-executable">Make the script executable</h2>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo chmod +x ~/bin/image_manipulation.sh</span></span></code></pre></div>
+<h2 id="bind-script-to-key-in-emacs-dired-mode">Bind script to key in emacs dired mode</h2>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my-dired-send-to-image_manipulation ()
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Send marked files in Dired to ~/bin/image_manipulation.sh
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  assure ~/bin is in $PATH)&#34;</span>
@@ -136,10 +149,12 @@ This article presents a convenient way to automate image manipulation tasks usin
 </span></span><span style="display:flex;"><span>  (let ((files (dired-get-marked-files)))
 </span></span><span style="display:flex;"><span>    (shell-command (<span style="color:#a6e22e">concat</span> <span style="color:#e6db74">&#34;image_manipulation.sh &#34;</span> (<span style="color:#a6e22e">mapconcat</span> <span style="color:#a6e22e">#&#39;</span>shell-quote-argument files <span style="color:#e6db74">&#34; &#34;</span>)))
 </span></span><span style="display:flex;"><span>    (<span style="color:#a6e22e">message</span> <span style="color:#e6db74">&#34;Sent to image_manipulation.sh: %s&#34;</span> files)))
-</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">define-key</span> dired-mode-map (kbd <span style="color:#e6db74">&#34;C-c C-x&#34;</span>) <span style="color:#e6db74">&#39;my-dired-send-to-image_manipulation</span>)
-</span></span></code></pre></div><h2 id="check-script-output-in-log">Check script output in log</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>journalctl -f
-</span></span></code></pre></div>
+</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">define-key</span> dired-mode-map (kbd <span style="color:#e6db74">&#34;C-c C-x&#34;</span>) <span style="color:#e6db74">&#39;my-dired-send-to-image_manipulation</span>)</span></span></code></pre></div>
+<h2 id="check-script-output-in-log">Check script output in log</h2>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>journalctl -f</span></span></code></pre></div>
+
     
 
 

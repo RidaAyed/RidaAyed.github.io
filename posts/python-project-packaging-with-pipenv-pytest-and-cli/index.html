@@ -37,6 +37,13 @@
 
 
 
+  
+  
+    
+    
+  
+  
+
 
 
 
@@ -53,7 +60,7 @@
     
   
   
-  <link rel="stylesheet" href="/css/base.min.7267752c3baf5d7989b4ff63862b99557184d61b1099d8e225a8c5c9f7b2486b.css" integrity="sha256-cmd1LDuvXXmJtP9jhiuZVXGE1hsQmdjiJajFyfeySGs=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/base.min.247959e5b5dd620fc878726875d2a2398fad5eb978e43aa098f74446ff5d28cc.css" integrity="sha256-JHlZ5bXdYg/IeHJoddKiOY&#43;tXrl45DqgmPdERv9dKMw=" crossorigin="anonymous">
 
 
 
@@ -116,40 +123,60 @@
 <p>Our starting point is: <a href="https://packaging.python.org/en/latest/tutorials/packaging-projects/">https://packaging.python.org/en/latest/tutorials/packaging-projects/</a>
 I&rsquo;ll use the absolute minimum. E.g. <code>pyproject.toml</code> contains no description nor licence etc.
 Furthermore I&rsquo;ve deleted files e.g. <code>readme.md</code> and directories e.g. <code>tests</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>/home/ra/tmp/$ tree packaging_tutorial
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>packaging_tutorial
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>/home/ra/tmp/$ tree packaging_tutorial</span></span></code></pre></div>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>packaging_tutorial
 </span></span><span style="display:flex;"><span>├── pyproject.toml
 </span></span><span style="display:flex;"><span>└── src
 </span></span><span style="display:flex;"><span>    └── example_package
 </span></span><span style="display:flex;"><span>        ├── example.py
 </span></span><span style="display:flex;"><span>        └── __init__.py
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>3 directories, 3 files
-</span></span></code></pre></div><p>Let&rsquo;s have a look at the content of <code>pyproject.toml</code>:</p>
+</span></span><span style="display:flex;"><span>3 directories, 3 files</span></span></code></pre></div>
+<p>Let&rsquo;s have a look at the content of <code>pyproject.toml</code>:</p>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">build-system</span>]
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">requires</span> = [<span style="color:#e6db74">&#34;hatchling&#34;</span>]
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">build-backend</span> = <span style="color:#e6db74">&#34;hatchling.build&#34;</span>
 </span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">project</span>]
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;example_package&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">version</span> = <span style="color:#e6db74">&#34;0.0.1&#34;</span>
-</span></span></code></pre></div><p><mark>What&rsquo;s most counterintuitive is that the name key under the [project] section in pyproject.toml must match the name of the package (example_package) and <strong><strong>not</strong></strong> the parent&rsquo;s directory name (packaging_tutorial). In my mind the parent directory <strong><strong>is</strong></strong> the project&rsquo;s name.
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">version</span> = <span style="color:#e6db74">&#34;0.0.1&#34;</span></span></span></code></pre></div>
+<p><mark>What&rsquo;s most counterintuitive is that the name key under the [project] section in pyproject.toml must match the name of the package (example_package) and <strong><strong>not</strong></strong> the parent&rsquo;s directory name (packaging_tutorial). In my mind the parent directory <strong><strong>is</strong></strong> the project&rsquo;s name.
 In fact, the parent directory name seems completely negligible in perspective of development.</mark></p>
 <h2 id="installing-the-package-in-a-virtual-environment-using-pipenv-with-python-3-dot-8">Installing the package in a virtual environment using pipenv with python 3.8</h2>
 <p>We replicate the steps from<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> not from <code>pypi</code> but locally from within the project&rsquo;s folder (thus the dot <code>.</code> after <code>-e</code>).</p>
 <p><a id="code-snippet--pipenv-install-e"></a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pipenv install -e . --python 3.8
-</span></span></code></pre></div><p>The <code>-e</code> flag (editable) allows further development (hence editing) alongside the installation.</p>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pipenv install -e . --python 3.8</span></span></code></pre></div>
+<p>The <code>-e</code> flag (editable) allows further development (hence editing) alongside the installation.</p>
 <p>But am I really installing if using a virtual environment? At this moment I&rsquo;ll leave the flag since I haven&rsquo;t detected any downsides to it yet.</p>
 <p>Ensure the virtual environment has been created</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pipenv --venv
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/home/ra/.local/share/virtualenvs/packaging_tutorial-okktpVF3
-</span></span></code></pre></div><p>Activate this project&rsquo;s virtualenv</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pipenv shell
-</span></span></code></pre></div><p>Ensure version 3.8 is used as virtual python environment</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>python -V
-</span></span></code></pre></div><p>Check the new directory structure</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>tree packaging_tutorial
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>packaging_tutorial
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pipenv --venv</span></span></code></pre></div>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/home/ra/.local/share/virtualenvs/packaging_tutorial-okktpVF3</span></span></code></pre></div>
+<p>Activate this project&rsquo;s virtualenv</p>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pipenv shell</span></span></code></pre></div>
+<p>Ensure version 3.8 is used as virtual python environment</p>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>python -V</span></span></code></pre></div>
+<p>Check the new directory structure</p>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>tree packaging_tutorial</span></span></code></pre></div>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>packaging_tutorial
 </span></span><span style="display:flex;"><span>├── Pipfile
 </span></span><span style="display:flex;"><span>├── Pipfile.lock
 </span></span><span style="display:flex;"><span>├── pyproject.toml
@@ -158,8 +185,10 @@ In fact, the parent directory name seems completely negligible in perspective of
 </span></span><span style="display:flex;"><span>        ├── example.py
 </span></span><span style="display:flex;"><span>        └── __init__.py
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>3 directories, 5 files
-</span></span></code></pre></div><p>Let&rsquo;s have a look at Pipfile&rsquo;s content:</p>
+</span></span><span style="display:flex;"><span>3 directories, 5 files</span></span></code></pre></div>
+<p>Let&rsquo;s have a look at Pipfile&rsquo;s content:</p>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[[<span style="color:#a6e22e">source</span>]]
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">url</span> = <span style="color:#e6db74">&#34;https://pypi.org/simple&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">verify_ssl</span> = <span style="color:#66d9ef">true</span>
@@ -172,46 +201,68 @@ In fact, the parent directory name seems completely negligible in perspective of
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">requires</span>]
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">python_version</span> = <span style="color:#e6db74">&#34;3.8&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">python_full_version</span> = <span style="color:#e6db74">&#34;3.8.12&#34;</span>
-</span></span></code></pre></div><p>Activate the virtual environment</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pipenv shell
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>python
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">python_full_version</span> = <span style="color:#e6db74">&#34;3.8.12&#34;</span></span></span></code></pre></div>
+<p>Activate the virtual environment</p>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pipenv shell</span></span></code></pre></div>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>python
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Python 3.8.12 (default, Dec  4 2021, 10:54:00)</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># [GCC 11.1.0] on linux</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Type &#34;help&#34;, &#34;copyright&#34;, &#34;credits&#34; or &#34;license&#34; for more information.</span>
-</span></span></code></pre></div><p>Mind that I changed the name from <del>example_package_YOUR_USERNAME_HERE</del> to <code>example_package</code></p>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Type &#34;help&#34;, &#34;copyright&#34;, &#34;credits&#34; or &#34;license&#34; for more information.</span></span></span></code></pre></div>
+<p>Mind that I changed the name from <del>example_package_YOUR_USERNAME_HERE</del> to <code>example_package</code></p>
 <p><a id="code-snippet--import-module"></a></p>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#f92672">from</span> example_package <span style="color:#f92672">import</span> example
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> example<span style="color:#f92672">.</span>add_one(<span style="color:#ae81ff">2</span>)
-</span></span></code></pre></div><h2 id="review-the-installation-in-perspective-of-pipenv-and-python-3-dot-8">Review the installation in perspective of pipenv and python 3.8</h2>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> example<span style="color:#f92672">.</span>add_one(<span style="color:#ae81ff">2</span>)</span></span></code></pre></div>
+<h2 id="review-the-installation-in-perspective-of-pipenv-and-python-3-dot-8">Review the installation in perspective of pipenv and python 3.8</h2>
 <p>At this stage we&rsquo;ve successfully replicated the package installation <strong>locally</strong> with <strong>pipenv</strong> and <strong>another python version</strong> (3.8).</p>
 <h2 id="run-something-from-the-cli">Run something from the cli</h2>
 <p>Great. We&rsquo;re able to import the <code>add_one</code> function from the <code>example.py</code> module in our virtual environment.</p>
 <p>For better depiction I&rsquo;ll add a print statement to our example.py module:</p>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add_one</span>(number):
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> number <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>print(add_one(<span style="color:#ae81ff">1</span>))
-</span></span></code></pre></div><p>Now let&rsquo;s run it from the command line interface (cli)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>python -m example
-</span></span></code></pre></div><p><em>home/ra</em>.local/share/virtualenvs/packaging_tutorial-okktpVF3/bin/python: No module named example</p>
+</span></span><span style="display:flex;"><span>print(add_one(<span style="color:#ae81ff">1</span>))</span></span></code></pre></div>
+<p>Now let&rsquo;s run it from the command line interface (cli)</p>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>python -m example</span></span></code></pre></div>
+<p><em>home/ra</em>.local/share/virtualenvs/packaging_tutorial-okktpVF3/bin/python: No module named example</p>
 <p>Let&rsquo;s check what&rsquo;s actually installed in our virtual environment</p>
-<pre tabindex="0"><code class="language-nil" data-lang="nil">pip list
-</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Package         Version Editable project location
+
+
+<pre tabindex="0"><code class="language-nil" data-lang="nil">pip list</code></pre>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Package         Version Editable project location
 </span></span><span style="display:flex;"><span>--------------- ------- -------------------------------
 </span></span><span style="display:flex;"><span>example_package 0.0.1   /home/ra/tmp/packaging_tutorial
 </span></span><span style="display:flex;"><span>pip             24.0
 </span></span><span style="display:flex;"><span>setuptools      69.2.0
-</span></span><span style="display:flex;"><span>wheel           0.43.0
-</span></span></code></pre></div><p>Apparently we&rsquo;re all set. Let&rsquo;s try calling the module differently:</p>
-<pre tabindex="0"><code class="language-nil" data-lang="nil">python -m src.example_package.example
-</code></pre><p>This works but somehow feels wrong. Why do I need to be that explicit? What about the claimed automatic discovery<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> for our src-layout<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>?</p>
+</span></span><span style="display:flex;"><span>wheel           0.43.0</span></span></code></pre></div>
+<p>Apparently we&rsquo;re all set. Let&rsquo;s try calling the module differently:</p>
+
+
+<pre tabindex="0"><code class="language-nil" data-lang="nil">python -m src.example_package.example</code></pre>
+<p>This works but somehow feels wrong. Why do I need to be that explicit? What about the claimed automatic discovery<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> for our src-layout<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>?</p>
 <p>After further reading<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>, let&rsquo;s try only the package name:</p>
 <p><a id="code-snippet--run-module"></a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>python -m example_package
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>No module named example_package.__main__; &#39;example_package&#39; is a package and cannot be directly executed
-</span></span></code></pre></div><p>At least, we got a new hint from the error, which moreover matches the setuptools instructions<sup id="fnref1:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>. Thus, let&rsquo;s make it so and add <code>__main__.py</code></p>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>python -m example_package</span></span></code></pre></div>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>No module named example_package.__main__; &#39;example_package&#39; is a package and cannot be directly executed</span></span></code></pre></div>
+<p>At least, we got a new hint from the error, which moreover matches the setuptools instructions<sup id="fnref1:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>. Thus, let&rsquo;s make it so and add <code>__main__.py</code></p>
+
+
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="org-coderef--ddbe0f-1"><a style="outline:none;text-decoration:none;color:inherit" href="#org-coderef--ddbe0f-1">1</a>
@@ -225,20 +276,24 @@ In fact, the parent directory name seems completely negligible in perspective of
 </span></span><span style="display:flex; background-color:#3c3d38"><span><span style="color:#f92672">from</span> . <span style="color:#f92672">import</span> add_one
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
-</span></span><span style="display:flex;"><span>    add_one(<span style="color:#ae81ff">1</span>)
-</span></span></code></pre></td></tr></table>
+</span></span><span style="display:flex;"><span>    add_one(<span style="color:#ae81ff">1</span>)</span></span></code></pre></td></tr></table>
 </div>
-</div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>ImportError: cannot import name &#39;add_one&#39; from &#39;example_package&#39; (/home/ra/tmp/packaging_tutorial/src/example_package/__init__.py)
-</span></span></code></pre></div><p>At this point it looks like <code>__init__.py</code> is consulted due to the highlighted line 2 in <code>__main__.py</code>.</p>
+</div>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>ImportError: cannot import name &#39;add_one&#39; from &#39;example_package&#39; (/home/ra/tmp/packaging_tutorial/src/example_package/__init__.py)</span></span></code></pre></div>
+<p>At this point it looks like <code>__init__.py</code> is consulted due to the highlighted line 2 in <code>__main__.py</code>.</p>
 <p>Since we installed the <a href="#code-snippet--pipenv-install-e">package</a>, we will import this package itself in our modules&rsquo;s cli entrypoint <code>__main__.py</code>.</p>
 <p>Let&rsquo;s change <code>__main__.py</code></p>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> example_package <span style="color:#f92672">import</span> example
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Works as well:</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># from . import example</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
-</span></span><span style="display:flex;"><span>    example<span style="color:#f92672">.</span>add_one(<span style="color:#ae81ff">1</span>)
-</span></span></code></pre></div><p>Now running <code>python -m example_package</code> in terminal being in <code>/packaging_tutorial</code> works.</p>
+</span></span><span style="display:flex;"><span>    example<span style="color:#f92672">.</span>add_one(<span style="color:#ae81ff">1</span>)</span></span></code></pre></div>
+<p>Now running <code>python -m example_package</code> in terminal being in <code>/packaging_tutorial</code> works.</p>
 <h2 id="review-our-current--cli--project-s-state">Review our current (cli) project&rsquo;s state</h2>
 <p>At this point we&rsquo;re able to</p>
 <ol>
@@ -247,8 +302,12 @@ In fact, the parent directory name seems completely negligible in perspective of
 <li>run the packages&rsquo;s module from the <a href="#code-snippet--run-module">terminal/cli</a></li>
 </ol>
 <!--listend-->
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>tree packaging_tutorial
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>packaging_tutorial
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>tree packaging_tutorial</span></span></code></pre></div>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>packaging_tutorial
 </span></span><span style="display:flex;"><span>├── Pipfile
 </span></span><span style="display:flex;"><span>├── Pipfile.lock
 </span></span><span style="display:flex;"><span>├── pyproject.toml
@@ -258,8 +317,8 @@ In fact, the parent directory name seems completely negligible in perspective of
 </span></span><span style="display:flex;"><span>        ├── __init__.py
 </span></span><span style="display:flex;"><span>        └── __main__.py
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>3 directories, 6 files
-</span></span></code></pre></div><div class="footnotes" role="doc-endnotes">
+</span></span><span style="display:flex;"><span>3 directories, 6 files</span></span></code></pre></div>
+<div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
 <li id="fn:1">

@@ -43,6 +43,13 @@ The #egg=pytest-watch suffix changes the pytest-watch Pipfile from &quot;*&quot;
 
 
 
+  
+  
+    
+    
+  
+  
+
 
 
 
@@ -59,7 +66,7 @@ The #egg=pytest-watch suffix changes the pytest-watch Pipfile from &quot;*&quot;
     
   
   
-  <link rel="stylesheet" href="/css/base.min.7267752c3baf5d7989b4ff63862b99557184d61b1099d8e225a8c5c9f7b2486b.css" integrity="sha256-cmd1LDuvXXmJtP9jhiuZVXGE1hsQmdjiJajFyfeySGs=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/base.min.247959e5b5dd620fc878726875d2a2398fad5eb978e43aa098f74446ff5d28cc.css" integrity="sha256-JHlZ5bXdYg/IeHJoddKiOY&#43;tXrl45DqgmPdERv9dKMw=" crossorigin="anonymous">
 
 
 
@@ -104,17 +111,22 @@ The #egg=pytest-watch suffix changes the pytest-watch Pipfile from &quot;*&quot;
 </header>
 
     <p>Given is this pullrequest <a href="https://github.com/joeyespo/pytest-watch/pull/108">https://github.com/joeyespo/pytest-watch/pull/108</a></p>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pipenv install -d <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>git+https://github.com/joeyespo/pytest-watch.git@refs/pull/108/head#egg<span style="color:#f92672">=</span>pytest-watch
-</span></span></code></pre></div><p>The <code>-d</code> flag installs the package in the <a href="#code-snippet--2024diff">Pipfile&rsquo;s</a> <code>[dev-packages]</code> section</p>
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>git+https://github.com/joeyespo/pytest-watch.git@refs/pull/108/head#egg<span style="color:#f92672">=</span>pytest-watch</span></span></code></pre></div>
+<p>The <code>-d</code> flag installs the package in the <a href="#code-snippet--2024diff">Pipfile&rsquo;s</a> <code>[dev-packages]</code> section</p>
 <p>The <code>#egg=pytest-watch</code> suffix changes the <code>pytest-watch</code> <a href="#code-snippet--2024diff">Pipfile</a> from <code>&quot;*&quot;</code> to <code>{ref = &quot;refs/pull/108/head&quot;, git = &quot;git+https://github.com/joeyespo/pytest-watch.git&quot;}</code></p>
 <p><a id="code-snippet--2024diff"></a></p>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span>[dev-packages]
 </span></span><span style="display:flex;"><span>debugpy = &#34;*&#34;
 </span></span><span style="display:flex;"><span><span style="color:#f92672">-pytest-watch = &#34;*&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#f92672"></span><span style="color:#a6e22e">+pytest-watch = {ref = &#34;refs/pull/108/head&#34;, git = &#34;git+https://github.com/joeyespo/pytest-watch.git&#34;}
 </span></span></span><span style="display:flex;"><span><span style="color:#a6e22e"></span>epc = &#34;*&#34;
 </span></span></code></pre></div>
+
     
 
 

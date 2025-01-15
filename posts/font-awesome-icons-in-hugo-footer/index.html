@@ -39,6 +39,13 @@ Neither simply adding {{&lt; fa bath &gt;}} to the footer key in config.toml nor
 
 
 
+  
+  
+    
+    
+  
+  
+
 
 
 
@@ -55,7 +62,7 @@ Neither simply adding {{&lt; fa bath &gt;}} to the footer key in config.toml nor
     
   
   
-  <link rel="stylesheet" href="/css/base.min.7267752c3baf5d7989b4ff63862b99557184d61b1099d8e225a8c5c9f7b2486b.css" integrity="sha256-cmd1LDuvXXmJtP9jhiuZVXGE1hsQmdjiJajFyfeySGs=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/base.min.247959e5b5dd620fc878726875d2a2398fad5eb978e43aa098f74446ff5d28cc.css" integrity="sha256-JHlZ5bXdYg/IeHJoddKiOY&#43;tXrl45DqgmPdERv9dKMw=" crossorigin="anonymous">
 
 
 
@@ -118,8 +125,12 @@ And of course, this presumption was wrong again.</p>
 <p>In contradiction to the instructions<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>, I put the <code>fontawesome</code> directory <del>not in the static</del> but in the <strong>assets</strong> directory. I had to create it first.</p>
 <p>Furthermore I put the <strong>complete</strong> fontawesome directory, not only a particular file. Filepaths in <code>fa.html</code><sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>, pointing to subdirectories, made me skeptic about picking only particular files.</p>
 <p>Thus, after following the instruction steps about downloading and adding the fa.html, the <code>siteroot/assets</code> directory tree should look like:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>tree -d -L <span style="color:#ae81ff">2</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>.
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>tree -d -L <span style="color:#ae81ff">2</span></span></span></code></pre></div>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>.
 </span></span><span style="display:flex;"><span>└── fontawesome
 </span></span><span style="display:flex;"><span>    ├── css
 </span></span><span style="display:flex;"><span>    ├── js
@@ -130,16 +141,18 @@ And of course, this presumption was wrong again.</p>
 </span></span><span style="display:flex;"><span>    ├── svgs
 </span></span><span style="display:flex;"><span>    └── webfonts
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>10 directories
-</span></span></code></pre></div><h2 id="config-dot-toml">config.toml</h2>
+</span></span><span style="display:flex;"><span>10 directories</span></span></code></pre></div>
+<h2 id="config-dot-toml">config.toml</h2>
 <p>The <code>js</code> key is documented in my theme&rsquo;s repository<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>. You might encounter other ways for your particular theme in order to customize css/js assets.</p>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">params</span>]
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">js</span> = [<span style="color:#e6db74">&#34;/fontawesome/js/all.js&#34;</span>]
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">footer</span> = <span style="color:#e6db74">&#39;&#39;&#39;
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&lt;a href=&#34;https://instagram.com/rida.ayed&#34;&gt;&lt;div class=&#34;fab fa-fab fa-instagram&#34;&gt;&lt;/div&gt;&lt;/a&gt;
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&lt;a href=&#34;https://github.com/RidaAyed&#34;&gt;&lt;div class=&#34;fab fa-fab fa-github&#34;&gt;&lt;/div&gt;&lt;/a&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;</span>
-</span></span></code></pre></div><p>Now the footer contains links with icons. Namely 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;</span></span></span></code></pre></div>
+<p>Now the footer contains links with icons. Namely 
 
 
   
@@ -166,11 +179,15 @@ And of course, this presumption was wrong again.</p>
 <h2 id="usage-of-the-icons-with-ox-hugo-shortcodes-in-content">Usage of the icons with ox-hugo shortcodes in content</h2>
 <p>Although being documented<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>, I rather show the shortcode usage in ox-hugo again and specifically.</p>
 <p>For example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Lorem @@hugo:{ {&lt; fa bath &gt;}}@@ ipsum
-</span></span></code></pre></div><p>Only by chance, I noticed that surrounding the shortcode with the equal sign &ldquo;=&rdquo; works as well.</p>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Lorem @@hugo:{ {&lt; fa bath &gt;}}@@ ipsum</span></span></code></pre></div>
+<p>Only by chance, I noticed that surrounding the shortcode with the equal sign &ldquo;=&rdquo; works as well.</p>
 <p>For example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Lorem ={ {&lt; fa bath &gt;}}= ipsum
-</span></span></code></pre></div><p><mark>You must delete that first space between the curly brackets from my upper examples. So {{ instead of { {<br /></mark> Both examples result in: Lorem 
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Lorem ={ {&lt; fa bath &gt;}}= ipsum</span></span></code></pre></div>
+<p><mark>You must delete that first space between the curly brackets from my upper examples. So {{ instead of { {<br /></mark> Both examples result in: Lorem 
 
 
 

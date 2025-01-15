@@ -47,6 +47,13 @@ true_expected: True false_expected: False Why am I not happy with that approach?
 
 
 
+  
+  
+    
+    
+  
+  
+
 
 
 
@@ -63,7 +70,7 @@ true_expected: True false_expected: False Why am I not happy with that approach?
     
   
   
-  <link rel="stylesheet" href="/css/base.min.7267752c3baf5d7989b4ff63862b99557184d61b1099d8e225a8c5c9f7b2486b.css" integrity="sha256-cmd1LDuvXXmJtP9jhiuZVXGE1hsQmdjiJajFyfeySGs=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/base.min.247959e5b5dd620fc878726875d2a2398fad5eb978e43aa098f74446ff5d28cc.css" integrity="sha256-JHlZ5bXdYg/IeHJoddKiOY&#43;tXrl45DqgmPdERv9dKMw=" crossorigin="anonymous">
 
 
 
@@ -117,6 +124,8 @@ in return expect the comparison&rsquo;s outcome as a bool.</p>
 <li>
 <p>Print it&rsquo;s result until I&rsquo;m happy with it</p>
 <p><a id="code-snippet--something"></a></p>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#somecode.py</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> datetime <span style="color:#f92672">import</span> datetime
 </span></span><span style="display:flex;"><span>
@@ -129,11 +138,13 @@ in return expect the comparison&rsquo;s outcome as a bool.</p>
 </span></span><span style="display:flex;"><span>true_expected<span style="color:#f92672">=</span>compare_two_dates(date,date)
 </span></span><span style="display:flex;"><span>false_expected<span style="color:#f92672">=</span>compare_two_dates(date,otherdate)
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;true_expected:&#34;</span>,true_expected)
-</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;false_expected:&#34;</span>,false_expected)
-</span></span></code></pre></div><p>Result:</p>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;false_expected:&#34;</span>,false_expected)</span></span></code></pre></div>
+<p>Result:</p>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>true_expected: True
-</span></span><span style="display:flex;"><span>false_expected: False
-</span></span></code></pre></div></li>
+</span></span><span style="display:flex;"><span>false_expected: False</span></span></code></pre></div>
+</li>
 </ol>
 <h2 id="why-am-i-not-happy-with-that-approach">Why am I not happy with that approach?</h2>
 <p>I&rsquo;m required to see the output. My focus constantly switches between
@@ -150,6 +161,8 @@ outcome.</p>
 <h2 id="result">Result</h2>
 <p>No more print statements cluttering my commits. No more insecurities about
 memorizing if I ever tested this before.</p>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># my_unit_test.py</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pytest
 </span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> datetime <span style="color:#f92672">import</span> datetime
@@ -164,10 +177,14 @@ memorizing if I ever tested this before.</p>
 </span></span><span style="display:flex;"><span>    otherdate <span style="color:#f92672">=</span> datetime(<span style="color:#ae81ff">1900</span>, <span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">12</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">assert</span> compare_two_dates(date, date) <span style="color:#f92672">==</span> <span style="color:#66d9ef">True</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">assert</span> compare_two_dates(date, otherdate) <span style="color:#f92672">==</span> <span style="color:#66d9ef">False</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pytest my_unit_test.py
-</span></span><span style="display:flex;"><span>echo
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>============================= test session starts ==============================
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">assert</span> compare_two_dates(date, otherdate) <span style="color:#f92672">==</span> <span style="color:#66d9ef">False</span></span></span></code></pre></div>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pytest my_unit_test.py
+</span></span><span style="display:flex;"><span>echo</span></span></code></pre></div>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>============================= test session starts ==============================
 </span></span><span style="display:flex;"><span>platform linux -- Python 3.9.6, pytest-6.2.4, py-1.10.0, pluggy-0.13.1
 </span></span><span style="display:flex;"><span>rootdir: /home/ra/tmp/83820272
 </span></span><span style="display:flex;"><span>plugins: cov-2.12.1, hypothesis-6.14.5, pycharm-0.6.0, vcr-1.0.2
@@ -175,8 +192,8 @@ memorizing if I ever tested this before.</p>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>my_unit_test.py .                                                        [100%]
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>============================== 1 passed in 0.01s ===============================
-</span></span></code></pre></div><h2 id="conclusion">Conclusion:</h2>
+</span></span><span style="display:flex;"><span>============================== 1 passed in 0.01s ===============================</span></span></code></pre></div>
+<h2 id="conclusion">Conclusion:</h2>
 <p>Unit tests free me from printing over and over the same stuff. They free me from
 being needed to overview in person what I&rsquo;ve already written down as an expected
 result. I can agree with third parties on tests similar to a contract.</p>

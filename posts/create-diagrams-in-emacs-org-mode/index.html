@@ -43,6 +43,13 @@ Figure 1 was generated from this text:
 
 
 
+  
+  
+    
+    
+  
+  
+
 
 
 
@@ -59,7 +66,7 @@ Figure 1 was generated from this text:
     
   
   
-  <link rel="stylesheet" href="/css/base.min.7267752c3baf5d7989b4ff63862b99557184d61b1099d8e225a8c5c9f7b2486b.css" integrity="sha256-cmd1LDuvXXmJtP9jhiuZVXGE1hsQmdjiJajFyfeySGs=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/base.min.247959e5b5dd620fc878726875d2a2398fad5eb978e43aa098f74446ff5d28cc.css" integrity="sha256-JHlZ5bXdYg/IeHJoddKiOY&#43;tXrl45DqgmPdERv9dKMw=" crossorigin="anonymous">
 
 
 
@@ -124,6 +131,8 @@ here&rsquo;s a way to do it with diagrams in emacs org mode.</p>
 </figure>
 
 <p>Figure <a href="#org601620d">1</a> was generated from this text:</p>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-org" data-lang="org"><span style="display:flex;"><span><span style="color:#75715e">#+name</span><span style="color:#75715e">: gantt_diagram</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#+BEGIN_SRC </span><span style="color:#75715e">mermaid</span><span style="color:#75715e"> :file /tmp/gantt.png
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>gantt
@@ -144,31 +153,45 @@ here&rsquo;s a way to do it with diagrams in emacs org mode.</p>
 </span></span><span style="display:flex;"><span>    section Summer
 </span></span><span style="display:flex;"><span>        Supervisory Meetings : sup2, 2099-06-09, 2099-09-07
 </span></span><span style="display:flex;"><span>        Dissertation Submission :sub2, 2099-09-06, 2099-09-07
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#+END_SRC</span>
-</span></span></code></pre></div><h2 id="mermaid-cli">Mermaid-cli<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>yay mermaid-cli
-</span></span></code></pre></div><h2 id="mermaid-for-org-mode">Mermaid for org mode<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></h2>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#+END_SRC</span></span></span></code></pre></div>
+<h2 id="mermaid-cli">Mermaid-cli<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></h2>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>yay mermaid-cli</span></span></code></pre></div>
+<h2 id="mermaid-for-org-mode">Mermaid for org mode<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></h2>
 <p>Clone layer into <code>~/.emacs.d/private</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git clone git@github.com:arnm/mermaid-layer.git ~/.emacs.d/private/mermaid
-</span></span></code></pre></div><p>Add <code>mermaid</code> layer to <code>dotspacemacs-configuration-layers</code></p>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git clone git@github.com:arnm/mermaid-layer.git ~/.emacs.d/private/mermaid</span></span></code></pre></div>
+<p>Add <code>mermaid</code> layer to <code>dotspacemacs-configuration-layers</code></p>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;; ~/.spacemacs.d/init.el</span>
 </span></span><span style="display:flex;"><span>   dotspacemacs-configuration-layers
 </span></span><span style="display:flex;"><span>   <span style="color:#f92672">&#39;</span>(<span style="color:#f92672">..</span>
 </span></span><span style="display:flex;"><span>     mermaid
-</span></span><span style="display:flex;"><span>     <span style="color:#f92672">..</span>)
-</span></span></code></pre></div><p>Get <code>mmdc</code> executable path:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>which mmdc
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/usr/bin/mmdc
-</span></span></code></pre></div><p>Set <code>mmdc</code> executable path:</p>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">..</span>)</span></span></code></pre></div>
+<p>Get <code>mmdc</code> executable path:</p>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>which mmdc</span></span></code></pre></div>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/usr/bin/mmdc</span></span></code></pre></div>
+<p>Set <code>mmdc</code> executable path:</p>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#75715e">;; ~/.spacemacs.d/init.el</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">setq</span> ob-mermaid-cli-path <span style="color:#e6db74">&#34;/usr/bin/mmdc&#34;</span>)
-</span></span></code></pre></div><h2 id="usage">Usage</h2>
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">setq</span> ob-mermaid-cli-path <span style="color:#e6db74">&#34;/usr/bin/mmdc&#34;</span>)</span></span></code></pre></div>
+<h2 id="usage">Usage</h2>
 <p>Open an <code>org-mode</code> buffer, create an <code>org-babel</code> source block and run <code>org-babel-execute-src-block</code>.</p>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-org" data-lang="org"><span style="display:flex;"><span><span style="color:#75715e">#+begin_src </span><span style="color:#75715e">mermaid</span><span style="color:#75715e"> :file /temp/test.png
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>sequenceDiagram
 </span></span><span style="display:flex;"><span>A--&gt;B: Works!
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#+end_src</span>
-</span></span></code></pre></div><figure><img src="/ox-hugo/test.png"/>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#+end_src</span></span></span></code></pre></div>
+<figure><img src="/ox-hugo/test.png"/>
 </figure>
 
 <p>Export the org-mode document or invoke the <code>org-babel-execute-src-block</code> function to generate a diagram.</p>
@@ -179,10 +202,12 @@ here&rsquo;s a way to do it with diagrams in emacs org mode.</p>
 </li>
 <li>
 <p>Test if mermaid-cli works independently from emacs</p>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>printf <span style="color:#e6db74">&#34;graph TD;\nA--&gt;B;&#34;</span> &gt; /tmp/input.mmd
 </span></span><span style="display:flex;"><span>mmdc -i /tmp/input.mmd -o /tmp/output.png
-</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;file://&#34;</span>/tmp/output.png
-</span></span></code></pre></div><figure><img src="/ox-hugo/output.png"/>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;file://&#34;</span>/tmp/output.png</span></span></code></pre></div>
+<figure><img src="/ox-hugo/output.png"/>
     </figure>
 
 </li>

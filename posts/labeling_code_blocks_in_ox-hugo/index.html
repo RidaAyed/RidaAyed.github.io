@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  
+    <meta name="description" content="Table of Contents Problems Solution What happens How it works By chance, I&rsquo;v stumbled over an excellent article1 about labeling code blocks in hugo. Roger&rsquo;s article answers a major part of a question2 of mine: How to visually distinguish between blocks of source code and result Problems There&rsquo;s no not enough visual difference between the blocks of code and result print(&#34;foo&#34;) foo The code&rsquo;s filepath must be written out to be displayed to the reader.">
+  
+
+
+
+
+
+  <meta property="og:title" content="Labeling code blocks in ox-hugo" />
+<meta property="og:description" content="Table of Contents Problems Solution What happens How it works By chance, I&rsquo;v stumbled over an excellent article1 about labeling code blocks in hugo. Roger&rsquo;s article answers a major part of a question2 of mine: How to visually distinguish between blocks of source code and result Problems There&rsquo;s no not enough visual difference between the blocks of code and result print(&#34;foo&#34;) foo The code&rsquo;s filepath must be written out to be displayed to the reader." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/labeling_code_blocks_in_ox-hugo/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-01-15T14:57:00+01:00" />
+<meta property="article:modified_time" content="2025-01-15T20:09:42+01:00" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.121.2">
+  <title>Labeling code blocks in ox-hugo | Rida Ayed</title>
+  <link rel="canonical" href="/posts/labeling_code_blocks_in_ox-hugo/">
+
+
+  
+
+
+
+
+  
+  
+    
+    
+  
+  
+
+
+
+
+
+  
+  
+    
+    
+  
+  
+  
+
+  
+    
+  
+  
+  <link rel="stylesheet" href="/css/base.min.247959e5b5dd620fc878726875d2a2398fad5eb978e43aa098f74446ff5d28cc.css" integrity="sha256-JHlZ5bXdYg/IeHJoddKiOY&#43;tXrl45DqgmPdERv9dKMw=" crossorigin="anonymous">
+
+
+
+  <script defer src="/js/base.min.70b098dab71f837cb63b52c0d70a0bb5cb00d96768e4645adeb2f0a5bca79222.js" integrity="sha256-cLCY2rcfg3y2O1LA1woLtcsA2Wdo5GRa3rLwpbynkiI=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <nav class="u-background">
+  <div class="u-wrapper">
+    <ul class="Banner">
+      <li class="Banner-item Banner-item--title">
+        <a class="Banner-link u-clickable" href="/">Rida Ayed</a>
+      </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/posts/">Blog</a>
+        </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/about/">About</a>
+        </li>
+      
+    </ul>
+  </div>
+</nav>
+  <main>
+    <div class="u-wrapper">
+      <div class="u-padding">
+        
+
+  <article>
+    <header class="Heading">
+  
+  <h2 class="Heading-title">
+    <a class="Heading-link u-clickable" href="/posts/labeling_code_blocks_in_ox-hugo/" rel="bookmark">Labeling code blocks in ox-hugo</a>
+  </h2>
+  
+  
+    <time datetime="2025-01-15T14:57:00&#43;01:00">15 January, 2025</time>
+  
+</header>
+
+    <div class="ox-hugo-toc toc">
+<div class="heading">Table of Contents</div>
+<ul>
+<li><a href="#problems">Problems</a></li>
+<li><a href="#solution">Solution</a></li>
+<li><a href="#what-happens">What happens</a></li>
+<li><a href="#how-it-works">How it works</a></li>
+</ul>
+</div>
+<!--endtoc-->
+<p>By chance, I&rsquo;v stumbled over an excellent article<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> about labeling code blocks in hugo. <br/>
+Roger&rsquo;s article answers a major part of a question<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> of mine: <br/></p>
+<blockquote>
+<p>How to visually distinguish between blocks of source code and result <br/></p>
+</blockquote>
+<h2 id="problems">Problems</h2>
+<h3 id="there-s-no-not-enough-visual-difference-between-the-blocks-of-code-and-result">There&rsquo;s no not enough visual difference between the blocks of code and result</h3>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;foo&#34;</span>)</span></span></code></pre></div>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>foo</span></span></code></pre></div>
+<h3 id="the-code-s-filepath-must-be-written-out-to-be-displayed-to-the-reader-dot">The code&rsquo;s filepath must be written out to be displayed to the reader.</h3>
+<p>Regardless if it&rsquo;s already stored as <code>tangle</code> header argument<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>, the filepath must be written twice in order to be visible <br/></p>
+<p>That means alongside <code>:tangle xyz.py</code>, I must as well write as a comment <code># xyz.py</code> to show what is meant. <br/></p>
+<p><a id="org-example-block--problem-code"></a></p>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>#+begin_src python :tangle xyz.py
+</span></span><span style="display:flex;"><span># xyz.py
+</span></span><span style="display:flex;"><span>print(&#34;foo&#34;)
+</span></span><span style="display:flex;"><span>#+end_src</span></span></code></pre></div>
+<h2 id="solution">Solution</h2>
+<p>We distinguish the code block by adding a label above it. <br/></p>
+<p>Before: <br/></p>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;foo&#34;</span>)</span></span></code></pre></div>
+<p>After: <br/></p>
+<p><a id="code-snippet--solution-code"></a></p>
+
+<figcaption>
+  <span>xyz.py</span>
+</figcaption>
+
+<div class="highlight" tangle_filepath="xyz.py"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;foo&#34;</span>)</span></span></code></pre></div>
+<h2 id="what-happens">What happens</h2>
+<p>Input <code>org mode</code> file: <br/></p>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>#+begin_src python :tangle /tmp/foo.py
+</span></span><span style="display:flex;"><span>print(&#34;foo&#34;)
+</span></span><span style="display:flex;"><span>#+end_src</span></span></code></pre></div>
+<p>Output <code>markdown</code> file: <br/></p>
+<p><a id="org-example-block--rendered-markdown"></a></p>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>```python { tangle_filepath=&#34;/tmp/foo.py&#34; }
+</span></span><span style="display:flex;"><span>print(&#34;foo&#34;)
+</span></span><span style="display:flex;"><span>```</span></span></code></pre></div>
+<p>Final rendered html: <br/></p>
+
+<figcaption>
+  <span>/tmp/foo.py</span>
+</figcaption>
+
+<div class="highlight" tangle_filepath="/tmp/foo.py"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;foo&#34;</span>)</span></span></code></pre></div>
+<p>If not necessary, we can easily disable<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup> the tangle function while still having access to the arguments value. <br/></p>
+<h2 id="how-it-works">How it works</h2>
+<p>Instead of adding the filename verbatim as comment <code>#xyz.py</code> like in <a href="#orgf52d489">code block</a>, we intercept the value of <code>:tangle</code>. <br/>
+That intercepted value then is passed, <a href="#code-snippet--custom-renderer">parsed and rendered</a> as an additional html element named <code>&lt;figcaption&gt;</code> right above the code block. <br/></p>
+<p>My contribution is in two parts: <br/></p>
+<h3 id="adding-a-custom-markup-renderer">Adding a custom markup renderer</h3>
+<p>By combining parts of Roger&rsquo;s instructions<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup> and the example in the hugo documentation, I&rsquo;ve come up whith his custom code block <br/></p>
+<p><a id="code-snippet--custom-renderer"></a></p>
+
+<figcaption>
+  <span>/hugo-flex/layouts/_default/_markup/render-codeblock.html</span>
+</figcaption>
+
+<div class="highlight" tangle_filepath="/hugo-flex/layouts/_default/_markup/render-codeblock.html"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{{- with .Attributes.tangle_filepath }}
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">figcaption</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">span</span>&gt;{{ . }}&lt;/<span style="color:#f92672">span</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">figcaption</span>&gt;
+</span></span><span style="display:flex;"><span>{{- end }}
+</span></span><span style="display:flex;"><span>{{ $result := transform.HighlightCodeBlock . }}
+</span></span><span style="display:flex;"><span>{{ $result.Wrapped }}</span></span></code></pre></div>
+<h3 id="adding-some-new-logic-to-ox-hugo-dot-el">Adding some new logic to ox-hugo.el</h3>
+<ol>
+<li>First I&rsquo;ve added a variable named <code>tangle_filepath</code> to the mighty ox-hugo.el<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>. <br/></li>
+<li>Second I&rsquo;ve added some logic to convert the <code>:tangle</code> parameter in the org mode file to an info-string<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup> in the <a href="#org3c40602">rendered markdown</a>. <br/></li>
+</ol>
+<p>Both additions are highlighted below <br/></p>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span>diff --git a/ox-hugo.el b/ox-hugo.el
+</span></span><span style="display:flex;"><span>index 469002a..0a66f6b 100644
+</span></span><span style="display:flex;"><span><span style="color:#f92672">--- a/ox-hugo.el
+</span></span></span><span style="display:flex;"><span><span style="color:#f92672"></span><span style="color:#a6e22e">+++ b/ox-hugo.el
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e"></span><span style="color:#75715e">@@ -3471,6 +3471,11 @@ their Hugo site&#39;s config.&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      ;; Regular src block.
+</span></span><span style="display:flex;"><span>      (t
+</span></span><span style="display:flex;"><span>       (let* (;; See `org-element-src-block-parser&#39; for all SRC-BLOCK properties.
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">+             (tangle-filepath
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+              (let ((tangle-value (cdr (assoc :tangle parameters))))
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+                (if (or (null tangle-value) (string= tangle-value &#34;no&#34;))
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+                    nil
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+                  tangle-value)))
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e"></span>              (line-num-p (org-element-property :number-lines src-block)) ;Non-nil if -n or +n switch is used
+</span></span><span style="display:flex;"><span>              (linenos-style (or (cdr (assoc :linenos parameters))
+</span></span><span style="display:flex;"><span>                                 ;; If `org-hugo-src-block&#39; is called from
+</span></span><span style="display:flex;"><span><span style="color:#75715e">@@ -3572,6 +3577,11 @@ their Hugo site&#39;s config.&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>               (setq code-attr-str (format &#34;%s, hl_lines=%s&#34; code-attr-str hl-lines))
+</span></span><span style="display:flex;"><span>             (setq code-attr-str (format &#34;hl_lines=%s&#34; hl-lines))))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        (when tangle-filepath
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+          (if (org-string-nw-p code-attr-str)
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+              (setq code-attr-str (format &#34;%s, tangle_filepath=\&#34;%s\&#34;&#34; code-attr-str tangle-filepath))
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+            (setq code-attr-str (format &#34;tangle_filepath=\&#34;%s\&#34;&#34; tangle-filepath))))
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e"></span>         (when code-refs
+</span></span><span style="display:flex;"><span>           (let* ((anchor-prefix (cdr code-refs-and-anchor))
+</span></span><span style="display:flex;"><span>                  (anchor-str (format &#34;anchorlinenos=true, lineanchors=%s&#34; anchor-prefix)))
+</span></span></code></pre></div>
+<h3 id="css-styling">CSS styling</h3>
+<p>Literally similar to Roger&rsquo;s article<sup id="fnref1:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>: &ldquo;I’ll leave the styling (of the <a href="#code-snippet--custom-renderer">figcaption</a> html element) as an exercise for the reader&rdquo;. <br/></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://write.rog.gr/writing/labeling-code-blocks-in-hugo/">https://write.rog.gr/writing/labeling-code-blocks-in-hugo/</a> <br/>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://github.com/kaushalmodi/ox-hugo/issues/385">https://github.com/kaushalmodi/ox-hugo/issues/385</a> <br/>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://orgmode.org/manual/Using-Header-Arguments.html#Header-arguments-in-Org-mode-properties">https://orgmode.org/manual/Using-Header-Arguments.html#Header-arguments-in-Org-mode-properties</a> <br/>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>* org mode outline header
+</span></span><span style="display:flex;"><span>  :PROPERTIES:
+</span></span><span style="display:flex;"><span>  :header-args:    :tangle no
+</span></span><span style="display:flex;"><span>  :END:</span></span></code></pre></div>
+&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></li>
+<li id="fn:5">
+<p><a href="https://write.rog.gr/writing/labeling-code-blocks-in-hugo/#using-custom-render-hooks">https://write.rog.gr/writing/labeling-code-blocks-in-hugo/#using-custom-render-hooks</a> <br/>&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p><a href="https://github.com/kaushalmodi/ox-hugo/blob/main/ox-hugo.el">https://github.com/kaushalmodi/ox-hugo/blob/main/ox-hugo.el</a> <br/>&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p><a href="https://gohugo.io/render-hooks/code-blocks/">https://gohugo.io/render-hooks/code-blocks/</a> <br/>&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+    
+
+
+  
+
+  
+
+
+
+
+
+  <footer>
+    
+      
+    
+      
+        <ul class="Tags">
+          
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="/tags/lisp/" rel="tag">lisp</a>
+            </li>
+          
+        </ul>
+      
+    
+  </footer>
+
+    
+  
+
+  </article>
+
+
+      </div>
+    </div>
+  </main>
+  
+  <footer class="Footer">
+    <div class="u-wrapper">
+      <div class="u-padding">
+        <a title="Instagram" href="https://instagram.com/rida.ayed"><div class="fab fa-fab fa-instagram"></div></a>
+<a title="Github" href="https://github.com/RidaAyed"><div class="fab fa-fab fa-github"></div></a>
+<a title="LinkedIn" href="https://linkedin.com/in/ridaayed"><div class="fab fa-fab fa-linkedin"></div></a>
+<a title="RSS Feed" href="/index.xml"><div class="fa fa-fa fa-rss"></div></a>
+<a title="Email Newsletter" href="/newsletter"><div class="fa fa-fa fa-newspaper"></div></a>
+
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>

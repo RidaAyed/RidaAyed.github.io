@@ -37,6 +37,13 @@
 
 
 
+  
+  
+    
+    
+  
+  
+
 
 
 
@@ -53,7 +60,7 @@
     
   
   
-  <link rel="stylesheet" href="/css/base.min.7267752c3baf5d7989b4ff63862b99557184d61b1099d8e225a8c5c9f7b2486b.css" integrity="sha256-cmd1LDuvXXmJtP9jhiuZVXGE1hsQmdjiJajFyfeySGs=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/base.min.247959e5b5dd620fc878726875d2a2398fad5eb978e43aa098f74446ff5d28cc.css" integrity="sha256-JHlZ5bXdYg/IeHJoddKiOY&#43;tXrl45DqgmPdERv9dKMw=" crossorigin="anonymous">
 
 
 
@@ -98,15 +105,19 @@
 </header>
 
     <p>Given your <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Image_002dDired.htmls">image-dired</a> tags have similar beginnings e.g <br/></p>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>0.jpg;foo
-</span></span><span style="display:flex;"><span>1.jpg;foo:
-</span></span></code></pre></div><p>Now all you enter &ndash; in order to mark &ndash; images tagged with <code>foo</code> <strong>but not foo:</strong>, is this: <br/>
+</span></span><span style="display:flex;"><span>1.jpg;foo:</span></span></code></pre></div>
+<p>Now all you enter &ndash; in order to mark &ndash; images tagged with <code>foo</code> <strong>but not foo:</strong>, is this: <br/>
 <kbd> M-x </kbd> <code>image-dired-mark-tagged-files</code> foo$ <br/></p>
 <p><strong>Note the dollar sign suffix</strong> <br/></p>
 <p>Why is such profane regex noteworthy? <br/>
 See how <code>image-dired-dired.el</code> preliminary establishes the tag collection: <br/></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#e6db74">&#34;\\(^[^;\n]+\\);\\(.*\\)&#34;</span>
-</span></span></code></pre></div>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#e6db74">&#34;\\(^[^;\n]+\\);\\(.*\\)&#34;</span></span></span></code></pre></div>
+
     
 
 

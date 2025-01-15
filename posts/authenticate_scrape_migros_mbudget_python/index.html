@@ -41,6 +41,13 @@ For the sake of this tutorial&rsquo;s scope and the script&rsquo;s brevity I&rsq
 
 
 
+  
+  
+    
+    
+  
+  
+
 
 
 
@@ -57,7 +64,7 @@ For the sake of this tutorial&rsquo;s scope and the script&rsquo;s brevity I&rsq
     
   
   
-  <link rel="stylesheet" href="/css/base.min.7267752c3baf5d7989b4ff63862b99557184d61b1099d8e225a8c5c9f7b2486b.css" integrity="sha256-cmd1LDuvXXmJtP9jhiuZVXGE1hsQmdjiJajFyfeySGs=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/base.min.247959e5b5dd620fc878726875d2a2398fad5eb978e43aa098f74446ff5d28cc.css" integrity="sha256-JHlZ5bXdYg/IeHJoddKiOY&#43;tXrl45DqgmPdERv9dKMw=" crossorigin="anonymous">
 
 
 
@@ -146,17 +153,21 @@ as described in <a href="#usage">Usage</a></p>
 <h2 id="script-ingredients">Script ingredients</h2>
 <h3 id="modules">Modules</h3>
 <p><a id="code-snippet--mbudget-Ingredients-modules"></a></p>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> requests
 </span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> lxml <span style="color:#f92672">import</span> html
-</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> lxml <span style="color:#f92672">import</span> etree
-</span></span></code></pre></div><h3 id="urls">Urls</h3>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> lxml <span style="color:#f92672">import</span> etree</span></span></code></pre></div>
+<h3 id="urls">Urls</h3>
 <p>Our working URLs are built upon one URL which serves as base URL in order to build up all endpoints.</p>
 <p><a id="code-snippet--mbudget-Ingredients-urls"></a></p>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>BASE_URL <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://selfcare.m-budget.migros.ch/eCare&#39;</span>
 </span></span><span style="display:flex;"><span>LOGIN_URL <span style="color:#f92672">=</span> BASE_URL<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;/de/users/sign_in&#39;</span>
 </span></span><span style="display:flex;"><span>LOGOUT_URL <span style="color:#f92672">=</span> BASE_URL<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;/de/users/sign_out&#39;</span>
-</span></span><span style="display:flex;"><span>CONSUMPTION_URL <span style="color:#f92672">=</span> BASE_URL<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;/prepaid/de/my_consumption/index&#39;</span>
-</span></span></code></pre></div><h2 id="process-overview">Process overview</h2>
+</span></span><span style="display:flex;"><span>CONSUMPTION_URL <span style="color:#f92672">=</span> BASE_URL<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;/prepaid/de/my_consumption/index&#39;</span></span></span></code></pre></div>
+<h2 id="process-overview">Process overview</h2>
 <h3 id="visit-the-isp-s-login-page">Visit the ISP&rsquo;s login page</h3>
 <h4 id="manual">Manual</h4>
 <p>Launch your browser, open login and enable the browser&rsquo;s developer console
@@ -212,8 +223,10 @@ source).</p>
 <figure><img src="/ox-hugo/2020-07-30_16-52-01_screenshot.png"/>
     </figure>
 
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>&lt;meta name=&#34;csrf-token&#34; content=&#34;mX12K...&#34; /&gt;
-</span></span></code></pre></div></li>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>&lt;meta name=&#34;csrf-token&#34; content=&#34;mX12K...&#34; /&gt;</span></span></code></pre></div>
+</li>
 </ul>
 <h4 id="automated">Automated</h4>
 <!--list-separator-->
@@ -244,9 +257,11 @@ source).</p>
 <li>
 <p>Credentials</p>
 <p><a id="code-snippet--mbudget-Ingredients-credentials"></a></p>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>PASSWORD <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;changeMe&#39;</span>
-</span></span><span style="display:flex;"><span>USERNAME <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;changeMe&#39;</span>
-</span></span></code></pre></div></li>
+</span></span><span style="display:flex;"><span>USERNAME <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;changeMe&#39;</span></span></span></code></pre></div>
+</li>
 </ul>
 <!--list-separator-->
 <ul>
@@ -440,20 +455,26 @@ Then we loop through each <strong>child</strong> (circles) and append each circl
 </span></span><span style="display:flex;"><span>    main()</span></span></code></pre></td></tr></table>
 </div>
 </div></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Your current balance is: 510 MB
-</span></span></code></pre></div><h2 id="usage">Usage</h2>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Your current balance is: 510 MB</span></span></code></pre></div>
+<h2 id="usage">Usage</h2>
 <ol>
 <li>Store the complete <a href="#code-snippet--m-budget-complete-script">script</a> above as e.g. <code>~/tmp/mbudget.py</code></li>
 <li>Change the <a href="#credentials">Credentials</a> in <code>~/tmp/mbudget.py</code></li>
 <li>Run it:</li>
 </ol>
 <!--listend-->
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>python3 ~/tmp/mbudget.py
-</span></span></code></pre></div><style>.results-fixed-block { color: blue;  }</style>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>python3 ~/tmp/mbudget.py</span></span></code></pre></div>
+<style>.results-fixed-block { color: blue;  }</style>
 <div class="results-fixed-block">
   <div></div>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Your current balance is: 510 MB
-</span></span></code></pre></div></div>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Your current balance is: 510 MB</span></span></code></pre></div>
+</div>
 <h2 id="conclusion">Conclusion</h2>
 <p>Scripting our manual steps now allows us to store and process the returned data
 further. We could schedule it using a systemd timer or cron. Or send a

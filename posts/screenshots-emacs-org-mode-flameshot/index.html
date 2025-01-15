@@ -47,6 +47,13 @@ Take your screenshot hitting , i D s or calling M-x org-download-screenshot Edit
 
 
 
+  
+  
+    
+    
+  
+  
+
 
 
 
@@ -63,7 +70,7 @@ Take your screenshot hitting , i D s or calling M-x org-download-screenshot Edit
     
   
   
-  <link rel="stylesheet" href="/css/base.min.7267752c3baf5d7989b4ff63862b99557184d61b1099d8e225a8c5c9f7b2486b.css" integrity="sha256-cmd1LDuvXXmJtP9jhiuZVXGE1hsQmdjiJajFyfeySGs=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/base.min.247959e5b5dd620fc878726875d2a2398fad5eb978e43aa098f74446ff5d28cc.css" integrity="sha256-JHlZ5bXdYg/IeHJoddKiOY&#43;tXrl45DqgmPdERv9dKMw=" crossorigin="anonymous">
 
 
 
@@ -115,14 +122,20 @@ Take your screenshot hitting , i D s or calling M-x org-download-screenshot Edit
 
 <h2 id="setup">Setup</h2>
 <p>Enable the <code>org</code> layer in your <code>.spacemacs</code> <code>dotspacemacs-configuration-layers</code></p>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span>    dotspacemacs-configuration-layers
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#39;</span>(org)
-</span></span></code></pre></div><p>Install flameshot</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span> sudo pacman -S flameshot
-</span></span></code></pre></div><p>Add the line below to your <code>.spacemacs</code> <code>custom-set-variables</code></p>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#39;</span>(org)</span></span></code></pre></div>
+<p>Install flameshot</p>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span> sudo pacman -S flameshot</span></span></code></pre></div>
+<p>Add the line below to your <code>.spacemacs</code> <code>custom-set-variables</code></p>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span> (custom-set-variables
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#39;</span>(org-download-screenshot-method <span style="color:#e6db74">&#34;flameshot gui --raw &gt; %s&#34;</span>))
-</span></span></code></pre></div><h2 id="usage">Usage</h2>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#39;</span>(org-download-screenshot-method <span style="color:#e6db74">&#34;flameshot gui --raw &gt; %s&#34;</span>))</span></span></code></pre></div>
+<h2 id="usage">Usage</h2>
 <p>While being in your org buffer:</p>
 <ol>
 <li>Take your screenshot hitting <kbd> , i D s </kbd>  or calling <code>M-x org-download-screenshot</code></li>

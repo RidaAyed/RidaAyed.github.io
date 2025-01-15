@@ -37,6 +37,13 @@
 
 
 
+  
+  
+    
+    
+  
+  
+
 
 
 
@@ -53,7 +60,7 @@
     
   
   
-  <link rel="stylesheet" href="/css/base.min.7267752c3baf5d7989b4ff63862b99557184d61b1099d8e225a8c5c9f7b2486b.css" integrity="sha256-cmd1LDuvXXmJtP9jhiuZVXGE1hsQmdjiJajFyfeySGs=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/base.min.247959e5b5dd620fc878726875d2a2398fad5eb978e43aa098f74446ff5d28cc.css" integrity="sha256-JHlZ5bXdYg/IeHJoddKiOY&#43;tXrl45DqgmPdERv9dKMw=" crossorigin="anonymous">
 
 
 
@@ -128,47 +135,75 @@
 avoid errors.</p>
 <h2 id="connect-and-login-into-your-raspi">Connect and login into your raspi</h2>
 <p>Existence of an entry &lsquo;Host raspi&rsquo; in ~/.ssh/config is assumed:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ssh raspi
-</span></span></code></pre></div><h2 id="update-retrieve-new-lists-of-packages">Update - Retrieve new lists of packages</h2>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ssh raspi</span></span></code></pre></div>
+<h2 id="update-retrieve-new-lists-of-packages">Update - Retrieve new lists of packages</h2>
 <p><a id="code-snippet--raspi-update"></a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt-get update
-</span></span></code></pre></div><h2 id="upgrade-perform-an-upgrade">Upgrade - Perform an upgrade</h2>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt-get update</span></span></code></pre></div>
+<h2 id="upgrade-perform-an-upgrade">Upgrade - Perform an upgrade</h2>
 <p><a id="code-snippet--raspi-upgrade"></a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt-get upgrade
-</span></span></code></pre></div><h2 id="install-the-necessary-packages">Install the necessary packages</h2>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt-get upgrade</span></span></code></pre></div>
+<h2 id="install-the-necessary-packages">Install the necessary packages</h2>
 <p><a id="code-snippet--raspi-iphone-install-packages-libimobiledevice"></a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt-get install libimobiledevice-utils
-</span></span></code></pre></div><p><a id="code-snippet--raspi-iphone-install-packages-usbmuxd"></a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt-get install usbmuxd
-</span></span></code></pre></div><p><a id="code-snippet--raspi-iphone-install-packages-ifuse"></a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt-get install ifuse
-</span></span></code></pre></div><h2 id="connect-the-iphone-with-the-raspi-via-usb">Connect the iPhone with the raspi via USB</h2>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt-get install libimobiledevice-utils</span></span></code></pre></div>
+<p><a id="code-snippet--raspi-iphone-install-packages-usbmuxd"></a></p>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt-get install usbmuxd</span></span></code></pre></div>
+<p><a id="code-snippet--raspi-iphone-install-packages-ifuse"></a></p>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt-get install ifuse</span></span></code></pre></div>
+<h2 id="connect-the-iphone-with-the-raspi-via-usb">Connect the iPhone with the raspi via USB</h2>
 <h2 id="accept-the-trust-dialog-on-the-iphone">Accept the trust dialog on the iPhone</h2>
 <figure><a href="/ox-hugo/2020-03-19_17-06-54_screenshot.png"><img src="Access_iphone_data_on_Raspi_via_USB/2020-03-19_15-40-54_screenshot.png"/></a>
 </figure>
 
 <h2 id="pair-the-phone">Pair the phone</h2>
 <p><a id="code-snippet--raspi-iphone-pair"></a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>idevicepair pair
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>SUCCESS: Paired with device 3b9...
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>ERROR: Please accept the trust dialog on the screen of device 3b9...
-</span></span><span style="display:flex;"><span>, then attempt to pair again.
-</span></span></code></pre></div><h2 id="accept-another-trust-dialog-the-on-the-iphone">Accept another trust dialog the on the iPhone</h2>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>idevicepair pair</span></span></code></pre></div>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>SUCCESS: Paired with device 3b9...</span></span></code></pre></div>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>ERROR: Please accept the trust dialog on the screen of device 3b9...
+</span></span><span style="display:flex;"><span>, then attempt to pair again.</span></span></code></pre></div>
+<h2 id="accept-another-trust-dialog-the-on-the-iphone">Accept another trust dialog the on the iPhone</h2>
 <figure><img src="/ox-hugo/2020-03-19_16-50-59_screenshot.png"/>
 </figure>
 
 <h2 id="create-a-mount-folder">Create a mount folder</h2>
 <p><a id="code-snippet--raspi-iphone-create-mount-folder"></a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo mkdir /mnt/iphone/ --verbose
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>mkdir: mkdir: created directory &#39;/mnt/iphone/&#39;
-</span></span></code></pre></div><h2 id="mount-the-iphone">Mount the iPhone</h2>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo mkdir /mnt/iphone/ --verbose</span></span></code></pre></div>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>mkdir: mkdir: created directory &#39;/mnt/iphone/&#39;</span></span></code></pre></div>
+<h2 id="mount-the-iphone">Mount the iPhone</h2>
 <p>Consider storing this command <strong>as a shortcut to your desktop for convenience</strong>:</p>
 <p><a id="code-snippet--raspi-iphone-mount-phone"></a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ifuse /mnt/iphone/
-</span></span></code></pre></div><h2 id="approve-success">Approve success</h2>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ifuse /mnt/iphone/</span></span></code></pre></div>
+<h2 id="approve-success">Approve success</h2>
 <p><a id="code-snippet--raspi-iphone-tree"></a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>tree -d -L <span style="color:#ae81ff">1</span> /mnt/iphone/
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/mnt/iphone/
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>tree -d -L <span style="color:#ae81ff">1</span> /mnt/iphone/</span></span></code></pre></div>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/mnt/iphone/
 </span></span><span style="display:flex;"><span>├── Books
 </span></span><span style="display:flex;"><span>├── CloudAssets
 </span></span><span style="display:flex;"><span>├── DCIM
@@ -184,8 +219,10 @@ avoid errors.</p>
 </span></span><span style="display:flex;"><span>├── Recordings
 </span></span><span style="display:flex;"><span>└── iTunes_Control
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>14 directories
-</span></span></code></pre></div><h2 id="summary-of-all-commands-to-copy-paste">Summary of all commands to copy/paste</h2>
+</span></span><span style="display:flex;"><span>14 directories</span></span></code></pre></div>
+<h2 id="summary-of-all-commands-to-copy-paste">Summary of all commands to copy/paste</h2>
+
+
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt-get update
 </span></span><span style="display:flex;"><span>sudo apt-get upgrade
 </span></span><span style="display:flex;"><span>sudo apt-get install libimobiledevice-utils
@@ -194,8 +231,8 @@ avoid errors.</p>
 </span></span><span style="display:flex;"><span>idevicepair pair
 </span></span><span style="display:flex;"><span>sudo mkdir /mnt/iphone/ --verbose
 </span></span><span style="display:flex;"><span>ifuse /mnt/iphone/
-</span></span><span style="display:flex;"><span>tree -d -L <span style="color:#ae81ff">1</span> /mnt/iphone/
-</span></span></code></pre></div><div class="footnotes" role="doc-endnotes">
+</span></span><span style="display:flex;"><span>tree -d -L <span style="color:#ae81ff">1</span> /mnt/iphone/</span></span></code></pre></div>
+<div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
 <li id="fn:1">
