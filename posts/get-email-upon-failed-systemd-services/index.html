@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  
+    <meta name="description" content="Only by chance I noticed a failed systemd service. It&rsquo;s a rather crucial service, namely my backup. I&rsquo;ve decided to get an email for such circumstances. The solution consists of three parts:
+The actual backup service unit An unit status mail service An python email script On failure, the actual service triggers the email service which in turn triggers the email script.
+The %h in the highlighted line, refers to the User home directory as per systemd.">
+  
+
+
+
+
+
+  <meta property="og:title" content="Get an email upon failed systemd services" />
+<meta property="og:description" content="Only by chance I noticed a failed systemd service. It&rsquo;s a rather crucial service, namely my backup. I&rsquo;ve decided to get an email for such circumstances. The solution consists of three parts:
+The actual backup service unit An unit status mail service An python email script On failure, the actual service triggers the email service which in turn triggers the email script.
+The %h in the highlighted line, refers to the User home directory as per systemd." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/get-email-upon-failed-systemd-services/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-02-11T14:31:00+01:00" />
+<meta property="article:modified_time" content="2025-02-11T15:08:34+01:00" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.121.2">
+  <title>Get an email upon failed systemd services | Rida Ayed</title>
+  <link rel="canonical" href="/posts/get-email-upon-failed-systemd-services/">
+
+
+  
+
+
+
+
+  
+  
+    
+    
+  
+  
+
+
+
+
+
+  
+  
+    
+    
+  
+  
+  
+
+  
+    
+  
+  
+  <link rel="stylesheet" href="/css/base.min.247959e5b5dd620fc878726875d2a2398fad5eb978e43aa098f74446ff5d28cc.css" integrity="sha256-JHlZ5bXdYg/IeHJoddKiOY&#43;tXrl45DqgmPdERv9dKMw=" crossorigin="anonymous">
+
+
+
+  <script defer src="/js/base.min.70b098dab71f837cb63b52c0d70a0bb5cb00d96768e4645adeb2f0a5bca79222.js" integrity="sha256-cLCY2rcfg3y2O1LA1woLtcsA2Wdo5GRa3rLwpbynkiI=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <nav class="u-background">
+  <div class="u-wrapper">
+    <ul class="Banner">
+      <li class="Banner-item Banner-item--title">
+        <a class="Banner-link u-clickable" href="/">Rida Ayed</a>
+      </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/posts/">Blog</a>
+        </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/about/">About</a>
+        </li>
+      
+    </ul>
+  </div>
+</nav>
+  <main>
+    <div class="u-wrapper">
+      <div class="u-padding">
+        
+
+  <article>
+    <header class="Heading">
+  
+  <h2 class="Heading-title">
+    <a class="Heading-link u-clickable" href="/posts/get-email-upon-failed-systemd-services/" rel="bookmark">Get an email upon failed systemd services</a>
+  </h2>
+  
+  
+    <time datetime="2025-02-11T14:31:00&#43;01:00">11 February, 2025</time>
+  
+</header>
+
+    <p>Only by chance I noticed a failed systemd service. It&rsquo;s a rather crucial
+service, namely my <strong>backup</strong>.
+I&rsquo;ve decided to get an email for such circumstances.
+The solution consists of three parts:</p>
+<ol>
+<li>The actual <a href="#code-snippet--actual-service">backup service</a> unit</li>
+<li>An <a href="#code-snippet--unit-status-mail">unit status mail</a> service</li>
+<li>An <a href="#code-snippet--mail-script">python email</a> script</li>
+</ol>
+<p>On failure, the actual service triggers the email service which in turn triggers
+the email script.</p>
+<p>The <code>%h</code> in the highlighted line, refers to the <em>User home directory</em> as per <a href="https://www.freedesktop.org/software/systemd/man/latest/systemd.unit.html#Specifiers">systemd.unit</a></p>
+<p><a id="code-snippet--actual-service"></a></p>
+
+<figcaption>
+  <span>~/.config/systemd/user/backup.service</span>
+</figcaption>
+
+<div class="highlight" tangle_filepath="~/.config/systemd/user/backup.service"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-systemd" data-lang="systemd"><span style="display:flex;"><span><span style="color:#66d9ef">[Service]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Type</span><span style="color:#f92672">=</span><span style="color:#e6db74">oneshot</span>
+</span></span><span style="display:flex; background-color:#3c3d38"><span><span style="color:#a6e22e">ExecStart</span><span style="color:#f92672">=</span><span style="color:#e6db74">/usr/bin/sh $h/bin/backup.sh</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[Unit]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Description</span><span style="color:#f92672">=</span><span style="color:#e6db74">Homefolder backup</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">OnFailure</span><span style="color:#f92672">=</span><span style="color:#e6db74">unit-status-mail@%n.service</span></span></span></code></pre></div>
+<p><a id="code-snippet--unit-status-mail"></a></p>
+
+<figcaption>
+  <span>/etc/systemd/system/unit-status-mail@.service</span>
+</figcaption>
+
+<div class="highlight" tangle_filepath="/etc/systemd/system/unit-status-mail@.service"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-systemd" data-lang="systemd"><span style="display:flex;"><span><span style="color:#66d9ef">[Unit]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Description</span><span style="color:#f92672">=</span><span style="color:#e6db74">Unit Status Mailer Service</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">After</span><span style="color:#f92672">=</span><span style="color:#e6db74">network.target</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[Service]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Type</span><span style="color:#f92672">=</span><span style="color:#e6db74">simple</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ExecStart</span><span style="color:#f92672">=</span><span style="color:#e6db74">/home/ra/bin/unit-status-mail.py %I</span></span></span></code></pre></div>
+<p><a id="code-snippet--mail-script"></a></p>
+
+<figcaption>
+  <span>~/bin/unit-status-mail.py</span>
+</figcaption>
+
+<div class="highlight" tangle_filepath="~/bin/unit-status-mail.py"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/python</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> smtplib
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> argparse
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> subprocess <span style="color:#f92672">import</span> Popen, PIPE
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> email.mime.multipart <span style="color:#f92672">import</span> MIMEMultipart
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> email.mime.text <span style="color:#f92672">import</span> MIMEText
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>parser <span style="color:#f92672">=</span> argparse<span style="color:#f92672">.</span>ArgumentParser()
+</span></span><span style="display:flex;"><span>parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#34;unit&#34;</span>)
+</span></span><span style="display:flex;"><span>args <span style="color:#f92672">=</span> parser<span style="color:#f92672">.</span>parse_args()
+</span></span><span style="display:flex;"><span>unit <span style="color:#f92672">=</span> args<span style="color:#f92672">.</span>unit
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>usr <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;foo@bar.com&#39;</span>
+</span></span><span style="display:flex;"><span>pwd <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;secretpassword&#39;</span>
+</span></span><span style="display:flex;"><span>host <span style="color:#f92672">=</span><span style="color:#e6db74">&#39;mail.host.com&#39;</span>
+</span></span><span style="display:flex;"><span>port <span style="color:#f92672">=</span> <span style="color:#ae81ff">465</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>msg <span style="color:#f92672">=</span> MIMEMultipart()
+</span></span><span style="display:flex;"><span>msg[<span style="color:#e6db74">&#39;From&#39;</span>] <span style="color:#f92672">=</span> usr
+</span></span><span style="display:flex;"><span>msg[<span style="color:#e6db74">&#39;To&#39;</span>] <span style="color:#f92672">=</span> usr
+</span></span><span style="display:flex;"><span>msg[<span style="color:#e6db74">&#39;Subject&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;Failed: </span><span style="color:#e6db74">{</span>unit<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>
+</span></span><span style="display:flex;"><span>cmd<span style="color:#f92672">=</span><span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;systemctl status --user --full </span><span style="color:#e6db74">{</span>unit<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Be aware of security issues when using shell=True</span>
+</span></span><span style="display:flex;"><span>stdout <span style="color:#f92672">=</span> Popen(cmd, shell<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, stdout<span style="color:#f92672">=</span>PIPE)\
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">.</span>stdout<span style="color:#f92672">.</span>read()<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;utf-8&#39;</span>)
+</span></span><span style="display:flex;"><span>msg<span style="color:#f92672">.</span>attach(MIMEText(stdout))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> smtplib<span style="color:#f92672">.</span>SMTP_SSL(host,port) <span style="color:#66d9ef">as</span> mail_server:
+</span></span><span style="display:flex;"><span>    mail_server<span style="color:#f92672">.</span>ehlo()
+</span></span><span style="display:flex;"><span>    mail_server<span style="color:#f92672">.</span>login(usr, pwd)
+</span></span><span style="display:flex;"><span>    mail_server<span style="color:#f92672">.</span>sendmail(usr, usr, msg<span style="color:#f92672">.</span>as_string())</span></span></code></pre></div>
+<p>I wrote this article while metaphorically standing on the shoulders of <a href="https://northernlightlabs.se/2014-07-05/systemd-status-mail-on-unit-failure.html">Laeffe</a></p>
+
+    
+
+
+  
+
+  
+
+
+
+
+
+  <footer>
+    
+      
+    
+      
+        <ul class="Tags">
+          
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="/tags/python/" rel="tag">python</a>
+            </li>
+          
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="/tags/linux/" rel="tag">linux</a>
+            </li>
+          
+        </ul>
+      
+    
+  </footer>
+
+    
+  
+
+  </article>
+
+
+      </div>
+    </div>
+  </main>
+  
+  <footer class="Footer">
+    <div class="u-wrapper">
+      <div class="u-padding">
+        <a title="Instagram" href="https://instagram.com/rida.ayed"><div class="fab fa-fab fa-instagram"></div></a>
+<a title="Github" href="https://github.com/RidaAyed"><div class="fab fa-fab fa-github"></div></a>
+<a title="LinkedIn" href="https://linkedin.com/in/ridaayed"><div class="fab fa-fab fa-linkedin"></div></a>
+<a title="RSS Feed" href="/index.xml"><div class="fa fa-fa fa-rss"></div></a>
+<a title="Email Newsletter" href="/newsletter"><div class="fa fa-fa fa-newspaper"></div></a>
+
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>

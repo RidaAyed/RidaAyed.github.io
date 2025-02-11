@@ -10,6 +10,89 @@
     <lastBuildDate>Sun, 28 Jul 2024 11:48:00 +0200</lastBuildDate>
     <atom:link href="/tags/regex/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Get an email upon failed systemd services</title>
+      <link>/posts/get-email-upon-failed-systemd-services/</link>
+      <pubDate>Tue, 11 Feb 2025 14:31:00 +0100</pubDate>
+      <guid>/posts/get-email-upon-failed-systemd-services/</guid>
+      <description>&lt;p&gt;Only by chance I noticed a failed systemd service. It&amp;rsquo;s a rather crucial
+service, namely my &lt;strong&gt;backup&lt;/strong&gt;.
+I&amp;rsquo;ve decided to get an email for such circumstances.
+The solution consists of three parts:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The actual &lt;a href=&#34;#code-snippet--actual-service&#34;&gt;backup service&lt;/a&gt; unit&lt;/li&gt;
+&lt;li&gt;An &lt;a href=&#34;#code-snippet--unit-status-mail&#34;&gt;unit status mail&lt;/a&gt; service&lt;/li&gt;
+&lt;li&gt;An &lt;a href=&#34;#code-snippet--mail-script&#34;&gt;python email&lt;/a&gt; script&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;On failure, the actual service triggers the email service which in turn triggers
+the email script.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;%h&lt;/code&gt; in the highlighted line, refers to the &lt;em&gt;User home directory&lt;/em&gt; as per &lt;a href=&#34;https://www.freedesktop.org/software/systemd/man/latest/systemd.unit.html#Specifiers&#34;&gt;systemd.unit&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--actual-service&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;figcaption&gt;
+  &lt;span&gt;~/.config/systemd/user/backup.service&lt;/span&gt;
+&lt;/figcaption&gt;
+
+&lt;div class=&#34;highlight&#34; tangle_filepath=&#34;~/.config/systemd/user/backup.service&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;&#34;&gt;&lt;code class=&#34;language-systemd&#34; data-lang=&#34;systemd&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;[Service]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Type&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;oneshot&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex; background-color:#3c3d38&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;ExecStart&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;/usr/bin/sh $h/bin/backup.sh&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;[Unit]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Description&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Homefolder backup&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;OnFailure&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;unit-status-mail@%n.service&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--unit-status-mail&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;figcaption&gt;
+  &lt;span&gt;/etc/systemd/system/unit-status-mail@.service&lt;/span&gt;
+&lt;/figcaption&gt;
+
+&lt;div class=&#34;highlight&#34; tangle_filepath=&#34;/etc/systemd/system/unit-status-mail@.service&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-systemd&#34; data-lang=&#34;systemd&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;[Unit]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Description&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Unit Status Mailer Service&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;After&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;network.target&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;[Service]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Type&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;simple&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;ExecStart&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;/home/ra/bin/unit-status-mail.py %I&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--mail-script&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;figcaption&gt;
+  &lt;span&gt;~/bin/unit-status-mail.py&lt;/span&gt;
+&lt;/figcaption&gt;
+
+&lt;div class=&#34;highlight&#34; tangle_filepath=&#34;~/bin/unit-status-mail.py&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/bin/python&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; smtplib
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; argparse
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; subprocess &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Popen, PIPE
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; email.mime.multipart &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; MIMEMultipart
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; email.mime.text &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; MIMEText
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;parser &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; argparse&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;ArgumentParser()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;parser&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_argument(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;unit&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;args &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; parser&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;parse_args()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;unit &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; args&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;unit
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;usr &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;foo@bar.com&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pwd &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;secretpassword&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;host &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mail.host.com&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;port &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;465&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;msg &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; MIMEMultipart()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;msg[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;From&amp;#39;&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; usr
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;msg[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;To&amp;#39;&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; usr
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;msg[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Subject&amp;#39;&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Failed: &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{&lt;/span&gt;unit&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cmd&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;systemctl status --user --full &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{&lt;/span&gt;unit&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Be aware of security issues when using shell=True&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;stdout &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Popen(cmd, shell&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;, stdout&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;PIPE)\
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;stdout&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;read()&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;decode(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;utf-8&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;msg&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;attach(MIMEText(stdout))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;with&lt;/span&gt; smtplib&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;SMTP_SSL(host,port) &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; mail_server:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    mail_server&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;ehlo()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    mail_server&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;login(usr, pwd)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    mail_server&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;sendmail(usr, usr, msg&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;as_string())&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I wrote this article while metaphorically standing on the shoulders of &lt;a href=&#34;https://northernlightlabs.se/2014-07-05/systemd-status-mail-on-unit-failure.html&#34;&gt;Laeffe&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    <item>
       <title>Labeling code blocks in ox-hugo</title>
       <link>/posts/labeling_code_blocks_in_ox-hugo/</link>
       <pubDate>Wed, 15 Jan 2025 14:57:00 +0100</pubDate>

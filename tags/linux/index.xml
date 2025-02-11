@@ -2,13 +2,13 @@
 <?xml-stylesheet type="text/xsl" href="/xml/base.min.xml" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>shell on Rida Ayed</title>
-    <link>/tags/shell/</link>
-    <description>Recent content in shell on Rida Ayed</description>
+    <title>linux on Rida Ayed</title>
+    <link>/tags/linux/</link>
+    <description>Recent content in linux on Rida Ayed</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 18 Jul 2023 15:52:00 +0200</lastBuildDate>
-    <atom:link href="/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 11 Feb 2025 14:31:00 +0100</lastBuildDate>
+    <atom:link href="/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Get an email upon failed systemd services</title>
       <link>/posts/get-email-upon-failed-systemd-services/</link>
