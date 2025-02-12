@@ -7,25 +7,25 @@
     <description>Recent content in shell on Rida Ayed</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 18 Jul 2023 15:52:00 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 16 May 2022 14:06:00 +0200</lastBuildDate>
     <atom:link href="/tags/shell/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Get an email upon failed systemd services</title>
       <link>/posts/get-email-upon-failed-systemd-services/</link>
       <pubDate>Tue, 11 Feb 2025 14:31:00 +0100</pubDate>
       <guid>/posts/get-email-upon-failed-systemd-services/</guid>
-      <description>&lt;p&gt;Only by chance I noticed a failed systemd service. It&amp;rsquo;s a rather crucial
-service, namely my &lt;strong&gt;backup&lt;/strong&gt;.
-I&amp;rsquo;ve decided to get an email for such circumstances.
-The solution consists of three parts:&lt;/p&gt;
+      <description>&lt;p&gt;Only by chance I noticed a failed systemd service. It&amp;rsquo;s a rather crucial &lt;br/&gt;
+service, namely my &lt;strong&gt;backup&lt;/strong&gt;. &lt;br/&gt;
+I&amp;rsquo;ve decided to get an email for such circumstances. &lt;br/&gt;
+The solution consists of three parts: &lt;br/&gt;&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;The actual &lt;a href=&#34;#code-snippet--actual-service&#34;&gt;backup service&lt;/a&gt; unit&lt;/li&gt;
-&lt;li&gt;An &lt;a href=&#34;#code-snippet--unit-status-mail&#34;&gt;unit status mail&lt;/a&gt; service&lt;/li&gt;
-&lt;li&gt;An &lt;a href=&#34;#code-snippet--mail-script&#34;&gt;python email&lt;/a&gt; script&lt;/li&gt;
+&lt;li&gt;The actual &lt;a href=&#34;#code-snippet--actual-service&#34;&gt;backup service&lt;/a&gt; unit &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;An &lt;a href=&#34;#code-snippet--unit-status-mail&#34;&gt;unit status mail&lt;/a&gt; service &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;An &lt;a href=&#34;#code-snippet--mail-script&#34;&gt;python email&lt;/a&gt; script &lt;br/&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;On failure, the actual service triggers the email service which in turn triggers
-the email script.&lt;/p&gt;
-&lt;p&gt;The &lt;code&gt;%h&lt;/code&gt; in the highlighted line, refers to the &lt;em&gt;User home directory&lt;/em&gt; as per &lt;a href=&#34;https://www.freedesktop.org/software/systemd/man/latest/systemd.unit.html#Specifiers&#34;&gt;systemd.unit&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;On failure, the actual service triggers the email service which in turn triggers &lt;br/&gt;
+the email script. &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;%h&lt;/code&gt; in the highlighted line, refers to the &lt;em&gt;User home directory&lt;/em&gt; as per &lt;a href=&#34;https://www.freedesktop.org/software/systemd/man/latest/systemd.unit.html#Specifiers&#34;&gt;systemd.unit&lt;/a&gt; &lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a id=&#34;code-snippet--actual-service&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;figcaption&gt;
@@ -89,7 +89,8 @@ the email script.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    mail_server&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;ehlo()
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    mail_server&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;login(usr, pwd)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    mail_server&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;sendmail(usr, usr, msg&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;as_string())&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;I wrote this article while metaphorically standing on the shoulders of &lt;a href=&#34;https://northernlightlabs.se/2014-07-05/systemd-status-mail-on-unit-failure.html&#34;&gt;Laeffe&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I wrote this article while metaphorically standing on the shoulders of &lt;a href=&#34;https://northernlightlabs.se/2014-07-05/systemd-status-mail-on-unit-failure.html&#34;&gt;Laeffe&lt;/a&gt; &lt;br/&gt;
+Furthermore I made slight changes according to this &lt;a href=&#34;https://serverfault.com/questions/694818/get-notification-when-systemd-monitored-service-enters-failed-state&#34;&gt;question&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     <item>
@@ -908,11 +909,67 @@ In fact, the parent directory name seems completely negligible in perspective of
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (let ((files (dired-get-marked-files)))
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (shell-command (&lt;span style=&#34;color:#a6e22e&#34;&gt;concat&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;image_manipulation.sh &amp;#34;&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;mapconcat&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;#&amp;#39;&lt;/span&gt;shell-quote-argument files &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;)))
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (&lt;span style=&#34;color:#a6e22e&#34;&gt;message&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Sent to image_manipulation.sh: %s&amp;#34;&lt;/span&gt; files)))
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;define-key&lt;/span&gt; dired-mode-map (kbd &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C-c C-x&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;my-dired-send-to-image_manipulation&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;define-key&lt;/span&gt; dired-mode-map (kbd &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C-c C-x&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;my-dired-send-to-foo&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&#34;check-script-output-in-log&#34;&gt;Check script output in log&lt;/h2&gt;
 
 
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;journalctl -f&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&#34;enhanced-image-manipulation-script&#34;&gt;Enhanced Image manipulation script&lt;/h2&gt;
+
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(defun instashit ()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Send marked files in Dired to ~/bin/image_manipulation_insta.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  assure ~/bin is in $PATH)&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (interactive)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (let ((files (dired-get-marked-files)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (shell-command (&lt;span style=&#34;color:#a6e22e&#34;&gt;concat&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;image_manipulation_insta.sh &amp;#34;&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;mapconcat&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;#&amp;#39;&lt;/span&gt;shell-quote-argument files &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (&lt;span style=&#34;color:#a6e22e&#34;&gt;message&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Sent to image_manipulation_insta.sh: %s&amp;#34;&lt;/span&gt; files)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;define-key&lt;/span&gt; dired-mode-map (kbd &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C-c C-b&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;instashit&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2e5d076c55a51b7d510718e943548ee6&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;figcaption&gt;
+  &lt;span&gt;~/bin/image_manipulation_insta.sh&lt;/span&gt;
+&lt;/figcaption&gt;
+
+&lt;div class=&#34;highlight&#34; tangle_filepath=&#34;~/bin/image_manipulation_insta.sh&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;outdir&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/tmp/&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;date +%Y%m%d_%H%M%S&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# Create a directory with the current date and time&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;text&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Vernissage Brigitta Leupin 2024&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mkdir $outdir
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; arg in &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$@&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    source&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$arg&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# Store the source file path&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    filename&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;source##*/&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# Extract the filename from the source file path&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    outfile&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$outdir&lt;span style=&#34;color:#e6db74&#34;&gt;/web_&lt;/span&gt;$filename&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# Specify the output file path&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    outfile_insta&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$outdir&lt;span style=&#34;color:#e6db74&#34;&gt;/insta_&lt;/span&gt;$filename&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# Specify the output file path&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    tmpfile&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$outdir&lt;span style=&#34;color:#e6db74&#34;&gt;/tmp_&lt;/span&gt;$filename&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# Specify the temporary file path&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    tmpfile_insta&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$outdir&lt;span style=&#34;color:#e6db74&#34;&gt;/tmp_&lt;/span&gt;$filename&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# Specify the temporary file path&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    logger &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Source: &lt;/span&gt;$arg&lt;span style=&#34;color:#e6db74&#34;&gt;, outfile: &lt;/span&gt;$outfile&lt;span style=&#34;color:#e6db74&#34;&gt;, tmpfile: &lt;/span&gt;$tmpfile&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# Log the source, output, and temporary file paths&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    logger &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$text&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# Log the source, output, and temporary file paths&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# Website&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    cp &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$source&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$outfile&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    jpegoptim --size&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;500k &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$outfile&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; --quiet
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# Remove all EXIF information from the image except the Orientation tag&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    exiftool -overwrite_original -all&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; -tagsfromfile @ -Orientation &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$outfile&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# Add new exifinfo&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    exiftool -overwrite_original -Exif:ImageDescription&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$text&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; -Description&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$text&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$outfile&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    logger &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;exiftool &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$outfile&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; | grep &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$text&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# Log the source, output, and temporary file paths&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# Insta&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# Resize the insta image&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    convert &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$source&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; -resize 1350x1350 &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$tmpfile_insta&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# Apply padding and aspect ratio&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ~/Downloads/aspectpad -a 1.25 -m al -p white &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$tmpfile_insta&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$outfile_insta&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# Insta Remove all EXIF information from the image except the Orientation tag&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    exiftool -overwrite_original -all&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; -tagsfromfile @ -Orientation &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$outfile_insta&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    rm &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$tmpfile_insta&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# Remove the temporary file&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Save the outdir path in the Emacs killring for easy access&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$outdir&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; &amp;gt; /tmp/kill
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;exit&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 </description>
     </item>
     <item>
