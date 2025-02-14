@@ -10,6 +10,46 @@
     <lastBuildDate>Sun, 28 Jul 2024 11:48:00 +0200</lastBuildDate>
     <atom:link href="/tags/regex/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Ignore regions when formatting buffers with three keys</title>
+      <link>/posts/ignore-regions-when-formatting-buffers/</link>
+      <pubDate>Fri, 14 Feb 2025 12:05:00 +0100</pubDate>
+      <guid>/posts/ignore-regions-when-formatting-buffers/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m quite fond of keeping my code formatted. &lt;br/&gt;
+For example I use &lt;a href=&#34;https://github.com/google/yapf&#34;&gt;yapf&lt;/a&gt; to format python code. &lt;br/&gt;
+Sometimes I want particular regions &lt;a href=&#34;https://stackoverflow.com/questions/38261500/is-it-possible-to-get-yapf-to-ignore-portions-of-a-file&#34;&gt;not to be formatted&lt;/a&gt;. &lt;br/&gt;
+In particular I want rows to stay rows but one line. &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://github.com/google/yapf#why-does-yapf-destroy-my-awesome-formatting&#34;&gt;solution&lt;/a&gt; is to indicate such regions for the formatter &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;Without indication, the buffer is formatted from this: &lt;br/&gt;&lt;/p&gt;
+
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;rows &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;john&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;acme&amp;#39;&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;jane&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;acme&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;to that: &lt;br/&gt;&lt;/p&gt;
+
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;rows &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;john&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;acme&amp;#39;&lt;/span&gt;), (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;jane&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;acme&amp;#39;&lt;/span&gt;)]&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;With added indication the formatter ignores such regions: &lt;br/&gt;&lt;/p&gt;
+
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;rows &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# yapf: disable&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;john&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;acme&amp;#39;&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;jane&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;acme&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# yapf: enable&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now manually typing these opening and closing indicators each time would be a bit cumbersome, wouldn&amp;rsquo;t it? &lt;br/&gt;
+Luckily emacs&amp;rsquo; &lt;a href=&#34;https://github.com/emacs-evil/evil-surround&#34;&gt;evil-surround&lt;/a&gt; has you covered. &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;Add this to your init.el &lt;br/&gt;&lt;/p&gt;
+
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(setq-default evil-surround-pairs-alist
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              (push &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;?y&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;# yapf: disable&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;# yapf: enable&amp;#34;&lt;/span&gt;)) evil-surround-pairs-alist))&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now visually selecting any desired region and hitting &lt;code&gt;gSy&lt;/code&gt; subsequently, uhm, surrounds as expected.&lt;/p&gt;
+</description>
+    </item>
+    <item>
       <title>Get an email upon failed systemd services</title>
       <link>/posts/get-email-upon-failed-systemd-services/</link>
       <pubDate>Tue, 11 Feb 2025 14:31:00 +0100</pubDate>

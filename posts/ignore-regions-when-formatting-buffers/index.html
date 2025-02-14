@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  
+    <meta name="description" content="I&rsquo;m quite fond of keeping my code formatted. For example I use yapf to format python code. Sometimes I want particular regions not to be formatted. In particular I want rows to stay rows but one line. The solution is to indicate such regions for the formatter Without indication, the buffer is formatted from this: rows = [ (&#39;john&#39;, &#39;acme&#39;), (&#39;jane&#39;, &#39;acme&#39;) ] to that: rows = [(&#39;john&#39;, &#39;acme&#39;), (&#39;jane&#39;, &#39;acme&#39;)] With added indication the formatter ignores such regions: rows = [ # yapf: disable (&#39;john&#39;, &#39;acme&#39;), (&#39;jane&#39;, &#39;acme&#39;) # yapf: enable ] Now manually typing these opening and closing indicators each time would be a bit cumbersome, wouldn&rsquo;t it?">
+  
+
+
+
+
+
+  <meta property="og:title" content="Ignore regions when formatting buffers with three keys" />
+<meta property="og:description" content="I&rsquo;m quite fond of keeping my code formatted. For example I use yapf to format python code. Sometimes I want particular regions not to be formatted. In particular I want rows to stay rows but one line. The solution is to indicate such regions for the formatter Without indication, the buffer is formatted from this: rows = [ (&#39;john&#39;, &#39;acme&#39;), (&#39;jane&#39;, &#39;acme&#39;) ] to that: rows = [(&#39;john&#39;, &#39;acme&#39;), (&#39;jane&#39;, &#39;acme&#39;)] With added indication the formatter ignores such regions: rows = [ # yapf: disable (&#39;john&#39;, &#39;acme&#39;), (&#39;jane&#39;, &#39;acme&#39;) # yapf: enable ] Now manually typing these opening and closing indicators each time would be a bit cumbersome, wouldn&rsquo;t it?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/ignore-regions-when-formatting-buffers/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-02-14T12:05:00+01:00" />
+<meta property="article:modified_time" content="2025-02-14T12:09:31+01:00" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.121.2">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6VHLXGBH3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q6VHLXGBH3');
+</script>
+
+<script>
+  var _paq = window._paq = window._paq || [];
+   
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+      var u="https://ridaayed.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+
+
+
+  <title>Ignore regions when formatting buffers with three keys | Rida Ayed</title>
+  <link rel="canonical" href="/posts/ignore-regions-when-formatting-buffers/">
+
+
+  
+
+
+
+
+  
+  
+    
+    
+  
+  
+
+
+
+
+
+  
+  
+    
+    
+  
+  
+  
+
+  
+    
+  
+  
+  <link rel="stylesheet" href="/css/base.min.247959e5b5dd620fc878726875d2a2398fad5eb978e43aa098f74446ff5d28cc.css" integrity="sha256-JHlZ5bXdYg/IeHJoddKiOY&#43;tXrl45DqgmPdERv9dKMw=" crossorigin="anonymous">
+
+
+
+  <script defer src="/js/base.min.70b098dab71f837cb63b52c0d70a0bb5cb00d96768e4645adeb2f0a5bca79222.js" integrity="sha256-cLCY2rcfg3y2O1LA1woLtcsA2Wdo5GRa3rLwpbynkiI=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <nav class="u-background">
+  <div class="u-wrapper">
+    <ul class="Banner">
+      <li class="Banner-item Banner-item--title">
+        <a class="Banner-link u-clickable" href="/">Rida Ayed</a>
+      </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/posts/">Blog</a>
+        </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/about/">About</a>
+        </li>
+      
+    </ul>
+  </div>
+</nav>
+  <main>
+    <div class="u-wrapper">
+      <div class="u-padding">
+        
+
+  <article>
+    <header class="Heading">
+  
+  <h2 class="Heading-title">
+    <a class="Heading-link u-clickable" href="/posts/ignore-regions-when-formatting-buffers/" rel="bookmark">Ignore regions when formatting buffers with three keys</a>
+  </h2>
+  
+  
+    <time datetime="2025-02-14T12:05:00&#43;01:00">14 February, 2025</time>
+  
+</header>
+
+    <p>I&rsquo;m quite fond of keeping my code formatted. <br/>
+For example I use <a href="https://github.com/google/yapf">yapf</a> to format python code. <br/>
+Sometimes I want particular regions <a href="https://stackoverflow.com/questions/38261500/is-it-possible-to-get-yapf-to-ignore-portions-of-a-file">not to be formatted</a>. <br/>
+In particular I want rows to stay rows but one line. <br/></p>
+<p>The <a href="https://github.com/google/yapf#why-does-yapf-destroy-my-awesome-formatting">solution</a> is to indicate such regions for the formatter <br/></p>
+<p>Without indication, the buffer is formatted from this: <br/></p>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>rows <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#39;john&#39;</span>, <span style="color:#e6db74">&#39;acme&#39;</span>),
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#39;jane&#39;</span>, <span style="color:#e6db74">&#39;acme&#39;</span>)
+</span></span><span style="display:flex;"><span>]</span></span></code></pre></div>
+<p>to that: <br/></p>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>rows <span style="color:#f92672">=</span> [(<span style="color:#e6db74">&#39;john&#39;</span>, <span style="color:#e6db74">&#39;acme&#39;</span>), (<span style="color:#e6db74">&#39;jane&#39;</span>, <span style="color:#e6db74">&#39;acme&#39;</span>)]</span></span></code></pre></div>
+<p>With added indication the formatter ignores such regions: <br/></p>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>rows <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># yapf: disable</span>
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#39;john&#39;</span>, <span style="color:#e6db74">&#39;acme&#39;</span>),
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#39;jane&#39;</span>, <span style="color:#e6db74">&#39;acme&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># yapf: enable</span>
+</span></span><span style="display:flex;"><span>]</span></span></code></pre></div>
+<p>Now manually typing these opening and closing indicators each time would be a bit cumbersome, wouldn&rsquo;t it? <br/>
+Luckily emacs&rsquo; <a href="https://github.com/emacs-evil/evil-surround">evil-surround</a> has you covered. <br/></p>
+<p>Add this to your init.el <br/></p>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq-default evil-surround-pairs-alist
+</span></span><span style="display:flex;"><span>              (push <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">?y</span> <span style="color:#f92672">.</span> (<span style="color:#e6db74">&#34;# yapf: disable&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;# yapf: enable&#34;</span>)) evil-surround-pairs-alist))</span></span></code></pre></div>
+<p>Now visually selecting any desired region and hitting <code>gSy</code> subsequently, uhm, surrounds as expected.</p>
+
+    
+
+
+  
+
+  
+
+
+
+
+
+  <footer>
+    
+      
+    
+      
+        <ul class="Tags">
+          
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="/tags/python/" rel="tag">python</a>
+            </li>
+          
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="/tags/lisp/" rel="tag">lisp</a>
+            </li>
+          
+        </ul>
+      
+    
+  </footer>
+
+    
+  
+
+  </article>
+
+
+      </div>
+    </div>
+  </main>
+  
+  <footer class="Footer">
+    <div class="u-wrapper">
+      <div class="u-padding">
+        <a title="Instagram" href="https://instagram.com/rida.ayed"><div class="fab fa-fab fa-instagram"></div></a>
+<a title="Github" href="https://github.com/RidaAyed"><div class="fab fa-fab fa-github"></div></a>
+<a title="LinkedIn" href="https://linkedin.com/in/ridaayed"><div class="fab fa-fab fa-linkedin"></div></a>
+<a title="RSS Feed" href="/index.xml"><div class="fa fa-fa fa-rss"></div></a>
+<a title="Email Newsletter" href="/newsletter"><div class="fa fa-fa fa-newspaper"></div></a>
+
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>
