@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/about/</loc>
+    <lastmod>2025-03-02T13:40:20+01:00</lastmod>
+  </url><url>
     <loc>/posts/ignore-regions-when-formatting-buffers/</loc>
     <lastmod>2025-02-15T12:01:23+01:00</lastmod>
   </url><url>
@@ -22,9 +25,6 @@
   </url><url>
     <loc>/tags/linux/</loc>
     <lastmod>2025-02-12T13:29:53+01:00</lastmod>
-  </url><url>
-    <loc>/about/</loc>
-    <lastmod>2025-02-10T14:43:26+01:00</lastmod>
   </url><url>
     <loc>/newsletter/</loc>
     <lastmod>2025-02-08T10:10:28+01:00</lastmod>
