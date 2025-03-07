@@ -10,6 +10,23 @@
     <lastBuildDate>Mon, 16 May 2022 14:06:00 +0200</lastBuildDate>
     <atom:link href="/tags/shell/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Play a movie in emacs org mode using lisp</title>
+      <link>/posts/play-movie-emacs-org-mode-lisp/</link>
+      <pubDate>Fri, 07 Mar 2025 11:29:00 +0100</pubDate>
+      <guid>/posts/play-movie-emacs-org-mode-lisp/</guid>
+      <description>&lt;p&gt;Links in Emacs org mode allow arbitrary emacs-lisp execution. &lt;br/&gt;
+As a result, we can run any shell command, such as your favorite &lt;a href=&#34;https://wiki.archlinux.org/title/MPlayer&#34;&gt;movie player&lt;/a&gt;: &lt;br/&gt;&lt;/p&gt;
+
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-org&#34; data-lang=&#34;org&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[[&lt;span style=&#34;color:#a6e22e&#34;&gt;elisp:(async-shell-command &amp;#34;mplayer /tmp/lecture.mp4&amp;#34;)&lt;/span&gt;][&lt;span style=&#34;color:#f92672&#34;&gt;linktitle&lt;/span&gt;]]&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Arguments work too. e.g. play the movie from particular position. &lt;br/&gt;
+This can come in handy when learning materials contain valuable information scattered throughout movies: &lt;br/&gt;&lt;/p&gt;
+
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-org&#34; data-lang=&#34;org&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[[&lt;span style=&#34;color:#a6e22e&#34;&gt;elisp:(async-shell-command &amp;#34;mplayer /tmp/lecture.mp4 -ss 00:05:10&amp;#34;)&lt;/span&gt;][&lt;span style=&#34;color:#f92672&#34;&gt;linktitle&lt;/span&gt;]]&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+</description>
+    </item>
+    <item>
       <title>Ignore regions when formatting buffers with three keys</title>
       <link>/posts/ignore-regions-when-formatting-buffers/</link>
       <pubDate>Fri, 14 Feb 2025 12:05:00 +0100</pubDate>
