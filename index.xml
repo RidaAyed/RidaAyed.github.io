@@ -10,7 +10,7 @@
     <lastBuildDate>Fri, 10 May 2024 12:08:53 +0200</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Play a movie in emacs org mode using lisp</title>
+      <title>Play a video in emacs org mode using lisp</title>
       <link>/posts/play-movie-emacs-org-mode-lisp/</link>
       <pubDate>Fri, 07 Mar 2025 11:29:00 +0100</pubDate>
       <guid>/posts/play-movie-emacs-org-mode-lisp/</guid>
@@ -19,11 +19,11 @@ As a result, we can run any shell command, such as your favorite &lt;a href=&#34
 
 
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-org&#34; data-lang=&#34;org&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[[&lt;span style=&#34;color:#a6e22e&#34;&gt;elisp:(async-shell-command &amp;#34;mplayer /tmp/lecture.mp4&amp;#34;)&lt;/span&gt;][&lt;span style=&#34;color:#f92672&#34;&gt;linktitle&lt;/span&gt;]]&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Arguments work too. e.g. play the movie from particular position. &lt;br/&gt;
+&lt;p&gt;Arguments work too. e.g. play the movie from a particular position. &lt;br/&gt;
 This can come in handy when learning materials contain valuable information scattered throughout movies: &lt;br/&gt;&lt;/p&gt;
 
 
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-org&#34; data-lang=&#34;org&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[[&lt;span style=&#34;color:#a6e22e&#34;&gt;elisp:(async-shell-command &amp;#34;mplayer /tmp/lecture.mp4 -ss 00:05:10&amp;#34;)&lt;/span&gt;][&lt;span style=&#34;color:#f92672&#34;&gt;linktitle&lt;/span&gt;]]&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-org&#34; data-lang=&#34;org&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[[&lt;span style=&#34;color:#a6e22e&#34;&gt;elisp:(async-shell-command &amp;#34;mplayer /tmp/lecture.mp4 -ss 00:05:10&amp;#34;)&lt;/span&gt;][&lt;span style=&#34;color:#f92672&#34;&gt;othertitle&lt;/span&gt;]]&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 </description>
     </item>
     <item>
