@@ -10,7 +10,7 @@
     <lastBuildDate>Fri, 10 May 2024 12:08:53 +0200</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Play a video in emacs org mode using lisp</title>
+      <title>Play a video from emacs org mode using lisp</title>
       <link>/posts/play-movie-emacs-org-mode-lisp/</link>
       <pubDate>Fri, 07 Mar 2025 11:29:00 +0100</pubDate>
       <guid>/posts/play-movie-emacs-org-mode-lisp/</guid>
