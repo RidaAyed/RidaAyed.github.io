@@ -2,14 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/about/</loc>
+    <lastmod>2025-03-20T15:07:34+01:00</lastmod>
+  </url><url>
+    <loc>/mw/</loc>
+    <lastmod>2025-03-20T15:05:00+01:00</lastmod>
+  </url><url>
     <loc>/posts/play-movie-emacs-org-mode-lisp/</loc>
     <lastmod>2025-03-17T14:51:29+01:00</lastmod>
   </url><url>
     <loc>/posts/</loc>
     <lastmod>2025-03-17T14:51:29+01:00</lastmod>
-  </url><url>
-    <loc>/about/</loc>
-    <lastmod>2025-03-02T14:17:39+01:00</lastmod>
   </url><url>
     <loc>/posts/ignore-regions-when-formatting-buffers/</loc>
     <lastmod>2025-02-15T12:01:23+01:00</lastmod>
@@ -34,9 +37,6 @@
   </url><url>
     <loc>/posts/labeling_code_blocks_in_ox-hugo/</loc>
     <lastmod>2025-01-15T20:09:42+01:00</lastmod>
-  </url><url>
-    <loc>/mw/</loc>
-    <lastmod>2025-01-03T16:08:53+01:00</lastmod>
   </url><url>
     <loc>/wertheimer/</loc>
     <lastmod>2025-01-03T16:05:16+01:00</lastmod>
