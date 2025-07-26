@@ -10,11 +10,11 @@
     <lastBuildDate>Sat, 21 Mar 2020 20:35:00 +0100</lastBuildDate>
     <atom:link href="/tags/backup/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Mock a aiohttp clientsession json response in pytest</title>
-      <link>/posts/mock-aiohttp-clientsession-json-in-pytest/</link>
+      <title>Patch the json response of a mocked aiohttp clientsession in pytest</title>
+      <link>/posts/mock-patch-aiohttp-clientsession-json-pytest/</link>
       <pubDate>Sat, 26 Jul 2025 14:58:00 +0200</pubDate>
-      <guid>/posts/mock-aiohttp-clientsession-json-in-pytest/</guid>
-      <description>&lt;p&gt;Haven&amp;rsquo;t found a short concise example covering pytest whilst focussing the session&amp;rsquo;s json method, hence this snippet.&lt;/p&gt;
+      <guid>/posts/mock-patch-aiohttp-clientsession-json-pytest/</guid>
+      <description>&lt;p&gt;Haven&amp;rsquo;t found a short concise example covering &lt;em&gt;pytest&lt;/em&gt; whilst focussing the &lt;em&gt;patched&lt;/em&gt; json method of a &lt;em&gt;mocked&lt;/em&gt; async session, hence this snippet.&lt;/p&gt;
 
 
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pipenv install pytest-asyncio&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
