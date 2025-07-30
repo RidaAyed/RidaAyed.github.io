@@ -56,8 +56,9 @@ Notice now how easy the highlighted &lt;code&gt;gender = &#39;-&#39;&lt;/code&gt
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;))
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;test&lt;/span&gt;(gender, lang):
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;assert&lt;/span&gt; gender&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;I have described another mitigation for incomprehensive structures &lt;a href=&#34;/posts/ignore-regions-when-formatting-buffers/&#34;&gt;here&lt;/a&gt; &lt;br/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://til.simonwillison.net/pytest/namedtuple-parameterized-tests&#34;&gt;Source with a bit more text to glance over&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I have described another mitigation for incomprehensive structures &lt;a href=&#34;/posts/ignore-regions-when-formatting-buffers/&#34;&gt;here&lt;/a&gt;. &lt;br/&gt;
+Another approach using NamedTuple from &lt;a href=&#34;https://docs.python.org/3/library/typing.html#other-special-directives&#34;&gt;typing&lt;/a&gt; is shown here &lt;a href=&#34;https://youtu.be/aQH7hyJn-No?t=634&#34;&gt;youtube&lt;/a&gt;. &lt;br/&gt;
+This &lt;a href=&#34;https://til.simonwillison.net/pytest/namedtuple-parameterized-tests&#34;&gt;blogpost&lt;/a&gt; &amp;ndash;with a bit more text to glance over&amp;ndash; inspired me to write this post.&lt;/p&gt;
 </description>
     </item>
     <item>
