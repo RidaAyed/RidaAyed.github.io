@@ -2,10 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/posts/mock-patch-aiohttp-clientsession-json-pytest/</loc>
-    <lastmod>2025-07-26T15:21:07+02:00</lastmod>
+    <loc>/posts/minimal-example-namedtuples-pytest-parameters/</loc>
+    <lastmod>2025-07-30T15:17:43+02:00</lastmod>
   </url><url>
     <loc>/posts/</loc>
+    <lastmod>2025-07-30T15:17:43+02:00</lastmod>
+  </url><url>
+    <loc>/tags/pytest/</loc>
+    <lastmod>2025-07-30T15:17:43+02:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2025-07-30T15:17:43+02:00</lastmod>
+  </url><url>
+    <loc>/posts/mock-patch-aiohttp-clientsession-json-pytest/</loc>
     <lastmod>2025-07-26T15:21:07+02:00</lastmod>
   </url><url>
     <loc>/about/</loc>
@@ -15,9 +24,6 @@
     <lastmod>2025-05-05T08:46:02+02:00</lastmod>
   </url><url>
     <loc>/tags/python/</loc>
-    <lastmod>2025-05-05T08:46:02+02:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2025-05-05T08:46:02+02:00</lastmod>
   </url><url>
     <loc>/mw/</loc>
@@ -169,9 +175,6 @@
   </url><url>
     <loc>/posts/authenticate_scrape_migros_mbudget_python/</loc>
     <lastmod>2021-01-04T17:57:26+01:00</lastmod>
-  </url><url>
-    <loc>/tags/pytest/</loc>
-    <lastmod>2021-07-29T11:26:17+02:00</lastmod>
   </url><url>
     <loc>/posts/test_offline_and_fast_with_python_pytest/</loc>
     <lastmod>2021-07-29T11:26:17+02:00</lastmod>
