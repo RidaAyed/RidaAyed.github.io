@@ -10,6 +10,34 @@
     <lastBuildDate>Fri, 14 Feb 2025 12:05:00 +0100</lastBuildDate>
     <atom:link href="/tags/lisp/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Beware of emacs pytest runner defaults</title>
+      <link>/posts/beware-emacs-pytest-runner-defaults/</link>
+      <pubDate>Thu, 07 Aug 2025 09:13:00 +0200</pubDate>
+      <guid>/posts/beware-emacs-pytest-runner-defaults/</guid>
+      <description>&lt;p&gt;Emacs provides an incredible &lt;a href=&#34;https://www.spacemacs.org/layers/+lang/python/README.html&#34;&gt;python&lt;/a&gt; developer experience. &lt;br/&gt;
+One of it many features is the ability to run pytest. &lt;br/&gt;
+However, I spent a reasonable amount of time, figuring out &lt;strong&gt;why&lt;/strong&gt; &lt;code&gt;M-x python-test-one&lt;/code&gt; was ignoring my pytest log level settings in &lt;a href=&#34;#code-snippet--example-pyproject&#34;&gt;pyproject.toml&lt;/a&gt;. &lt;br/&gt;
+Whatever I set in pyproject.toml, &lt;code&gt;M-x python-test-one&lt;/code&gt; was printing out any level e.g. &lt;code&gt;logger.INFO(&amp;quot;do not show in test&amp;quot;)&lt;/code&gt; &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--example-pyproject&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;figcaption&gt;
+  &lt;span&gt;pyproject.toml&lt;/span&gt;
+&lt;/figcaption&gt;
+
+&lt;div class=&#34;highlight&#34; tangle_filepath=&#34;pyproject.toml&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[tool&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pytest&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;ini_options]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;log_cli_level &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Error&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The solution was to remove the &lt;code&gt;-s&lt;/code&gt; &lt;a href=&#34;https://docs.pytest.org/en/stable/how-to/output.html&#34;&gt;flag&lt;/a&gt; from &lt;del&gt;pytest-cmd-flags &amp;ldquo;-x -s&amp;rdquo;&lt;/del&gt;. &lt;br/&gt;
+Add this line to your init.el: &lt;br/&gt;&lt;/p&gt;
+
+&lt;figcaption&gt;
+  &lt;span&gt;init.el&lt;/span&gt;
+&lt;/figcaption&gt;
+
+&lt;div class=&#34;highlight&#34; tangle_filepath=&#34;init.el&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;(pytest-cmd-flags &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-x&amp;#34;&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now your pytest buffer shows the log at it&amp;rsquo;s appropriate level.&lt;/p&gt;
+</description>
+    </item>
+    <item>
       <title>A minimal example of using namedtuples in pytest parameterized tests</title>
       <link>/posts/minimal-example-namedtuples-pytest-parameters/</link>
       <pubDate>Wed, 30 Jul 2025 15:01:00 +0200</pubDate>
