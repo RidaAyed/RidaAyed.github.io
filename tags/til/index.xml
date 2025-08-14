@@ -2,13 +2,13 @@
 <?xml-stylesheet type="text/xsl" href="/xml/base.min.xml" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>latex on Rida Ayed</title>
-    <link>/tags/latex/</link>
-    <description>Recent content in latex on Rida Ayed</description>
+    <title>til on Rida Ayed</title>
+    <link>/tags/til/</link>
+    <description>Recent content in til on Rida Ayed</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 10 Dec 2020 00:00:00 +0100</lastBuildDate>
-    <atom:link href="/tags/latex/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 14 Aug 2025 21:21:00 +0200</lastBuildDate>
+    <atom:link href="/tags/til/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Understanding yield in python</title>
       <link>/posts/understanding-yield-in-python/</link>

@@ -9,6 +9,20 @@
     <language>en</language>
     <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Understanding yield in python</title>
+      <link>/posts/understanding-yield-in-python/</link>
+      <pubDate>Thu, 14 Aug 2025 21:21:00 +0200</pubDate>
+      <guid>/posts/understanding-yield-in-python/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m testing a script against a live database. &lt;br/&gt;
+Accessing the db is slow and the test iterates trough all rows each time. &lt;br/&gt;
+Since I&amp;rsquo;m gradually increasing rows on each test run, I need only some, but &lt;code&gt;not all&lt;/code&gt; rows. &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;Problem: How can I avoid loading all rows but only &lt;code&gt;fetch some&lt;/code&gt;? &lt;br/&gt;
+&lt;strong&gt;Solution&lt;/strong&gt;: Use &lt;a href=&#34;https://docs.python.org/3/reference/expressions.html#yield-expressions&#34;&gt;yield&lt;/a&gt; &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;Takeaway: Memorize the &lt;em&gt;word&lt;/em&gt; &lt;code&gt;yield&lt;/code&gt; as alias for fetch some. &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;Why &lt;em&gt;words&lt;/em&gt; matter is beautifully reasoned by Raymond Hettinger in this &lt;a href=&#34;https://youtu.be/UANN2Eu6ZnM?t=1280&#34;&gt;youtube video&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    <item>
       <title>Beware of emacs pytest runner defaults</title>
       <link>/posts/beware-emacs-pytest-runner-defaults/</link>
       <pubDate>Thu, 07 Aug 2025 09:13:00 +0200</pubDate>
@@ -253,8 +267,9 @@ Luckily emacs&amp;rsquo; &lt;a href=&#34;https://github.com/emacs-evil/evil-surr
 
 
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(with-eval-after-load &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;evil-surround&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (push &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;?y&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;# yapf: disable&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;# yapf: enable&amp;#34;&lt;/span&gt;)) evil-surround-pairs-alist))&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Now visually selecting any desired region and hitting &lt;code&gt;gSy&lt;/code&gt; subsequently, uhm, surrounds as expected.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (setq-default evil-surround-pairs-alist
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                (push &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;?y&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;# yapf: disable&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;# yapf: enable&amp;#34;&lt;/span&gt;)) evil-surround-pairs-alist)))&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now visually selecting any desired region and hitting &lt;code&gt;gSy&lt;/code&gt; surrounds as explained.&lt;/p&gt;
 </description>
     </item>
     <item>
