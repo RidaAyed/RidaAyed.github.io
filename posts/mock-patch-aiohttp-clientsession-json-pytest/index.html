@@ -9,20 +9,20 @@
 
   
     <meta name="description" content="Haven&rsquo;t found a short concise example covering pytest whilst focussing the patched json method of a mocked async session, hence this snippet.
-pipenv install pytest-asyncio test.py from unittest.mock import patch, AsyncMock import aiohttp import pytest async def request_async(): async with aiohttp.ClientSession(headers={}) as session: async with session.get(&#34;foo.bar&#34;) as response: jsn = await response.json() return jsn @pytest.mark.asyncio @patch(&#39;aiohttp.ClientSession.get&#39;) async def test_get_request(mock_get): expected = {&#34;a&#34;: &#34;b&#34;} mock_response = AsyncMock() mock_response.json.return_value = expected mock_get.return_value.__aenter__.return_value =\ mock_response result = await request_async() assert result == expected ">
+pipenv install pytest-asyncio from unittest.mock import patch, AsyncMock import aiohttp import pytest async def request_async(): async with aiohttp.ClientSession(headers={}) as session: async with session.get(&#34;foo.bar&#34;) as response: jsn = await response.json() return jsn @pytest.mark.asyncio @patch(&#39;aiohttp.ClientSession.get&#39;) async def test_get_request(mock_get): expected = {&#34;a&#34;: &#34;b&#34;} mock_response = AsyncMock() mock_response.json.return_value = expected mock_get.return_value.__aenter__.return_value =\ mock_response result = await request_async() assert result == expected ">
   
 
 
 
 
 
-  <meta property="og:title" content="Patch the json response of a mocked aiohttp clientsession in pytest" />
+  <meta property="og:title" content="Patch the async json response of a mocked aiohttp clientsession in pytest" />
 <meta property="og:description" content="Haven&rsquo;t found a short concise example covering pytest whilst focussing the patched json method of a mocked async session, hence this snippet.
-pipenv install pytest-asyncio test.py from unittest.mock import patch, AsyncMock import aiohttp import pytest async def request_async(): async with aiohttp.ClientSession(headers={}) as session: async with session.get(&#34;foo.bar&#34;) as response: jsn = await response.json() return jsn @pytest.mark.asyncio @patch(&#39;aiohttp.ClientSession.get&#39;) async def test_get_request(mock_get): expected = {&#34;a&#34;: &#34;b&#34;} mock_response = AsyncMock() mock_response.json.return_value = expected mock_get.return_value.__aenter__.return_value =\ mock_response result = await request_async() assert result == expected " />
+pipenv install pytest-asyncio from unittest.mock import patch, AsyncMock import aiohttp import pytest async def request_async(): async with aiohttp.ClientSession(headers={}) as session: async with session.get(&#34;foo.bar&#34;) as response: jsn = await response.json() return jsn @pytest.mark.asyncio @patch(&#39;aiohttp.ClientSession.get&#39;) async def test_get_request(mock_get): expected = {&#34;a&#34;: &#34;b&#34;} mock_response = AsyncMock() mock_response.json.return_value = expected mock_get.return_value.__aenter__.return_value =\ mock_response result = await request_async() assert result == expected " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/mock-patch-aiohttp-clientsession-json-pytest/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2025-07-26T14:58:00+02:00" />
-<meta property="article:modified_time" content="2025-07-26T15:21:07+02:00" />
+<meta property="article:modified_time" content="2025-08-29T06:08:33+02:00" />
 
 
 
@@ -59,7 +59,7 @@ src="https://www.facebook.com/tr?id=1330802671298127&ev=PageView&noscript=1"
 
 
 
-  <title>Patch the json response of a mocked aiohttp clientsession in pytest | Rida Ayed</title>
+  <title>Patch the async json response of a mocked aiohttp clientsession in pytest | Rida Ayed</title>
   <link rel="canonical" href="/posts/mock-patch-aiohttp-clientsession-json-pytest/">
 
 
@@ -127,7 +127,7 @@ src="https://www.facebook.com/tr?id=1330802671298127&ev=PageView&noscript=1"
     <header class="Heading">
   
   <h2 class="Heading-title">
-    <a class="Heading-link u-clickable" href="/posts/mock-patch-aiohttp-clientsession-json-pytest/" rel="bookmark">Patch the json response of a mocked aiohttp clientsession in pytest</a>
+    <a class="Heading-link u-clickable" href="/posts/mock-patch-aiohttp-clientsession-json-pytest/" rel="bookmark">Patch the async json response of a mocked aiohttp clientsession in pytest</a>
   </h2>
   
   
@@ -140,11 +140,8 @@ src="https://www.facebook.com/tr?id=1330802671298127&ev=PageView&noscript=1"
 
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pipenv install pytest-asyncio</span></span></code></pre></div>
 
-<figcaption>
-  <span>test.py</span>
-</figcaption>
 
-<div class="highlight" tangle_filepath="test.py"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> unittest.mock <span style="color:#f92672">import</span> patch, AsyncMock
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> unittest.mock <span style="color:#f92672">import</span> patch, AsyncMock
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> aiohttp
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pytest
 </span></span><span style="display:flex;"><span>

@@ -106,7 +106,7 @@ Finally I settled to the current version of this post upon discovering this &lt;
 </description>
     </item>
     <item>
-      <title>Patch the json response of a mocked aiohttp clientsession in pytest</title>
+      <title>Patch the async json response of a mocked aiohttp clientsession in pytest</title>
       <link>/posts/mock-patch-aiohttp-clientsession-json-pytest/</link>
       <pubDate>Sat, 26 Jul 2025 14:58:00 +0200</pubDate>
       <guid>/posts/mock-patch-aiohttp-clientsession-json-pytest/</guid>
@@ -115,11 +115,8 @@ Finally I settled to the current version of this post upon discovering this &lt;
 
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pipenv install pytest-asyncio&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;figcaption&gt;
-  &lt;span&gt;test.py&lt;/span&gt;
-&lt;/figcaption&gt;
 
-&lt;div class=&#34;highlight&#34; tangle_filepath=&#34;test.py&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; unittest.mock &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; patch, AsyncMock
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; unittest.mock &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; patch, AsyncMock
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; aiohttp
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; pytest
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
