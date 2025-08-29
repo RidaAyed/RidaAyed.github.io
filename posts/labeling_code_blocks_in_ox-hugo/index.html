@@ -8,7 +8,7 @@
 
 
   
-    <meta name="description" content="Table of Contents Problems Solution What happens How it works By chance, I&rsquo;v stumbled over an excellent article1 about labeling code blocks in hugo. Roger&rsquo;s article answers a major part of a question2 of mine: How to visually distinguish between blocks of source code and result Problems There&rsquo;s no not enough visual difference between the blocks of code and result print(&#34;foo&#34;) foo The code&rsquo;s filepath must be written out to be displayed to the reader.">
+    <meta name="description" content="Table of Contents Problems Solution What happens How it works By chance, I stumbled over an excellent article1 about labeling code blocks in hugo. Roger&rsquo;s article answers a major part of a question2 of mine: How to visually distinguish between blocks of source code and result Problems There&rsquo;s no not enough visual difference between the blocks of code and result print(&#34;foo&#34;) foo The code&rsquo;s filepath must be written out to be displayed to the reader.">
   
 
 
@@ -16,11 +16,11 @@
 
 
   <meta property="og:title" content="Labeling code blocks in ox-hugo" />
-<meta property="og:description" content="Table of Contents Problems Solution What happens How it works By chance, I&rsquo;v stumbled over an excellent article1 about labeling code blocks in hugo. Roger&rsquo;s article answers a major part of a question2 of mine: How to visually distinguish between blocks of source code and result Problems There&rsquo;s no not enough visual difference between the blocks of code and result print(&#34;foo&#34;) foo The code&rsquo;s filepath must be written out to be displayed to the reader." />
+<meta property="og:description" content="Table of Contents Problems Solution What happens How it works By chance, I stumbled over an excellent article1 about labeling code blocks in hugo. Roger&rsquo;s article answers a major part of a question2 of mine: How to visually distinguish between blocks of source code and result Problems There&rsquo;s no not enough visual difference between the blocks of code and result print(&#34;foo&#34;) foo The code&rsquo;s filepath must be written out to be displayed to the reader." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/labeling_code_blocks_in_ox-hugo/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2025-01-15T14:57:00+01:00" />
-<meta property="article:modified_time" content="2025-01-15T20:09:42+01:00" />
+<meta property="article:modified_time" content="2025-08-29T06:21:51+02:00" />
 
 
 
@@ -143,7 +143,7 @@ src="https://www.facebook.com/tr?id=1330802671298127&ev=PageView&noscript=1"
 </ul>
 </div>
 <!--endtoc-->
-<p>By chance, I&rsquo;v stumbled over an excellent article<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> about labeling code blocks in hugo. <br/>
+<p>By chance, I stumbled over an excellent article<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> about labeling code blocks in hugo. <br/>
 Roger&rsquo;s article answers a major part of a question<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> of mine: <br/></p>
 <blockquote>
 <p>How to visually distinguish between blocks of source code and result <br/></p>
@@ -175,11 +175,8 @@ Roger&rsquo;s article answers a major part of a question<sup id="fnref:2"><a hre
 <p>After: <br/></p>
 <p><a id="code-snippet--solution-code"></a></p>
 
-<figcaption>
-  <span>xyz.py</span>
-</figcaption>
 
-<div class="highlight" tangle_filepath="xyz.py"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;foo&#34;</span>)</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;foo&#34;</span>)</span></span></code></pre></div>
 <h2 id="what-happens">What happens</h2>
 <p>Input <code>org mode</code> file: <br/></p>
 
@@ -196,25 +193,19 @@ Roger&rsquo;s article answers a major part of a question<sup id="fnref:2"><a hre
 </span></span><span style="display:flex;"><span>```</span></span></code></pre></div>
 <p>Final rendered html: <br/></p>
 
-<figcaption>
-  <span>/tmp/foo.py</span>
-</figcaption>
 
-<div class="highlight" tangle_filepath="/tmp/foo.py"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;foo&#34;</span>)</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;foo&#34;</span>)</span></span></code></pre></div>
 <p>If not necessary, we can easily disable<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup> the tangle function while still having access to the arguments value. <br/></p>
 <h2 id="how-it-works">How it works</h2>
-<p>Instead of adding the filename verbatim as comment <code>#xyz.py</code> like in <a href="#orgf52d489">code block</a>, we intercept the value of <code>:tangle</code>. <br/>
+<p>Instead of adding the filename verbatim as comment <code>#xyz.py</code> like in <a href="#org27a1ef9">code block</a>, we intercept the value of <code>:tangle</code>. <br/>
 That intercepted value then is passed, <a href="#code-snippet--custom-renderer">parsed and rendered</a> as an additional html element named <code>&lt;figcaption&gt;</code> right above the code block. <br/></p>
 <p>My contribution is in two parts: <br/></p>
 <h3 id="adding-a-custom-markup-renderer">Adding a custom markup renderer</h3>
 <p>By combining parts of Roger&rsquo;s instructions<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup> and the example in the hugo documentation, I&rsquo;ve come up whith his custom code block <br/></p>
 <p><a id="code-snippet--custom-renderer"></a></p>
 
-<figcaption>
-  <span>/hugo-flex/layouts/_default/_markup/render-codeblock.html</span>
-</figcaption>
 
-<div class="highlight" tangle_filepath="/hugo-flex/layouts/_default/_markup/render-codeblock.html"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{{- with .Attributes.tangle_filepath }}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{{- with .Attributes.tangle_filepath }}
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">figcaption</span>&gt;
 </span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">span</span>&gt;{{ . }}&lt;/<span style="color:#f92672">span</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">figcaption</span>&gt;
@@ -224,7 +215,7 @@ That intercepted value then is passed, <a href="#code-snippet--custom-renderer">
 <h3 id="adding-some-new-logic-to-ox-hugo-dot-el">Adding some new logic to ox-hugo.el</h3>
 <ol>
 <li>First I&rsquo;ve added a variable named <code>tangle_filepath</code> to the mighty ox-hugo.el<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>. <br/></li>
-<li>Second I&rsquo;ve added some logic to convert the <code>:tangle</code> parameter in the org mode file to an info-string<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup> in the <a href="#org3c40602">rendered markdown</a>. <br/></li>
+<li>Second I&rsquo;ve added some logic to convert the <code>:tangle</code> parameter in the org mode file to an info-string<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup> in the <a href="#org5ce06bf">rendered markdown</a>. <br/></li>
 </ol>
 <p>Both additions are highlighted below <br/></p>
 
