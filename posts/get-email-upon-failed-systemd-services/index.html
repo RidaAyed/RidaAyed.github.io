@@ -8,7 +8,7 @@
 
 
   
-    <meta name="description" content="Only by chance I noticed a failed systemd service. It&rsquo;s a rather crucial service, namely my backup. I&rsquo;ve decided to get an email for such circumstances. The solution consists of three parts: The actual backup service unit An unit status mail service An python email script On failure, the actual service triggers the email service which in turn triggers the email script. The %h in the highlighted line, refers to the User home directory as per systemd.">
+    <meta name="description" content="Only by chance, I noticed a failed systemd service. It&rsquo;s a rather crucial service, namely my backup. I&rsquo;ve decided to get notified by email in such circumstances. The solution consists of three parts: The actual backup service unit A unit status mail service A python email script On failure, the actual service triggers the email service which in turn triggers the email script. The %h in the highlighted line, refers to the User home directory as per systemd.">
   
 
 
@@ -16,11 +16,11 @@
 
 
   <meta property="og:title" content="Get an email upon failed systemd services" />
-<meta property="og:description" content="Only by chance I noticed a failed systemd service. It&rsquo;s a rather crucial service, namely my backup. I&rsquo;ve decided to get an email for such circumstances. The solution consists of three parts: The actual backup service unit An unit status mail service An python email script On failure, the actual service triggers the email service which in turn triggers the email script. The %h in the highlighted line, refers to the User home directory as per systemd." />
+<meta property="og:description" content="Only by chance, I noticed a failed systemd service. It&rsquo;s a rather crucial service, namely my backup. I&rsquo;ve decided to get notified by email in such circumstances. The solution consists of three parts: The actual backup service unit A unit status mail service A python email script On failure, the actual service triggers the email service which in turn triggers the email script. The %h in the highlighted line, refers to the User home directory as per systemd." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/get-email-upon-failed-systemd-services/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2025-02-11T14:31:00+01:00" />
-<meta property="article:modified_time" content="2025-02-12T13:29:53+01:00" />
+<meta property="article:modified_time" content="2025-09-20T09:20:34+02:00" />
 
 
 
@@ -133,25 +133,22 @@ src="https://www.facebook.com/tr?id=1330802671298127&ev=PageView&noscript=1"
   
 </header>
 
-    <p>Only by chance I noticed a failed systemd service. It&rsquo;s a rather crucial <br/>
+    <p>Only by chance, I noticed a failed systemd service. It&rsquo;s a rather crucial <br/>
 service, namely my <strong>backup</strong>. <br/>
-I&rsquo;ve decided to get an email for such circumstances. <br/>
+I&rsquo;ve decided to get notified by email in such circumstances. <br/>
 The solution consists of three parts: <br/></p>
 <ol>
 <li>The actual <a href="#code-snippet--actual-service">backup service</a> unit <br/></li>
-<li>An <a href="#code-snippet--unit-status-mail">unit status mail</a> service <br/></li>
-<li>An <a href="#code-snippet--mail-script">python email</a> script <br/></li>
+<li>A <a href="#code-snippet--unit-status-mail">unit status mail</a> service <br/></li>
+<li>A <a href="#code-snippet--mail-script">python email</a> script <br/></li>
 </ol>
 <p>On failure, the actual service triggers the email service which in turn triggers <br/>
 the email script. <br/></p>
 <p>The <code>%h</code> in the highlighted line, refers to the <em>User home directory</em> as per <a href="https://www.freedesktop.org/software/systemd/man/latest/systemd.unit.html#Specifiers">systemd.unit</a> <br/></p>
 <p><a id="code-snippet--actual-service"></a></p>
 
-<figcaption>
-  <span>~/.config/systemd/user/backup.service</span>
-</figcaption>
 
-<div class="highlight" tangle_filepath="~/.config/systemd/user/backup.service"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-systemd" data-lang="systemd"><span style="display:flex;"><span><span style="color:#66d9ef">[Service]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-systemd" data-lang="systemd"><span style="display:flex;"><span><span style="color:#66d9ef">[Service]</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">Type</span><span style="color:#f92672">=</span><span style="color:#e6db74">oneshot</span>
 </span></span><span style="display:flex; background-color:#3c3d38"><span><span style="color:#a6e22e">ExecStart</span><span style="color:#f92672">=</span><span style="color:#e6db74">/usr/bin/sh $h/bin/backup.sh</span>
 </span></span><span style="display:flex;"><span>
@@ -160,11 +157,8 @@ the email script. <br/></p>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">OnFailure</span><span style="color:#f92672">=</span><span style="color:#e6db74">unit-status-mail@%n.service</span></span></span></code></pre></div>
 <p><a id="code-snippet--unit-status-mail"></a></p>
 
-<figcaption>
-  <span>/etc/systemd/system/unit-status-mail@.service</span>
-</figcaption>
 
-<div class="highlight" tangle_filepath="/etc/systemd/system/unit-status-mail@.service"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-systemd" data-lang="systemd"><span style="display:flex;"><span><span style="color:#66d9ef">[Unit]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-systemd" data-lang="systemd"><span style="display:flex;"><span><span style="color:#66d9ef">[Unit]</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">Description</span><span style="color:#f92672">=</span><span style="color:#e6db74">Unit Status Mailer Service</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">After</span><span style="color:#f92672">=</span><span style="color:#e6db74">network.target</span>
 </span></span><span style="display:flex;"><span>
@@ -173,11 +167,8 @@ the email script. <br/></p>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">ExecStart</span><span style="color:#f92672">=</span><span style="color:#e6db74">/home/ra/bin/unit-status-mail.py %I</span></span></span></code></pre></div>
 <p><a id="code-snippet--mail-script"></a></p>
 
-<figcaption>
-  <span>~/bin/unit-status-mail.py</span>
-</figcaption>
 
-<div class="highlight" tangle_filepath="~/bin/unit-status-mail.py"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/python</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/python</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> smtplib
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> argparse
 </span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> subprocess <span style="color:#f92672">import</span> Popen, PIPE
