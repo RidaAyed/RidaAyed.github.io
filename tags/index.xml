@@ -82,8 +82,9 @@ Typing &lt;code&gt;c&lt;/code&gt; results in &lt;code&gt;ς&lt;/code&gt; &lt;br/
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ano teleia	;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;erotimatiko	?
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;----------------------&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2 id=&#34;optional-install-font-for-increased-readability&#34;&gt;Optional - Install font for increased readability&lt;/h2&gt;
-&lt;p&gt;Install the &lt;a href=&#34;https://en.wikipedia.org/wiki/Gentium&#34;&gt;Gentium&lt;/a&gt; font: &lt;code&gt;$ yay ttf-gentium&lt;/code&gt; &lt;br/&gt;
+&lt;h2 id=&#34;optional-increase-readability&#34;&gt;Optional - Increase readability&lt;/h2&gt;
+&lt;p&gt;To increase the readability &amp;ndash;of the in particular tiny diacritics&amp;ndash;, you can enlarge the greek characters by doing the following: &lt;br/&gt;
+Install the &lt;a href=&#34;https://en.wikipedia.org/wiki/Gentium&#34;&gt;Gentium&lt;/a&gt; font: &lt;code&gt;$ yay ttf-gentium&lt;/code&gt; &lt;br/&gt;
 Evaluate this line or add it &lt;strong&gt;&lt;strong&gt;appropriately&lt;/strong&gt;&lt;/strong&gt; to your &lt;code&gt;init.el&lt;/code&gt;: &lt;br/&gt;&lt;/p&gt;
 
 
