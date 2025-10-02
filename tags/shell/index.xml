@@ -18,12 +18,12 @@
 Type &lt;code&gt;adelfos&lt;/code&gt; to get an understanding of what&amp;rsquo;s happening. &lt;br/&gt;
 Set the input method to greek-babel: &lt;code&gt;M-x set-input-method greek-babel&lt;/code&gt;. Note how your modeline now may display &lt;code&gt;BG&lt;/code&gt;. &lt;br/&gt;
 Now typing &amp;ldquo;adelfos&amp;rdquo; results in αδελφοσ. So far so good. &lt;br/&gt;&lt;/p&gt;
-&lt;p&gt;However, that&amp;rsquo;s not correct. It should be ἀδελφοσς. To be specific, we&amp;rsquo;re missing diacritics on &lt;code&gt;a&lt;/code&gt; (alpha) and &lt;code&gt;o&lt;/code&gt; (omicron) and the final &lt;code&gt;s&lt;/code&gt; (sigma) is wrongly written as well. &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;However, αδελφοσ is wrong. It should be ἀδελφός. To be specific, we&amp;rsquo;re missing diacritics on &lt;code&gt;a&lt;/code&gt; (alpha) and &lt;code&gt;o&lt;/code&gt; (omicron) and the final &lt;code&gt;s&lt;/code&gt; (sigma) is wrongly written as well. &lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;We solve the problem by using combinations of letters, such as: &lt;br/&gt;
 Typing &lt;code&gt;&amp;gt;a&lt;/code&gt; results in &lt;code&gt;ἀ&lt;/code&gt; &lt;br/&gt;
 Typing &lt;code&gt;&#39;o&lt;/code&gt; results in &lt;code&gt;ό&lt;/code&gt; &lt;br/&gt;
 Typing &lt;code&gt;c&lt;/code&gt; results in &lt;code&gt;ς&lt;/code&gt; &lt;br/&gt;&lt;/p&gt;
-&lt;p&gt;For completeness, type &lt;code&gt;&amp;gt;adelf&#39;oc&lt;/code&gt; in order to finally get the desired &lt;code&gt;ἀδελφός&lt;/code&gt;. &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;For completeness, type &lt;code&gt;&amp;gt;adelf&#39;oc&lt;/code&gt; in order to eventually get the desired &lt;code&gt;ἀδελφός&lt;/code&gt;. &lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;Good 🙂 &lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;Go back to your previous input-method via &lt;code&gt;M-x toggle-input-method&lt;/code&gt; &lt;br/&gt;&lt;/p&gt;
 &lt;h2 id=&#34;documentation&#34;&gt;Documentation&lt;/h2&gt;
