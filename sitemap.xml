@@ -2,16 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/tags/emacs/</loc>
+    <lastmod>2025-10-02T14:00:35+02:00</lastmod>
+  </url><url>
+    <loc>/tags/linux/</loc>
+    <lastmod>2025-10-02T14:00:35+02:00</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2025-10-02T14:00:35+02:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2025-10-02T14:00:35+02:00</lastmod>
+  </url><url>
+    <loc>/posts/writing-ancient-greek-emacs-linux/</loc>
+    <lastmod>2025-10-02T14:00:35+02:00</lastmod>
+  </url><url>
     <loc>/about/</loc>
     <lastmod>2025-09-16T12:31:52+02:00</lastmod>
   </url><url>
-    <loc>/posts/</loc>
-    <lastmod>2025-09-20T09:20:34+02:00</lastmod>
-  </url><url>
     <loc>/tags/python/</loc>
-    <lastmod>2025-09-20T09:20:34+02:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2025-09-20T09:20:34+02:00</lastmod>
   </url><url>
     <loc>/tags/til/</loc>
@@ -22,9 +31,6 @@
   </url><url>
     <loc>/posts/beware-emacs-pytest-runner-defaults/</loc>
     <lastmod>2025-08-07T09:18:14+02:00</lastmod>
-  </url><url>
-    <loc>/tags/emacs/</loc>
-    <lastmod>2025-08-11T12:47:27+02:00</lastmod>
   </url><url>
     <loc>/tags/pytest/</loc>
     <lastmod>2025-08-20T10:09:49+02:00</lastmod>
@@ -51,9 +57,6 @@
     <lastmod>2025-08-29T06:21:51+02:00</lastmod>
   </url><url>
     <loc>/posts/get-email-upon-failed-systemd-services/</loc>
-    <lastmod>2025-09-20T09:20:34+02:00</lastmod>
-  </url><url>
-    <loc>/tags/linux/</loc>
     <lastmod>2025-09-20T09:20:34+02:00</lastmod>
   </url><url>
     <loc>/newsletter/</loc>

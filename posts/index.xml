@@ -7,8 +7,92 @@
     <description>Recent content in Posts on Rida Ayed</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 14 Aug 2025 21:21:00 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 02 Oct 2025 14:00:00 +0200</lastBuildDate>
     <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Writing in ancient greek with emacs and linux</title>
+      <link>/posts/writing-ancient-greek-emacs-linux/</link>
+      <pubDate>Thu, 02 Oct 2025 14:00:00 +0200</pubDate>
+      <guid>/posts/writing-ancient-greek-emacs-linux/</guid>
+      <description>&lt;p&gt;For starters, you want to write &lt;code&gt;brother&lt;/code&gt; in ancient greek. &lt;br/&gt;
+Type &lt;code&gt;adelfos&lt;/code&gt; to get an understanding of what&amp;rsquo;s happening. &lt;br/&gt;
+Set the input method to greek-babel: &lt;code&gt;M-x set-input-method greek-babel&lt;/code&gt;. Note how your modeline now may display &lt;code&gt;BG&lt;/code&gt;. &lt;br/&gt;
+Now typing &amp;ldquo;adelfos&amp;rdquo; results in αδελφοσ. So far so good. &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;However, that&amp;rsquo;s not correct. It should be ἀδελφοσς. To be specific, we&amp;rsquo;re missing diacritics on &lt;code&gt;a&lt;/code&gt; (alpha) and &lt;code&gt;o&lt;/code&gt; (omicron) and the final &lt;code&gt;s&lt;/code&gt; (sigma) is wrongly written as well. &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;We solve the problem by using combinations of letters, such as: &lt;br/&gt;
+Typing &lt;code&gt;&amp;gt;a&lt;/code&gt; results in &lt;code&gt;ἀ&lt;/code&gt; &lt;br/&gt;
+Typing &lt;code&gt;&#39;o&lt;/code&gt; results in &lt;code&gt;ό&lt;/code&gt; &lt;br/&gt;
+Typing &lt;code&gt;c&lt;/code&gt; results in &lt;code&gt;ς&lt;/code&gt; &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;For completeness, type &lt;code&gt;&amp;gt;adelf&#39;oc&lt;/code&gt; in order to finally get the desired &lt;code&gt;ἀδελφός&lt;/code&gt;. &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;Good 🙂 &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;Go back to your previous input-method via &lt;code&gt;M-x toggle-input-method&lt;/code&gt; &lt;br/&gt;&lt;/p&gt;
+&lt;h2 id=&#34;documentation&#34;&gt;Documentation&lt;/h2&gt;
+&lt;p&gt;Read the documentation &lt;code&gt;M-x describe-input-method greek-babel&lt;/code&gt; &lt;br/&gt;&lt;/p&gt;
+
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Input method: greek-babel (‘BG’ in mode line) for Greek
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  The TeX Babel input method for Classical Greek using mule-unicode-0100-24ff.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-------------------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;character     capital	      small
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-------------------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alpha		A		a
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;beta		B		b
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;gamma		G		g
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;delta		D		d
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;epsilon		E		e
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;zeta		Z		z
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;eta		H		h
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;theta		J		j
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;iota		I		i
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kappa		K		k
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;lambda		L		l
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mu		M		m
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;nu		N		n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xi		X		x
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;omicron		O		o
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pi		P		p
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;rho		R		r
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sigma		S		s
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;final sigma			c
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;tau		T		t
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;upsilon		U		u
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;phi		F		f
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;chi		Q		q
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;psi		Y		y
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;omega		W		w
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-------------------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sampi				!
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;digamma		#
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;stigma				$
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;koppa		&amp;amp;		%
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-------------------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mark		key
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ypogegrammeni	|
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;psili		&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;dasia		&amp;lt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;oxia		\=&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;koronis		\=&amp;#39;\=&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;varia		\=`
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;perispomeni	~
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;dialytika	&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ano teleia	;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;erotimatiko	?
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;----------------------&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&#34;optional-install-font-for-increased-readability&#34;&gt;Optional - Install font for increased readability&lt;/h2&gt;
+&lt;p&gt;Install the &lt;a href=&#34;https://en.wikipedia.org/wiki/Gentium&#34;&gt;Gentium&lt;/a&gt; font: &lt;code&gt;$ yay ttf-gentium&lt;/code&gt; &lt;br/&gt;
+Evaluate this line or add it &lt;strong&gt;&lt;strong&gt;appropriately&lt;/strong&gt;&lt;/strong&gt; to your &lt;code&gt;init.el&lt;/code&gt;: &lt;br/&gt;&lt;/p&gt;
+
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;set-fontset-font&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;fontset-default&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;greek&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;font-spec&lt;/span&gt; :family &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Gentium&amp;#34;&lt;/span&gt; :size &lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt;))&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&#34;sources&#34;&gt;Sources&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/a/49765665/1172907&#34;&gt;https://stackoverflow.com/a/49765665/1172907&lt;/a&gt; &lt;br/&gt;
+&lt;a href=&#34;https://youtu.be/Fl4eu_bv54c?t=266&#34;&gt;https://youtu.be/Fl4eu_bv54c?t=266&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>Understanding yield in python</title>
       <link>/posts/understanding-yield-in-python/</link>
