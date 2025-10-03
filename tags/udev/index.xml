@@ -10,14 +10,17 @@
     <lastBuildDate>Sat, 21 Mar 2020 20:35:00 +0100</lastBuildDate>
     <atom:link href="/tags/udev/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Writing in ancient greek with emacs and linux</title>
+      <title>Writing in ancient greek with Emacs and Linux</title>
       <link>/posts/writing-ancient-greek-emacs-linux/</link>
       <pubDate>Thu, 02 Oct 2025 14:00:00 +0200</pubDate>
       <guid>/posts/writing-ancient-greek-emacs-linux/</guid>
-      <description>&lt;p&gt;For starters, you want to write &lt;code&gt;brother&lt;/code&gt; in ancient greek. &lt;br/&gt;
-Type &lt;code&gt;adelfos&lt;/code&gt; to get an understanding of what&amp;rsquo;s happening. &lt;br/&gt;
-Set the input method to greek-babel: &lt;code&gt;M-x set-input-method greek-babel&lt;/code&gt;. Note how your modeline now may display &lt;code&gt;BG&lt;/code&gt;. &lt;br/&gt;
-Now typing &amp;ldquo;adelfos&amp;rdquo; results in αδελφοσ. So far so good. &lt;br/&gt;&lt;/p&gt;
+      <description>&lt;p&gt;For starters, you want to write &lt;code&gt;brother&lt;/code&gt; in ancient greek. &lt;br/&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Type &lt;code&gt;adelfos&lt;/code&gt; to get an understanding of what&amp;rsquo;s happening. &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;Set the input method to greek-babel: &lt;code&gt;M-x&lt;/code&gt; &lt;code&gt;set-input-method greek-babel&lt;/code&gt;.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;Type &lt;code&gt;adelfos&lt;/code&gt; again. &lt;br/&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The last typing of &amp;ldquo;adelfos&amp;rdquo; results in αδελφοσ. So far so good. &lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;However, αδελφοσ is wrong. It should be ἀδελφός. To be specific, we&amp;rsquo;re missing diacritics on &lt;code&gt;a&lt;/code&gt; (alpha) and &lt;code&gt;o&lt;/code&gt; (omicron) and the final &lt;code&gt;s&lt;/code&gt; (sigma) is wrongly written as well. &lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;We solve the problem by using combinations of letters, such as: &lt;br/&gt;
 Typing &lt;code&gt;&amp;gt;a&lt;/code&gt; results in &lt;code&gt;ἀ&lt;/code&gt; &lt;br/&gt;
@@ -92,6 +95,14 @@ Evaluate this line or add it &lt;strong&gt;&lt;strong&gt;appropriately&lt;/stron
 &lt;h2 id=&#34;sources&#34;&gt;Sources&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/a/49765665/1172907&#34;&gt;https://stackoverflow.com/a/49765665/1172907&lt;/a&gt; &lt;br/&gt;
 &lt;a href=&#34;https://youtu.be/Fl4eu_bv54c?t=266&#34;&gt;https://youtu.be/Fl4eu_bv54c?t=266&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;Note how your modeline now may display &lt;code&gt;BG&lt;/code&gt;. &lt;br/&gt;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
 </description>
     </item>
     <item>
