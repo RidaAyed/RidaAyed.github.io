@@ -7,8 +7,17 @@
     <description>Recent content in Posts on Rida Ayed</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 02 Oct 2025 14:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 02 Nov 2025 11:19:00 +0100</lastBuildDate>
     <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Stop google chromium from hijacking MIMEs on arch linux</title>
+      <link>/posts/stop-google-chromium-hijacking-mimes-archlinux/</link>
+      <pubDate>Sun, 02 Nov 2025 11:19:00 +0100</pubDate>
+      <guid>/posts/stop-google-chromium-hijacking-mimes-archlinux/</guid>
+      <description>&lt;p&gt;In addition to this &lt;a href=&#34;https://sergei.nz/stop-google-chrome-from-hijacking-mimes/&#34;&gt;blogpost&lt;/a&gt; &amp;ndash; whom focuses on chrome but on chromium, I had to run the following command to get rid of the chromium tick:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo sed -i &#39;s/chromium.desktop;//&#39; /usr/share/applications/mimeinfo.cache&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>Writing in ancient greek with Emacs and Linux</title>
       <link>/posts/writing-ancient-greek-emacs-linux/</link>
