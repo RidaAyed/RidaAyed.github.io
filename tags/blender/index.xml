@@ -10,6 +10,53 @@
     <lastBuildDate>Mon, 16 May 2022 14:06:00 +0200</lastBuildDate>
     <atom:link href="/tags/blender/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Display the wireless status on the emacs mode-line</title>
+      <link>/posts/display-wireless-status-emacs-mode-line/</link>
+      <pubDate>Fri, 23 Jan 2026 16:23:00 +0100</pubDate>
+      <guid>/posts/display-wireless-status-emacs-mode-line/</guid>
+      <description>&lt;p&gt;I found this code&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; to display the wireless status in the modeline.&lt;/p&gt;
+&lt;p&gt;A first attempt led to nothing i.e. nothing was shown in my modeline.&lt;/p&gt;
+&lt;p&gt;I had to modify the regex in order to match the &lt;a href=&#34;#org8413d1e&#34;&gt;output&lt;/a&gt; of &lt;a href=&#34;#code-snippet--wireless-proc&#34;&gt;/proc/net/wireless&lt;/a&gt;&lt;/p&gt;
+
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-diff&#34; data-lang=&#34;diff&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;diff --git a/wireless.el b/wireless.el
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;index 55ec7fc..e08f864 100644
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;--- a/wireless.el
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+++ b/wireless.el
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;@@ -55,7 +55,7 @@
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;   :group &amp;#39;wireless)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; (defcustom wireless-procfile-regexp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-  &amp;#34;^[ ]+\\(....\\):[ ]+\\([0-9]+\\)[ ]+\\([0-9]+\\)[ .]+\\([0-9]+\\)[ .]+\\([0-9]+\\)&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+  &amp;#34;\\(^.*\\):[ ]+\\([0-9]+\\)[ ]+\\([0-9]+\\)[ .]+\\(-?[0-9]+\\)[ .]+\\(-?[0-9]+\\)&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;&lt;/span&gt;   &amp;#34;*Regular expression for extracting proc-file data.&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   :type &amp;#39;string
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   :group &amp;#39;wireless)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--wireless-proc&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cat /proc/net/wireless&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Inter-| sta-|   Quality        |   Discarded packets               | Missed | WE
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; face | tus | link level noise |  nwid  crypt   frag  retry   misc | beacon | 22
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wlp3s0: 0000   59.  -54.  -256        0      0      0      2    195        0&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;As as result, I now status of the wireless card displayed in my modeline:&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;/ox-hugo/2026-01-23_15-21-27_screenshot.png&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://mail.gnu.org/archive/html/emacs-devel/2007-11/msg01680.html&#34;&gt;https://mail.gnu.org/archive/html/emacs-devel/2007-11/msg01680.html&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    <item>
       <title>Stop google chromium from hijacking MIMEs on arch linux</title>
       <link>/posts/stop-google-chromium-hijacking-mimes-archlinux/</link>
       <pubDate>Sun, 02 Nov 2025 11:19:00 +0100</pubDate>
