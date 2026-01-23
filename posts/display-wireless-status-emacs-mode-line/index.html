@@ -26,7 +26,7 @@ diff --git a/wireless.el b/wireless.el index 55ec7fc..e08f864 100644 --- a/wirel
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/display-wireless-status-emacs-mode-line/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2026-01-23T16:23:00+01:00" />
-<meta property="article:modified_time" content="2026-01-23T16:23:34+01:00" />
+<meta property="article:modified_time" content="2026-01-23T16:24:48+01:00" />
 
 
 
@@ -141,7 +141,7 @@ src="https://www.facebook.com/tr?id=1330802671298127&ev=PageView&noscript=1"
 
     <p>I found this code<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> to display the wireless status in the modeline.</p>
 <p>A first attempt led to nothing i.e. nothing was shown in my modeline.</p>
-<p>I had to modify the regex in order to match the <a href="#org8413d1e">output</a> of <a href="#code-snippet--wireless-proc">/proc/net/wireless</a></p>
+<p>I had to modify the regex in order to match the <a href="#orgdca0564">output</a> of <a href="#code-snippet--wireless-proc">/proc/net/wireless</a></p>
 
 
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span>diff --git a/wireless.el b/wireless.el
@@ -167,7 +167,7 @@ src="https://www.facebook.com/tr?id=1330802671298127&ev=PageView&noscript=1"
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Inter-| sta-|   Quality        |   Discarded packets               | Missed | WE
 </span></span><span style="display:flex;"><span> face | tus | link level noise |  nwid  crypt   frag  retry   misc | beacon | 22
 </span></span><span style="display:flex;"><span>wlp3s0: 0000   59.  -54.  -256        0      0      0      2    195        0</span></span></code></pre></div>
-<p>As as result, I now status of the wireless card displayed in my modeline:</p>
+<p>As as result, I now have the wireless card status displayed in my modeline:</p>
 <figure><img src="/ox-hugo/2026-01-23_15-21-27_screenshot.png"/>
 </figure>
 
