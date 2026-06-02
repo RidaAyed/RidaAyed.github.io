@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/about/</loc>
+    <lastmod>2026-06-02T21:33:20+02:00</lastmod>
+  </url><url>
     <loc>/posts/patch-private-methods-in-python/</loc>
     <lastmod>2026-02-08T12:45:24+01:00</lastmod>
   </url><url>
@@ -31,9 +34,6 @@
   </url><url>
     <loc>/posts/writing-ancient-greek-emacs-linux/</loc>
     <lastmod>2025-10-03T11:24:23+02:00</lastmod>
-  </url><url>
-    <loc>/about/</loc>
-    <lastmod>2025-09-16T12:31:52+02:00</lastmod>
   </url><url>
     <loc>/tags/til/</loc>
     <lastmod>2025-08-14T21:24:25+02:00</lastmod>
